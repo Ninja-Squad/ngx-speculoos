@@ -16,4 +16,12 @@ export class TestElement<E extends Element> {
     this.nativeElement.dispatchEvent(event);
     this.tester.detectChanges();
   }
+
+  get classes(): Array<string> {
+    return Array.prototype.slice.call(this.nativeElement.classList);
+  }
+
+  attr(name: string): string {
+    return this.nativeElement.getAttribute(name);
+  }
 }

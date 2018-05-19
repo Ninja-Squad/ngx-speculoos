@@ -10,4 +10,8 @@ export class TestButton extends TestElement<HTMLButtonElement> {
     this.nativeElement.click();
     this.tester.detectChanges();
   }
+
+  get disabled() {
+    return this.nativeElement.disabled;
+  }
 }

@@ -22,10 +22,22 @@ export class TestSelect extends TestElement<HTMLSelectElement> {
     return this.nativeElement.options[this.selectedIndex].value;
   }
 
-  get selectedText(): string {
+  get selectedLabel(): string {
     if (this.selectedIndex < 0) {
       return null;
     }
-    return this.nativeElement.options[this.selectedIndex].innerText;
+    return this.nativeElement.options[this.selectedIndex].label;
+  }
+
+  get optionValues(): Array<string> {
+    return (Array.prototype.slice.call(this.nativeElement.options) as Array<HTMLOptionElement>).map(option => option.value);
+  }
+
+  get optionLabels(): Array<string> {
+    return (Array.prototype.slice.call(this.nativeElement.options) as Array<HTMLOptionElement>).map(option => option.label);
+  }
+
+  get size() {
+    return this.nativeElement.options.length;
   }
 }
