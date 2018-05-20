@@ -11,7 +11,6 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
 
   /**
    * Selects the option at the given index, then dispatches an event of type change and triggers a change detection
-   * @param {number} index
    */
   selectIndex(index: number) {
     this.nativeElement.selectedIndex = index;
@@ -21,7 +20,7 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
   /**
    * Selects the first option with the given value, then dispatches an event of type change and triggers a change detection.
    * If there is no option with the given value, then does nothing
-   * @param {string} value
+   * TODO should it throw instead?
    */
   selectValue(value: string) {
     const index = this.optionValues.indexOf(value);
@@ -33,7 +32,7 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
   /**
    * Selects the first option with the given label (or text), then dispatches an event of type change and triggers a change detection.
    * If there is no option with the given label, then does nothing
-   * @param {string} label
+   * TODO should it throw instead?
    */
   selectLabel(label: string) {
     const index = this.optionLabels.indexOf(label);
@@ -44,7 +43,6 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
 
   /**
    * the selected index of the wrapped select
-   * @returns {number}
    */
   get selectedIndex(): number {
     return this.nativeElement.selectedIndex;
@@ -52,7 +50,6 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
 
   /**
    * the value of the selected option of the wrapped select, or null if there is no selected option
-   * @returns {number}
    */
   get selectedValue(): string {
     if (this.selectedIndex < 0) {
@@ -63,7 +60,6 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
 
   /**
    * the label (or text if no label) of the selected option of the wrapped select, or null if there is no selected option
-   * @returns {number}
    */
   get selectedLabel(): string {
     if (this.selectedIndex < 0) {
@@ -74,7 +70,6 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
 
   /**
    * the values of the options, as an array
-   * @returns {Array<string>}
    */
   get optionValues(): Array<string> {
     return (Array.prototype.slice.call(this.nativeElement.options) as Array<HTMLOptionElement>).map(option => option.value);
@@ -82,7 +77,6 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
 
   /**
    * the labels (or texts if no label) of the options, as an array
-   * @returns {Array<string>}
    */
   get optionLabels(): Array<string> {
     return (Array.prototype.slice.call(this.nativeElement.options) as Array<HTMLOptionElement>).map(option => option.label);
@@ -90,7 +84,6 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
 
   /**
    * the number of options in the select
-   * @returns {number}
    */
   get size() {
     return this.nativeElement.options.length;

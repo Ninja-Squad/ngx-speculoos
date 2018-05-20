@@ -12,7 +12,6 @@ export class TestElement<E extends Element> {
 
   /**
    * the text content of this element
-   * @returns {string | null}
    */
   get textContent() {
     return this.nativeElement.textContent;
@@ -36,7 +35,6 @@ export class TestElement<E extends Element> {
 
   /**
    * Gets the CSS classes of the wrapped element, as an array
-   * @returns {Array<string>}
    */
   get classes(): Array<string> {
     return Array.prototype.slice.call(this.nativeElement.classList);
@@ -44,8 +42,7 @@ export class TestElement<E extends Element> {
 
   /**
    * Gets the attribute of the wrapped element with the given name
-   * @param {string} name the name of the attribute to get
-   * @returns {string | null}
+   * @param name the name of the attribute to get
    */
   attr(name: string) {
     return this.nativeElement.getAttribute(name);

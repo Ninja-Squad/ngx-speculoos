@@ -11,7 +11,7 @@ export class TestInput extends TestHtmlElement<HTMLInputElement> {
 
   /**
    * Sets the value of the wrapped input, then dispatches an event of type input and triggers a change detection
-   * @param {string} value the new value of the input
+   * @param value the new value of the input
    */
   fillWith(value: string) {
     this.nativeElement.value = value;
@@ -20,7 +20,6 @@ export class TestInput extends TestHtmlElement<HTMLInputElement> {
 
   /**
    * the value of the wrapped input
-   * @returns {string}
    */
   get value() {
     return this.nativeElement.value;
@@ -28,7 +27,6 @@ export class TestInput extends TestHtmlElement<HTMLInputElement> {
 
   /**
    * the checked property of the wrapped input
-   * @returns {string}
    */
   get checked() {
     return this.nativeElement.checked;

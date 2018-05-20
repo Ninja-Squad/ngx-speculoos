@@ -17,7 +17,7 @@ import { Type } from '@angular/core';
  * parent snapshot will be set to the given snapshot's parent. This allows the code under test to use
  * `route.parent.snapshot` or `route.snapshot.parent`.
  *
- * @returns {ActivatedRoute} a partially populated, fake ActivatedRoute, depending on what you passed in
+ * @returns a partially populated, fake ActivatedRoute, depending on what you passed in
  */
 export function fakeRoute(options: {
   url?: Observable<UrlSegment[]>;
@@ -92,7 +92,7 @@ export function fakeRoute(options: {
  * If you pass params, then the created snapshot's paramMap will contain the same values.
  * The same goes for queryParams and queryParamMap.
  *
- * @returns {ActivatedRoute} a partially populated, fake ActivatedRoute, depending on what you passed in
+ * @returns a partially populated, fake ActivatedRoute, depending on what you passed in
  */
 export function fakeSnapshot(options: {
   url?: UrlSegment[];

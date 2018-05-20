@@ -29,7 +29,7 @@ export class ComponentTester<T> {
 
   /**
    * Creates a ComponentTester wrapping (and delegating) to the given ComponentFixture
-   * @param {ComponentFixture<T>} fixture the fixture to wrap
+   * @param fixture the fixture to wrap
    */
   constructor(public fixture: ComponentFixture<T>) {
     this.nativeElement = fixture.nativeElement;
@@ -54,8 +54,8 @@ export class ComponentTester<T> {
    * of the returned value is the TestElement subclass matching the type of the found element. So, if the
    * matched element is an input for example, the method will return a TestInput. You can thus use
    * `tester.element('#some-input') as TestInput`.
-   * @param {string} selector a CSS selector
-   * @returns {TestElement<Element> | null} the wrapped element, or null if no element matches the selector.
+   * @param selector a CSS selector
+   * @returns the wrapped element, or null if no element matches the selector.
    */
   element(selector: string): TestElement<Element> | null {
     const el = this.nativeElement.querySelector(selector);
@@ -67,8 +67,8 @@ export class ComponentTester<T> {
    * of the returned elements is the TestElement subclass matching the type of the found element. So, if the
    * matched elements are inputs for example, the method will return an array of TestInput. You can thus use
    * `tester.elements('input') as Array<TestInput>`.
-   * @param {string} selector a CSS selector
-   * @returns {Array<TestElement<Element>>} the array of matched elements, empty if no element was matched
+   * @param selector a CSS selector
+   * @returns the array of matched elements, empty if no element was matched
    */
   elements(selector: string): Array<TestElement<Element>> {
     const elements = Array.prototype.slice.call(this.nativeElement.querySelectorAll(selector));
@@ -77,8 +77,8 @@ export class ComponentTester<T> {
 
   /**
    * Gets the first input matched by the given selector
-   * @param {string} selector a CSS selector
-   * @returns {TestInput} the wrapped input, or null if no element was matched
+   * @param selector a CSS selector
+   * @returns the wrapped input, or null if no element was matched
    * @throws {Error} if the matched element isn't actually an input
    */
   input(selector: string): TestInput {
@@ -93,8 +93,8 @@ export class ComponentTester<T> {
 
   /**
    * Gets the first select matched by the given selector
-   * @param {string} selector a CSS selector
-   * @returns {TestSelect} the wrapped select, or null if no element was matched
+   * @param selector a CSS selector
+   * @returns the wrapped select, or null if no element was matched
    * @throws {Error} if the matched element isn't actually a select
    */
   select(selector: string): TestSelect {
@@ -109,8 +109,8 @@ export class ComponentTester<T> {
 
   /**
    * Gets the first textarea matched by the given selector
-   * @param {string} selector a CSS selector
-   * @returns {TestTextArea} the wrapped textarea, or null if no element was matched
+   * @param selector a CSS selector
+   * @returns the wrapped textarea, or null if no element was matched
    * @throws {Error} if the matched element isn't actually a textarea
    */
   textarea(selector: string): TestTextArea {
@@ -125,8 +125,8 @@ export class ComponentTester<T> {
 
   /**
    * Gets the first button matched by the given selector
-   * @param {string} selector a CSS selector
-   * @returns {TestTextArea} the wrapped button, or null if no element was matched
+   * @param selector a CSS selector
+   * @returns the wrapped button, or null if no element was matched
    * @throws {Error} if the matched element isn't actually a button
    */
   button(selector: string): TestButton {
