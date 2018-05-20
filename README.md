@@ -1,27 +1,101 @@
-# NgxFixtureApp
+# ngx-fixture
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
+ngx-fixture helps you write simpler, cleaner unit tests for your Angular components, based on the
+*page object* pattern. It also provides utilities to make writing Angular unit tests.
 
-## Development server
+The library simply wraps the standard Angular ComponentFixture, and you should thus be 
+able to understand and start using ngx-fixture in just a few minutes if you already know
+how to write Angular unit tests.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Why should you care?
 
-## Code scaffolding
+If you've ever written tests like the following:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```typescript
+it('should display French cities when selecting the country France', () => {
+  const countrySelect = fixture.nativeElement.querySelector('#country'); // countrySelect is of type any
+  countrySelect.selectedIndex = 12; // what is at index 12?
+  countrySelect.dispatchEvent(new Event('change')); // why do I need to do that?
+  fixture.detectChanges(); // why do I need to do that?
+  
+  const city = fixture.nativeElement.querySelector('#city'); // city is of type any
+  expect(city).toBeTruthy();
+  expect(city.options.length).toBe(3);
+  expect(city.options[0].value).toBe('');
+  expect(city.options[0].label).toBe('');
+  expect(city.options[1].value).toBe('PARIS');
+  expect(city.options[1].label).toBe('Paris');
+  expect(city.options[2].value).toBe('LYON');
+  expect(city.options[2].label).toBe('Lyon');
+});
 
-## Build
+it('should hide cities when selecting the empty country option', () => {
+  const countrySelect = fixture.nativeElement.querySelector('#country'); // I did that previously. What about DRY?
+  countrySelect.selectedIndex = 0; // what is at index 0?
+  countrySelect.dispatchEvent(new Event('change')); // why do I need to do that?
+  fixture.detectChanges(); // why do I need to do that?
+  
+  expect(fixture.nativeElement.querySelector('#city')).toBeFalsy(); // I did that previously. What about DRY?
+});
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+ngx-fixture allows writing the above tests in a simpler, cleaner way. 
 
-## Running unit tests
+By using the page object pattern (which is optional, but recommended), you avoid repetitions. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+By using wrappers around elements, dispatching events and triggering change detection is automatic.
 
-## Running end-to-end tests
+By using wrappers around elements, you get useful additional methods to makes tests easier to write and read.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+In any case you need them, you always have access to the fixture, the native elements, the debug elements, etc.
 
-## Further help
+```typescript
+class MyComponentTester extends ComponentTester<MyComponent> {
+  constructor(fixture: ComponentFixture<MyComponent>) {
+    super(fixture);
+  }
+  
+  get country() {
+    return this.select('#country'); // returns a TestSelect object, not any. Similar methods exist for inputs, buttons, etc.
+  }
+  
+  get city() {
+    return this.select('#city'); // returns a TestSelect object, not any
+  }
+}
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+[...]
+
+it('should display French cities when selecting the country France', () => {
+  tester.country.selectValue('France'); // no dispatchEvent, no detectChanges needed
+  expect(tester.city.optionValues).toEqual(['', 'PARIS', 'LYON']);
+  expect(tester.city.optionLabels).toEqual(['', 'Paris', 'Lyon']);
+});
+
+it('should hide cities when selecting empty country option', () => {
+  tester.country.selectIndex(0); // no repetition of the selector, no dispatchEvent, no detectChanges needed
+  expect(tester.city).toBeFalsy(); // no repetition of the selector
+});
+```
+
+## Installation
+
+Using npm: `npm install --save-dev ngx-fixture`
+
+Using yarn: `yarn add --dev ngx-fixture`
+
+## Getting started
+
+ - import ComponentTester, and other needed classes from ngx-fixture
+ - Create a `MyComponentTester` class (in your `my-component.spec.ts` file, typically) extending 
+   `ComponentTester<MyComponent>`, as shown above.
+ - Expose getters (or methods, if you prefer) returning the elements used in your tests, using
+   one of the ComponentTester methods (`element`, `elements`, `input`, `select`, `textarea`, `button`).
+   See the API documentation for details
+ - Write your tests, as shown above, benefitting from the additional methods on the TestXxx classes.
+ - If needed, you can always get the fixture, componentInstance, debugElement, nativeElement, etc.
+   from the ComponentTester, and the nativeElement from each TestXxx wrapper.
+   
+## Issues, questions
+
+Please, provide feedback by filing issues, or by submitting pull requests.
