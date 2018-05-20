@@ -16,7 +16,7 @@ it('should display French cities when selecting the country France', () => {
   const countrySelect = fixture.nativeElement.querySelector('#country'); // countrySelect is of type any
   countrySelect.selectedIndex = 12; // what is at index 12?
   countrySelect.dispatchEvent(new Event('change')); // why do I need to do that?
-  fixture.detectChanges(); // why do I need to do that?
+  fixture.detectChanges();
   
   const city = fixture.nativeElement.querySelector('#city'); // city is of type any
   expect(city).toBeTruthy();
@@ -31,7 +31,7 @@ it('should display French cities when selecting the country France', () => {
 
 it('should hide cities when selecting the empty country option', () => {
   const countrySelect = fixture.nativeElement.querySelector('#country'); // I did that previously. What about DRY?
-  countrySelect.selectedIndex = 0; // what is at index 0?
+  countrySelect.selectedIndex = 0;
   countrySelect.dispatchEvent(new Event('change')); // why do I need to do that?
   fixture.detectChanges(); // why do I need to do that?
   
@@ -67,13 +67,15 @@ class MyComponentTester extends ComponentTester<MyComponent> {
 [...]
 
 it('should display French cities when selecting the country France', () => {
-  tester.country.selectValue('France'); // no dispatchEvent, no detectChanges needed
+  tester.country.selectLabel('France'); // no dispatchEvent, no detectChanges needed
+  
   expect(tester.city.optionValues).toEqual(['', 'PARIS', 'LYON']);
   expect(tester.city.optionLabels).toEqual(['', 'Paris', 'Lyon']);
 });
 
 it('should hide cities when selecting empty country option', () => {
   tester.country.selectIndex(0); // no repetition of the selector, no dispatchEvent, no detectChanges needed
+  
   expect(tester.city).toBeFalsy(); // no repetition of the selector
 });
 ```

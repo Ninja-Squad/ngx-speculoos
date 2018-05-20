@@ -76,10 +76,9 @@ export class ComponentTester<T> {
   }
 
   /**
-   * Gets the first input matched by the given selector
+   * Gets the first input matched by the given selector. Throws an Error if the matched element isn't actually an input.
    * @param selector a CSS selector
    * @returns the wrapped input, or null if no element was matched
-   * @throws {Error} if the matched element isn't actually an input
    */
   input(selector: string): TestInput {
     const el = this.nativeElement.querySelector(selector);
@@ -92,10 +91,9 @@ export class ComponentTester<T> {
   }
 
   /**
-   * Gets the first select matched by the given selector
+   * Gets the first select matched by the given selector. Throws an Error if the matched element isn't actually a select.
    * @param selector a CSS selector
    * @returns the wrapped select, or null if no element was matched
-   * @throws {Error} if the matched element isn't actually a select
    */
   select(selector: string): TestSelect {
     const el = this.nativeElement.querySelector(selector);
@@ -110,7 +108,7 @@ export class ComponentTester<T> {
   /**
    * Gets the first textarea matched by the given selector
    * @param selector a CSS selector
-   * @returns the wrapped textarea, or null if no element was matched
+   * @returns the wrapped textarea, or null if no element was matched. Throws an Error if the matched element isn't actually a textarea.
    * @throws {Error} if the matched element isn't actually a textarea
    */
   textarea(selector: string): TestTextArea {
@@ -124,10 +122,9 @@ export class ComponentTester<T> {
   }
 
   /**
-   * Gets the first button matched by the given selector
+   * Gets the first button matched by the given selector. Throws an Error if the matched element isn't actually a button.
    * @param selector a CSS selector
    * @returns the wrapped button, or null if no element was matched
-   * @throws {Error} if the matched element isn't actually a button
    */
   button(selector: string): TestButton {
     const el = this.nativeElement.querySelector(selector);
