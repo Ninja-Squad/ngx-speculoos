@@ -2,12 +2,7 @@
   "name": "ngx-fixture",
   "version": "0.0.1",
   "description": "Helps writing Angular unit tests",
-  "scripts": {
-    "release": "standard-version --infile ../../CHANGELOG.md",
-    "doc": "cp -f ../../README.md ./README.md; compodoc -p tsconfig.lib.json  --disableCoverage --disablePrivate --disableInternal -d ../../dist/documentation"
-  },
   "peerDependencies": {
-    "@angular/common": "^6.0.0",
     "@angular/core": "^6.0.0",
     "@angular/router": "^6.0.0",
     "rxjs": "^6.0.0"
@@ -16,9 +11,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Ninja-Squad/ngx-fixture.git"
-  },
-  "devDependencies": {
-    "@compodoc/compodoc": "^1.1.3",
-    "standard-version": "^4.3.0"
   }
 }
