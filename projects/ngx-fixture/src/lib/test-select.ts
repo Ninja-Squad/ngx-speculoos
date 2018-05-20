@@ -1,20 +1,59 @@
 import { ComponentTester } from './component-tester';
-import { TestElement } from './test-element';
+import { TestHtmlElement } from './test-html-element';
 
-export class TestSelect extends TestElement<HTMLSelectElement> {
-  constructor(tester: ComponentTester<any>, public nativeElement: HTMLSelectElement) {
+/**
+ * A wrapped DOM HTML select element, providing additional methods and attributes helping with writing tests
+ */
+export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
+  constructor(tester: ComponentTester<any>, nativeElement: HTMLSelectElement) {
     super(tester, nativeElement);
   }
 
+  /**
+   * Selects the option at the given index, then dispatches an event of type change and triggers a change detection
+   * @param {number} index
+   */
   selectIndex(index: number) {
     this.nativeElement.selectedIndex = index;
     this.dispatchEventOfType('change');
   }
 
+  /**
+   * Selects the first option with the given value, then dispatches an event of type change and triggers a change detection.
+   * If there is no option with the given value, then does nothing
+   * @param {string} value
+   */
+  selectValue(value: string) {
+    const index = this.optionValues.indexOf(value);
+    if (index >= 0) {
+      this.selectIndex(index);
+    }
+  }
+
+  /**
+   * Selects the first option with the given label (or text), then dispatches an event of type change and triggers a change detection.
+   * If there is no option with the given label, then does nothing
+   * @param {string} label
+   */
+  selectLabel(label: string) {
+    const index = this.optionLabels.indexOf(label);
+    if (index >= 0) {
+      this.selectIndex(index);
+    }
+  }
+
+  /**
+   * the selected index of the wrapped select
+   * @returns {number}
+   */
   get selectedIndex(): number {
     return this.nativeElement.selectedIndex;
   }
 
+  /**
+   * the value of the selected option of the wrapped select, or null if there is no selected option
+   * @returns {number}
+   */
   get selectedValue(): string {
     if (this.selectedIndex < 0) {
       return null;
@@ -22,6 +61,10 @@ export class TestSelect extends TestElement<HTMLSelectElement> {
     return this.nativeElement.options[this.selectedIndex].value;
   }
 
+  /**
+   * the label (or text if no label) of the selected option of the wrapped select, or null if there is no selected option
+   * @returns {number}
+   */
   get selectedLabel(): string {
     if (this.selectedIndex < 0) {
       return null;
@@ -29,14 +72,26 @@ export class TestSelect extends TestElement<HTMLSelectElement> {
     return this.nativeElement.options[this.selectedIndex].label;
   }
 
+  /**
+   * the values of the options, as an array
+   * @returns {Array<string>}
+   */
   get optionValues(): Array<string> {
     return (Array.prototype.slice.call(this.nativeElement.options) as Array<HTMLOptionElement>).map(option => option.value);
   }
 
+  /**
+   * the labels (or texts if no label) of the options, as an array
+   * @returns {Array<string>}
+   */
   get optionLabels(): Array<string> {
     return (Array.prototype.slice.call(this.nativeElement.options) as Array<HTMLOptionElement>).map(option => option.label);
   }
 
+  /**
+   * the number of options in the select
+   * @returns {number}
+   */
   get size() {
     return this.nativeElement.options.length;
   }

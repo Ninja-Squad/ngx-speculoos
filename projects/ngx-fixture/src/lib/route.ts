@@ -1,8 +1,24 @@
-import { ActivatedRoute, ActivatedRouteSnapshot, convertToParamMap, Data, ParamMap, Params, Route, UrlSegment } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, convertToParamMap, Data, Params, Route, UrlSegment } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Type } from '@angular/core';
 
+/**
+ * Creates a fake partial ActivatedRoute for tests.
+ *
+ * If you pass params, then the created route's paramMap will contain the same values.
+ * The same goes for queryParams and queryParamMap.
+ *
+ * If you pass a parent route and a snapshot, and the passed snapshot doesn't have a parent, then the snapshot's
+ * parent will be set to the parent route snapshot. This allows the code under test to use
+ * `route.parent.snapshot` or `route.snapshot.parent`.
+ *
+ * If you pass a snapshot with a parent, but don't pass a parent or pass a parent without snapshot, then the route's
+ * parent snapshot will be set to the given snapshot's parent. This allows the code under test to use
+ * `route.parent.snapshot` or `route.snapshot.parent`.
+ *
+ * @returns {ActivatedRoute} a partially populated, fake ActivatedRoute, depending on what you passed in
+ */
 export function fakeRoute(options: {
   url?: Observable<UrlSegment[]>;
   /** An observable of the matrix parameters scoped to this route */
@@ -51,17 +67,33 @@ export function fakeRoute(options: {
     pathFromRoot: options.pathFromRoot
   };
 
-  if (result.parent && result.snapshot && !result.snapshot.parent) {
-    (result.snapshot as any).parent = result.parent.snapshot;
-  } else if (result.snapshot && result.snapshot.parent && !result.parent) {
-    result.parent = fakeRoute({
-      snapshot: result.snapshot.parent
-    });
+  for (let route = result; route != null; route = route.parent) {
+    if (route.parent && route.parent.snapshot && !route.snapshot) {
+      route.snapshot = fakeSnapshot({});
+    }
+    if (route.parent && route.parent.snapshot && !route.snapshot.parent) {
+      (route.snapshot as any).parent = route.parent.snapshot;
+    }
+
+    if (route.snapshot && route.snapshot.parent && !route.parent) {
+      route.parent = fakeRoute({});
+    }
+    if (route.snapshot && route.snapshot.parent && !route.parent.snapshot) {
+      route.parent.snapshot = route.snapshot.parent;
+    }
   }
 
   return result as ActivatedRoute;
 }
 
+/**
+ * Creates a fake partial ActivatedRouteSnapshot for tests.
+ *
+ * If you pass params, then the created snapshot's paramMap will contain the same values.
+ * The same goes for queryParams and queryParamMap.
+ *
+ * @returns {ActivatedRoute} a partially populated, fake ActivatedRoute, depending on what you passed in
+ */
 export function fakeSnapshot(options: {
   url?: UrlSegment[];
   /** The matrix parameters scoped to this route */

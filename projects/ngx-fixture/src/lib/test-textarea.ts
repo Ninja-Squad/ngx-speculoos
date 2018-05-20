@@ -1,16 +1,27 @@
 import { ComponentTester } from './component-tester';
-import { TestElement } from './test-element';
+import { TestHtmlElement } from './test-html-element';
 
-export class TestTextArea extends TestElement<HTMLTextAreaElement> {
+/**
+ * A wrapped DOM HTML testarea element, providing additional methods and attributes helping with writing tests
+ */
+export class TestTextArea extends TestHtmlElement<HTMLTextAreaElement> {
   constructor(tester: ComponentTester<any>, nativeElement: HTMLTextAreaElement) {
     super(tester, nativeElement);
   }
 
+  /**
+   * Sets the value of the wrapped textarea, then dispatches an event of type input and triggers a change detection
+   * @param {string} value the new value of the textarea
+   */
   fillWith(value: string) {
     this.nativeElement.value = value;
     this.dispatchEventOfType('input');
   }
 
+  /**
+   * the value of the wrapped textarea
+   * @returns {string}
+   */
   get value() {
     return this.nativeElement.value;
   }

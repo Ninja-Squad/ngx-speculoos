@@ -5,59 +5,160 @@ import { TestElement } from './test-element';
 import { TestInput } from './test-input';
 import { TestSelect } from './test-select';
 import { TestButton } from './test-button';
+import { TestHtmlElement } from './test-html-element';
 
+/**
+ * The main entry point of the API. It wraps an Angular ComponentFixture<T>, and gives access to its
+ * most used properties and methods. It also allows getting elements wrapped in TestElement (and its subclasses)
+ * @param <T> the type of the component to test
+ */
 export class ComponentTester<T> {
 
+  /**
+   * The native DOM host element of the component
+   */
   readonly nativeElement: HTMLElement;
 
+  /**
+   * Creates a component fixture of the given type with the TestBed and wraps it into a ComponentTester
+   */
   static create<T>(type: Type<T>) {
     const fixture = TestBed.createComponent(type);
     return new ComponentTester(fixture);
   }
 
+  /**
+   * Creates a ComponentTester wrapping (and delegating) to the given ComponentFixture
+   * @param {ComponentFixture<T>} fixture the fixture to wrap
+   */
   constructor(public fixture: ComponentFixture<T>) {
     this.nativeElement = fixture.nativeElement;
   }
 
+  /**
+   * Gets the instance of the tested component from the wrapped fixture
+   */
   get componentInstance(): T {
     return this.fixture.componentInstance;
   }
 
+  /**
+   * Gets the debug element from the wrapped fixture
+   */
   get debugElement(): DebugElement {
     return this.fixture.debugElement;
   }
 
-  element<E extends Element>(selector: string): TestElement<E> | null {
-    const el: E = this.nativeElement.querySelector(selector);
-    return el && new TestElement<E>(this, el);
+  /**
+   * Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+   * of the returned value is the TestElement subclass matching the type of the found element. So, if the
+   * matched element is an input for example, the method will return a TestInput. You can thus use
+   * `tester.element('#some-input') as TestInput`.
+   * @param {string} selector a CSS selector
+   * @returns {TestElement<Element> | null} the wrapped element, or null if no element matches the selector.
+   */
+  element(selector: string): TestElement<Element> | null {
+    const el = this.nativeElement.querySelector(selector);
+    return el && this.wrap(el);
   }
 
-  elements<E extends Element>(selector: string): Array<TestElement<E>> {
+  /**
+   * Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+   * of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+   * matched elements are inputs for example, the method will return an array of TestInput. You can thus use
+   * `tester.elements('input') as Array<TestInput>`.
+   * @param {string} selector a CSS selector
+   * @returns {Array<TestElement<Element>>} the array of matched elements, empty if no element was matched
+   */
+  elements(selector: string): Array<TestElement<Element>> {
     const elements = Array.prototype.slice.call(this.nativeElement.querySelectorAll(selector));
-    return elements.map(e => new TestElement<E>(this, e));
+    return elements.map(el => this.wrap(el));
   }
 
+  /**
+   * Gets the first input matched by the given selector
+   * @param {string} selector a CSS selector
+   * @returns {TestInput} the wrapped input, or null if no element was matched
+   * @throws {Error} if the matched element isn't actually an input
+   */
   input(selector: string): TestInput {
-    const el: HTMLInputElement = this.nativeElement.querySelector(selector);
-    return el && new TestInput(this, el);
+    const el = this.nativeElement.querySelector(selector);
+    if (!el) {
+      return null;
+    } else if (!(el instanceof HTMLInputElement)) {
+      throw new Error(`Element with selector ${selector} is not an HTMLInputElement`);
+    }
+    return new TestInput(this, el);
   }
 
+  /**
+   * Gets the first select matched by the given selector
+   * @param {string} selector a CSS selector
+   * @returns {TestSelect} the wrapped select, or null if no element was matched
+   * @throws {Error} if the matched element isn't actually a select
+   */
   select(selector: string): TestSelect {
-    const el: HTMLSelectElement = this.nativeElement.querySelector(selector);
-    return el && new TestSelect(this, el);
+    const el = this.nativeElement.querySelector(selector);
+    if (!el) {
+      return null;
+    } else if (!(el instanceof HTMLSelectElement)) {
+      throw new Error(`Element with selector ${selector} is not an HTMLSelectElement`);
+    }
+    return new TestSelect(this, el);
   }
 
+  /**
+   * Gets the first textarea matched by the given selector
+   * @param {string} selector a CSS selector
+   * @returns {TestTextArea} the wrapped textarea, or null if no element was matched
+   * @throws {Error} if the matched element isn't actually a textarea
+   */
   textarea(selector: string): TestTextArea {
-    const el: HTMLTextAreaElement = this.nativeElement.querySelector(selector);
-    return el && new TestTextArea(this, el);
+    const el = this.nativeElement.querySelector(selector);
+    if (!el) {
+      return null;
+    } else if (!(el instanceof HTMLTextAreaElement)) {
+      throw new Error(`Element with selector ${selector} is not an HTMLTextAreaElement`);
+    }
+    return new TestTextArea(this, el);
   }
 
+  /**
+   * Gets the first button matched by the given selector
+   * @param {string} selector a CSS selector
+   * @returns {TestTextArea} the wrapped button, or null if no element was matched
+   * @throws {Error} if the matched element isn't actually a button
+   */
   button(selector: string): TestButton {
-    const el: HTMLButtonElement = this.nativeElement.querySelector(selector);
+    const el = this.nativeElement.querySelector(selector);
+    if (!el) {
+      return null;
+    } else if (!(el instanceof HTMLButtonElement)) {
+      throw new Error(`Element with selector ${selector} is not an HTMLButtonElement`);
+    }
     return el && new TestButton(this, el);
   }
 
+  /**
+   * Triggers a change detection using the wrapped fixture
+   */
   detectChanges(checkNoChanges?: boolean) {
     this.fixture.detectChanges(checkNoChanges);
+  }
+
+  private wrap(el: Element): TestElement<any> {
+    if (el instanceof HTMLButtonElement) {
+      return new TestButton(this, el);
+    } else if (el instanceof HTMLInputElement) {
+      return new TestInput(this, el);
+    } else if (el instanceof HTMLSelectElement) {
+      return new TestSelect(this, el);
+    } else if (el instanceof HTMLTextAreaElement) {
+      return new TestTextArea(this, el);
+    } else if (el instanceof HTMLElement) {
+      return new TestHtmlElement(this, el);
+    } else {
+      return new TestElement(this, el);
+    }
   }
 }

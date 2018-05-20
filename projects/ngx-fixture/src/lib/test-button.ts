@@ -1,16 +1,17 @@
 import { ComponentTester } from './component-tester';
-import { TestElement } from './test-element';
+import { TestHtmlElement } from './test-html-element';
 
-export class TestButton extends TestElement<HTMLButtonElement> {
+/**
+ * A wrapped button element, providing additional methods and attributes helping with writing tests
+ */
+export class TestButton extends TestHtmlElement<HTMLButtonElement> {
   constructor(tester: ComponentTester<any>, nativeElement: HTMLButtonElement) {
     super(tester, nativeElement);
   }
 
-  click() {
-    this.nativeElement.click();
-    this.tester.detectChanges();
-  }
-
+  /**
+   * the disabled flag of the button
+   */
   get disabled() {
     return this.nativeElement.disabled;
   }

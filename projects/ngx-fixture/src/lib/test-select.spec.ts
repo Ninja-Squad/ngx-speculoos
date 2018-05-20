@@ -1,0 +1,115 @@
+import { Component } from '@angular/core';
+import { ComponentTester } from './component-tester';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestButton } from './test-button';
+import { TestSelect } from './test-select';
+
+@Component({
+  template: `
+    <select id="s1" (change)="onChange()">
+      <option selected></option>
+      <option value="a">A</option>
+      <option value="b" label="B"></option>
+    </select>
+  `
+})
+class TestComponent {
+  onChange() {}
+}
+
+class TestComponentTester extends ComponentTester<TestComponent> {
+  constructor(fixture: ComponentFixture<TestComponent>) {
+    super(fixture);
+  }
+
+  get selectBox() {
+    return this.select('#s1');
+  }
+}
+
+describe('TestButton', () => {
+  let tester: TestComponentTester;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        TestComponent
+      ]
+    });
+    tester = new TestComponentTester(TestBed.createComponent(TestComponent));
+    tester.detectChanges();
+  });
+
+  it('should construct', () => {
+    expect(tester.selectBox instanceof TestSelect).toBe(true);
+  });
+
+  it('should expose the selectedIndex', () => {
+    expect(tester.selectBox.selectedIndex).toBe(0);
+  });
+
+  it('should select by index', () => {
+    spyOn(tester.componentInstance, 'onChange');
+    spyOn(tester, 'detectChanges').and.callThrough();
+
+    tester.selectBox.selectIndex(1);
+    expect(tester.selectBox.selectedIndex).toBe(1);
+    expect(tester.componentInstance.onChange).toHaveBeenCalled();
+    expect(tester.detectChanges).toHaveBeenCalled();
+  });
+
+  it('should select by value', () => {
+    spyOn(tester.componentInstance, 'onChange');
+    spyOn(tester, 'detectChanges').and.callThrough();
+
+    tester.selectBox.selectValue('a');
+    expect(tester.selectBox.selectedIndex).toBe(1);
+    expect(tester.componentInstance.onChange).toHaveBeenCalled();
+    expect(tester.detectChanges).toHaveBeenCalled();
+  });
+
+  it('should select by label', () => {
+    spyOn(tester.componentInstance, 'onChange');
+    spyOn(tester, 'detectChanges').and.callThrough();
+
+    tester.selectBox.selectLabel('A');
+    expect(tester.selectBox.selectedIndex).toBe(1);
+    expect(tester.componentInstance.onChange).toHaveBeenCalled();
+    expect(tester.detectChanges).toHaveBeenCalled();
+  });
+
+  it('should expose the selected value', () => {
+    expect(tester.selectBox.selectedValue).toBe('');
+
+    tester.selectBox.selectIndex(1);
+    expect(tester.selectBox.selectedValue).toBe('a');
+
+    tester.selectBox.selectIndex(-1);
+    expect(tester.selectBox.selectedValue).toBeNull();
+  });
+
+  it('should expose the selected label', () => {
+    expect(tester.selectBox.selectedLabel).toBe('');
+
+    tester.selectBox.selectIndex(1);
+    expect(tester.selectBox.selectedLabel).toBe('A');
+
+    tester.selectBox.selectIndex(2);
+    expect(tester.selectBox.selectedLabel).toBe('B');
+
+    tester.selectBox.selectIndex(-1);
+    expect(tester.selectBox.selectedLabel).toBeNull();
+  });
+
+  it('should expose the option values', () => {
+    expect(tester.selectBox.optionValues).toEqual(['', 'a', 'b']);
+  });
+
+  it('should expose the option labels', () => {
+    expect(tester.selectBox.optionLabels).toEqual(['', 'A', 'B']);
+  });
+
+  it('should expose the size', () => {
+    expect(tester.selectBox.size).toBe(3);
+  });
+});
