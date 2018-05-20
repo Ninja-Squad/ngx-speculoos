@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Ninja-Squad/ngx-fixture.svg?branch=master)](https://travis-ci.org/Ninja-Squad/ngx-fixture)
+
 # ngx-fixture
 
 ngx-fixture helps you write simpler, cleaner unit tests for your Angular components, based on the

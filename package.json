@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "build": "ng build --prod",
-    "test": "ng test",
+    "test": "ng test --no-progress --no-watch",
     "lint": "ng lint",
     "release": "cd projects/ngx-fixture && standard-version --infile ../../CHANGELOG.md",
     "doc": "cp -f README.md projects/ngx-fixture/README.md && cd projects/ngx-fixture && compodoc -p tsconfig.lib.json  --disableCoverage --disablePrivate --disableInternal -d ../../dist/documentation"

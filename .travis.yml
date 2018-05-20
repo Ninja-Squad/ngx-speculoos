@@ -1,0 +1,10 @@
+dist: trusty
+language: node_js
+node_js:
+  - lts/*
+addons:
+  chrome: stable
+script:
+  - yarn build
+  - yarn test
+  - yarn doc
