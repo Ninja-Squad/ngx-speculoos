@@ -2,6 +2,9 @@
   "name": "ngx-fixture",
   "version": "0.0.1",
   "description": "Helps writing Angular unit tests",
+  "scripts": {
+    "release": "standard-version --infile ../../CHANGELOG.md"
+  },
   "peerDependencies": {
     "@angular/common": "^6.0.0",
     "@angular/core": "^6.0.0",
@@ -12,5 +15,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Ninja-Squad/ngx-fixture.git"
+  },
+  "devDependencies": {
+    "standard-version": "^4.3.0"
   }
 }
