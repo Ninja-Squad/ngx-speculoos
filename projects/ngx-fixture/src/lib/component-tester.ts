@@ -5,7 +5,7 @@ import { TestElement } from './test-element';
 import { TestInput } from './test-input';
 import { TestSelect } from './test-select';
 import { TestButton } from './test-button';
-import { TestHtmlElement } from './test-html-element';
+import { TestElementQuerier } from './test-element-querier';
 
 /**
  * The main entry point of the API. It wraps an Angular ComponentFixture<T>, and gives access to its
@@ -14,10 +14,7 @@ import { TestHtmlElement } from './test-html-element';
  */
 export class ComponentTester<T> {
 
-  /**
-   * The native DOM host element of the component
-   */
-  readonly nativeElement: HTMLElement;
+  private querier: TestElementQuerier;
 
   /**
    * Creates a component fixture of the given type with the TestBed and wraps it into a ComponentTester
@@ -32,7 +29,14 @@ export class ComponentTester<T> {
    * @param fixture the fixture to wrap
    */
   constructor(public fixture: ComponentFixture<T>) {
-    this.nativeElement = fixture.nativeElement;
+    this.querier = new TestElementQuerier(this, fixture.nativeElement);
+  }
+
+  /**
+   * The native DOM host element of the component
+   */
+  get nativeElement(): HTMLElement {
+    return this.fixture.nativeElement;
   }
 
   /**
@@ -58,8 +62,7 @@ export class ComponentTester<T> {
    * @returns the wrapped element, or null if no element matches the selector.
    */
   element(selector: string): TestElement<Element> | null {
-    const el = this.nativeElement.querySelector(selector);
-    return el && this.wrap(el);
+    return this.querier.element(selector);
   }
 
   /**
@@ -71,8 +74,7 @@ export class ComponentTester<T> {
    * @returns the array of matched elements, empty if no element was matched
    */
   elements(selector: string): Array<TestElement<Element>> {
-    const elements = Array.prototype.slice.call(this.nativeElement.querySelectorAll(selector));
-    return elements.map(el => this.wrap(el));
+    return this.querier.elements(selector);
   }
 
   /**
@@ -80,14 +82,8 @@ export class ComponentTester<T> {
    * @param selector a CSS selector
    * @returns the wrapped input, or null if no element was matched
    */
-  input(selector: string): TestInput {
-    const el = this.nativeElement.querySelector(selector);
-    if (!el) {
-      return null;
-    } else if (!(el instanceof HTMLInputElement)) {
-      throw new Error(`Element with selector ${selector} is not an HTMLInputElement`);
-    }
-    return new TestInput(this, el);
+  input(selector: string): TestInput | null  {
+    return this.querier.input(selector);
   }
 
   /**
@@ -95,14 +91,8 @@ export class ComponentTester<T> {
    * @param selector a CSS selector
    * @returns the wrapped select, or null if no element was matched
    */
-  select(selector: string): TestSelect {
-    const el = this.nativeElement.querySelector(selector);
-    if (!el) {
-      return null;
-    } else if (!(el instanceof HTMLSelectElement)) {
-      throw new Error(`Element with selector ${selector} is not an HTMLSelectElement`);
-    }
-    return new TestSelect(this, el);
+  select(selector: string): TestSelect | null  {
+    return this.querier.select(selector);
   }
 
   /**
@@ -111,14 +101,8 @@ export class ComponentTester<T> {
    * @returns the wrapped textarea, or null if no element was matched. Throws an Error if the matched element isn't actually a textarea.
    * @throws {Error} if the matched element isn't actually a textarea
    */
-  textarea(selector: string): TestTextArea {
-    const el = this.nativeElement.querySelector(selector);
-    if (!el) {
-      return null;
-    } else if (!(el instanceof HTMLTextAreaElement)) {
-      throw new Error(`Element with selector ${selector} is not an HTMLTextAreaElement`);
-    }
-    return new TestTextArea(this, el);
+  textarea(selector: string): TestTextArea | null {
+    return this.querier.textarea(selector);
   }
 
   /**
@@ -126,14 +110,8 @@ export class ComponentTester<T> {
    * @param selector a CSS selector
    * @returns the wrapped button, or null if no element was matched
    */
-  button(selector: string): TestButton {
-    const el = this.nativeElement.querySelector(selector);
-    if (!el) {
-      return null;
-    } else if (!(el instanceof HTMLButtonElement)) {
-      throw new Error(`Element with selector ${selector} is not an HTMLButtonElement`);
-    }
-    return el && new TestButton(this, el);
+  button(selector: string): TestButton | null {
+    return this.querier.button(selector);
   }
 
   /**
@@ -141,21 +119,5 @@ export class ComponentTester<T> {
    */
   detectChanges(checkNoChanges?: boolean) {
     this.fixture.detectChanges(checkNoChanges);
-  }
-
-  private wrap(el: Element): TestElement<any> {
-    if (el instanceof HTMLButtonElement) {
-      return new TestButton(this, el);
-    } else if (el instanceof HTMLInputElement) {
-      return new TestInput(this, el);
-    } else if (el instanceof HTMLSelectElement) {
-      return new TestSelect(this, el);
-    } else if (el instanceof HTMLTextAreaElement) {
-      return new TestTextArea(this, el);
-    } else if (el instanceof HTMLElement) {
-      return new TestHtmlElement(this, el);
-    } else {
-      return new TestElement(this, el);
-    }
   }
 }

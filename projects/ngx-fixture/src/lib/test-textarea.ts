@@ -2,7 +2,7 @@ import { ComponentTester } from './component-tester';
 import { TestHtmlElement } from './test-html-element';
 
 /**
- * A wrapped DOM HTML testarea element, providing additional methods and attributes helping with writing tests
+ * A wrapped DOM HTML textarea element, providing additional methods and attributes helping with writing tests
  */
 export class TestTextArea extends TestHtmlElement<HTMLTextAreaElement> {
   constructor(tester: ComponentTester<any>, nativeElement: HTMLTextAreaElement) {

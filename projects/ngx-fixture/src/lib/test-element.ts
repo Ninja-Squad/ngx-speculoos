@@ -1,14 +1,24 @@
 import { ComponentTester } from './component-tester';
+import { TestButton } from './test-button';
+import { TestSelect } from './test-select';
+import { TestTextArea } from './test-textarea';
+import { TestInput } from './test-input';
+import { TestElementQuerier } from './test-element-querier';
 
 /**
  * A wrapped DOM element, providing additional methods and attributes helping with writing tests
  */
 export class TestElement<E extends Element> {
+
+  private querier: TestElementQuerier;
+
   constructor(protected tester: ComponentTester<any>,
               /**
-               * The wrapped DOM element
+               * the wrapped native element
                */
-              public nativeElement: E) { }
+              public nativeElement: E) {
+    this.querier = new TestElementQuerier(tester, nativeElement);
+  }
 
   /**
    * the text content of this element
@@ -46,5 +56,66 @@ export class TestElement<E extends Element> {
    */
   attr(name: string) {
     return this.nativeElement.getAttribute(name);
+  }
+
+  /**
+   * Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+   * of the returned value is the TestElement subclass matching the type of the found element. So, if the
+   * matched element is an input for example, the method will return a TestInput. You can thus use
+   * `tester.element('#some-input') as TestInput`.
+   * @param selector a CSS selector
+   * @returns the wrapped element, or null if no element matches the selector.
+   */
+  element(selector: string): TestElement<Element> | null {
+    return this.querier.element(selector);
+  }
+
+  /**
+   * Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+   * of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+   * matched elements are inputs for example, the method will return an array of TestInput. You can thus use
+   * `tester.elements('input') as Array<TestInput>`.
+   * @param selector a CSS selector
+   * @returns the array of matched elements, empty if no element was matched
+   */
+  elements(selector: string): Array<TestElement<Element>> {
+    return this.querier.elements(selector);
+  }
+
+  /**
+   * Gets the first input matched by the given selector. Throws an Error if the matched element isn't actually an input.
+   * @param selector a CSS selector
+   * @returns the wrapped input, or null if no element was matched
+   */
+  input(selector: string): TestInput | null {
+    return this.querier.input(selector);
+  }
+
+  /**
+   * Gets the first select matched by the given selector. Throws an Error if the matched element isn't actually a select.
+   * @param selector a CSS selector
+   * @returns the wrapped select, or null if no element was matched
+   */
+  select(selector: string): TestSelect | null {
+    return this.querier.select(selector);
+  }
+
+  /**
+   * Gets the first textarea matched by the given selector
+   * @param selector a CSS selector
+   * @returns the wrapped textarea, or null if no element was matched. Throws an Error if the matched element isn't actually a textarea.
+   * @throws {Error} if the matched element isn't actually a textarea
+   */
+  textarea(selector: string): TestTextArea | null {
+    return this.querier.textarea(selector);
+  }
+
+  /**
+   * Gets the first button matched by the given selector. Throws an Error if the matched element isn't actually a button.
+   * @param selector a CSS selector
+   * @returns the wrapped button, or null if no element was matched
+   */
+  button(selector: string): TestButton | null {
+    return this.querier.button(selector);
   }
 }
