@@ -6,11 +6,13 @@ import { TestInput } from './test-input';
 
 @Component({
   template: `
-    <input id="t1" value="hello" (input)="onInput()"/>
-    <input type="checkbox" id="c1" value="a" (change)="onChange()"/>
-    <input type="checkbox" id="c2" value="b" checked (change)="onChange()"/>
-    <input type="radio" name="r" id="r1" value="x" (change)="onChange()"/>
-    <input type="radio" name="r" id="r2" value="y" checked (change)="onChange()"/>
+    <form>
+      <input id="t1" value="hello" (input)="onInput()"/>
+      <input type="checkbox" id="c1" value="a" (change)="onChange()"/>
+      <input type="checkbox" id="c2" value="b" checked (change)="onChange()"/>
+      <input type="radio" name="r" id="r1" value="x" (change)="onChange()"/>
+      <input type="radio" name="r" id="r2" value="y" checked (change)="onChange()"/>
+    </form>
   `
 })
 class TestComponent {
