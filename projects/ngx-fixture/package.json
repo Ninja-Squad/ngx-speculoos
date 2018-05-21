@@ -11,5 +11,13 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Ninja-Squad/ngx-fixture.git"
+  },
+  "keywords": [
+    "angular",
+    "test"
+  ],
+  "author": "Ninja Squad",
+  "bugs": {
+    "url": "https://github.com/Ninja-Squad/ngx-fixture/issues"
   }
 }
