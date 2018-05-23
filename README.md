@@ -53,8 +53,8 @@ In any case you need them, you always have access to the fixture, the native ele
 
 ```typescript
 class MyComponentTester extends ComponentTester<MyComponent> {
-  constructor(fixture: ComponentFixture<MyComponent>) {
-    super(fixture);
+  constructor() {
+    super(MyComponent);
   }
   
   get country() {

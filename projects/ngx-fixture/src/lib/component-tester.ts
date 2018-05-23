@@ -15,21 +15,28 @@ import { TestElementQuerier } from './test-element-querier';
 export class ComponentTester<T> {
 
   private querier: TestElementQuerier;
+  private _fixture: ComponentFixture<T>;
 
   /**
    * Creates a component fixture of the given type with the TestBed and wraps it into a ComponentTester
    */
-  static create<T>(type: Type<T>) {
-    const fixture = TestBed.createComponent(type);
+  static create<T>(componentType: Type<T>) {
+    const fixture = TestBed.createComponent(componentType);
     return new ComponentTester(fixture);
   }
 
   /**
-   * Creates a ComponentTester wrapping (and delegating) to the given ComponentFixture
-   * @param fixture the fixture to wrap
+   * Creates a ComponentFixture for the given component type using the TestBed, and creates a ComponentTester
+   * wrapping (and delegating) to this fixture. If a fixture is passed, then delegates to this fixture directly.
+   * @param arg the type of the component to wrap, or a component fixture to wrap
    */
-  constructor(public fixture: ComponentFixture<T>) {
-    this.querier = new TestElementQuerier(this, fixture.nativeElement);
+  constructor(arg: Type<T> | ComponentFixture<T>) {
+    this._fixture = (arg instanceof ComponentFixture) ? arg : TestBed.createComponent(arg);
+    this.querier = new TestElementQuerier(this, this._fixture.nativeElement);
+  }
+
+  get fixture(): ComponentFixture<T> {
+    return this._fixture;
   }
 
   /**

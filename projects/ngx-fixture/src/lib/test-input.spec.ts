@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ComponentTester } from './component-tester';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TestButton } from './test-button';
+import { TestBed } from '@angular/core/testing';
 import { TestInput } from './test-input';
 
 @Component({
@@ -21,8 +20,8 @@ class TestComponent {
 }
 
 class TestComponentTester extends ComponentTester<TestComponent> {
-  constructor(fixture: ComponentFixture<TestComponent>) {
-    super(fixture);
+  constructor() {
+    super(TestComponent);
   }
 
   get textInput() {
@@ -55,7 +54,7 @@ describe('TestInput', () => {
         TestComponent
       ]
     });
-    tester = new TestComponentTester(TestBed.createComponent(TestComponent));
+    tester = new TestComponentTester();
     tester.detectChanges();
   });
 
