@@ -1,5 +1,5 @@
 {
-  "name": "ngx-fixture",
+  "name": "ngx-speculoos",
   "version": "0.0.1",
   "description": "Helps writing Angular unit tests",
   "peerDependencies": {
@@ -10,7 +10,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Ninja-Squad/ngx-fixture.git"
+    "url": "https://github.com/Ninja-Squad/ngx-speculoos.git"
   },
   "keywords": [
     "angular",
@@ -18,6 +18,6 @@
   ],
   "author": "Ninja Squad",
   "bugs": {
-    "url": "https://github.com/Ninja-Squad/ngx-fixture/issues"
+    "url": "https://github.com/Ninja-Squad/ngx-speculoos/issues"
   }
 }

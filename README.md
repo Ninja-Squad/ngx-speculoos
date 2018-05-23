@@ -1,12 +1,12 @@
-[![Build Status](https://travis-ci.org/Ninja-Squad/ngx-fixture.svg?branch=master)](https://travis-ci.org/Ninja-Squad/ngx-fixture)
+[![Build Status](https://travis-ci.org/Ninja-Squad/ngx-speculoos.svg?branch=master)](https://travis-ci.org/Ninja-Squad/ngx-speculoos)
 
-# ngx-fixture
+# ngx-speculoos
 
-ngx-fixture helps you write simpler, cleaner unit tests for your Angular components, based on the
+ngx-speculoos helps you write simpler, cleaner unit tests for your Angular components, based on the
 *page object* pattern. It also provides utilities to make writing Angular unit tests.
 
 The library simply wraps the standard Angular ComponentFixture, and you should thus be 
-able to understand and start using ngx-fixture in just a few minutes if you already know
+able to understand and start using ngx-speculoos in just a few minutes if you already know
 how to write Angular unit tests.
 
 ## Why should you care?
@@ -41,13 +41,13 @@ it('should hide cities when selecting the empty country option', () => {
 });
 ```
 
-ngx-fixture allows writing the above tests in a simpler, cleaner way. 
+ngx-speculoos allows writing the above tests in a simpler, cleaner way. 
 
 By using the page object pattern (which is optional, but recommended), you avoid repetitions. 
 
 By using wrappers around elements, dispatching events and triggering change detection is automatic.
 
-By using wrappers around elements, you get useful additional methods to makes tests easier to write and read.
+By using wrappers around elements, you get useful additional methods to make tests easier to write and read.
 
 In any case you need them, you always have access to the fixture, the native elements, the debug elements, etc.
 
@@ -84,13 +84,13 @@ it('should hide cities when selecting empty country option', () => {
 
 ## Installation
 
-Using npm: `npm install --save-dev ngx-fixture`
+Using npm: `npm install --save-dev ngx-speculoos`
 
-Using yarn: `yarn add --dev ngx-fixture`
+Using yarn: `yarn add --dev ngx-speculoos`
 
 ## Getting started
 
- - import ComponentTester, and other needed classes from ngx-fixture
+ - import ComponentTester, and other needed classes from ngx-speculoos
  - Create a `MyComponentTester` class (in your `my-component.spec.ts` file, typically) extending 
    `ComponentTester<MyComponent>`, as shown above.
  - Expose getters (or methods, if you prefer) returning the elements used in your tests, using

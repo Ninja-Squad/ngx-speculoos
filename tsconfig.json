@@ -17,8 +17,8 @@
       "dom"
     ],
     "paths": {
-      "ngx-fixture": [
-        "dist/ngx-fixture"
+      "ngx-speculoos": [
+        "dist/ngx-speculoos"
       ]
     }
   }

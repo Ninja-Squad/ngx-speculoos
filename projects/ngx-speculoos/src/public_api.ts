@@ -1,5 +1,5 @@
 /*
- * Public API Surface of ngx-fixture
+ * Public API Surface of ngx-speculoos
  */
 
 export * from './lib/component-tester';

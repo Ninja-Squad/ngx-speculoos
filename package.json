@@ -1,13 +1,13 @@
 {
-  "name": "ngx-fixture-project",
+  "name": "ngx-speculoos-project",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "build": "ng build --prod",
     "test": "ng test --no-progress --no-watch",
     "lint": "ng lint",
-    "release": "cd projects/ngx-fixture && standard-version --infile ../../CHANGELOG.md",
-    "doc": "node scripts/prepare-doc.js && cd projects/ngx-fixture && compodoc"
+    "release": "cd projects/ngx-speculoos && standard-version --infile ../../CHANGELOG.md",
+    "doc": "node scripts/prepare-doc.js && cd projects/ngx-speculoos && compodoc"
   },
   "private": true,
   "devDependencies": {
