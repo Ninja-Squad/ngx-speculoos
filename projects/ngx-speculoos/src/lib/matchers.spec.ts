@@ -8,9 +8,11 @@ import { elementMatchers } from './matchers';
   template: `
     <div id="classes" class="foo bar">Hello</div>
     <div id="none">Hello</div>
+    <input id="name" [value]="name"/>
   `
 })
 class TestComponent {
+  name = 'Hello';
 }
 
 class TestComponentTester extends ComponentTester<TestComponent> {
@@ -24,6 +26,10 @@ class TestComponentTester extends ComponentTester<TestComponent> {
 
   get none() {
     return this.element('#none');
+  }
+
+  get name() {
+    return this.input('#name');
   }
 }
 
@@ -63,5 +69,27 @@ describe('Custom matchers', () => {
     result = matcher.compare('hello', 'baz');
     expect(result.pass).toBeFalsy();
     expect(result.message).toBe(`Expected element to have class 'baz', but element was not a TestElement`);
+  });
+
+  it('should check for a value', () => {
+    expect(tester.name).toHaveValue('Hello');
+    expect(tester.name).not.toHaveValue('baz');
+
+    const matcher = elementMatchers.toHaveValue(undefined, undefined);
+
+    // wrong value
+    let result = matcher.compare(tester.name, 'baz');
+    expect(result.pass).toBeFalsy();
+    expect(result.message).toBe(`Expected element to have value 'baz', but had value 'Hello'`);
+
+    // null element
+    result = matcher.compare(null, 'baz');
+    expect(result.pass).toBeFalsy();
+    expect(result.message).toBe(`Expected element to have value 'baz', but element was falsy`);
+
+    // not a TestInput
+    result = matcher.compare('hello', 'baz');
+    expect(result.pass).toBeFalsy();
+    expect(result.message).toBe(`Expected element to have value 'baz', but element was not a TestInput`);
   });
 });

@@ -1,4 +1,6 @@
+import { TestInput } from './test-input';
 import { TestElement } from './test-element';
+
 const elementMatchers: jasmine.CustomMatcherFactories = {
 
   /**
@@ -16,6 +18,26 @@ const elementMatchers: jasmine.CustomMatcherFactories = {
         const actual = el.classes;
         const pass = actual.includes(expected);
         const message = `Expected element to have class '${expected}', but had ${actual.length ? '\'' + actual.join(', ') + '\'' : 'none'}`;
+        return { pass, message };
+      }
+    };
+  },
+
+    /**
+   * Checks that an element has the specified value
+   */
+  toHaveValue: (util: jasmine.MatchersUtil, customEqualityTesters: Array<jasmine.CustomEqualityTester>): jasmine.CustomMatcher => {
+    return {
+      compare: (el: any, expected: string): jasmine.CustomMatcherResult => {
+        if (!el) {
+          return { pass: false, message: `Expected element to have value '${expected}', but element was falsy` };
+        }
+        if (!(el instanceof TestInput)) {
+          return { pass: false, message: `Expected element to have value '${expected}', but element was not a TestInput` };
+        }
+        const actual = el.value;
+        const pass = actual === expected;
+        const message = `Expected element to have value '${expected}', but had value '${actual}'`;
         return { pass, message };
       }
     };
