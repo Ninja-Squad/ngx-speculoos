@@ -12,7 +12,9 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "strict": true,
-    "types": [],
+    "types": [
+      "@types/jasmine"
+    ],
     "lib": [
       "dom",
       "es2015"
