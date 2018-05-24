@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ComponentTester } from './component-tester';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { TestElement } from './test-element';
 import { TestHtmlElement } from './test-html-element';
 
@@ -14,8 +14,8 @@ class TestComponent {
 }
 
 class TestComponentTester extends ComponentTester<TestComponent> {
-  constructor(fixture: ComponentFixture<TestComponent>) {
-    super(fixture);
+  constructor() {
+    super(TestComponent);
   }
 
   get link() {
@@ -32,7 +32,7 @@ describe('TestElement', () => {
         TestComponent
       ]
     });
-    tester = new TestComponentTester(TestBed.createComponent(TestComponent));
+    tester = new TestComponentTester();
     tester.detectChanges();
   });
 
