@@ -1,12 +1,13 @@
 import { ComponentTester } from './component-tester';
 import { TestElement } from './test-element';
+import { DebugElement } from '@angular/core';
 
 /**
  * A wrapped DOM HTML element, providing additional methods and attributes helping with writing tests
  */
 export class TestHtmlElement<E extends HTMLElement> extends TestElement<E> {
-  constructor(tester: ComponentTester<any>, nativeElement: E) {
-    super(tester, nativeElement);
+  constructor(tester: ComponentTester<any>, debugElement: DebugElement) {
+    super(tester, debugElement);
   }
 
   /**

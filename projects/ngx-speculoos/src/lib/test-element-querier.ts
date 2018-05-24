@@ -5,6 +5,8 @@ import { TestTextArea } from './test-textarea';
 import { TestInput } from './test-input';
 import { TestHtmlElement } from './test-html-element';
 import { ComponentTester } from './component-tester';
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 /**
  * @internal
@@ -12,7 +14,24 @@ import { ComponentTester } from './component-tester';
 export class TestElementQuerier {
 
   constructor(private tester: ComponentTester<any>,
-              private root: Element) { }
+              private root: DebugElement) { }
+
+  static wrap(childDebugElement: DebugElement, tester: ComponentTester<any>): TestElement<any> {
+    const childElement = childDebugElement.nativeElement;
+    if (childElement instanceof HTMLButtonElement) {
+      return new TestButton(tester, childDebugElement);
+    } else if (childElement instanceof HTMLInputElement) {
+      return new TestInput(tester, childDebugElement);
+    } else if (childElement instanceof HTMLSelectElement) {
+      return new TestSelect(tester, childDebugElement);
+    } else if (childElement instanceof HTMLTextAreaElement) {
+      return new TestTextArea(tester, childDebugElement);
+    } else if (childElement instanceof HTMLElement) {
+      return new TestHtmlElement(tester, childDebugElement);
+    } else {
+      return new TestElement(tester, childDebugElement);
+    }
+  }
 
   /**
    * Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
@@ -24,7 +43,7 @@ export class TestElementQuerier {
    */
   element(selector: string): TestElement<Element> | null {
     const childElement = this.query(selector);
-    return childElement && this.wrap(childElement);
+    return childElement && TestElementQuerier.wrap(childElement, this.tester);
   }
 
   /**
@@ -37,7 +56,7 @@ export class TestElementQuerier {
    */
   elements(selector: string): Array<TestElement<Element>> {
     const childElements = this.queryAll(selector);
-    return childElements.map(debugElement => this.wrap(debugElement));
+    return childElements.map(debugElement => TestElementQuerier.wrap(debugElement, this.tester));
   }
 
   /**
@@ -49,7 +68,7 @@ export class TestElementQuerier {
     const childElement = this.query(selector);
     if (!childElement) {
       return null;
-    } else if (!(childElement instanceof HTMLInputElement)) {
+    } else if (!(childElement.nativeElement instanceof HTMLInputElement)) {
       throw new Error(`Element with selector ${selector} is not an HTMLInputElement`);
     }
     return new TestInput(this.tester, childElement);
@@ -64,7 +83,7 @@ export class TestElementQuerier {
     const childElement = this.query(selector);
     if (!childElement) {
       return null;
-    } else if (!(childElement instanceof HTMLSelectElement)) {
+    } else if (!(childElement.nativeElement instanceof HTMLSelectElement)) {
       throw new Error(`Element with selector ${selector} is not an HTMLSelectElement`);
     }
     return new TestSelect(this.tester, childElement);
@@ -80,7 +99,7 @@ export class TestElementQuerier {
     const childElement = this.query(selector);
     if (!childElement) {
       return null;
-    } else if (!(childElement instanceof HTMLTextAreaElement)) {
+    } else if (!(childElement.nativeElement instanceof HTMLTextAreaElement)) {
       throw new Error(`Element with selector ${selector} is not an HTMLTextAreaElement`);
     }
     return new TestTextArea(this.tester, childElement);
@@ -95,33 +114,17 @@ export class TestElementQuerier {
     const childElement = this.query(selector);
     if (!childElement) {
       return null;
-    } else if (!(childElement instanceof HTMLButtonElement)) {
+    } else if (!(childElement.nativeElement instanceof HTMLButtonElement)) {
       throw new Error(`Element with selector ${selector} is not an HTMLButtonElement`);
     }
     return new TestButton(this.tester, childElement);
   }
 
-  private query(selector: string): Element | null {
-    return this.root.querySelector(selector);
+  private query(selector: string): DebugElement | null {
+    return this.root.query(By.css(selector));
   }
 
-  private queryAll(selector: string): Array<Element> {
-    return Array.prototype.slice.call(this.root.querySelectorAll(selector));
-  }
-
-  private wrap(childElement: Element): TestElement<any> {
-    if (childElement instanceof HTMLButtonElement) {
-      return new TestButton(this.tester, childElement);
-    } else if (childElement instanceof HTMLInputElement) {
-      return new TestInput(this.tester, childElement);
-    } else if (childElement instanceof HTMLSelectElement) {
-      return new TestSelect(this.tester, childElement);
-    } else if (childElement instanceof HTMLTextAreaElement) {
-      return new TestTextArea(this.tester, childElement);
-    } else if (childElement instanceof HTMLElement) {
-      return new TestHtmlElement(this.tester, childElement);
-    } else {
-      return new TestElement(this.tester, childElement);
-    }
+  private queryAll(selector: string): Array<DebugElement> {
+    return this.root.queryAll(By.css(selector));
   }
 }

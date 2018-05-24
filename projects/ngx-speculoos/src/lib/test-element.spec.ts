@@ -17,7 +17,7 @@ import { TestInput } from './test-input';
         <a id="a"></a>
         <input id="input" />
         <button id="button">Test</button>
-        <select id="select"></select>
+        <select id="select" name="foo"></select>
         <textarea id="textarea"></textarea>
       </div>
     </div>
@@ -57,6 +57,14 @@ describe('TestElement', () => {
   it('should construct', () => {
     expect(tester.svg instanceof TestElement).toBe(true);
     expect(tester.svg instanceof TestHtmlElement).toBe(false);
+  });
+
+  it('should expose the native element', () => {
+    expect(tester.svg.nativeElement).toBe(tester.nativeElement.querySelector('#s1'));
+  });
+
+  it('should expose the debug element', () => {
+    expect(tester.svg.debugElement.nativeElement).toBe(tester.nativeElement.querySelector('#s1'));
   });
 
   it('should get the text content', () => {
@@ -154,6 +162,11 @@ describe('TestElement', () => {
     it('should only query children', () => {
       expect(parent.element('#s1')).toBeNull();
       expect(parent.element('#parent')).toBeNull();
+    });
+
+    it('should support complex queries', () => {
+      expect(parent.select('div:first-of-type select[name=foo]').nativeElement).toBe(tester.select('#select').nativeElement);
+      expect(parent.select('div:first-of-type select[name=bar]')).toBeNull();
     });
   });
 });

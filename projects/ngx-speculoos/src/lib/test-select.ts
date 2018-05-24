@@ -1,12 +1,13 @@
 import { ComponentTester } from './component-tester';
 import { TestHtmlElement } from './test-html-element';
+import { DebugElement } from '@angular/core';
 
 /**
  * A wrapped DOM HTML select element, providing additional methods and attributes helping with writing tests
  */
 export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
-  constructor(tester: ComponentTester<any>, nativeElement: HTMLSelectElement) {
-    super(tester, nativeElement);
+  constructor(tester: ComponentTester<any>, debugElement: DebugElement) {
+    super(tester, debugElement);
   }
 
   /**

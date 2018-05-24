@@ -4,6 +4,7 @@ import { TestSelect } from './test-select';
 import { TestTextArea } from './test-textarea';
 import { TestInput } from './test-input';
 import { TestElementQuerier } from './test-element-querier';
+import { DebugElement } from '@angular/core';
 
 /**
  * A wrapped DOM element, providing additional methods and attributes helping with writing tests
@@ -14,10 +15,14 @@ export class TestElement<E extends Element> {
 
   constructor(protected tester: ComponentTester<any>,
               /**
-               * the wrapped native element
+               * the wrapped debug element
                */
-              public nativeElement: E) {
-    this.querier = new TestElementQuerier(tester, nativeElement);
+              public readonly debugElement: DebugElement) {
+    this.querier = new TestElementQuerier(tester, debugElement);
+  }
+
+  get nativeElement(): E {
+    return this.debugElement.nativeElement;
   }
 
   /**

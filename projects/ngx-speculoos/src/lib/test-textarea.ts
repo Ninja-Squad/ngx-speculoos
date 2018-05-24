@@ -1,12 +1,13 @@
 import { ComponentTester } from './component-tester';
 import { TestHtmlElement } from './test-html-element';
+import { DebugElement } from '@angular/core';
 
 /**
  * A wrapped DOM HTML textarea element, providing additional methods and attributes helping with writing tests
  */
 export class TestTextArea extends TestHtmlElement<HTMLTextAreaElement> {
-  constructor(tester: ComponentTester<any>, nativeElement: HTMLTextAreaElement) {
-    super(tester, nativeElement);
+  constructor(tester: ComponentTester<any>, debugElement: DebugElement) {
+    super(tester, debugElement);
   }
 
   /**

@@ -14,8 +14,15 @@ import { TestElementQuerier } from './test-element-querier';
  */
 export class ComponentTester<T> {
 
-  private querier: TestElementQuerier;
-  private _fixture: ComponentFixture<T>;
+  /**
+   * The test element of the component
+   */
+  readonly testElement: TestElement<any>;
+
+  /**
+   * The component fixture of the component
+   */
+  readonly fixture: ComponentFixture<T>;
 
   /**
    * Creates a component fixture of the given type with the TestBed and wraps it into a ComponentTester
@@ -31,12 +38,8 @@ export class ComponentTester<T> {
    * @param arg the type of the component to wrap, or a component fixture to wrap
    */
   constructor(arg: Type<T> | ComponentFixture<T>) {
-    this._fixture = (arg instanceof ComponentFixture) ? arg : TestBed.createComponent(arg);
-    this.querier = new TestElementQuerier(this, this._fixture.nativeElement);
-  }
-
-  get fixture(): ComponentFixture<T> {
-    return this._fixture;
+    this.fixture = (arg instanceof ComponentFixture) ? arg : TestBed.createComponent(arg);
+    this.testElement = TestElementQuerier.wrap(this.debugElement, this);
   }
 
   /**
@@ -69,7 +72,7 @@ export class ComponentTester<T> {
    * @returns the wrapped element, or null if no element matches the selector.
    */
   element(selector: string): TestElement<Element> | null {
-    return this.querier.element(selector);
+    return this.testElement.element(selector);
   }
 
   /**
@@ -81,7 +84,7 @@ export class ComponentTester<T> {
    * @returns the array of matched elements, empty if no element was matched
    */
   elements(selector: string): Array<TestElement<Element>> {
-    return this.querier.elements(selector);
+    return this.testElement.elements(selector);
   }
 
   /**
@@ -90,7 +93,7 @@ export class ComponentTester<T> {
    * @returns the wrapped input, or null if no element was matched
    */
   input(selector: string): TestInput | null  {
-    return this.querier.input(selector);
+    return this.testElement.input(selector);
   }
 
   /**
@@ -99,7 +102,7 @@ export class ComponentTester<T> {
    * @returns the wrapped select, or null if no element was matched
    */
   select(selector: string): TestSelect | null  {
-    return this.querier.select(selector);
+    return this.testElement.select(selector);
   }
 
   /**
@@ -109,7 +112,7 @@ export class ComponentTester<T> {
    * @throws {Error} if the matched element isn't actually a textarea
    */
   textarea(selector: string): TestTextArea | null {
-    return this.querier.textarea(selector);
+    return this.testElement.textarea(selector);
   }
 
   /**
@@ -118,7 +121,7 @@ export class ComponentTester<T> {
    * @returns the wrapped button, or null if no element was matched
    */
   button(selector: string): TestButton | null {
-    return this.querier.button(selector);
+    return this.testElement.button(selector);
   }
 
   /**

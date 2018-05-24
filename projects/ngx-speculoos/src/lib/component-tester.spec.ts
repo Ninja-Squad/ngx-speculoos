@@ -98,6 +98,11 @@ describe('ComponentTester', () => {
       expect(tester.debugElement).toBe(tester.fixture.debugElement);
     });
 
+    it('should expose test element', () => {
+      expect(tester.testElement.debugElement).toBe(tester.fixture.debugElement);
+      expect(tester.testElement.nativeElement).toBe(tester.fixture.nativeElement);
+    });
+
     it('should expose component instance', () => {
       expect(tester.componentInstance).toBe(tester.fixture.componentInstance);
     });
