@@ -52,7 +52,7 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
   /**
    * the value of the selected option of the wrapped select, or null if there is no selected option
    */
-  get selectedValue(): string {
+  get selectedValue(): string | null {
     if (this.selectedIndex < 0) {
       return null;
     }
@@ -62,7 +62,7 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
   /**
    * the label (or text if no label) of the selected option of the wrapped select, or null if there is no selected option
    */
-  get selectedLabel(): string {
+  get selectedLabel(): string | null {
     if (this.selectedIndex < 0) {
       return null;
     }

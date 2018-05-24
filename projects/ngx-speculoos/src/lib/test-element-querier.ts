@@ -64,7 +64,7 @@ export class TestElementQuerier {
    * @param selector a CSS selector
    * @returns the wrapped input, or null if no element was matched
    */
-  input(selector: string): TestInput {
+  input(selector: string): TestInput | null {
     const childElement = this.query(selector);
     if (!childElement) {
       return null;
@@ -79,7 +79,7 @@ export class TestElementQuerier {
    * @param selector a CSS selector
    * @returns the wrapped select, or null if no element was matched
    */
-  select(selector: string): TestSelect {
+  select(selector: string): TestSelect | null {
     const childElement = this.query(selector);
     if (!childElement) {
       return null;
@@ -95,7 +95,7 @@ export class TestElementQuerier {
    * @returns the wrapped textarea, or null if no element was matched. Throws an Error if the matched element isn't actually a textarea.
    * @throws {Error} if the matched element isn't actually a textarea
    */
-  textarea(selector: string): TestTextArea {
+  textarea(selector: string): TestTextArea | null {
     const childElement = this.query(selector);
     if (!childElement) {
       return null;
@@ -110,7 +110,7 @@ export class TestElementQuerier {
    * @param selector a CSS selector
    * @returns the wrapped button, or null if no element was matched
    */
-  button(selector: string): TestButton {
+  button(selector: string): TestButton | null {
     const childElement = this.query(selector);
     if (!childElement) {
       return null;

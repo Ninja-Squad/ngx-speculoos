@@ -65,9 +65,9 @@ export function fakeRoute(options: {
     firstChild: options.firstChild,
     children: options.children,
     pathFromRoot: options.pathFromRoot
-  };
+  } as ActivatedRoute;
 
-  for (let route = result; route != null; route = route.parent) {
+  for (let route: any = result; !!route; route = route.parent) {
     if (route.parent && route.parent.snapshot && !route.snapshot) {
       route.snapshot = fakeSnapshot({});
     }
@@ -83,7 +83,7 @@ export function fakeRoute(options: {
     }
   }
 
-  return result as ActivatedRoute;
+  return result;
 }
 
 /**
