@@ -1,7 +1,7 @@
 import { TestInput } from './test-input';
 import { TestElement } from './test-element';
 
-const elementMatchers: jasmine.CustomMatcherFactories = {
+const speculoosMatchers: jasmine.CustomMatcherFactories = {
 
   /**
    * Checks that an element has the specified class
@@ -16,14 +16,14 @@ const elementMatchers: jasmine.CustomMatcherFactories = {
           return { pass: false, message: `Expected element to have class '${expected}', but element was not a TestElement` };
         }
         const actual = el.classes;
-        const pass = actual.includes(expected);
+        const pass = actual.indexOf(expected) !== -1;
         const message = `Expected element to have class '${expected}', but had ${actual.length ? '\'' + actual.join(', ') + '\'' : 'none'}`;
         return { pass, message };
       }
     };
   },
 
-    /**
+  /**
    * Checks that an element has the specified value
    */
   toHaveValue: (util: jasmine.MatchersUtil, customEqualityTesters: Array<jasmine.CustomEqualityTester>): jasmine.CustomMatcher => {
@@ -44,4 +44,4 @@ const elementMatchers: jasmine.CustomMatcherFactories = {
   }
 };
 
-export { elementMatchers };
+export { speculoosMatchers };

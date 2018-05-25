@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ComponentTester } from './component-tester';
-import { elementMatchers } from './matchers';
+import { speculoosMatchers } from './matchers';
 
 @Component({
   template: `
@@ -41,14 +41,14 @@ describe('Custom matchers', () => {
     TestBed.configureTestingModule({ declarations: [TestComponent] });
     tester = new TestComponentTester();
     tester.detectChanges();
-    jasmine.addMatchers(elementMatchers);
+    jasmine.addMatchers(speculoosMatchers);
   });
 
   it('should check for a class', () => {
     expect(tester.div).toHaveClass('foo');
     expect(tester.div).not.toHaveClass('baz');
 
-    const matcher = elementMatchers.toHaveClass(undefined, undefined);
+    const matcher = speculoosMatchers.toHaveClass(undefined, undefined);
 
     // missing class
     let result = matcher.compare(tester.div, 'baz');
@@ -75,7 +75,7 @@ describe('Custom matchers', () => {
     expect(tester.name).toHaveValue('Hello');
     expect(tester.name).not.toHaveValue('baz');
 
-    const matcher = elementMatchers.toHaveValue(undefined, undefined);
+    const matcher = speculoosMatchers.toHaveValue(undefined, undefined);
 
     // wrong value
     let result = matcher.compare(tester.name, 'baz');
