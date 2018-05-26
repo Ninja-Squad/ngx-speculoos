@@ -128,7 +128,6 @@ describe('Custom matchers', () => {
     it('should return true if wrong value and .not', () => {
       const result = matcher.negativeCompare(tester.name, 'baz');
       expect(result.pass).toBeTruthy();
-      expect(result.message).toBe(`Expected element to not have value 'baz', but had value 'Hello'`);
     });
 
     it('should return false if no element', () => {
@@ -153,6 +152,63 @@ describe('Custom matchers', () => {
       const result = matcher.negativeCompare('hello', 'baz');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check value 'baz' on element, but element was neither a TestInput nor a TestTextArea`);
+    });
+
+  });
+
+  describe('toContainText', () => {
+    const matcher = speculoosMatchers.toContainText(undefined, undefined);
+
+    it('should check for a textContent', () => {
+      expect(tester.div).toContainText('Hello');
+      expect(tester.div).toContainText('He');
+      expect(tester.div).not.toContainText('baz');
+    });
+
+    it('should return false if wrong textContent', () => {
+      const result = matcher.compare(tester.div, 'baz');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected element to contain textContent 'baz', but had textContent 'Hello'`);
+    });
+
+    it('should return true if wrong textContent and .not', () => {
+      const result = matcher.negativeCompare(tester.div, 'baz');
+      expect(result.pass).toBeTruthy();
+    });
+
+    it('should return false if no textContent', () => {
+      const result = matcher.compare(tester.name, 'baz');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected element to contain textContent 'baz', but had no textContent`);
+    });
+
+    it('should return true if no textContent and .not', () => {
+      const result = matcher.negativeCompare(tester.name, 'baz');
+      expect(result.pass).toBeTruthy();
+    });
+
+    it('should return false if no element', () => {
+      const result = matcher.compare(null, 'baz');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check textContent 'baz' on element, but element was falsy`);
+    });
+
+    it('should return false if no element and .not too', () => {
+      const result = matcher.negativeCompare(null, 'baz');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check textContent 'baz' on element, but element was falsy`);
+    });
+
+    it('should return false if element of wrong type', () => {
+      const result = matcher.compare('hello', 'baz');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check textContent 'baz' on element, but element was not a TestElement`);
+    });
+
+    it('should return false if element of wrong type and .not too', () => {
+      const result = matcher.negativeCompare('hello', 'baz');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check textContent 'baz' on element, but element was not a TestElement`);
     });
 
   });
