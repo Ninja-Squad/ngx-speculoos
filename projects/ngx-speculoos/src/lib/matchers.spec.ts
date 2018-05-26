@@ -162,6 +162,63 @@ describe('Custom matchers', () => {
 
   });
 
+  describe('toHaveText', () => {
+    const matcher = speculoosMatchers.toHaveText(undefined, undefined);
+
+    it('should check for a textContent', () => {
+      expect(tester.div).toHaveText('Hello');
+      expect(tester.div).not.toHaveText('He');
+      expect(tester.div).not.toHaveText('baz');
+    });
+
+    it('should return false if wrong textContent', () => {
+      const result = matcher.compare(tester.div, 'baz');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected element to have textContent 'baz', but had textContent 'Hello'`);
+    });
+
+    it('should return true if wrong textContent and .not', () => {
+      const result = matcher.negativeCompare(tester.div, 'baz');
+      expect(result.pass).toBeTruthy();
+    });
+
+    it('should return false if no textContent', () => {
+      const result = matcher.compare(tester.name, 'baz');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected element to have textContent 'baz', but had no textContent`);
+    });
+
+    it('should return true if no textContent and .not', () => {
+      const result = matcher.negativeCompare(tester.name, 'baz');
+      expect(result.pass).toBeTruthy();
+    });
+
+    it('should return false if no element', () => {
+      const result = matcher.compare(null, 'baz');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check textContent 'baz' on element, but element was falsy`);
+    });
+
+    it('should return false if no element and .not too', () => {
+      const result = matcher.negativeCompare(null, 'baz');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check textContent 'baz' on element, but element was falsy`);
+    });
+
+    it('should return false if element of wrong type', () => {
+      const result = matcher.compare('hello', 'baz');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check textContent 'baz' on element, but element was not a TestElement`);
+    });
+
+    it('should return false if element of wrong type and .not too', () => {
+      const result = matcher.negativeCompare('hello', 'baz');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check textContent 'baz' on element, but element was not a TestElement`);
+    });
+
+  });
+
   describe('toContainText', () => {
     const matcher = speculoosMatchers.toContainText(undefined, undefined);
 

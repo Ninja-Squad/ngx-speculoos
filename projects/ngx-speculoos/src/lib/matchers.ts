@@ -63,6 +63,38 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
   },
 
   /**
+   * Checks that the receiver is a TestElement wrapping a DOM element and has the exact given textContent
+   */
+  toHaveText: (util: jasmine.MatchersUtil, customEqualityTesters: Array<jasmine.CustomEqualityTester>): jasmine.CustomMatcher => {
+    const assert = (isNegative: boolean, el: any, expected: string) => {
+      if (!el) {
+        return { pass: false, message: `Expected to check textContent '${expected}' on element, but element was falsy` };
+      }
+      if (!(el instanceof TestElement)) {
+        return { pass: false, message: `Expected to check textContent '${expected}' on element, but element was not a TestElement` };
+      }
+      const actual = el.textContent;
+      if (!actual) {
+        return {
+          pass: isNegative,
+          message: `Expected element to ${isNegative ? 'not ' : ''}have textContent '${expected}', but had no textContent`
+        };
+      }
+      const pass = actual === expected;
+      const message = `Expected element to ${isNegative ? 'not ' : ''}have textContent '${expected}', but had textContent '${actual}'`;
+      return { pass: isNegative ? !pass : pass, message };
+    };
+    return {
+      compare: (el: any, expected: string): jasmine.CustomMatcherResult => {
+        return assert(false, el, expected);
+      },
+      negativeCompare: (el: any, expected: string): jasmine.CustomMatcherResult => {
+        return assert(true, el, expected);
+      }
+    };
+  },
+
+  /**
    * Checks that the receiver is a TestElement wrapping a DOM element and contains the given textContent
    */
   toContainText: (util: jasmine.MatchersUtil, customEqualityTesters: Array<jasmine.CustomEqualityTester>): jasmine.CustomMatcher => {
