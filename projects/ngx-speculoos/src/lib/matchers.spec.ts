@@ -9,11 +9,13 @@ import { speculoosMatchers } from './matchers';
     <div id="classes" class="foo bar">Hello</div>
     <div id="none">Hello</div>
     <input id="name" [value]="name"/>
+    <input id="checkbox" type="checkbox" [checked]="isChecked"/>
     <textarea>Hi</textarea>
   `
 })
 class TestComponent {
   name = 'Hello';
+  isChecked = true;
 }
 
 class TestComponentTester extends ComponentTester<TestComponent> {
@@ -31,6 +33,10 @@ class TestComponentTester extends ComponentTester<TestComponent> {
 
   get name() {
     return this.input('#name');
+  }
+
+  get checkbox() {
+    return this.input('#checkbox');
   }
 
   get textArea() {
@@ -209,6 +215,60 @@ describe('Custom matchers', () => {
       const result = matcher.negativeCompare('hello', 'baz');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check textContent 'baz' on element, but element was not a TestElement`);
+    });
+
+  });
+
+  describe('toBeChecked', () => {
+    const matcher = speculoosMatchers.toBeChecked(undefined, undefined);
+
+    it('should check if checked', () => {
+      expect(tester.checkbox).toBeChecked();
+      tester.checkbox.uncheck();
+      expect(tester.checkbox).not.toBeChecked();
+    });
+
+    it('should return false if not checked', () => {
+      tester.checkbox.uncheck();
+      const result = matcher.compare(tester.checkbox);
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected element to be checked, but was not`);
+    });
+
+    it('should return true if not checked and .not', () => {
+      tester.checkbox.uncheck();
+      const result = matcher.negativeCompare(tester.checkbox);
+      expect(result.pass).toBeTruthy();
+    });
+
+    it('should return false if checked and .not', () => {
+      const result = matcher.negativeCompare(tester.checkbox);
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected element to be not checked, but was`);
+    });
+
+    it('should return false if no element', () => {
+      const result = matcher.compare(null);
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check if element was checked, but element was falsy`);
+    });
+
+    it('should return false if no element and .not too', () => {
+      const result = matcher.negativeCompare(null);
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check if element was checked, but element was falsy`);
+    });
+
+    it('should return false if element of wrong type', () => {
+      const result = matcher.compare('hello');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check if element was checked, but element was not a TestInput`);
+    });
+
+    it('should return false if element of wrong type and .not too', () => {
+      const result = matcher.negativeCompare('hello');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check if element was checked, but element was not a TestInput`);
     });
 
   });

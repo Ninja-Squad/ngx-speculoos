@@ -92,6 +92,31 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
         return assert(true, el, expected);
       }
     };
+  },
+
+  /**
+   * Checks that the receiver is a TestElement wrapping a DOM element and contains the given textContent
+   */
+  toBeChecked: (util: jasmine.MatchersUtil, customEqualityTesters: Array<jasmine.CustomEqualityTester>): jasmine.CustomMatcher => {
+    const assert = (isNegative: boolean, el: any) => {
+      if (!el) {
+        return { pass: false, message: `Expected to check if element was checked, but element was falsy` };
+      }
+      if (!(el instanceof TestInput)) {
+        return { pass: false, message: `Expected to check if element was checked, but element was not a TestInput` };
+      }
+      const pass = el.checked;
+      const message = `Expected element to be ${isNegative ? 'not ' : ''}checked, but was${!isNegative ? ' not' : ''}`;
+      return { pass: isNegative ? !pass : pass, message };
+    };
+    return {
+      compare: (el: any): jasmine.CustomMatcherResult => {
+        return assert(false, el);
+      },
+      negativeCompare: (el: any): jasmine.CustomMatcherResult => {
+        return assert(true, el);
+      }
+    };
   }
 };
 

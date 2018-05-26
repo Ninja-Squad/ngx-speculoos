@@ -15,5 +15,10 @@ declare namespace jasmine {
      * Checks that the receiver is a TestElement wrapping a DOM element and contains the given textContent
      */
     toContainText(textContent: string): boolean;
+
+    /**
+     * Checks that the receiver is a TestInput and is checked
+     */
+    toBeChecked(): boolean
   }
 }
