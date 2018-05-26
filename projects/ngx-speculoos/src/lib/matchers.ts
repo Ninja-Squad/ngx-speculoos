@@ -7,7 +7,7 @@ import { TestElement } from './test-element';
 const speculoosMatchers: jasmine.CustomMatcherFactories = {
 
   /**
-   * Checks that an element has the specified class
+   * Checks that the receiver is a TestElement wrapping a DOM element has the given CSS class
    */
   toHaveClass: (util: jasmine.MatchersUtil, customEqualityTesters: Array<jasmine.CustomEqualityTester>): jasmine.CustomMatcher => {
     const assert = (isNegative: boolean, el: any, expected: string) => {
@@ -34,7 +34,7 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
   },
 
   /**
-   * Checks that an element has the specified value
+   * Checks that the receiver is a TestInput or a TestTextArea has the given value
    */
   toHaveValue: (util: jasmine.MatchersUtil, customEqualityTesters: Array<jasmine.CustomEqualityTester>): jasmine.CustomMatcher => {
     const assert = (isNegative: boolean, el: any, expected: string) => {
@@ -44,7 +44,7 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
       if (!(el instanceof TestInput) && !(el instanceof TestTextArea)) {
         return {
           pass: isNegative,
-          message: `Expected to check value '${expected}' on element, but element was not a TestInput or a TestTextArea`
+          message: `Expected to check value '${expected}' on element, but element was neither a TestInput nor a TestTextArea`
         };
       }
       const actual = el.value;

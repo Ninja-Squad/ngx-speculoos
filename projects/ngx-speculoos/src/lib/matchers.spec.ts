@@ -49,63 +49,105 @@ describe('Custom matchers', () => {
     jasmine.addMatchers(speculoosMatchers);
   });
 
-  it('should check for a class', () => {
-    expect(tester.div).toHaveClass('foo');
-    expect(tester.div).not.toHaveClass('baz');
-
+  describe('toHaveClass', () => {
     const matcher = speculoosMatchers.toHaveClass(undefined, undefined);
 
-    // missing class
-    let result = matcher.compare(tester.div, 'baz');
-    expect(result.pass).toBeFalsy();
-    expect(result.message).toBe(`Expected element to have class 'baz', but had 'foo, bar'`);
+    it('should check for a class', () => {
+      expect(tester.div).toHaveClass('foo');
+      expect(tester.div).not.toHaveClass('baz');
+    });
 
-    result = matcher.negativeCompare(tester.div, 'foo');
-    expect(result.pass).toBeFalsy();
-    expect(result.message).toBe(`Expected element to not have class 'foo', but had 'foo, bar'`);
+    it('should return false if class is missing', () => {
+      // missing class
+      let result = matcher.compare(tester.div, 'baz');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected element to have class 'baz', but had 'foo, bar'`);
 
-    // no class
-    result = matcher.compare(tester.none, 'baz');
-    expect(result.pass).toBeFalsy();
-    expect(result.message).toBe(`Expected element to have class 'baz', but had none`);
+      result = matcher.negativeCompare(tester.div, 'foo');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected element to not have class 'foo', but had 'foo, bar'`);
 
-    // null element
-    result = matcher.compare(null, 'baz');
-    expect(result.pass).toBeFalsy();
-    expect(result.message).toBe(`Expected to check class 'baz' on element, but element was falsy`);
+    });
 
-    // not a TestElement
-    result = matcher.compare('hello', 'baz');
-    expect(result.pass).toBeFalsy();
-    expect(result.message).toBe(`Expected to check class 'baz' on element, but element was not a TestElement`);
+    it('should handle no class', () => {
+      // no class
+      let result = matcher.compare(tester.none, 'baz');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected element to have class 'baz', but had none`);
+
+      result = matcher.negativeCompare(tester.none, 'baz');
+      expect(result.pass).toBeTruthy();
+    });
+
+    it('should handle no element', () => {
+      // null element
+      let result = matcher.compare(null, 'baz');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check class 'baz' on element, but element was falsy`);
+
+      result = matcher.negativeCompare(null, 'baz');
+      expect(result.pass).toBeTruthy();
+      expect(result.message).toBe(`Expected to check class 'baz' on element, but element was falsy`);
+    });
+
+    it('should handle element of wrong type', () => {
+      // not a TestElement
+      let result = matcher.compare('hello', 'baz');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check class 'baz' on element, but element was not a TestElement`);
+
+      result = matcher.negativeCompare('hello', 'baz');
+      expect(result.pass).toBeTruthy();
+      expect(result.message).toBe(`Expected to check class 'baz' on element, but element was not a TestElement`);
+    });
+
   });
 
-  it('should check for a value', () => {
-    expect(tester.name).toHaveValue('Hello');
-    expect(tester.name).not.toHaveValue('baz');
-
-    // works with TestTextArea
-    expect(tester.textArea).toHaveValue('Hi');
-
+  describe('toHaveValue', () => {
     const matcher = speculoosMatchers.toHaveValue(undefined, undefined);
 
-    // wrong value
-    let result = matcher.compare(tester.name, 'baz');
-    expect(result.pass).toBeFalsy();
-    expect(result.message).toBe(`Expected element to have value 'baz', but had value 'Hello'`);
+    it('should check for a value on an input', () => {
+      expect(tester.name).toHaveValue('Hello');
+      expect(tester.name).not.toHaveValue('baz');
+    });
 
-    result = matcher.negativeCompare(tester.name, 'baz');
-    expect(result.pass).toBeTruthy();
-    expect(result.message).toBe(`Expected element to not have value 'baz', but had value 'Hello'`);
+    it('should check for a value on a textArea', () => {
+      // works with TestTextArea
+      expect(tester.textArea).toHaveValue('Hi');
+    });
 
-    // null element
-    result = matcher.compare(null, 'baz');
-    expect(result.pass).toBeFalsy();
-    expect(result.message).toBe(`Expected to check value 'baz' on element, but element was falsy`);
+    it('should return false if wrong value', () => {
+      // wrong value
+      let result = matcher.compare(tester.name, 'baz');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected element to have value 'baz', but had value 'Hello'`);
 
-    // not a TestInput
-    result = matcher.compare('hello', 'baz');
-    expect(result.pass).toBeFalsy();
-    expect(result.message).toBe(`Expected to check value 'baz' on element, but element was not a TestInput or a TestTextArea`);
+      result = matcher.negativeCompare(tester.name, 'baz');
+      expect(result.pass).toBeTruthy();
+      expect(result.message).toBe(`Expected element to not have value 'baz', but had value 'Hello'`);
+    });
+
+    it('should handle no element', () => {
+      // null element
+      let result = matcher.compare(null, 'baz');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check value 'baz' on element, but element was falsy`);
+
+      result = matcher.negativeCompare(null, 'baz');
+      expect(result.pass).toBeTruthy();
+      expect(result.message).toBe(`Expected to check value 'baz' on element, but element was falsy`);
+    });
+
+    it('should handle element of wrong type', () => {
+      // not a TestElement
+      let result = matcher.compare('hello', 'baz');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check value 'baz' on element, but element was neither a TestInput nor a TestTextArea`);
+
+      result = matcher.negativeCompare('hello', 'baz');
+      expect(result.pass).toBeTruthy();
+      expect(result.message).toBe(`Expected to check value 'baz' on element, but element was neither a TestInput nor a TestTextArea`);
+    });
+
   });
 });
