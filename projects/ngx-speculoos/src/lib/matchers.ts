@@ -7,15 +7,15 @@ import { TestElement } from './test-element';
 const speculoosMatchers: jasmine.CustomMatcherFactories = {
 
   /**
-   * Checks that the receiver is a TestElement wrapping a DOM element has the given CSS class
+   * Checks that the receiver is a TestElement wrapping a DOM element and as the given CSS class
    */
   toHaveClass: (util: jasmine.MatchersUtil, customEqualityTesters: Array<jasmine.CustomEqualityTester>): jasmine.CustomMatcher => {
     const assert = (isNegative: boolean, el: any, expected: string) => {
       if (!el) {
-        return { pass: isNegative, message: `Expected to check class '${expected}' on element, but element was falsy` };
+        return { pass: false, message: `Expected to check class '${expected}' on element, but element was falsy` };
       }
       if (!(el instanceof TestElement)) {
-        return { pass: isNegative, message: `Expected to check class '${expected}' on element, but element was not a TestElement` };
+        return { pass: false, message: `Expected to check class '${expected}' on element, but element was not a TestElement` };
       }
       const actual = el.classes;
       const pass = actual.indexOf(expected) !== -1;
@@ -34,16 +34,16 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
   },
 
   /**
-   * Checks that the receiver is a TestInput or a TestTextArea has the given value
+   * Checks that the receiver is a TestInput or a TestTextArea and has the given value
    */
   toHaveValue: (util: jasmine.MatchersUtil, customEqualityTesters: Array<jasmine.CustomEqualityTester>): jasmine.CustomMatcher => {
     const assert = (isNegative: boolean, el: any, expected: string) => {
       if (!el) {
-        return { pass: isNegative, message: `Expected to check value '${expected}' on element, but element was falsy` };
+        return { pass: false, message: `Expected to check value '${expected}' on element, but element was falsy` };
       }
       if (!(el instanceof TestInput) && !(el instanceof TestTextArea)) {
         return {
-          pass: isNegative,
+          pass: false,
           message: `Expected to check value '${expected}' on element, but element was neither a TestInput nor a TestTextArea`
         };
       }

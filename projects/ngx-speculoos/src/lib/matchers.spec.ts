@@ -58,46 +58,49 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if class is missing', () => {
-      // missing class
-      let result = matcher.compare(tester.div, 'baz');
+      const result = matcher.compare(tester.div, 'baz');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected element to have class 'baz', but had 'foo, bar'`);
+    });
 
-      result = matcher.negativeCompare(tester.div, 'foo');
+    it('should return true if class is missing and .not', () => {
+      const result = matcher.negativeCompare(tester.div, 'foo');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected element to not have class 'foo', but had 'foo, bar'`);
-
     });
 
-    it('should handle no class', () => {
-      // no class
-      let result = matcher.compare(tester.none, 'baz');
+    it('should return false if no class', () => {
+      const result = matcher.compare(tester.none, 'baz');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected element to have class 'baz', but had none`);
+    });
 
-      result = matcher.negativeCompare(tester.none, 'baz');
+    it('should return true if class is no class and .not', () => {
+      const result = matcher.negativeCompare(tester.none, 'baz');
       expect(result.pass).toBeTruthy();
     });
 
-    it('should handle no element', () => {
-      // null element
-      let result = matcher.compare(null, 'baz');
+    it('should return false if no element', () => {
+      const result = matcher.compare(null, 'baz');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check class 'baz' on element, but element was falsy`);
+    });
 
-      result = matcher.negativeCompare(null, 'baz');
-      expect(result.pass).toBeTruthy();
+    it('should return false if no element and .not too', () => {
+      const result = matcher.negativeCompare(null, 'baz');
+      expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check class 'baz' on element, but element was falsy`);
     });
 
-    it('should handle element of wrong type', () => {
-      // not a TestElement
-      let result = matcher.compare('hello', 'baz');
+    it('should return false if element of wrong type', () => {
+      const result = matcher.compare('hello', 'baz');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check class 'baz' on element, but element was not a TestElement`);
+    });
 
-      result = matcher.negativeCompare('hello', 'baz');
-      expect(result.pass).toBeTruthy();
+    it('should return false if element of wrong type and .not too', () => {
+      const result = matcher.negativeCompare('hello', 'baz');
+      expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check class 'baz' on element, but element was not a TestElement`);
     });
 
@@ -117,35 +120,38 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if wrong value', () => {
-      // wrong value
-      let result = matcher.compare(tester.name, 'baz');
+      const result = matcher.compare(tester.name, 'baz');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected element to have value 'baz', but had value 'Hello'`);
+    });
 
-      result = matcher.negativeCompare(tester.name, 'baz');
+    it('should return true if wrong value and .not', () => {
+      const result = matcher.negativeCompare(tester.name, 'baz');
       expect(result.pass).toBeTruthy();
       expect(result.message).toBe(`Expected element to not have value 'baz', but had value 'Hello'`);
     });
 
-    it('should handle no element', () => {
-      // null element
-      let result = matcher.compare(null, 'baz');
+    it('should return false if no element', () => {
+      const result = matcher.compare(null, 'baz');
       expect(result.pass).toBeFalsy();
-      expect(result.message).toBe(`Expected to check value 'baz' on element, but element was falsy`);
-
-      result = matcher.negativeCompare(null, 'baz');
-      expect(result.pass).toBeTruthy();
       expect(result.message).toBe(`Expected to check value 'baz' on element, but element was falsy`);
     });
 
-    it('should handle element of wrong type', () => {
-      // not a TestElement
-      let result = matcher.compare('hello', 'baz');
+    it('should return false if no element and .not too', () => {
+      const result = matcher.negativeCompare(null, 'baz');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check value 'baz' on element, but element was falsy`);
+    });
+
+    it('should return false if element of wrong type', () => {
+      const result = matcher.compare('hello', 'baz');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check value 'baz' on element, but element was neither a TestInput nor a TestTextArea`);
+    });
 
-      result = matcher.negativeCompare('hello', 'baz');
-      expect(result.pass).toBeTruthy();
+    it('should return false if element of wrong type and .not too', () => {
+      const result = matcher.negativeCompare('hello', 'baz');
+      expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check value 'baz' on element, but element was neither a TestInput nor a TestTextArea`);
     });
 
