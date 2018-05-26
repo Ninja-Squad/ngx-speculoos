@@ -102,4 +102,4 @@ Using yarn: `yarn add --dev ngx-speculoos`
    
 ## Issues, questions
 
-Please, provide feedback by filing issues, or by submitting pull requests.
+Please, provide feedback by filing issues, or by submitting pull requests, to the [Github Project](https://github.com/Ninja-Squad/ngx-speculoos).
