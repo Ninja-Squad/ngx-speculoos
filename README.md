@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/Ninja-Squad/ngx-speculoos.svg?branch=master)](https://travis-ci.org/Ninja-Squad/ngx-speculoos)
+[![Codecov](https://codecov.io/gh/Ninja-Squad/ngx-speculoos/branch/master/graph/badge.svg)](https://codecov.io/gh/Ninja-Squad/ngx-speculoos)
 
 # ngx-speculoos
 
