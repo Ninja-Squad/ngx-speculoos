@@ -3,6 +3,7 @@
 import { TestTextArea } from './test-textarea';
 import { TestInput } from './test-input';
 import { TestElement } from './test-element';
+import { TestSelect } from './test-select';
 
 const speculoosMatchers: jasmine.CustomMatcherFactories = {
 
@@ -147,6 +148,32 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
       },
       negativeCompare: (el: any): jasmine.CustomMatcherResult => {
         return assert(true, el);
+      }
+    };
+  },
+
+  /**
+   * Checks that the receiver is a TestSelect wrapping a DOM element and has the given selected index
+   */
+  toHaveSelectedIndex: (util: jasmine.MatchersUtil, customEqualityTesters: Array<jasmine.CustomEqualityTester>): jasmine.CustomMatcher => {
+    const assert = (isNegative: boolean, el: any, expected: number) => {
+      if (!el) {
+        return { pass: false, message: `Expected to check selected index ${expected} on element, but element was falsy` };
+      }
+      if (!(el instanceof TestSelect)) {
+        return { pass: false, message: `Expected to check selected index ${expected} on element, but element was not a TestSelect` };
+      }
+      const actual = el.selectedIndex;
+      const pass = actual === expected;
+      const message = `Expected element to ${isNegative ? 'not ' : ''}have selected index ${expected}, but had ${actual}`;
+      return { pass: isNegative ? !pass : pass, message };
+    };
+    return {
+      compare: (el: any, expected: number): jasmine.CustomMatcherResult => {
+        return assert(false, el, expected);
+      },
+      negativeCompare: (el: any, expected: number): jasmine.CustomMatcherResult => {
+        return assert(true, el, expected);
       }
     };
   }

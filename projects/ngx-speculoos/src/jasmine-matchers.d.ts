@@ -24,6 +24,11 @@ declare namespace jasmine {
     /**
      * Checks that the receiver is a TestInput and is checked
      */
-    toBeChecked(): boolean
+    toBeChecked(): boolean;
+
+    /**
+     * Checks that the receiver is a TestSelect wrapping a DOM element and has the given selected index
+     */
+    toHaveSelectedIndex(index: number): boolean;
   }
 }

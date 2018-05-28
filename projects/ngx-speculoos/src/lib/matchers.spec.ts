@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { ComponentTester } from './component-tester';
 import { speculoosMatchers } from './matchers';
@@ -11,6 +11,11 @@ import { speculoosMatchers } from './matchers';
     <input id="name" [value]="name"/>
     <input id="checkbox" type="checkbox" [checked]="isChecked"/>
     <textarea>Hi</textarea>
+    <select id="selectBox">
+      <option value=""></option>
+      <option value="a" selected>A</option>
+      <option value="b">B</option>
+    </select>
   `
 })
 class TestComponent {
@@ -41,6 +46,10 @@ class TestComponentTester extends ComponentTester<TestComponent> {
 
   get textArea() {
     return this.textarea('textarea');
+  }
+
+  get selectBox() {
+    return this.select('#selectBox');
   }
 }
 
@@ -328,5 +337,49 @@ describe('Custom matchers', () => {
       expect(result.message).toBe(`Expected to check if element was checked, but element was not a TestInput`);
     });
 
+  });
+
+  describe('toHaveSelectedIndex', () => {
+    const matcher = speculoosMatchers.toHaveSelectedIndex(undefined, undefined);
+
+    it('should check selected index on a select', () => {
+      expect(tester.selectBox).toHaveSelectedIndex(1);
+      expect(tester.selectBox).not.toHaveSelectedIndex(0);
+    });
+
+    it('should return false if wrong value', () => {
+      const result = matcher.compare(tester.selectBox, 0);
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected element to have selected index 0, but had 1`);
+    });
+
+    it('should return true if wrong value and .not', () => {
+      const result = matcher.negativeCompare(tester.selectBox, 0);
+      expect(result.pass).toBeTruthy();
+    });
+
+    it('should return false if no element', () => {
+      const result = matcher.compare(null, 1);
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check selected index 1 on element, but element was falsy`);
+    });
+
+    it('should return false if no element and .not too', () => {
+      const result = matcher.negativeCompare(null, 1);
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check selected index 1 on element, but element was falsy`);
+    });
+
+    it('should return false if element of wrong type', () => {
+      const result = matcher.compare(tester.textArea, 1);
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check selected index 1 on element, but element was not a TestSelect`);
+    });
+
+    it('should return false if element of wrong type and .not too', () => {
+      const result = matcher.negativeCompare(tester.textArea, 1);
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check selected index 1 on element, but element was not a TestSelect`);
+    });
   });
 });
