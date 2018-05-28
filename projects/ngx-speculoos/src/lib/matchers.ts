@@ -202,6 +202,32 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
         return assert(true, el, expected);
       }
     };
+  },
+
+  /**
+   * Checks that the receiver is a TestSelect wrapping a DOM element with the selected option's label equal to the given label
+   */
+  toHaveSelectedLabel: (util: jasmine.MatchersUtil, customEqualityTesters: Array<jasmine.CustomEqualityTester>): jasmine.CustomMatcher => {
+    const assert = (isNegative: boolean, el: any, expected: string) => {
+      if (!el) {
+        return { pass: false, message: `Expected to check selected label '${expected}' on element, but element was falsy` };
+      }
+      if (!(el instanceof TestSelect)) {
+        return { pass: false, message: `Expected to check selected label '${expected}' on element, but element was not a TestSelect` };
+      }
+      const actual = el.selectedLabel;
+      const pass = actual  === expected;
+      const message = `Expected element to ${isNegative ? 'not ' : ''}have selected label '${expected}', but had '${actual}'`;
+      return { pass: isNegative ? !pass : pass, message };
+    };
+    return {
+      compare: (el: any, expected: string): jasmine.CustomMatcherResult => {
+        return assert(false, el, expected);
+      },
+      negativeCompare: (el: any, expected: string): jasmine.CustomMatcherResult => {
+        return assert(true, el, expected);
+      }
+    };
   }
 };
 

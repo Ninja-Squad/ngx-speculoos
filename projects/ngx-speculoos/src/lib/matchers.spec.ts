@@ -438,4 +438,54 @@ describe('Custom matchers', () => {
       expect(result.message).toBe(`Expected to check selected value 'a' on element, but element was not a TestSelect`);
     });
   });
+
+  describe('toHaveSelectedLabel', () => {
+    const matcher = speculoosMatchers.toHaveSelectedLabel(undefined, undefined);
+
+    it('should check selected label on a select', () => {
+      expect(tester.selectBox).toHaveSelectedLabel('A');
+      expect(tester.selectBox).not.toHaveSelectedLabel('B');
+    });
+
+    it('should return false if wrong label', () => {
+      const result = matcher.compare(tester.selectBox, 'B');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected element to have selected label 'B', but had 'A'`);
+    });
+
+    it('should return true if wrong label and .not', () => {
+      const result = matcher.negativeCompare(tester.selectBox, 'b');
+      expect(result.pass).toBeTruthy();
+    });
+
+    it('should return false if matching label and .not', () => {
+      const result = matcher.negativeCompare(tester.selectBox, 'A');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected element to not have selected label 'A', but had 'A'`);
+    });
+
+    it('should return false if no element', () => {
+      const result = matcher.compare(null, 'A');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check selected label 'A' on element, but element was falsy`);
+    });
+
+    it('should return false if no element and .not too', () => {
+      const result = matcher.negativeCompare(null, 'A');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check selected label 'A' on element, but element was falsy`);
+    });
+
+    it('should return false if element of wrong type', () => {
+      const result = matcher.compare(tester.textArea, 'A');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check selected label 'A' on element, but element was not a TestSelect`);
+    });
+
+    it('should return false if element of wrong type and .not too', () => {
+      const result = matcher.negativeCompare(tester.textArea, 'A');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check selected label 'A' on element, but element was not a TestSelect`);
+    });
+  });
 });
