@@ -275,7 +275,7 @@
 </nav>
                </div>
                <!-- START CONTENT -->
-               <div class="content miscellaneous-functions">
+               <div class="content miscellaneous-variables">
                    <div class="content-data">
 
 
@@ -292,7 +292,7 @@
 
 <ol class="breadcrumb">
   <li>Miscellaneous</li>
-  <li>Functions</li>
+  <li>Variables</li>
 </ol>
 
 <section>
@@ -303,10 +303,7 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#fakeRoute" title="src/lib/route.ts"><b>fakeRoute</b>&nbsp;&nbsp;&nbsp;(src/.../route.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#fakeSnapshot" title="src/lib/route.ts"><b>fakeSnapshot</b>&nbsp;&nbsp;&nbsp;(src/.../route.ts)</a>
+                            <a href="#speculoosMatchers" title="src/lib/matchers.ts"><b>speculoosMatchers</b>&nbsp;&nbsp;&nbsp;(src/.../matchers.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -315,126 +312,258 @@
     </table>
 </section>
 
-    <h3>src/lib/route.ts</h3>
+    <h3>src/lib/matchers.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="fakeRoute"></a>
+                        <a name="speculoosMatchers"></a>
                         <span class="name">
                             <b>
-                            fakeRoute
+                            speculoosMatchers
                             </b>
-                            <a href="#fakeRoute"><span class="fa fa-link"></span></a>
+                            <a href="#speculoosMatchers"><span class="fa fa-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>fakeRoute(options: undefined)</code>
+                        <code>speculoosMatchers:     <code>jasmine.CustomMatcherFactories</code>
+</code>
                     </td>
                 </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>jasmine.CustomMatcherFactories</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+
+  /**
+   * Checks that the receiver is a TestElement wrapping a DOM element and as the given CSS class
+   */
+  toHaveClass: (util: jasmine.MatchersUtil, customEqualityTesters: Array&lt;jasmine.CustomEqualityTester&gt;): jasmine.CustomMatcher &#x3D;&gt; {
+    const assert &#x3D; (isNegative: boolean, el: any, expected: string) &#x3D;&gt; {
+      if (!el) {
+        return { pass: false, message: &#x60;Expected to check class &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
+      }
+      if (!(el instanceof TestElement)) {
+        return { pass: false, message: &#x60;Expected to check class &#x27;${expected}&#x27; on element, but element was not a TestElement&#x60; };
+      }
+      const actual &#x3D; el.classes;
+      const pass &#x3D; actual.indexOf(expected) !&#x3D;&#x3D; -1;
+      const message &#x3D; &#x60;Expected element to ${isNegative ? &#x27;not &#x27; : &#x27;&#x27;}have class &#x27;${expected}&#x27;, &#x60;
+      + &#x60;but had ${actual.length ? &#x27;\&#x27;&#x27; + actual.join(&#x27;, &#x27;) + &#x27;\&#x27;&#x27; : &#x27;none&#x27;}&#x60;;
+      return { pass: isNegative ? !pass : pass, message };
+    };
+    return {
+      compare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+        return assert(false, el, expected);
+      },
+      negativeCompare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+        return assert(true, el, expected);
+      }
+    };
+  },
+
+  /**
+   * Checks that the receiver is a TestInput or a TestTextArea and has the given value
+   */
+  toHaveValue: (util: jasmine.MatchersUtil, customEqualityTesters: Array&lt;jasmine.CustomEqualityTester&gt;): jasmine.CustomMatcher &#x3D;&gt; {
+    const assert &#x3D; (isNegative: boolean, el: any, expected: string) &#x3D;&gt; {
+      if (!el) {
+        return { pass: false, message: &#x60;Expected to check value &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
+      }
+      if (!(el instanceof TestInput) &amp;&amp; !(el instanceof TestTextArea)) {
+        return {
+          pass: false,
+          message: &#x60;Expected to check value &#x27;${expected}&#x27; on element, but element was neither a TestInput nor a TestTextArea&#x60;
+        };
+      }
+      const actual &#x3D; el.value;
+      const pass &#x3D; actual &#x3D;&#x3D;&#x3D; expected;
+      const message &#x3D; &#x60;Expected element to ${isNegative ? &#x27;not &#x27; : &#x27;&#x27;}have value &#x27;${expected}&#x27;, but had value &#x27;${actual}&#x27;&#x60;;
+      return { pass: isNegative ? !pass : pass, message };
+    };
+    return {
+      compare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+        return assert(false, el, expected);
+      },
+      negativeCompare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+        return assert(true, el, expected);
+      }
+    };
+  },
+
+  /**
+   * Checks that the receiver is a TestElement wrapping a DOM element and has the exact given textContent
+   */
+  toHaveText: (util: jasmine.MatchersUtil, customEqualityTesters: Array&lt;jasmine.CustomEqualityTester&gt;): jasmine.CustomMatcher &#x3D;&gt; {
+    const assert &#x3D; (isNegative: boolean, el: any, expected: string) &#x3D;&gt; {
+      if (!el) {
+        return { pass: false, message: &#x60;Expected to check text &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
+      }
+      if (!(el instanceof TestElement)) {
+        return { pass: false, message: &#x60;Expected to check text &#x27;${expected}&#x27; on element, but element was not a TestElement&#x60; };
+      }
+      const actual &#x3D; el.textContent;
+      const pass &#x3D; actual &#x3D;&#x3D;&#x3D; expected;
+      const message &#x3D; &#x60;Expected element to ${isNegative ? &#x27;not &#x27; : &#x27;&#x27;}have text &#x27;${expected}&#x27;, but had &#x27;${actual}&#x27;&#x60;;
+      return { pass: isNegative ? !pass : pass, message };
+    };
+    return {
+      compare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+        return assert(false, el, expected);
+      },
+      negativeCompare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+        return assert(true, el, expected);
+      }
+    };
+  },
+
+  /**
+   * Checks that the receiver is a TestElement wrapping a DOM element and contains the given textContent
+   */
+  toContainText: (util: jasmine.MatchersUtil, customEqualityTesters: Array&lt;jasmine.CustomEqualityTester&gt;): jasmine.CustomMatcher &#x3D;&gt; {
+    const assert &#x3D; (isNegative: boolean, el: any, expected: string) &#x3D;&gt; {
+      if (!el) {
+        return { pass: false, message: &#x60;Expected to check text &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
+      }
+      if (!(el instanceof TestElement)) {
+        return { pass: false, message: &#x60;Expected to check text &#x27;${expected}&#x27; on element, but element was not a TestElement&#x60; };
+      }
+      const actual &#x3D; el.textContent;
+      if (!actual) {
+        return {
+          pass: isNegative,
+          message: &#x60;Expected element to ${isNegative ? &#x27;not &#x27; : &#x27;&#x27;}contain text &#x27;${expected}&#x27;, but had no text&#x60;
+        };
+      }
+      const pass &#x3D; actual.indexOf(expected) !&#x3D;&#x3D; -1;
+      const message &#x3D; &#x60;Expected element to ${isNegative ? &#x27;not &#x27; : &#x27;&#x27;}contain text &#x27;${expected}&#x27;, but had text &#x27;${actual}&#x27;&#x60;;
+      return { pass: isNegative ? !pass : pass, message };
+    };
+    return {
+      compare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+        return assert(false, el, expected);
+      },
+      negativeCompare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+        return assert(true, el, expected);
+      }
+    };
+  },
+
+  /**
+   * Checks that the receiver is a TestElement wrapping a DOM element and contains the given textContent
+   */
+  toBeChecked: (util: jasmine.MatchersUtil, customEqualityTesters: Array&lt;jasmine.CustomEqualityTester&gt;): jasmine.CustomMatcher &#x3D;&gt; {
+    const assert &#x3D; (isNegative: boolean, el: any) &#x3D;&gt; {
+      if (!el) {
+        return { pass: false, message: &#x60;Expected to check if element was checked, but element was falsy&#x60; };
+      }
+      if (!(el instanceof TestInput)) {
+        return { pass: false, message: &#x60;Expected to check if element was checked, but element was not a TestInput&#x60; };
+      }
+      const pass &#x3D; el.checked;
+      const message &#x3D; &#x60;Expected element to be ${isNegative ? &#x27;not &#x27; : &#x27;&#x27;}checked, but was${!isNegative ? &#x27; not&#x27; : &#x27;&#x27;}&#x60;;
+      return { pass: isNegative ? !pass : pass, message };
+    };
+    return {
+      compare: (el: any): jasmine.CustomMatcherResult &#x3D;&gt; {
+        return assert(false, el);
+      },
+      negativeCompare: (el: any): jasmine.CustomMatcherResult &#x3D;&gt; {
+        return assert(true, el);
+      }
+    };
+  },
+
+  /**
+   * Checks that the receiver is a TestSelect wrapping a DOM element and has the given selected index
+   */
+  toHaveSelectedIndex: (util: jasmine.MatchersUtil, customEqualityTesters: Array&lt;jasmine.CustomEqualityTester&gt;): jasmine.CustomMatcher &#x3D;&gt; {
+    const assert &#x3D; (isNegative: boolean, el: any, expected: number) &#x3D;&gt; {
+      if (!el) {
+        return { pass: false, message: &#x60;Expected to check selected index ${expected} on element, but element was falsy&#x60; };
+      }
+      if (!(el instanceof TestSelect)) {
+        return { pass: false, message: &#x60;Expected to check selected index ${expected} on element, but element was not a TestSelect&#x60; };
+      }
+      const actual &#x3D; el.selectedIndex;
+      const pass &#x3D; actual &#x3D;&#x3D;&#x3D; expected;
+      const message &#x3D; &#x60;Expected element to ${isNegative ? &#x27;not &#x27; : &#x27;&#x27;}have selected index ${expected}, but had ${actual}&#x60;;
+      return { pass: isNegative ? !pass : pass, message };
+    };
+    return {
+      compare: (el: any, expected: number): jasmine.CustomMatcherResult &#x3D;&gt; {
+        return assert(false, el, expected);
+      },
+      negativeCompare: (el: any, expected: number): jasmine.CustomMatcherResult &#x3D;&gt; {
+        return assert(true, el, expected);
+      }
+    };
+  },
+
+  /**
+   * Checks that the receiver is a TestSelect wrapping a DOM element with the selected option&#x27;s value equal to the given value
+   */
+  toHaveSelectedValue: (util: jasmine.MatchersUtil, customEqualityTesters: Array&lt;jasmine.CustomEqualityTester&gt;): jasmine.CustomMatcher &#x3D;&gt; {
+    const assert &#x3D; (isNegative: boolean, el: any, expected: string) &#x3D;&gt; {
+      if (!el) {
+        return { pass: false, message: &#x60;Expected to check selected value &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
+      }
+      if (!(el instanceof TestSelect)) {
+        return { pass: false, message: &#x60;Expected to check selected value &#x27;${expected}&#x27; on element, but element was not a TestSelect&#x60; };
+      }
+      const actual &#x3D; el.selectedValue;
+      const pass &#x3D; actual  &#x3D;&#x3D;&#x3D; expected;
+      const message &#x3D; &#x60;Expected element to ${isNegative ? &#x27;not &#x27; : &#x27;&#x27;}have selected value &#x27;${expected}&#x27;, but had &#x27;${actual}&#x27;&#x60;;
+      return { pass: isNegative ? !pass : pass, message };
+    };
+    return {
+      compare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+        return assert(false, el, expected);
+      },
+      negativeCompare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+        return assert(true, el, expected);
+      }
+    };
+  },
+
+  /**
+   * Checks that the receiver is a TestSelect wrapping a DOM element with the selected option&#x27;s label equal to the given label
+   */
+  toHaveSelectedLabel: (util: jasmine.MatchersUtil, customEqualityTesters: Array&lt;jasmine.CustomEqualityTester&gt;): jasmine.CustomMatcher &#x3D;&gt; {
+    const assert &#x3D; (isNegative: boolean, el: any, expected: string) &#x3D;&gt; {
+      if (!el) {
+        return { pass: false, message: &#x60;Expected to check selected label &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
+      }
+      if (!(el instanceof TestSelect)) {
+        return { pass: false, message: &#x60;Expected to check selected label &#x27;${expected}&#x27; on element, but element was not a TestSelect&#x60; };
+      }
+      const actual &#x3D; el.selectedLabel;
+      const pass &#x3D; actual  &#x3D;&#x3D;&#x3D; expected;
+      const message &#x3D; &#x60;Expected element to ${isNegative ? &#x27;not &#x27; : &#x27;&#x27;}have selected label &#x27;${expected}&#x27;, but had &#x27;${actual}&#x27;&#x60;;
+      return { pass: isNegative ? !pass : pass, message };
+    };
+    return {
+      compare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+        return assert(false, el, expected);
+      },
+      negativeCompare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+        return assert(true, el, expected);
+      }
+    };
+  }
+}</code>
+                        </td>
+                    </tr>
 
 
-
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Creates a fake partial ActivatedRoute for tests.</p>
-<p>If you pass params, then the created route&#39;s paramMap will contain the same values.
-The same goes for queryParams and queryParamMap.</p>
-<p>If you pass a parent route and a snapshot, and the passed snapshot doesn&#39;t have a parent, then the snapshot&#39;s
-parent will be set to the parent route snapshot. This allows the code under test to use
-<code>route.parent.snapshot</code> or <code>route.snapshot.parent</code>.</p>
-<p>If you pass a snapshot with a parent, but don&#39;t pass a parent or pass a parent without snapshot, then the route&#39;s
-parent snapshot will be set to the given snapshot&#39;s parent. This allows the code under test to use
-<code>route.parent.snapshot</code> or <code>route.snapshot.parent</code>.</p>
-</div>
-
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>options</td>
-                                                    
-                                                    <td>
-                                                            no
-                                                    </td>
-                                                    
-
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="fakeSnapshot"></a>
-                        <span class="name">
-                            <b>
-                            fakeSnapshot
-                            </b>
-                            <a href="#fakeSnapshot"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>fakeSnapshot(options: undefined)</code>
-                    </td>
-                </tr>
-
-
-
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Creates a fake partial ActivatedRouteSnapshot for tests.</p>
-<p>If you pass params, then the created snapshot&#39;s paramMap will contain the same values.
-The same goes for queryParams and queryParamMap.</p>
-</div>
-
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>options</td>
-                                                    
-                                                    <td>
-                                                            no
-                                                    </td>
-                                                    
-
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                    </td>
-                </tr>
             </tbody>
         </table>
 </section>
@@ -465,8 +594,8 @@ The same goes for queryParams and queryParamMap.</p>
 
         <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-functions';
-            var COMPODOC_CURRENT_PAGE_URL = 'functions.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
         </script>
 
        <script src="../js/search/search.js"></script>
