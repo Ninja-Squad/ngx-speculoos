@@ -358,6 +358,12 @@ describe('Custom matchers', () => {
       expect(result.pass).toBeTruthy();
     });
 
+    it('should return false if matching value and .not', () => {
+      const result = matcher.negativeCompare(tester.selectBox, 1);
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected element to not have selected index 1, but had 1`);
+    });
+
     it('should return false if no element', () => {
       const result = matcher.compare(null, 1);
       expect(result.pass).toBeFalsy();
@@ -380,6 +386,56 @@ describe('Custom matchers', () => {
       const result = matcher.negativeCompare(tester.textArea, 1);
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check selected index 1 on element, but element was not a TestSelect`);
+    });
+  });
+
+  describe('toHaveSelectedValue', () => {
+    const matcher = speculoosMatchers.toHaveSelectedValue(undefined, undefined);
+
+    it('should check selected value on a select', () => {
+      expect(tester.selectBox).toHaveSelectedValue('a');
+      expect(tester.selectBox).not.toHaveSelectedValue('b');
+    });
+
+    it('should return false if wrong value', () => {
+      const result = matcher.compare(tester.selectBox, 'b');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected element to have selected value 'b', but had 'a'`);
+    });
+
+    it('should return true if wrong value and .not', () => {
+      const result = matcher.negativeCompare(tester.selectBox, 'b');
+      expect(result.pass).toBeTruthy();
+    });
+
+    it('should return false if matching value and .not', () => {
+      const result = matcher.negativeCompare(tester.selectBox, 'a');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected element to not have selected value 'a', but had 'a'`);
+    });
+
+    it('should return false if no element', () => {
+      const result = matcher.compare(null, 'a');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check selected value 'a' on element, but element was falsy`);
+    });
+
+    it('should return false if no element and .not too', () => {
+      const result = matcher.negativeCompare(null, 'a');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check selected value 'a' on element, but element was falsy`);
+    });
+
+    it('should return false if element of wrong type', () => {
+      const result = matcher.compare(tester.textArea, 'a');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check selected value 'a' on element, but element was not a TestSelect`);
+    });
+
+    it('should return false if element of wrong type and .not too', () => {
+      const result = matcher.negativeCompare(tester.textArea, 'a');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check selected value 'a' on element, but element was not a TestSelect`);
     });
   });
 });

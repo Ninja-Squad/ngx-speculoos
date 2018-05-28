@@ -30,5 +30,10 @@ declare namespace jasmine {
      * Checks that the receiver is a TestSelect wrapping a DOM element and has the given selected index
      */
     toHaveSelectedIndex(index: number): boolean;
+
+    /**
+     * Checks that the receiver is a TestSelect wrapping a DOM element with the selected option's value equal to the given value
+     */
+    toHaveSelectedValue(value: string): boolean;
   }
 }
