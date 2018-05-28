@@ -41,16 +41,14 @@ it('should hide cities when selecting the empty country option', () => {
 });
 ```
 
-ngx-speculoos allows writing the above tests in a simpler, cleaner way. 
+ngx-speculoos allows writing the above tests in a simpler, cleaner way:
 
-By using the page object pattern (which is optional, but recommended), you avoid repetitions. 
-
-By using wrappers around elements, dispatching events and triggering change detection is automatic.
-
-By using wrappers around elements, you get useful additional methods to make tests easier to write and read.
-
-In any case you need them, you always have access to the fixture, the native elements, the debug elements, etc.
-
+ - by using the page object pattern (which is optional, but recommended), you avoid repetitions. 
+ - by using wrappers around elements, dispatching events and triggering change detection is automatic.
+ - by using wrappers around elements, you get useful additional methods to make tests easier to write and read.
+ - by using custom matchers, you get even simpler expectations and more readable error messages
+ - in any case you need them, you always have access to the fixture, the native elements, the debug elements, etc.
+ 
 ```typescript
 class MyComponentTester extends ComponentTester<MyComponent> {
   constructor() {
@@ -82,6 +80,20 @@ it('should hide cities when selecting empty country option', () => {
 });
 ```
 
+If you use Jasmine, we also have custom matchers for frequent expectations:
+
+```typescript
+  beforeEach(() => jasmine.addMatchers(speculoosMatchers));
+
+  it('should contain a pre-populated form', () => {
+    expect(tester.informationMessage).toContainText('Please check that everything is correct');
+    expect(tester.country).toHaveSelectedValue('FR');
+    expect(tester.city).toHaveSelectedLabel('Paris');
+    expect(tester.name).toHaveValue('Doe');
+    expect(tester.newsletter).toBeChecked();
+  });
+```
+
 ## Installation
 
 Using npm: `npm install --save-dev ngx-speculoos`
@@ -99,6 +111,7 @@ Using yarn: `yarn add --dev ngx-speculoos`
  - Write your tests, as shown above, benefitting from the additional methods on the TestXxx classes.
  - If needed, you can always get the fixture, componentInstance, debugElement, nativeElement, etc.
    from the ComponentTester, and the nativeElement from each TestXxx wrapper.
+ - If you like our custom matchers, add them in a beforeEach block as shown above, and enjoy.
    
 ## Issues, questions
 
