@@ -1,0 +1,9 @@
+{
+  "extends": ["config:base", "schedule:earlyMondays"],
+  "packageRules": [
+    {
+      "packagePatterns": ["^@angular"],
+      "enabled": false
+    }
+  ]
+}
