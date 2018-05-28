@@ -95,20 +95,20 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
   toContainText: (util: jasmine.MatchersUtil, customEqualityTesters: Array<jasmine.CustomEqualityTester>): jasmine.CustomMatcher => {
     const assert = (isNegative: boolean, el: any, expected: string) => {
       if (!el) {
-        return { pass: false, message: `Expected to check textContent '${expected}' on element, but element was falsy` };
+        return { pass: false, message: `Expected to check text '${expected}' on element, but element was falsy` };
       }
       if (!(el instanceof TestElement)) {
-        return { pass: false, message: `Expected to check textContent '${expected}' on element, but element was not a TestElement` };
+        return { pass: false, message: `Expected to check text '${expected}' on element, but element was not a TestElement` };
       }
       const actual = el.textContent;
       if (!actual) {
         return {
           pass: isNegative,
-          message: `Expected element to ${isNegative ? 'not ' : ''}contain textContent '${expected}', but had no textContent`
+          message: `Expected element to ${isNegative ? 'not ' : ''}contain text '${expected}', but had no text`
         };
       }
       const pass = actual.indexOf(expected) !== -1;
-      const message = `Expected element to ${isNegative ? 'not ' : ''}contain textContent '${expected}', but had textContent '${actual}'`;
+      const message = `Expected element to ${isNegative ? 'not ' : ''}contain text '${expected}', but had text '${actual}'`;
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
