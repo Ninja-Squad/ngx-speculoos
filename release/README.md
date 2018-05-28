@@ -17,7 +17,20 @@
    `git checkout master; git merge release-xxx; git push --follow-tags`.
 8. You can now publish the release: `npm publish dist/ngx-speculoos`
 9. And publish the documentation (gh-pages branch). 
-   Make sure you have an `ngx-speculoos.github.io` folder as a sibling of the project folder, 
-   containing the latest checkout of the gh-pages branch. 
-   Then execute `yarn doc` to generate the documentation, and copy the `dist/documentation` 
-   folder to the `ngx-speculoos.github.io` folder. Add, commit and push everything.
+   Make sure you have an `ngx-speculoos.ninja-squad.com` folder as a sibling of the project folder:
+   `git clone https://github.com/Ninja-Squad/ngx-speculoos.git ngx-speculoos.ninja-squad.com`. 
+   In the `ngx-speculoos.ninja-squad.com` directory, checkout the `gh-pages` branch:
+   `git checkout gh-pages`. 
+   Then execute `yarn doc` in the main repository to generate the documentation, 
+   and copy the `dist/documentation` 
+   folder to the `ngx-speculoos.ninja-squad.com/documentation` folder. 
+   Add, commit and push everything:
+   ```
+   cd ngx-speculoos
+   yarn doc
+   cp -r dist/documentation/ ../ngx-speculoos.ninja-squad.com/documentation
+   cd ../ngx-speculoos.ninja-squad.com
+   git add .
+   git commit -am "docs: release-xxx"
+   git push
+   ```
