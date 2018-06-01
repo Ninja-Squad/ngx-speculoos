@@ -1,5 +1,3 @@
-/// <reference path="../custom-jasmine-types.d.ts" />
-
 import { TestTextArea } from './test-textarea';
 import { TestInput } from './test-input';
 import { TestElement } from './test-element';
