@@ -117,3 +117,7 @@ Using yarn: `yarn add --dev ngx-speculoos`
 ## Issues, questions
 
 Please, provide feedback by filing issues, or by submitting pull requests, to the [Github Project](https://github.com/Ninja-Squad/ngx-speculoos).
+
+# Complete example
+
+You can look at a minimal complete example in the [demo](https://github.com/Ninja-Squad/ngx-speculoos/tree/master/projects/demo/src/app) project.

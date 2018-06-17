@@ -8,6 +8,8 @@ script:
   - yarn build
   - yarn test
   - yarn doc
+  - yarn demobuild
+  - yarn demotest
 after_success:
 # upload js coverage to codecov.io
 - npm run codecov
