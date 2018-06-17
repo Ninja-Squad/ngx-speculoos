@@ -414,6 +414,10 @@ most used properties and methods. It also allows getting elements wrapped in Tes
                     <td class="col-md-4">
                             <div class="io-description"><p>Creates a ComponentFixture for the given component type using the TestBed, and creates a ComponentTester
 wrapping (and delegating) to this fixture. If a fixture is passed, then delegates to this fixture directly.</p>
+<p>Note that no <code>detectChanges()</code> call is made by this constructor. It&#39;s up to the subclass constructor,
+or to the user of the created ComponentTester, to call <code>detectChanges()</code> at least once to trigger change
+detection. This is necessary because some component templates can only be evaluated once inputs
+have been set on the component instance.</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -568,7 +572,7 @@ wrapping (and delegating) to this fixture. If a fixture is passed, then delegate
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="123" class="link-to-prism">src/lib/component-tester.ts:123</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="129" class="link-to-prism">src/lib/component-tester.ts:129</a></div>
                             </td>
                         </tr>
 
@@ -726,7 +730,7 @@ wrapping (and delegating) to this fixture. If a fixture is passed, then delegate
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="130" class="link-to-prism">src/lib/component-tester.ts:130</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="136" class="link-to-prism">src/lib/component-tester.ts:136</a></div>
                             </td>
                         </tr>
 
@@ -797,7 +801,7 @@ wrapping (and delegating) to this fixture. If a fixture is passed, then delegate
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/lib/component-tester.ts:74</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/lib/component-tester.ts:80</a></div>
                             </td>
                         </tr>
 
@@ -877,7 +881,7 @@ matched element is an input for example, the method will return a TestInput. You
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/lib/component-tester.ts:86</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/lib/component-tester.ts:92</a></div>
                             </td>
                         </tr>
 
@@ -957,7 +961,7 @@ matched elements are inputs for example, the method will return an array of Test
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">src/lib/component-tester.ts:95</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">src/lib/component-tester.ts:101</a></div>
                             </td>
                         </tr>
 
@@ -1034,7 +1038,7 @@ matched elements are inputs for example, the method will return an array of Test
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">src/lib/component-tester.ts:104</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="110" class="link-to-prism">src/lib/component-tester.ts:110</a></div>
                             </td>
                         </tr>
 
@@ -1111,7 +1115,7 @@ matched elements are inputs for example, the method will return an array of Test
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="114" class="link-to-prism">src/lib/component-tester.ts:114</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="120" class="link-to-prism">src/lib/component-tester.ts:120</a></div>
                             </td>
                         </tr>
 
@@ -1193,7 +1197,7 @@ matched elements are inputs for example, the method will return an array of Test
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/lib/component-tester.ts:48</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/lib/component-tester.ts:54</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1226,7 +1230,7 @@ matched elements are inputs for example, the method will return an array of Test
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/lib/component-tester.ts:55</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/lib/component-tester.ts:61</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1259,7 +1263,7 @@ matched elements are inputs for example, the method will return an array of Test
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/lib/component-tester.ts:62</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/lib/component-tester.ts:68</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1318,6 +1322,12 @@ export class ComponentTester&lt;T&gt; {
   /**
    * Creates a ComponentFixture for the given component type using the TestBed, and creates a ComponentTester
    * wrapping (and delegating) to this fixture. If a fixture is passed, then delegates to this fixture directly.
+   *
+   * Note that no &#x60;detectChanges()&#x60; call is made by this constructor. It&#x27;s up to the subclass constructor,
+   * or to the user of the created ComponentTester, to call &#x60;detectChanges()&#x60; at least once to trigger change
+   * detection. This is necessary because some component templates can only be evaluated once inputs
+   * have been set on the component instance.
+   *
    * @param arg the type of the component to wrap, or a component fixture to wrap
    */
   constructor(arg: Type&lt;T&gt; | ComponentFixture&lt;T&gt;) {
