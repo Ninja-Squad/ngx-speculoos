@@ -1,6 +1,6 @@
 {
   "name": "ngx-speculoos",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Helps writing Angular unit tests",
   "peerDependencies": {
     "@angular/core": "^6.0.0",
