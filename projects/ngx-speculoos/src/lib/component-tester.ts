@@ -35,6 +35,12 @@ export class ComponentTester<T> {
   /**
    * Creates a ComponentFixture for the given component type using the TestBed, and creates a ComponentTester
    * wrapping (and delegating) to this fixture. If a fixture is passed, then delegates to this fixture directly.
+   *
+   * Note that no `detectChanges()` call is made by this constructor. It's up to the subclass constructor,
+   * or to the user of the created ComponentTester, to call `detectChanges()` at least once to trigger change
+   * detection. This is necessary because some component templates can only be evaluated once inputs
+   * have been set on the component instance.
+   *
    * @param arg the type of the component to wrap, or a component fixture to wrap
    */
   constructor(arg: Type<T> | ComponentFixture<T>) {
