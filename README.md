@@ -81,6 +81,8 @@ it('should hide cities when selecting empty country option', () => {
 });
 ```
 
+## Custom matchers
+
 If you use Jasmine, we also have custom matchers for frequent expectations:
 
 ```typescript
@@ -94,6 +96,17 @@ If you use Jasmine, we also have custom matchers for frequent expectations:
     expect(tester.newsletter).toBeChecked();
   });
 ```
+
+The complete matcher list includes:
+
+- `toHaveClass(className: string)`
+- `toHaveValue(value: string)`
+- `toHaveText(textContent: string)`
+- `toContainText(textContent: string)`
+- `toBeChecked()`
+- `toHaveSelectedIndex(index: number)`
+- `toHaveSelectedValue(value: string)`
+- `toHaveSelectedLabel(label: string)`
 
 ## Installation
 
