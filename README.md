@@ -4,7 +4,7 @@
 # ngx-speculoos
 
 ngx-speculoos helps you write simpler, cleaner unit tests for your Angular components, based on the
-*page object* pattern. It also provides utilities to make writing Angular unit tests.
+*page object* pattern. It also provides utilities to make writing Angular unit tests easier.
 
 The library simply wraps the standard Angular ComponentFixture, and you should thus be 
 able to understand and start using ngx-speculoos in just a few minutes if you already know
