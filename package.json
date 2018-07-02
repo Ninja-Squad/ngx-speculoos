@@ -45,7 +45,7 @@
     "karma-jasmine": "1.1.2",
     "karma-jasmine-html-reporter": "1.2.0",
     "ng-packagr": "3.0.3",
-    "standard-version": "4.3.0",
+    "standard-version": "4.4.0",
     "ts-node": "7.0.0",
     "tsickle": "0.32.0",
     "tslib": "1.9.3",
