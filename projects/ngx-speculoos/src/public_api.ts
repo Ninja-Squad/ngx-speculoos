@@ -10,4 +10,5 @@ export * from './lib/test-input';
 export * from './lib/test-button';
 export * from './lib/test-select';
 export * from './lib/route';
-export * from './lib/matchers';
+export * from './lib/matchers.jasmine';
+export * from './lib/matchers.jest';

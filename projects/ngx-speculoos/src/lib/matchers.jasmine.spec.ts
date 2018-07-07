@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 
 import { ComponentTester } from './component-tester';
-import { speculoosMatchers } from './matchers';
+import { speculoosMatchers } from './matchers.jasmine';
 
 @Component({
   template: `

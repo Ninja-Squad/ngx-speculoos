@@ -1,0 +1,81 @@
+{
+    "name": "@types/jest",
+    "version": "22.2.3",
+    "description": "TypeScript definitions for Jest",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Asana",
+            "url": "https://asana.com"
+        },
+        {
+            "name": "Ivo Stratev",
+            "url": "https://github.com/NoHomey",
+            "githubUsername": "NoHomey"
+        },
+        {
+            "name": "jwbay",
+            "url": "https://github.com/jwbay",
+            "githubUsername": "jwbay"
+        },
+        {
+            "name": "Alexey Svetliakov",
+            "url": "https://github.com/asvetliakov",
+            "githubUsername": "asvetliakov"
+        },
+        {
+            "name": "Alex Jover Morales",
+            "url": "https://github.com/alexjoverm",
+            "githubUsername": "alexjoverm"
+        },
+        {
+            "name": "Allan Lukwago",
+            "url": "https://github.com/epicallan",
+            "githubUsername": "epicallan"
+        },
+        {
+            "name": "Ika",
+            "url": "https://github.com/ikatyang",
+            "githubUsername": "ikatyang"
+        },
+        {
+            "name": "Waseem Dahman",
+            "url": "https://github.com/wsmd",
+            "githubUsername": "wsmd"
+        },
+        {
+            "name": "Jamie Mason",
+            "url": "https://github.com/JamieMason",
+            "githubUsername": "JamieMason"
+        },
+        {
+            "name": "Douglas Duteil",
+            "url": "https://github.com/douglasduteil",
+            "githubUsername": "douglasduteil"
+        },
+        {
+            "name": "Ahn",
+            "url": "https://github.com/AhnpGit",
+            "githubUsername": "AhnpGit"
+        },
+        {
+            "name": "Josh Goldberg",
+            "url": "https://github.com/joshuakgoldberg",
+            "githubUsername": "joshuakgoldberg"
+        },
+        {
+            "name": "Bradley Ayers",
+            "url": "https://github.com/bradleyayers",
+            "githubUsername": "bradleyayers"
+        }
+    ],
+    "main": "",
+    "repository": {
+        "type": "git",
+        "url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+    },
+    "scripts": {},
+    "dependencies": {},
+    "typesPublisherContentHash": "8ed1cbaa1a14bef2fdb2514bb3d972a6d9b6dc2d477846e158196fa69830576b",
+    "typeScriptVersion": "2.3"
+}

@@ -278,6 +278,10 @@
   dependencies:
     "@types/jasmine" "*"
 
+"@types/jest@^23.1.6":
+  version "23.1.6"
+  resolved "https://repo.webfactory.intelligence-airbusds.com/api/npm/npm/@types/jest/-/jest-23.1.6.tgz#11c88f738f5b57d1a9dd4970c576a6639b8f0f37"
+
 "@types/node@*":
   version "10.1.2"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.1.2.tgz#1b928a0baa408fc8ae3ac012cc81375addc147c6"
