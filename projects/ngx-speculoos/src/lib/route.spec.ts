@@ -6,6 +6,7 @@ describe('routes', () => {
   describe('fakeSnapshot', () => {
     it('should create fake snapshot', () => {
       const snapshot: ActivatedRouteSnapshot = fakeSnapshot({});
+      expect(snapshot).not.toBeNull();
     });
 
     it('should convert params to paramMap', () => {
@@ -35,9 +36,10 @@ describe('routes', () => {
     });
   });
 
-  describe('fakeROute', () => {
+  describe('fakeRoute', () => {
     it('should create fake route', () => {
       const route: ActivatedRoute = fakeRoute({});
+      expect(route).not.toBeNull();
     });
 
     it('should convert params to paramMap', () => {
