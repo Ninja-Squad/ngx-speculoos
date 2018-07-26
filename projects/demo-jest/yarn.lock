@@ -261,6 +261,10 @@
   version "22.2.3"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-22.2.3.tgz#0157c0316dc3722c43a7b71de3fdf3acbccef10d"
 
+"@types/jest@^23.3.0":
+  version "23.3.0"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.3.0.tgz#5dd70033b616a6228042244ebd992f6426808810"
+
 "@types/node@^6.0.46":
   version "6.0.114"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.114.tgz#c42cd56479f32bc1576a5cb19f8a208da9a2b052"
@@ -4678,6 +4682,13 @@ neo-async@^2.5.0:
 next-tick@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
+
+"ngx-speculoos@file:../../dist/ngx-speculoos":
+  version "0.2.3"
+  dependencies:
+    tslib "^1.9.0"
+  optionalDependencies:
+    "@types/jest" "^23.3.0"
 
 no-case@^2.2.0:
   version "2.3.2"

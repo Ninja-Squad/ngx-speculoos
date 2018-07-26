@@ -66,7 +66,7 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
     if (this.selectedIndex < 0) {
       return null;
     }
-    return this.nativeElement.options[this.selectedIndex].label;
+    return this.nativeElement.options[this.selectedIndex].label || this.nativeElement.options[this.selectedIndex].text;
   }
 
   /**

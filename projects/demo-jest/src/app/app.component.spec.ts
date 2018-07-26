@@ -1,7 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {ComponentTester} from 'ngx-speculoos';
+import {ComponentTester, jestSpeculoosMatchers} from 'ngx-speculoos';
 
 class AppComponentTester extends ComponentTester<AppComponent> {
   constructor() {
@@ -43,15 +43,16 @@ describe('AppComponent', () => {
     // tester.someInput = 'someValue';
     tester.detectChanges();
 
-    expect.extend();
+    // @ts-ignore
+    expect.extend(jestSpeculoosMatchers);
   });
 
   it('should display an empty form, with a disabled submit button and no greeting', () => {
+    expect(true).toBe(true);
     expect(tester.firstName).toHaveValue('');
     expect(tester.submit.disabled).toBe(true);
     expect(tester.greeting).toBeNull();
   });
-
   it('should enable the submit button when filling the first name', () => {
     tester.firstName.fillWith('John');
     expect(tester.submit.disabled).toBe(false);

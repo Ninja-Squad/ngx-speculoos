@@ -1,11 +1,13 @@
 import {
+  MatcherFunction,
   toBeChecked,
-  toContainText, toHaveClass, toHaveSelectedIndex,
+  toContainText,
+  toHaveClass,
+  toHaveSelectedIndex,
   toHaveSelectedLabel,
   toHaveSelectedValue,
   toHaveText,
-  toHaveValue,
-  MatcherFunction
+  toHaveValue
 } from './matchers';
 
 const jestify: (v: MatcherFunction, isNot: boolean) => (received: any, argument: any) => { pass: boolean; message: () => string } =
@@ -13,11 +15,11 @@ const jestify: (v: MatcherFunction, isNot: boolean) => (received: any, argument:
   return (received: any, argument: any) => {
     const {pass, message} = v(isNot, received, argument);
     // TODO: Waiting for PR & Release https://github.com/DefinitelyTyped/DefinitelyTyped/pull/27124
-    return {pass, message: () => message};
+    return {pass: isNot ? !pass : pass, message: () => message};
   };
 };
 
-const jestSpeculoosMatchers : jest.ExpectExtendMap = {
+const jestSpeculoosMatchers: jest.ExpectExtendMap = {
 
   /**
    * Checks that the receiver is a TestElement wrapping a DOM element and has the given CSS class

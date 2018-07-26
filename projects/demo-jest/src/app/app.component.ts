@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,19 @@ import { Component } from '@angular/core';
   `,
   styles: []
 })
-export class AppComponent {
-  title = 'app';
+export class AppComponent implements OnInit {
+  form: FormGroup;
+  greeting = '';
+
+  constructor(private fb: FormBuilder) { }
+
+  ngOnInit() {
+    this.form = this.fb.group({
+      firstName: ['', [Validators.required]]
+    });
+  }
+
+  sayHello() {
+    this.greeting = `Hello ${this.form.value.firstName}`;
+  }
 }
