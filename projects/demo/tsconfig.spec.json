@@ -3,6 +3,7 @@
   "compilerOptions": {
     "outDir": "../../out-tsc/spec",
     "module": "commonjs",
+    "skipLibCheck": true,
     "types": [
       "jasmine",
       "node"
