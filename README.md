@@ -114,6 +114,13 @@ Using npm: `npm install --save-dev ngx-speculoos`
 
 Using yarn: `yarn add --dev ngx-speculoos`
 
+If you ant to use the custom matchers in addition to the core ngx-speculoos library, also install `ngx-speculoos-jasmine`
+
+Using npm: `npm install --save-dev ngx-speculoos-jasmine`
+
+Using yarn: `yarn add --dev ngx-speculoos-jasmine`
+
+
 ## Getting started
 
  - import ComponentTester, and other needed classes from ngx-speculoos

@@ -43,6 +43,46 @@
         }
       }
     },
+    "ngx-speculoos-jasmine": {
+      "root": "projects/ngx-speculoos-jasmine",
+      "sourceRoot": "projects/ngx-speculoos-jasmine/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-speculoos-jasmine/tsconfig.lib.json",
+            "project": "projects/ngx-speculoos-jasmine/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ngx-speculoos-jasmine/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-speculoos-jasmine/src/test.ts",
+            "tsConfig": "projects/ngx-speculoos-jasmine/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-speculoos-jasmine/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-speculoos-jasmine/tsconfig.lib.json",
+              "projects/ngx-speculoos-jasmine/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
     "demo": {
       "root": "projects/demo/",
       "sourceRoot": "projects/demo/src",

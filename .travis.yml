@@ -7,6 +7,8 @@ addons:
 script:
   - yarn build
   - yarn test
+  - yarn jasminebuild
+  - yarn jasminetest
   - yarn doc
   - yarn demobuild
   - yarn demotest

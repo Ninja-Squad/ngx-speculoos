@@ -19,6 +19,9 @@
     "paths": {
       "ngx-speculoos": [
         "dist/ngx-speculoos"
+      ],
+      "ngx-speculoos-jasmine": [
+        "dist/ngx-speculoos-jasmine"
       ]
     }
   }

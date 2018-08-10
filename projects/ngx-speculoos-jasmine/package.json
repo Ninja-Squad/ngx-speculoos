@@ -1,0 +1,18 @@
+{
+  "name": "ngx-speculoos-jasmine",
+  "version": "0.2.3",
+  "description": "Jasmine matchers for ngx-speculoos",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ninja-Squad/ngx-speculoos.git"
+  },
+  "keywords": [
+    "angular",
+    "test"
+  ],
+  "author": "Ninja Squad",
+  "bugs": {
+    "url": "https://github.com/Ninja-Squad/ngx-speculoos/issues"
+  }
+}
