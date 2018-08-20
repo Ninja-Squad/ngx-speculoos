@@ -21,7 +21,6 @@
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
-    "@davinkevin/jest": "^0.0.7",
     "core-js": "^2.5.4",
     "ngx-speculoos": "file:../../dist/ngx-speculoos",
     "rxjs": "^6.0.0",

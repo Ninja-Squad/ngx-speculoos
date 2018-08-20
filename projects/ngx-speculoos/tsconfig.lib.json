@@ -15,7 +15,7 @@
     "skipLibCheck": true,
     "types": [
       "@types/jasmine",
-      "@types/jest",
+      "@types/jest"
     ],
     "lib": [
       "dom",
