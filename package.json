@@ -33,7 +33,7 @@
     "@compodoc/compodoc": "1.1.5",
     "@types/jasmine": "2.8.8",
     "@types/jasminewd2": "2.0.3",
-    "@types/node": "8.10.28",
+    "@types/node": "8.10.29",
     "codecov": "3.0.4",
     "codelyzer": "4.4.4",
     "core-js": "2.5.7",
