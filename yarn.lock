@@ -405,15 +405,15 @@
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.8.7.tgz#3fe583928ae0a22cdd34cedf930eeffeda2602fd"
   integrity sha512-RdbrPcW1aD78UmdLiDa9ZCKrbR5Go8PXh6GCpb4oIOkWVEusubSJJDrP4c5RYOu8m/CBz+ygZpicj6Pgms5a4Q==
 
-"@types/jasmine@2.8.8":
-  version "2.8.8"
-  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.8.8.tgz#bf53a7d193ea8b03867a38bfdb4fbb0e0bf066c9"
-  integrity sha512-OJSUxLaxXsjjhob2DBzqzgrkLmukM3+JMpRp0r0E4HTdT1nwDCWhaswjYxazPij6uOdzHCJfNbDjmQ1/rnNbCg==
+"@types/jasmine@2.8.9":
+  version "2.8.9"
+  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.8.9.tgz#e028c891e8551fdf6de905d959581fc4fa0b5509"
+  integrity sha512-8dPZwjosElZOGGYw1nwTvOEMof4gjwAWNFS93nBI091BoEfd5drnHOLRMiRF/LOPuMTn5LgEdv0bTUO8QFVuHQ==
 
-"@types/jasminewd2@2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@types/jasminewd2/-/jasminewd2-2.0.3.tgz#0d2886b0cbdae4c0eeba55e30792f584bf040a95"
-  integrity sha512-hYDVmQZT5VA2kigd4H4bv7vl/OhlympwREUemqBdOqtrYTo5Ytm12a5W5/nGgGYdanGVxj0x/VhZ7J3hOg/YKg==
+"@types/jasminewd2@2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@types/jasminewd2/-/jasminewd2-2.0.5.tgz#0910db4bd50202dea9fe6ec37517b0ae6a01a9e6"
+  integrity sha512-1awkm/O4pQCR9hI2F80HmIOda/L+ogkSL8Arj1k00eue5VLY5ooewhSOyF/cUJE0S+/34uD5EYY3zmd6fu2OCA==
   dependencies:
     "@types/jasmine" "*"
 
@@ -1814,10 +1814,10 @@ codecov@3.1.0:
     request "^2.87.0"
     urlgrey "^0.4.4"
 
-codelyzer@4.4.4:
-  version "4.4.4"
-  resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-4.4.4.tgz#29b7dbb51ba9ecc45c7300d61280a6564765d402"
-  integrity sha512-JgFMudx0n50IuE/ydAfnkksCwQkWSVWgYvhDPHZgDUbmsiYC22VuEXKu5l8Hhx9UJsLgjWDLjTAFGj2WaW5DUA==
+codelyzer@4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-4.5.0.tgz#a65ddeeeca2894653253a89bfa229118ff9f59b1"
+  integrity sha512-oO6vCkjqsVrEsmh58oNlnJkRXuA30hF8cdNAQV9DytEalDwyOFRvHMnlKFzmOStNerOmPGZU9GAHnBo4tGvtiQ==
   dependencies:
     app-root-path "^2.1.0"
     css-selector-tokenizer "^0.7.0"
@@ -4953,10 +4953,10 @@ karma-source-map-support@1.3.0:
   dependencies:
     source-map-support "^0.5.5"
 
-karma@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/karma/-/karma-3.0.0.tgz#6da83461a8a28d8224575c3b5b874e271b4730c3"
-  integrity sha512-ZTjyuDXVXhXsvJ1E4CnZzbCjSxD6sEdzEsFYogLuZM0yqvg/mgz+O+R1jb0J7uAQeuzdY8kJgx6hSNXLwFuHIQ==
+karma@3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/karma/-/karma-3.1.1.tgz#94c8edd20fb9597ccde343326da009737fb0423a"
+  integrity sha512-NetT3wPCQMNB36uiL9LLyhrOt8SQwrEKt0xD3+KpTCfm0VxVyUJdPL5oTq2Ic5ouemgL/Iz4wqXEbF3zea9kQQ==
   dependencies:
     bluebird "^3.3.0"
     body-parser "^1.16.1"
@@ -5746,10 +5746,10 @@ neo-async@^2.5.0:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.5.1.tgz#acb909e327b1e87ec9ef15f41b8a269512ad41ee"
   integrity sha512-3KL3fvuRkZ7s4IFOMfztb7zJp3QaVWnBeGoJlgB38XnCRPj/0tLzzLG5IB8NYOHbJ8g8UGrgZv44GLDk6CxTxA==
 
-ng-packagr@4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-4.2.0.tgz#9e2babac0402f761c64908996dae99e54a07fe3e"
-  integrity sha512-y1a9DgIMho5bG77WWK/3Tz2Sxe3Vm9zt4c3AMTLFA6+GqukgTHJYwdfcvWzNfi3iPotoAeoMBCKwd5KSOoiU8A==
+ng-packagr@4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-4.4.0.tgz#b868a829b5743870c6392491de3faf4e4cec6f4d"
+  integrity sha512-dLpC/kmQsdbkL96ZclGjNRhq/J4MwpPKwPYNom74lvXqFC2jbbT/fnwmxX9WKXjvE8MEGsg2D2x8MsRURiNscg==
   dependencies:
     "@ngtools/json-schema" "^1.1.0"
     autoprefixer "^9.0.0"
@@ -5771,6 +5771,7 @@ ng-packagr@4.2.0:
     rimraf "^2.6.1"
     rollup "^0.66.0"
     rollup-plugin-commonjs "^9.1.3"
+    rollup-plugin-json "^3.1.0"
     rollup-plugin-node-resolve "^3.0.0"
     rollup-plugin-sourcemaps "^0.4.2"
     rxjs "^6.0.0"
@@ -7153,6 +7154,13 @@ rollup-plugin-commonjs@^9.1.3:
     resolve "^1.5.0"
     rollup-pluginutils "^2.0.1"
 
+rollup-plugin-json@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-json/-/rollup-plugin-json-3.1.0.tgz#7c1daf60c46bc21021ea016bd00863561a03321b"
+  integrity sha512-BlYk5VspvGpjz7lAwArVzBXR60JK+4EKtPkCHouAWg39obk9S61hZYJDBfMK+oitPdoe11i69TlxKlMQNFC/Uw==
+  dependencies:
+    rollup-pluginutils "^2.3.1"
+
 rollup-plugin-node-resolve@^3.0.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/rollup-plugin-node-resolve/-/rollup-plugin-node-resolve-3.3.0.tgz#c26d110a36812cbefa7ce117cadcd3439aa1c713"
@@ -7174,6 +7182,14 @@ rollup-pluginutils@^2.0.1:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.2.0.tgz#64ba3f29988b84322bafa188a9f99ca731c95354"
   integrity sha512-aqjTUCfZJK3O+TjH++PdQc8Lg6V6t/1Fhu8/6f3qPQzBt0xZruDgqblvb3RQOfKybTgfxKpyy2pQmQ4X2OmY4w==
+  dependencies:
+    estree-walker "^0.5.2"
+    micromatch "^2.3.11"
+
+rollup-pluginutils@^2.3.1:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.3.3.tgz#3aad9b1eb3e7fe8262820818840bf091e5ae6794"
+  integrity sha512-2XZwja7b6P5q4RZ5FhyX1+f46xi1Z3qBKigLRZ6VTZjwbN0K1IFGMlwm06Uu0Emcre2Z63l77nq/pzn+KxIEoA==
   dependencies:
     estree-walker "^0.5.2"
     micromatch "^2.3.11"
@@ -8319,10 +8335,10 @@ ts-simple-ast@12.4.0:
     tslib "^1.9.0"
     typescript "2.9.1"
 
-tsickle@0.33.0:
-  version "0.33.0"
-  resolved "https://registry.yarnpkg.com/tsickle/-/tsickle-0.33.0.tgz#337a8a1abdbc8c9586010a566daf0cd135496fa7"
-  integrity sha512-ww4jhOaKhHHjZzs+dm381hffl1GOHhfA3LgbSoHMogWKm5mazpglVhMl1zJrSzOdhYHlZvrT7hRWCbGptzIpSA==
+tsickle@0.33.1:
+  version "0.33.1"
+  resolved "https://registry.yarnpkg.com/tsickle/-/tsickle-0.33.1.tgz#eee4ebabeda3bcd8afc32cee34c822cbe3e839ec"
+  integrity sha512-SpW2G3PvDGs4a5sMXPlWnCWHWRviWjSlI3U0734e3fU3U39VAE0NPr8M3W1cuL/OU/YXheYipGeEwtIJ5k0NHQ==
   dependencies:
     minimist "^1.2.0"
     mkdirp "^0.5.1"
