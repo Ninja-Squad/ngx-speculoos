@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v0.2.3...v1.0.0) (2018-11-02)
+
+
+### Bug Fixes
+
+* **deps:** bump to jasmine v3 ([19a17e9](https://github.com/Ninja-Squad/ngx-speculoos/commit/19a17e9))
+* **deps:** update dependency rxjs to v6.2.1 ([78fb091](https://github.com/Ninja-Squad/ngx-speculoos/commit/78fb091))
+* **deps:** update dependency rxjs to v6.2.2 ([cb28026](https://github.com/Ninja-Squad/ngx-speculoos/commit/cb28026))
+* **deps:** update dependency rxjs to v6.3.2 ([ecaa6ec](https://github.com/Ninja-Squad/ngx-speculoos/commit/ecaa6ec))
+* **docs:** typo in readme ([2e6bce7](https://github.com/Ninja-Squad/ngx-speculoos/commit/2e6bce7)), closes [#42](https://github.com/Ninja-Squad/ngx-speculoos/issues/42)
+
+
+
 <a name="0.2.3"></a>
 ## [0.2.3](https://github.com/Ninja-Squad/ngx-speculoos/compare/v0.2.2...v0.2.3) (2018-06-17)
 
