@@ -14,269 +14,26 @@
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
             <a href="../" class="navbar-brand">ngx-speculoos documentation</a>
-            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-            <div id="book-search-input" role="search">
+                <div id="book-search-input" role="search">
     <input type="text" placeholder="Type to search">
 </div>
-            <nav>
-
-    <ul class="list">
-
-        <li class="title">
-            <a href="index.html" data-type="index-link">ngx-speculoos documentation</a>
-        </li>
-
-        <li class="divider"></li>
-
-
-        <li class="chapter">
-            <a data-type="chapter-link" href="index.html"><span class="fa fa-home"></span>Getting started</a>
-            <ul class="links">
-                    <li class="link">
-                        <a 
-                            
-                             href="overview.html" 
-                             href="overview.html" 
-                            data-type="chapter-link">
-                            <span class="fa fa-fw fa-th"></span>Overview
-                        </a>
-                    </li>
-                    <li class="link">
-                      <a href="index.html" data-type="chapter-link"><span class="fa fa-file-text-o"></span>README</a>
-                    </li>
-                    <li class="link">
-                            <a href="changelog.html"
-                        data-type="chapter-link">
-                            <span class="fa fa-fw fa-file-text-o"></span>CHANGELOG
-                        </a>
-                    </li>
-                    <li class="link">
-                            <a href="license.html"
-                        data-type="chapter-link">
-                            <span class="fa fa-fw fa-file-text-o"></span>LICENSE
-                        </a>
-                    </li>
-                    <li class="link">
-                        <a href="dependencies.html"
-                            data-type="chapter-link">
-                            <span class="fa fa-fw fa-list"></span>Dependencies
-                        </a>
-                    </li>
-            </ul>
-        </li>
-
-
-
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#xs-classes-links"
-                >
-                <span class="fa fa-fw fa-file-code-o"></span>
-                <span>Classes</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="xs-classes-links"
-                >
-                    <li class="link">
-                        <a href="classes/ComponentTester.html" data-type="entity-link">ComponentTester</a>
-                    </li>
-                    <li class="link">
-                        <a href="classes/TestButton.html" data-type="entity-link">TestButton</a>
-                    </li>
-                    <li class="link">
-                        <a href="classes/TestElement.html" data-type="entity-link">TestElement</a>
-                    </li>
-                    <li class="link">
-                        <a href="classes/TestHtmlElement.html" data-type="entity-link">TestHtmlElement</a>
-                    </li>
-                    <li class="link">
-                        <a href="classes/TestInput.html" data-type="entity-link">TestInput</a>
-                    </li>
-                    <li class="link">
-                        <a href="classes/TestSelect.html" data-type="entity-link">TestSelect</a>
-                    </li>
-                    <li class="link">
-                        <a href="classes/TestTextArea.html" data-type="entity-link">TestTextArea</a>
-                    </li>
-            </ul>
-        </li>
-
-
-
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#xs-miscellaneous-links"
-                >
-                <span class="fa fa-fw fa-cubes"></span>
-                <span>Miscellaneous</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="xs-miscellaneous-links"
-                >
-                    <li class="link">
-                      <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
-                    </li>
-                    <li class="link">
-                      <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
-                    </li>
-            </ul>
-        </li>
-
-
-
-        <li class="divider"></li>
-        <li class="copyright">
-                Documentation generated using <a href="https://compodoc.github.io/website/" target="_blank">
-                            <img data-src="images/compodoc-vectorise.svg" class="img-responsive" data-type="compodoc-logo">
-                </a>
-        </li>
-
-    </ul>
-
-</nav>
+            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
            <div class="row main">
                <div class="hidden-xs menu">
-                   <nav>
-
-    <ul class="list">
-
-        <li class="title">
-            <a href="index.html" data-type="index-link">ngx-speculoos documentation</a>
-        </li>
-
-        <li class="divider"></li>
-
-            <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-
-        <li class="chapter">
-            <a data-type="chapter-link" href="index.html"><span class="fa fa-home"></span>Getting started</a>
-            <ul class="links">
-                    <li class="link">
-                        <a 
-                            
-                             href="overview.html" 
-                             href="overview.html" 
-                            data-type="chapter-link">
-                            <span class="fa fa-fw fa-th"></span>Overview
-                        </a>
-                    </li>
-                    <li class="link">
-                      <a href="index.html" data-type="chapter-link"><span class="fa fa-file-text-o"></span>README</a>
-                    </li>
-                    <li class="link">
-                            <a href="changelog.html"
-                        data-type="chapter-link">
-                            <span class="fa fa-fw fa-file-text-o"></span>CHANGELOG
-                        </a>
-                    </li>
-                    <li class="link">
-                            <a href="license.html"
-                        data-type="chapter-link">
-                            <span class="fa fa-fw fa-file-text-o"></span>LICENSE
-                        </a>
-                    </li>
-                    <li class="link">
-                        <a href="dependencies.html"
-                            data-type="chapter-link">
-                            <span class="fa fa-fw fa-list"></span>Dependencies
-                        </a>
-                    </li>
-            </ul>
-        </li>
-
-
-
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#classes-links"
->
-                <span class="fa fa-fw fa-file-code-o"></span>
-                <span>Classes</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="classes-links"
->
-                    <li class="link">
-                        <a href="classes/ComponentTester.html" data-type="entity-link">ComponentTester</a>
-                    </li>
-                    <li class="link">
-                        <a href="classes/TestButton.html" data-type="entity-link">TestButton</a>
-                    </li>
-                    <li class="link">
-                        <a href="classes/TestElement.html" data-type="entity-link">TestElement</a>
-                    </li>
-                    <li class="link">
-                        <a href="classes/TestHtmlElement.html" data-type="entity-link">TestHtmlElement</a>
-                    </li>
-                    <li class="link">
-                        <a href="classes/TestInput.html" data-type="entity-link">TestInput</a>
-                    </li>
-                    <li class="link">
-                        <a href="classes/TestSelect.html" data-type="entity-link">TestSelect</a>
-                    </li>
-                    <li class="link">
-                        <a href="classes/TestTextArea.html" data-type="entity-link">TestTextArea</a>
-                    </li>
-            </ul>
-        </li>
-
-
-
-
-
-        <li class="chapter">
-            <div class="simple menu-toggler" data-toggle="collapse"
-                    data-target="#miscellaneous-links"
->
-                <span class="fa fa-fw fa-cubes"></span>
-                <span>Miscellaneous</span>
-                <span class="fa fa-angle-down"></span>
-            </div>
-            <ul class="links collapse"
-                    id="miscellaneous-links"
->
-                    <li class="link">
-                      <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
-                    </li>
-                    <li class="link">
-                      <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
-                    </li>
-            </ul>
-        </li>
-
-
-
-        <li class="divider"></li>
-        <li class="copyright">
-                Documentation generated using <a href="https://compodoc.github.io/website/" target="_blank">
-                            <img data-src="images/compodoc-vectorise.svg" class="img-responsive" data-type="compodoc-logo">
-                </a>
-        </li>
-
-    </ul>
-
-</nav>
+                   <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content class">
                    <div class="content-data">
+
+
 
 
 
@@ -396,6 +153,20 @@
 
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#value">value</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
         </tbody>
     </table>
 </section>
@@ -436,7 +207,7 @@
                                                         </td>
                                                   
                                                     <td>
-                                                            no
+                                                            No
                                                     </td>
                                                     
                                                 </tr>
@@ -448,7 +219,7 @@
                                                         </td>
                                                   
                                                     <td>
-                                                            no
+                                                            No
                                                     </td>
                                                     
                                                 </tr>
@@ -477,13 +248,13 @@
                                 <span class="modifier">Readonly</span>
                             debugElement
                             </b>
-                            <a href="#debugElement"><span class="fa fa-link"></span></a>
+                            <a href="#debugElement"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon fa fa-reset"></span><code>debugElement:     <code><a href="https://angular.io/api/core/DebugElement" target="_blank" >DebugElement</a></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>debugElement:     <code><a href="https://angular.io/api/core/DebugElement" target="_blank" >DebugElement</a></code>
 </code>
                     </td>
                 </tr>
@@ -530,7 +301,7 @@
                             <b>
                             fillWith
                             </b>
-                            <a href="#fillWith"><span class="fa fa-link"></span></a>
+                            <a href="#fillWith"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -572,7 +343,7 @@
                                                         </td>
                                                     
                                                     <td>
-                                                            no
+                                                            No
                                                     </td>
                                                     
 
@@ -606,7 +377,7 @@
                             <b>
                             click
                             </b>
-                            <a href="#click"><span class="fa fa-link"></span></a>
+                            <a href="#click"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -652,7 +423,7 @@
                             <b>
                             attr
                             </b>
-                            <a href="#attr"><span class="fa fa-link"></span></a>
+                            <a href="#attr"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -700,7 +471,7 @@
                                                         </td>
                                                     
                                                     <td>
-                                                            no
+                                                            No
                                                     </td>
                                                     
 
@@ -734,7 +505,7 @@
                             <b>
                             button
                             </b>
-                            <a href="#button"><span class="fa fa-link"></span></a>
+                            <a href="#button"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -782,7 +553,7 @@
                                                         </td>
                                                     
                                                     <td>
-                                                            no
+                                                            No
                                                     </td>
                                                     
 
@@ -817,7 +588,7 @@
                             <b>
                             dispatchEvent
                             </b>
-                            <a href="#dispatchEvent"><span class="fa fa-link"></span></a>
+                            <a href="#dispatchEvent"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -864,7 +635,7 @@
                                                         </td>
                                                     
                                                     <td>
-                                                            no
+                                                            No
                                                     </td>
                                                     
 
@@ -894,7 +665,7 @@
                             <b>
                             dispatchEventOfType
                             </b>
-                            <a href="#dispatchEventOfType"><span class="fa fa-link"></span></a>
+                            <a href="#dispatchEventOfType"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -941,7 +712,7 @@
                                                         </td>
                                                     
                                                     <td>
-                                                            no
+                                                            No
                                                     </td>
                                                     
 
@@ -971,7 +742,7 @@
                             <b>
                             element
                             </b>
-                            <a href="#element"><span class="fa fa-link"></span></a>
+                            <a href="#element"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -1022,7 +793,7 @@ matched element is an input for example, the method will return a TestInput. You
                                                         </td>
                                                     
                                                     <td>
-                                                            no
+                                                            No
                                                     </td>
                                                     
 
@@ -1057,7 +828,7 @@ matched element is an input for example, the method will return a TestInput. You
                             <b>
                             elements
                             </b>
-                            <a href="#elements"><span class="fa fa-link"></span></a>
+                            <a href="#elements"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -1108,7 +879,7 @@ matched elements are inputs for example, the method will return an array of Test
                                                         </td>
                                                     
                                                     <td>
-                                                            no
+                                                            No
                                                     </td>
                                                     
 
@@ -1143,7 +914,7 @@ matched elements are inputs for example, the method will return an array of Test
                             <b>
                             input
                             </b>
-                            <a href="#input"><span class="fa fa-link"></span></a>
+                            <a href="#input"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -1191,7 +962,7 @@ matched elements are inputs for example, the method will return an array of Test
                                                         </td>
                                                     
                                                     <td>
-                                                            no
+                                                            No
                                                     </td>
                                                     
 
@@ -1226,7 +997,7 @@ matched elements are inputs for example, the method will return an array of Test
                             <b>
                             select
                             </b>
-                            <a href="#select"><span class="fa fa-link"></span></a>
+                            <a href="#select"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -1274,7 +1045,7 @@ matched elements are inputs for example, the method will return an array of Test
                                                         </td>
                                                     
                                                     <td>
-                                                            no
+                                                            No
                                                     </td>
                                                     
 
@@ -1309,7 +1080,7 @@ matched elements are inputs for example, the method will return an array of Test
                             <b>
                             textarea
                             </b>
-                            <a href="#textarea"><span class="fa fa-link"></span></a>
+                            <a href="#textarea"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -1357,7 +1128,7 @@ matched elements are inputs for example, the method will return an array of Test
                                                         </td>
                                                     
                                                     <td>
-                                                            no
+                                                            No
                                                     </td>
                                                     
 
@@ -1399,7 +1170,7 @@ matched elements are inputs for example, the method will return an array of Test
                 <tr>
                     <td class="col-md-4">
                         <a name="value"></a>
-                        <span class="name"><b>value</b><a href="#value"><span class="fa fa-link"></span></a></span>
+                        <span class="name"><b>value</b><a href="#value"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
 
@@ -1465,9 +1236,10 @@ export class TestTextArea extends TestHtmlElement&lt;HTMLTextAreaElement&gt; {
 
 
 
+
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -1479,6 +1251,16 @@ export class TestTextArea extends TestHtmlElement&lt;HTMLTextAreaElement&gt; {
            </div>
        </div>
 
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'TestTextArea.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
        <script src="../js/libs/bootstrap-native.js"></script>
 
        <script src="../js/libs/es6-shim.min.js"></script>
@@ -1488,21 +1270,16 @@ export class TestTextArea extends TestHtmlElement&lt;HTMLTextAreaElement&gt; {
 
        <script src="../js/compodoc.js"></script>
 
-        <script>
-            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'TestTextArea.html';
-        </script>
-
-       <script src="../js/search/search.js"></script>
-       <script src="../js/search/lunr.min.js"></script>
-       <script src="../js/search/search-lunr.js"></script>
-
        <script src="../js/tabs.js"></script>
        <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
        <script src="../js/libs/prism.js"></script>
        <script src="../js/sourceCode.js"></script>
-       <script src="../js/search/search_index.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
 
 
     </body>
