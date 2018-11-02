@@ -3,9 +3,9 @@
   "version": "0.2.3",
   "description": "Helps writing Angular unit tests",
   "peerDependencies": {
-    "@angular/core": "^6.0.0",
-    "@angular/router": "^6.0.0",
-    "rxjs": "^6.0.0"
+    "@angular/core": "^7.0.2",
+    "@angular/router": "^7.0.2",
+    "rxjs": "^6.3.3"
   },
   "license": "MIT",
   "repository": {
