@@ -5,13 +5,11 @@ All notable changes to this project will be documented in this file. See [standa
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v0.2.3...v1.0.0) (2018-11-02)
 
+This 1.0.0 version is based and tested on Angular 7.0.0, although it should run fine with Angular 6.
+Future versions are not guaranteed to support Angular 6, though. We encourage you to ugrade.
 
 ### Bug Fixes
 
-* **deps:** bump to jasmine v3 ([19a17e9](https://github.com/Ninja-Squad/ngx-speculoos/commit/19a17e9))
-* **deps:** update dependency rxjs to v6.2.1 ([78fb091](https://github.com/Ninja-Squad/ngx-speculoos/commit/78fb091))
-* **deps:** update dependency rxjs to v6.2.2 ([cb28026](https://github.com/Ninja-Squad/ngx-speculoos/commit/cb28026))
-* **deps:** update dependency rxjs to v6.3.2 ([ecaa6ec](https://github.com/Ninja-Squad/ngx-speculoos/commit/ecaa6ec))
 * **docs:** typo in readme ([2e6bce7](https://github.com/Ninja-Squad/ngx-speculoos/commit/2e6bce7)), closes [#42](https://github.com/Ninja-Squad/ngx-speculoos/issues/42)
 
 
