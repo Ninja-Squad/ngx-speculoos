@@ -11,6 +11,7 @@ import { TestSelect } from './test-select';
       <option value="a">A</option>
       <option value="b" label="B"></option>
     </select>
+    <select id="s2" disabled></select>
   `
 })
 class TestComponent {
@@ -24,6 +25,10 @@ class TestComponentTester extends ComponentTester<TestComponent> {
 
   get selectBox() {
     return this.select('#s1');
+  }
+
+  get disabledSelectBox() {
+    return this.select('#s2');
   }
 }
 
@@ -111,5 +116,10 @@ describe('TestButton', () => {
 
   it('should expose the size', () => {
     expect(tester.selectBox.size).toBe(3);
+  });
+
+  it('should expose the disabled property', () => {
+    expect(tester.selectBox.disabled).toBe(false);
+    expect(tester.disabledSelectBox.disabled).toBe(true);
   });
 });

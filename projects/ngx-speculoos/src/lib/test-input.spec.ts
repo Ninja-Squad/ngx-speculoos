@@ -11,6 +11,7 @@ import { TestInput } from './test-input';
       <input type="checkbox" id="c2" value="b" checked (change)="onChange()"/>
       <input type="radio" name="r" id="r1" value="x" (change)="onChange()"/>
       <input type="radio" name="r" id="r2" value="y" checked (change)="onChange()"/>
+      <input id="t2" disabled />
     </form>
   `
 })
@@ -42,6 +43,10 @@ class TestComponentTester extends ComponentTester<TestComponent> {
 
   get checkedRadio() {
     return this.input('#r2');
+  }
+
+  get disabledInput() {
+    return this.input('#t2');
   }
 }
 
@@ -122,5 +127,10 @@ describe('TestInput', () => {
     expect(tester.checkedRadio.checked).toBe(false);
     expect(tester.componentInstance.onChange).toHaveBeenCalled();
     expect(tester.detectChanges).toHaveBeenCalled();
+  });
+
+  it('should expose the disabled property', () => {
+    expect(tester.textInput.disabled).toBe(false);
+    expect(tester.disabledInput.disabled).toBe(true);
   });
 });

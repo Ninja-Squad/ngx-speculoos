@@ -25,4 +25,11 @@ export class TestTextArea extends TestHtmlElement<HTMLTextAreaElement> {
   get value() {
     return this.nativeElement.value;
   }
+
+  /**
+   * the disabled property of the wrapped textarea
+   */
+  get disabled() {
+    return this.nativeElement.disabled;
+  }
 }

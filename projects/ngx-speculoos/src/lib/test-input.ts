@@ -34,6 +34,13 @@ export class TestInput extends TestHtmlElement<HTMLInputElement> {
   }
 
   /**
+   * the disabled property of the wrapped input
+   */
+  get disabled() {
+    return this.nativeElement.disabled;
+  }
+
+  /**
    * Checks the wrapped input, then dispatches an event of type change and triggers a change detection
    */
   check() {

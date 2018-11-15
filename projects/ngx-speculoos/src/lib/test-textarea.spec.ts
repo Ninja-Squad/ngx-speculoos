@@ -6,6 +6,7 @@ import { TestTextArea } from './test-textarea';
 @Component({
   template: `
     <textarea id="t1" value="hello" (input)="onInput()">hello</textarea>
+    <textarea id="t2" disabled></textarea>
   `
 })
 class TestComponent {
@@ -20,6 +21,10 @@ class TestComponentTester extends ComponentTester<TestComponent> {
 
   get textBox() {
     return this.textarea('#t1');
+  }
+
+  get disabledTextBox() {
+    return this.textarea('#t2');
   }
 }
 
@@ -53,5 +58,10 @@ describe('TestTextArea', () => {
     expect(tester.textBox.value).toBe('goodbye');
     expect(tester.componentInstance.onInput).toHaveBeenCalled();
     expect(tester.detectChanges).toHaveBeenCalled();
+  });
+
+  it('should expose the disabled property', () => {
+    expect(tester.textBox.disabled).toBe(false);
+    expect(tester.disabledTextBox.disabled).toBe(true);
   });
 });

@@ -89,4 +89,11 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
   get size() {
     return this.nativeElement.options.length;
   }
+
+  /**
+   * the disabled property of the wrapped select
+   */
+  get disabled() {
+    return this.nativeElement.disabled;
+  }
 }
