@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v1.0.0...v1.1.0) (2018-11-17)
+
+
+### Features
+
+* add disabled property on TestInput, TestTextarea and TestSelect ([b2e77d6](https://github.com/Ninja-Squad/ngx-speculoos/commit/b2e77d6)), closes [#100](https://github.com/Ninja-Squad/ngx-speculoos/issues/100)
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v0.2.3...v1.0.0) (2018-11-02)
 
