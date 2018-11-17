@@ -164,6 +164,9 @@
                                 <li>
                                     <a href="#value">value</a>
                                 </li>
+                                <li>
+                                    <a href="#disabled">disabled</a>
+                                </li>
                             </ul>
                         </td>
                     </tr>
@@ -1194,6 +1197,35 @@ matched elements are inputs for example, the method will return an array of Test
 
             </tbody>
         </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="disabled"></a>
+                        <span class="name"><b>disabled</b><a href="#disabled"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>disabled()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/lib/test-textarea.ts:32</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>the disabled property of the wrapped textarea</p>
+</div>
+
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
 </section>
     </div>
 
@@ -1225,6 +1257,13 @@ export class TestTextArea extends TestHtmlElement&lt;HTMLTextAreaElement&gt; {
    */
   get value() {
     return this.nativeElement.value;
+  }
+
+  /**
+   * the disabled property of the wrapped textarea
+   */
+  get disabled() {
+    return this.nativeElement.disabled;
   }
 }
 </code></pre>

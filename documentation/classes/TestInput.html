@@ -173,6 +173,9 @@
                                 <li>
                                     <a href="#checked">checked</a>
                                 </li>
+                                <li>
+                                    <a href="#disabled">disabled</a>
+                                </li>
                             </ul>
                         </td>
                     </tr>
@@ -323,7 +326,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/lib/test-input.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/lib/test-input.ts:46</a></div>
                             </td>
                         </tr>
 
@@ -439,7 +442,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/lib/test-input.ts:47</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/lib/test-input.ts:54</a></div>
                             </td>
                         </tr>
 
@@ -1312,6 +1315,35 @@ matched elements are inputs for example, the method will return an array of Test
 
             </tbody>
         </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="disabled"></a>
+                        <span class="name"><b>disabled</b><a href="#disabled"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>disabled()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/lib/test-input.ts:39</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>the disabled property of the wrapped input</p>
+</div>
+
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
 </section>
     </div>
 
@@ -1350,6 +1382,13 @@ export class TestInput extends TestHtmlElement&lt;HTMLInputElement&gt; {
    */
   get checked() {
     return this.nativeElement.checked;
+  }
+
+  /**
+   * the disabled property of the wrapped input
+   */
+  get disabled() {
+    return this.nativeElement.disabled;
   }
 
   /**

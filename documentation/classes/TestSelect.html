@@ -185,6 +185,9 @@
                                 <li>
                                     <a href="#size">size</a>
                                 </li>
+                                <li>
+                                    <a href="#disabled">disabled</a>
+                                </li>
                             </ul>
                         </td>
                     </tr>
@@ -1521,6 +1524,35 @@ matched elements are inputs for example, the method will return an array of Test
 
             </tbody>
         </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="disabled"></a>
+                        <span class="name"><b>disabled</b><a href="#disabled"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>disabled()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/lib/test-select.ts:96</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>the disabled property of the wrapped select</p>
+</div>
+
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
 </section>
     </div>
 
@@ -1616,6 +1648,13 @@ export class TestSelect extends TestHtmlElement&lt;HTMLSelectElement&gt; {
    */
   get size() {
     return this.nativeElement.options.length;
+  }
+
+  /**
+   * the disabled property of the wrapped select
+   */
+  get disabled() {
+    return this.nativeElement.disabled;
   }
 }
 </code></pre>
