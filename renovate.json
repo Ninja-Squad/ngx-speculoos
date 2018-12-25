@@ -2,8 +2,13 @@
   "extends": ["config:base", "schedule:earlyMondays", ":semanticCommitTypeAll(chore)"],
   "packageRules": [
     {
-      "packagePatterns": ["^@angular"],
+      "packagePatterns": ["^@angular", "^typescript"],
       "enabled": false
     }
-  ]
+  ],
+  "automerge": true,
+  "automergeType": "branch",
+  "major": {
+    "automerge": false
+  }
 }
