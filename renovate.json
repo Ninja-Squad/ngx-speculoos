@@ -1,5 +1,5 @@
 {
-  "extends": ["config:base", "schedule:earlyMondays", ":semanticCommitTypeAll(chore)"],
+  "extends": ["config:base", ":semanticCommitTypeAll(chore)"],
   "packageRules": [
     {
       "packagePatterns": ["^@angular", "^typescript"],
