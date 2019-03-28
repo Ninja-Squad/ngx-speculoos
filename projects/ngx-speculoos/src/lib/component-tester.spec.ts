@@ -11,7 +11,7 @@ import { TestHtmlElement } from './test-html-element';
 @Component({
   template: `
     <svg id="svg"></svg>
-    <a id="a"></a>
+    <a id="a">link</a>
     <input id="input" />
     <button id="button">Test</button>
     <select id="select"></select>

@@ -14,7 +14,7 @@ import { TestInput } from './test-input';
     <div id="parent">
       <div>
         <svg id="svg"></svg>
-        <a id="a"></a>
+        <a id="a">link</a>
         <input id="input" />
         <button id="button">Test</button>
         <select id="select" name="foo"></select>
