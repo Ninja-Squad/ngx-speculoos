@@ -48,7 +48,16 @@
     "no-duplicate-switch-case": true,
     "no-dynamic-delete": true,
     "no-empty": false,
-    "no-implicit-dependencies": [true, "dev"],
+    "no-implicit-dependencies": [
+      true,
+      "dev",
+      [
+        "ngx-speculoos",
+        "core-js",
+        "zone.js",
+        "@angular/platform-browser-dynamic"
+      ]
+    ],
     "no-import-side-effect": [
       true,
       {
