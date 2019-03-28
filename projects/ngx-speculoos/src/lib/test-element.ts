@@ -13,11 +13,13 @@ export class TestElement<E extends Element> {
 
   private querier: TestElementQuerier;
 
-  constructor(protected tester: ComponentTester<any>,
-              /**
-               * the wrapped debug element
-               */
-              public readonly debugElement: DebugElement) {
+  constructor(
+    protected tester: ComponentTester<any>,
+    /**
+     * the wrapped debug element
+     */
+    readonly debugElement: DebugElement
+  ) {
     this.querier = new TestElementQuerier(tester, debugElement);
   }
 
