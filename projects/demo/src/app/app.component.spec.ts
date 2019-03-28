@@ -1,7 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { ComponentTester } from 'ngx-speculoos';
-import { speculoosMatchers } from 'ngx-speculoos';
+import { ComponentTester, speculoosMatchers } from 'ngx-speculoos';
 import { ReactiveFormsModule } from '@angular/forms';
 
 class AppComponentTester extends ComponentTester<AppComponent> {
