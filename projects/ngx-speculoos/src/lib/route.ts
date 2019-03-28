@@ -108,7 +108,7 @@ export function fakeSnapshot(options: {
   outlet?: string;
   /** The component of the route */
   component?: Type<any> | string | null;
-  /** The configuration used to match this route **/
+  /** The configuration used to match this route */
   routeConfig?: Route;
   /** The root of the router state */
   root?: ActivatedRouteSnapshot;
