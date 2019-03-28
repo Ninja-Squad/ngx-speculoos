@@ -4,6 +4,7 @@
   "description": "Helps writing Angular unit tests",
   "peerDependencies": {
     "@angular/core": "^7.0.2",
+    "@angular/platform-browser": "^7.0.2",
     "@angular/router": "^7.0.2",
     "rxjs": "^6.3.3"
   },
