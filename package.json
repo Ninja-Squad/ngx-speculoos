@@ -35,7 +35,7 @@
     "@types/jasminewd2": "2.0.6",
     "@types/node": "8.10.46",
     "codecov": "3.3.0",
-    "codelyzer": "5.0.0",
+    "codelyzer": "5.0.1",
     "core-js": "2.6.5",
     "jasmine-core": "3.4.0",
     "jasmine-spec-reporter": "4.2.1",
