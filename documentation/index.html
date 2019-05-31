@@ -38,15 +38,15 @@
 <p>The library simply wraps the standard Angular ComponentFixture, and you should thus be 
 able to understand and start using ngx-speculoos in just a few minutes if you already know
 how to write Angular unit tests.</p>
-<h2 id="why-should-you-care">Why should you care?</h2>
+<h2 id="why-should-you-care-">Why should you care?</h2>
 <p>If you&#39;ve ever written tests like the following:</p>
-<p>```typescript
-it(&#39;should display French cities when selecting the country France&#39;, () =&gt; {
+<div><pre class="line-numbers"><code class="language-typescript">it(&#39;should display French cities when selecting the country France&#39;, () =&gt; {
   const countrySelect = fixture.nativeElement.querySelector(&#39;#country&#39;); // countrySelect is of type any
   countrySelect.selectedIndex = 12; // what is at index 12?
   countrySelect.dispatchEvent(new Event(&#39;change&#39;)); // why do I need to do that?
-  fixture.detectChanges();</p>
-<p>  const city = fixture.nativeElement.querySelector(&#39;#city&#39;); // city is of type any
+  fixture.detectChanges();
+
+  const city = fixture.nativeElement.querySelector(&#39;#city&#39;); // city is of type any
   expect(city).toBeTruthy();
   expect(city.options.length).toBe(3);
   expect(city.options[0].value).toBe(&#39;&#39;);
@@ -55,16 +55,16 @@ it(&#39;should display French cities when selecting the country France&#39;, () 
   expect(city.options[1].label).toBe(&#39;Paris&#39;);
   expect(city.options[2].value).toBe(&#39;LYON&#39;);
   expect(city.options[2].label).toBe(&#39;Lyon&#39;);
-});</p>
-<p>it(&#39;should hide cities when selecting the empty country option&#39;, () =&gt; {
+});
+
+it(&#39;should hide cities when selecting the empty country option&#39;, () =&gt; {
   const countrySelect = fixture.nativeElement.querySelector(&#39;#country&#39;); // I did that previously. What about DRY?
   countrySelect.selectedIndex = 0;
   countrySelect.dispatchEvent(new Event(&#39;change&#39;)); // why do I need to do that?
-  fixture.detectChanges(); // why do I need to do that?</p>
-<p>  expect(fixture.nativeElement.querySelector(&#39;#city&#39;)).toBeFalsy(); // I did that previously. What about DRY?
-});
-```</p>
-<p>ngx-speculoos allows writing the above tests in a simpler, cleaner way:</p>
+  fixture.detectChanges(); // why do I need to do that?
+
+  expect(fixture.nativeElement.querySelector(&#39;#city&#39;)).toBeFalsy(); // I did that previously. What about DRY?
+});</code></pre></div><p>ngx-speculoos allows writing the above tests in a simpler, cleaner way:</p>
 <ul>
 <li>by using the page object pattern (which is optional, but recommended), you avoid repetitions. </li>
 <li>by using wrappers around elements, dispatching events and triggering change detection is automatic.</li>
@@ -72,42 +72,44 @@ it(&#39;should display French cities when selecting the country France&#39;, () 
 <li>by using custom matchers, you get even simpler expectations and more readable error messages</li>
 <li>in any case you need them, you always have access to the fixture, the native elements, the debug elements, etc.</li>
 </ul>
-<p>```typescript
-class MyComponentTester extends ComponentTester<MyComponent> {
+<div><pre class="line-numbers"><code class="language-typescript">class MyComponentTester extends ComponentTester&lt;MyComponent&gt; {
   constructor() {
     super(MyComponent);
-  }</p>
-<p>  get country() {
+  }
+
+  get country() {
     return this.select(&#39;#country&#39;); // returns a TestSelect object, not any. Similar methods exist for inputs, buttons, etc.
-  }</p>
-<p>  get city() {
+  }
+
+  get city() {
     return this.select(&#39;#city&#39;); // returns a TestSelect object, not any
   }
-}</p>
-<p>[...]</p>
-<p>it(&#39;should display French cities when selecting the country France&#39;, () =&gt; {
-  tester.country.selectLabel(&#39;France&#39;); // no dispatchEvent, no detectChanges needed</p>
-<p>  expect(tester.city.optionValues).toEqual([&#39;&#39;, &#39;PARIS&#39;, &#39;LYON&#39;]);
+}
+
+[...]
+
+it(&#39;should display French cities when selecting the country France&#39;, () =&gt; {
+  tester.country.selectLabel(&#39;France&#39;); // no dispatchEvent, no detectChanges needed
+
+  expect(tester.city.optionValues).toEqual([&#39;&#39;, &#39;PARIS&#39;, &#39;LYON&#39;]);
   expect(tester.city.optionLabels).toEqual([&#39;&#39;, &#39;Paris&#39;, &#39;Lyon&#39;]);
-});</p>
-<p>it(&#39;should hide cities when selecting empty country option&#39;, () =&gt; {
-  tester.country.selectIndex(0); // no repetition of the selector, no dispatchEvent, no detectChanges needed</p>
-<p>  expect(tester.city).toBeFalsy(); // no repetition of the selector
 });
-```</p>
-<h2 id="custom-matchers">Custom matchers</h2>
+
+it(&#39;should hide cities when selecting empty country option&#39;, () =&gt; {
+  tester.country.selectIndex(0); // no repetition of the selector, no dispatchEvent, no detectChanges needed
+
+  expect(tester.city).toBeFalsy(); // no repetition of the selector
+});</code></pre></div><h2 id="custom-matchers">Custom matchers</h2>
 <p>If you use Jasmine, we also have custom matchers for frequent expectations:</p>
-<p>```typescript
-  beforeEach(() =&gt; jasmine.addMatchers(speculoosMatchers));</p>
-<p>  it(&#39;should contain a pre-populated form&#39;, () =&gt; {
+<div><pre class="line-numbers"><code class="language-typescript">  beforeEach(() =&gt; jasmine.addMatchers(speculoosMatchers));
+
+  it(&#39;should contain a pre-populated form&#39;, () =&gt; {
     expect(tester.informationMessage).toContainText(&#39;Please check that everything is correct&#39;);
     expect(tester.country).toHaveSelectedValue(&#39;FR&#39;);
     expect(tester.city).toHaveSelectedLabel(&#39;Paris&#39;);
     expect(tester.name).toHaveValue(&#39;Doe&#39;);
     expect(tester.newsletter).toBeChecked();
-  });
-```</p>
-<p>The complete matcher list includes:</p>
+  });</code></pre></div><p>The complete matcher list includes:</p>
 <ul>
 <li><code>toHaveClass(className: string)</code></li>
 <li><code>toHaveValue(value: string)</code></li>
