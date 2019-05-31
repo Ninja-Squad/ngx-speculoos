@@ -1,6 +1,32 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [2.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v1.1.0...v2.0.0) (2019-05-31)
+
+
+### Bug Fixes
+
+* add @angular/platform-browser as a peer dep ([e354723](https://github.com/Ninja-Squad/ngx-speculoos/commit/e354723))
+* add ngx-speculoos as an implicit dependency ([df43796](https://github.com/Ninja-Squad/ngx-speculoos/commit/df43796))
+* codelyzer rule name ([3b7ff6c](https://github.com/Ninja-Squad/ngx-speculoos/commit/3b7ff6c))
+* combine imports ([17ac60f](https://github.com/Ninja-Squad/ngx-speculoos/commit/17ac60f))
+* do not lint public_api.ts ([6179153](https://github.com/Ninja-Squad/ngx-speculoos/commit/6179153))
+* jsdoc formatting ([3c95bc6](https://github.com/Ninja-Squad/ngx-speculoos/commit/3c95bc6))
+* readonly is already public ([3a159e3](https://github.com/Ninja-Squad/ngx-speculoos/commit/3a159e3))
+* update polyfill.ts with latest ([27b885a](https://github.com/Ninja-Squad/ngx-speculoos/commit/27b885a))
+
+
+### chore
+
+* upgrade to Angular 8.0.0 ([f46816e](https://github.com/Ninja-Squad/ngx-speculoos/commit/f46816e))
+
+
+### BREAKING CHANGES
+
+* ngx-speculoos is now built against Angular 8.0.0. If you want to use it with Angular 7.x, stick to the previous version of ngx-speculoos.
+
+
 
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v1.0.0...v1.1.0) (2018-11-17)
