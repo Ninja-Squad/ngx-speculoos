@@ -110,6 +110,8 @@ The complete matcher list includes:
 
 ## Installation
 
+Using the CLI: `ng add ngx-speculoos`
+
 Using npm: `npm install --save-dev ngx-speculoos`
 
 Using yarn: `yarn add --dev ngx-speculoos`
