@@ -20,5 +20,8 @@
   "author": "Ninja Squad",
   "bugs": {
     "url": "https://github.com/Ninja-Squad/ngx-speculoos/issues"
+  },
+  "ng-add": {
+    "save": "devDependencies"
   }
 }
