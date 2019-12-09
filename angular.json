@@ -17,7 +17,8 @@
           },
           "configurations": {
             "production": {
-              "project": "projects/ngx-speculoos/ng-package.prod.json"
+              "project": "projects/ngx-speculoos/ng-package.prod.json",
+              "tsConfig": "projects/ngx-speculoos/tsconfig.lib.prod.json"
             }
           }
         },
@@ -53,6 +54,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/demo",
             "index": "projects/demo/src/index.html",
             "main": "projects/demo/src/main.ts",
@@ -80,7 +82,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -89,6 +90,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
