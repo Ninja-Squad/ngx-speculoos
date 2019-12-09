@@ -80,13 +80,13 @@ describe('Custom matchers', () => {
     it('should return false if class is missing', () => {
       const result = matcher.compare(tester.div, 'baz');
       expect(result.pass).toBeFalsy();
-      expect(result.message).toBe(`Expected element to have class 'baz', but had 'foo, bar'`);
+      expect(result.message).toBe(`Expected element to have class 'baz', but had 'bar, foo'`);
     });
 
     it('should return false if class is present and .not', () => {
       const result = matcher.negativeCompare(tester.div, 'foo');
       expect(result.pass).toBeFalsy();
-      expect(result.message).toBe(`Expected element to not have class 'foo', but had 'foo, bar'`);
+      expect(result.message).toBe(`Expected element to not have class 'foo', but had 'bar, foo'`);
     });
 
     it('should return false if no class', () => {
