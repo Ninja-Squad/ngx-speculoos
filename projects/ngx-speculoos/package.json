@@ -3,10 +3,10 @@
   "version": "2.0.0",
   "description": "Helps writing Angular unit tests",
   "peerDependencies": {
-    "@angular/core": "^8.0.0",
-    "@angular/platform-browser": "^8.0.0",
-    "@angular/router": "^8.0.0",
-    "rxjs": "^6.5.2"
+    "@angular/core": "^9.0.0",
+    "@angular/platform-browser": "^9.0.0",
+    "@angular/router": "^9.0.0",
+    "rxjs": "^6.5.4"
   },
   "license": "MIT",
   "repository": {
