@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v2.0.0...v3.0.0) (2020-02-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* ngx-speculoos is now built against Angular 9.0.0. If you want to use it with Angular 8.x, stick to the previous version of ngx-speculoos.
+
+### Features
+
+* support basic ng-add ([80a3aac](https://github.com/Ninja-Squad/ngx-speculoos/commit/80a3aac1270c62c111986da826dabfbc7a66f080))
+
+
+### Bug Fixes
+
+* **matchers:** update signature for jasmine 3.4.3 ([09e1172](https://github.com/Ninja-Squad/ngx-speculoos/commit/09e1172738b82f34121126c2654185fb5d26f30e)), closes [/github.com/DefinitelyTyped/DefinitelyTyped/commit/b7d7813c5deacde98bcb7a5e63104431b85c09eb#diff-04770c66399ad864e0881886aaf0800](https://github.com/Ninja-Squad//github.com/DefinitelyTyped/DefinitelyTyped/commit/b7d7813c5deacde98bcb7a5e63104431b85c09eb/issues/diff-04770c66399ad864e0881886aaf0800)
+* downgrade compodoc to 1.1.8 because of code block issue on README ([bba2b6b](https://github.com/Ninja-Squad/ngx-speculoos/commit/bba2b6b7a217338e69448deb9163fd803e94c08b)), closes [#146](https://github.com/Ninja-Squad/ngx-speculoos/issues/146) [compodoc/compodoc#765](https://github.com/compodoc/compodoc/issues/765)
+* remove reflect polyfill ([592249a](https://github.com/Ninja-Squad/ngx-speculoos/commit/592249a145fe024296313f28be0cb76a9c53a87b))
+
+### chore
+
+* update to Angular and CLI 9.0.0 ([1c0395b](https://github.com/Ninja-Squad/ngx-speculoos/commit/1c0395bc48af885d86058ff16846990460f2cbb9))
+
 ## [2.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v1.1.0...v2.0.0) (2019-05-31)
 
 
