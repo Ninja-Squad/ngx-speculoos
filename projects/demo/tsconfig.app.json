@@ -9,7 +9,6 @@
     "src/polyfills.ts"
   ],
   "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
     "strictTemplates": true
   }
 }
