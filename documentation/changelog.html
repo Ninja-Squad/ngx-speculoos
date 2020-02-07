@@ -32,8 +32,27 @@
 
 <h1 id="changelog">Changelog</h1>
 <p>All notable changes to this project will be documented in this file. See <a href="https://github.com/conventional-changelog/standard-version">standard-version</a> for commit guidelines.</p>
-<h2 id="2-0-0-2019-05-31-"><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v1.1.0...v2.0.0">2.0.0</a> (2019-05-31)</h2>
+<h2 id="300-2020-02-07"><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v2.0.0...v3.0.0">3.0.0</a> (2020-02-07)</h2>
+<h3 id="⚠-breaking-changes">⚠ BREAKING CHANGES</h3>
+<ul>
+<li>ngx-speculoos is now built against Angular 9.0.0. If you want to use it with Angular 8.x, stick to the previous version of ngx-speculoos.</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li>support basic ng-add (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/80a3aac1270c62c111986da826dabfbc7a66f080">80a3aac</a>)</li>
+</ul>
 <h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>matchers:</strong> update signature for jasmine 3.4.3 (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/09e1172738b82f34121126c2654185fb5d26f30e">09e1172</a>), closes <a href="https://github.com/Ninja-Squad//github.com/DefinitelyTyped/DefinitelyTyped/commit/b7d7813c5deacde98bcb7a5e63104431b85c09eb/issues/diff-04770c66399ad864e0881886aaf0800">/github.com/DefinitelyTyped/DefinitelyTyped/commit/b7d7813c5deacde98bcb7a5e63104431b85c09eb#diff-04770c66399ad864e0881886aaf0800</a></li>
+<li>downgrade compodoc to 1.1.8 because of code block issue on README (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/bba2b6b7a217338e69448deb9163fd803e94c08b">bba2b6b</a>), closes <a href="https://github.com/Ninja-Squad/ngx-speculoos/issues/146">#146</a> <a href="https://github.com/compodoc/compodoc/issues/765">compodoc/compodoc#765</a></li>
+<li>remove reflect polyfill (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/592249a145fe024296313f28be0cb76a9c53a87b">592249a</a>)</li>
+</ul>
+<h3 id="chore">chore</h3>
+<ul>
+<li>update to Angular and CLI 9.0.0 (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/1c0395bc48af885d86058ff16846990460f2cbb9">1c0395b</a>)</li>
+</ul>
+<h2 id="200-2019-05-31"><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v1.1.0...v2.0.0">2.0.0</a> (2019-05-31)</h2>
+<h3 id="bug-fixes-1">Bug Fixes</h3>
 <ul>
 <li>add @angular/platform-browser as a peer dep (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/e354723">e354723</a>)</li>
 <li>add ngx-speculoos as an implicit dependency (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/df43796">df43796</a>)</li>
@@ -44,7 +63,7 @@
 <li>readonly is already public (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/3a159e3">3a159e3</a>)</li>
 <li>update polyfill.ts with latest (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/27b885a">27b885a</a>)</li>
 </ul>
-<h3 id="chore">chore</h3>
+<h3 id="chore-1">chore</h3>
 <ul>
 <li>upgrade to Angular 8.0.0 (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/f46816e">f46816e</a>)</li>
 </ul>
@@ -53,33 +72,33 @@
 <li>ngx-speculoos is now built against Angular 8.0.0. If you want to use it with Angular 7.x, stick to the previous version of ngx-speculoos.</li>
 </ul>
 <p><a name="1.1.0"></a></p>
-<h1 id="1-1-0-2018-11-17-"><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v1.0.0...v1.1.0">1.1.0</a> (2018-11-17)</h1>
-<h3 id="features">Features</h3>
+<h1 id="110-2018-11-17"><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v1.0.0...v1.1.0">1.1.0</a> (2018-11-17)</h1>
+<h3 id="features-1">Features</h3>
 <ul>
 <li>add disabled property on TestInput, TestTextarea and TestSelect (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/b2e77d6">b2e77d6</a>), closes <a href="https://github.com/Ninja-Squad/ngx-speculoos/issues/100">#100</a></li>
 </ul>
 <p><a name="1.0.0"></a></p>
-<h1 id="1-0-0-2018-11-02-"><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v0.2.3...v1.0.0">1.0.0</a> (2018-11-02)</h1>
+<h1 id="100-2018-11-02"><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v0.2.3...v1.0.0">1.0.0</a> (2018-11-02)</h1>
 <p>This 1.0.0 version is based and tested on Angular 7.0.0, although it should run fine with Angular 6.
 Future versions are not guaranteed to support Angular 6, though. We encourage you to ugrade.</p>
-<h3 id="bug-fixes">Bug Fixes</h3>
+<h3 id="bug-fixes-2">Bug Fixes</h3>
 <ul>
 <li><strong>docs:</strong> typo in readme (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/2e6bce7">2e6bce7</a>), closes <a href="https://github.com/Ninja-Squad/ngx-speculoos/issues/42">#42</a></li>
 </ul>
 <p><a name="0.2.3"></a></p>
-<h2 id="0-2-3-2018-06-17-"><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v0.2.2...v0.2.3">0.2.3</a> (2018-06-17)</h2>
+<h2 id="023-2018-06-17"><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v0.2.2...v0.2.3">0.2.3</a> (2018-06-17)</h2>
 <p><a name="0.2.2"></a></p>
-<h2 id="0-2-2-2018-06-04-"><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v0.2.1...v0.2.2">0.2.2</a> (2018-06-04)</h2>
+<h2 id="022-2018-06-04"><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v0.2.1...v0.2.2">0.2.2</a> (2018-06-04)</h2>
 <p><a name="0.2.1"></a></p>
-<h2 id="0-2-1-2018-06-04-"><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v0.2.0...v0.2.1">0.2.1</a> (2018-06-04)</h2>
+<h2 id="021-2018-06-04"><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v0.2.0...v0.2.1">0.2.1</a> (2018-06-04)</h2>
 <p><a name="0.2.0"></a></p>
-<h1 id="0-2-0-2018-05-28-"><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v0.1.0...v0.2.0">0.2.0</a> (2018-05-28)</h1>
-<h3 id="bug-fixes">Bug Fixes</h3>
+<h1 id="020-2018-05-28"><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v0.1.0...v0.2.0">0.2.0</a> (2018-05-28)</h1>
+<h3 id="bug-fixes-3">Bug Fixes</h3>
 <ul>
 <li>custom matchers always return false if no element (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/a282826">a282826</a>)</li>
 <li>fix toHaveText on empty text contents (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/0172de3">0172de3</a>)</li>
 </ul>
-<h3 id="features">Features</h3>
+<h3 id="features-2">Features</h3>
 <ul>
 <li>add custom matcher for class (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/39d1f3a">39d1f3a</a>)</li>
 <li>add custom matcher for value (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/eee2e97">eee2e97</a>)</li>
@@ -91,8 +110,8 @@ Future versions are not guaranteed to support Angular 6, though. We encourage yo
 <li>custom matcher toHaveText (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/8036c22">8036c22</a>)</li>
 </ul>
 <p><a name="0.1.0"></a></p>
-<h1 id="0-1-0-2018-05-25-">0.1.0 (2018-05-25)</h1>
-<h3 id="very-first-release-champagne-">Very first release :champagne:</h3>
+<h1 id="010-2018-05-25">0.1.0 (2018-05-25)</h1>
+<h3 id="very-first-release-champagne">Very first release :champagne:</h3>
 
 
 
@@ -107,6 +126,7 @@ Future versions are not guaranteed to support Angular 6, though. We encourage yo
 
 
 
+                   
 
 
 
@@ -129,6 +149,7 @@ Future versions are not guaranteed to support Angular 6, though. We encourage yo
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
             var COMPODOC_CURRENT_PAGE_URL = 'changelog.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="./js/libs/custom-elements.min.js"></script>
