@@ -2,7 +2,7 @@
 /*
  * Public API Surface of ngx-speculoos
  */
-/// <reference path="./jasmine-matchers.d.ts" />
+/// <reference path="./jasmine-matchers.ts" />
 
 export * from './lib/component-tester';
 export * from './lib/test-element';

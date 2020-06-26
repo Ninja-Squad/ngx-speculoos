@@ -1,3 +1,5 @@
+// tslint:disable:no-reference
+/// <reference path="../jasmine-matchers.ts" />
 import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 

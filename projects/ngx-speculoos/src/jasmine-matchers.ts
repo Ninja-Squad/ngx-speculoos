@@ -1,3 +1,4 @@
+// tslint:disable:no-namespace
 declare namespace jasmine {
   interface Matchers<T> {
 
