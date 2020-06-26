@@ -103,6 +103,60 @@
                                 <a href="#element">element</a>
                             </li>
                             <li>
+                                <a href="#element">element</a>
+                            </li>
+                            <li>
+                                <a href="#element">element</a>
+                            </li>
+                            <li>
+                                <a href="#element">element</a>
+                            </li>
+                            <li>
+                                <a href="#element">element</a>
+                            </li>
+                            <li>
+                                <a href="#element">element</a>
+                            </li>
+                            <li>
+                                <a href="#element">element</a>
+                            </li>
+                            <li>
+                                <a href="#element">element</a>
+                            </li>
+                            <li>
+                                <a href="#element">element</a>
+                            </li>
+                            <li>
+                                <a href="#element">element</a>
+                            </li>
+                            <li>
+                                <a href="#elements">elements</a>
+                            </li>
+                            <li>
+                                <a href="#elements">elements</a>
+                            </li>
+                            <li>
+                                <a href="#elements">elements</a>
+                            </li>
+                            <li>
+                                <a href="#elements">elements</a>
+                            </li>
+                            <li>
+                                <a href="#elements">elements</a>
+                            </li>
+                            <li>
+                                <a href="#elements">elements</a>
+                            </li>
+                            <li>
+                                <a href="#elements">elements</a>
+                            </li>
+                            <li>
+                                <a href="#elements">elements</a>
+                            </li>
+                            <li>
+                                <a href="#elements">elements</a>
+                            </li>
+                            <li>
                                 <a href="#elements">elements</a>
                             </li>
                             <li>
@@ -152,12 +206,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(tester: <a href="../classes/ComponentTester.html">ComponentTester<any></a>, debugElement: <a href="https://angular.io/api/core/DebugElement" target="_blank">DebugElement</a>)</code>
+<code>constructor(tester: <a href="../classes/ComponentTester.html">ComponentTester<unknown></a>, debugElement: <a href="https://angular.io/api/core/DebugElement" target="_blank">DebugElement</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/lib/test-element.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/lib/test-element.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -178,7 +232,7 @@
                                                         <td>tester</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester&lt;any&gt;</a></code>
+                                                                        <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester&lt;unknown&gt;</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -235,8 +289,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">src/lib/test-element.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">src/lib/test-element.ts:65</a></div>
                 </td>
             </tr>
 
@@ -312,8 +366,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="125"
-                            class="link-to-prism">src/lib/test-element.ts:125</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="326"
+                            class="link-to-prism">src/lib/test-element.ts:326</a></div>
                 </td>
             </tr>
 
@@ -390,8 +444,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">src/lib/test-element.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/lib/test-element.ts:49</a></div>
                 </td>
             </tr>
 
@@ -462,8 +516,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/lib/test-element.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/lib/test-element.ts:41</a></div>
                 </td>
             </tr>
 
@@ -527,6 +581,188 @@
             </tr>
             <tr>
                 <td class="col-md-4">
+<code>element(selector: K)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="80"
+                            class="link-to-prism">src/lib/test-element.ts:80</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>K</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+of the returned value is the TestElement subclass matching the type of the found element. So, if the
+matched element is an input for example, the method will return a TestInput.</p>
+<p>Usage:</p>
+<code>
+const testElement: TestHtmlElement&lt;HTMLDivElement> | null = tester.element('div');
+</code></div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selector</td>
+                                    <td>
+                                            <code>K</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>a CSS selector</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TestHtmlElement.html" target="_self" >TestHtmlElement | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>the wrapped element, or null if no element matches the selector.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="element"></a>
+                    <span class="name">
+                        <b>
+                            element
+                        </b>
+                        <a href="#element"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>element(selector: K)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="92"
+                            class="link-to-prism">src/lib/test-element.ts:92</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>K</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+of the returned value is the TestElement subclass matching the type of the found element. So, if the
+matched element is an input for example, the method will return a TestInput.</p>
+<p>Usage:</p>
+<code>
+const testElement: TestElement&lt;SVGLineElement> | null = tester.element('line');
+</code></div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selector</td>
+                                    <td>
+                                            <code>K</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>a CSS selector</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >TestElement | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>the wrapped element, or null if no element matches the selector.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="element"></a>
+                    <span class="name">
+                        <b>
+                            element
+                        </b>
+                        <a href="#element"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
 <code>element(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
@@ -534,8 +770,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="76"
-                            class="link-to-prism">src/lib/test-element.ts:76</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="104"
+                            class="link-to-prism">src/lib/test-element.ts:104</a></div>
                 </td>
             </tr>
 
@@ -544,9 +780,11 @@
                 <td class="col-md-4">
                     <div class="io-description"><p>Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
 of the returned value is the TestElement subclass matching the type of the found element. So, if the
-matched element is an input for example, the method will return a TestInput. You can thus use
-<code>tester.element(&#39;#some-input&#39;) as TestInput</code>.</p>
-</div>
+matched element is an input for example, the method will return a TestInput.</p>
+<p>Usage:</p>
+<code>
+const testElement: TestElement | null = tester.element('.selector');
+</code></div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -597,37 +835,47 @@ matched element is an input for example, the method will return a TestInput. You
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="elements"></a>
+                    <a name="element"></a>
                     <span class="name">
                         <b>
-                            elements
+                            element
                         </b>
-                        <a href="#elements"><span class="icon ion-ios-link"></span></a>
+                        <a href="#element"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>elements(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>element(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="88"
-                            class="link-to-prism">src/lib/test-element.ts:88</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="116"
+                            class="link-to-prism">src/lib/test-element.ts:116</a></div>
                 </td>
             </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
-of the returned elements is the TestElement subclass matching the type of the found element. So, if the
-matched elements are inputs for example, the method will return an array of TestInput. You can thus use
-<code>tester.elements(&#39;input&#39;) as Array&lt;TestInput&gt;</code>.</p>
-</div>
+                    <div class="io-description"><p>Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+of the returned value is the TestElement subclass matching the type of the found element. So, if the
+matched element is an input for example, the method will return a TestInput.</p>
+<p>Usage:</p>
+<code>
+const testElement: TestInput | null = tester.element&lt;HTMLInputElement>('.selector');
+</code></div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -663,12 +911,1418 @@ matched elements are inputs for example, the method will return an array of Test
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >Array&lt;TestElement&lt;Element&gt;&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/TestInput.html" target="_self" >TestInput | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>the wrapped element, or null if no element matches the selector.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="element"></a>
+                    <span class="name">
+                        <b>
+                            element
+                        </b>
+                        <a href="#element"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>element(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="128"
+                            class="link-to-prism">src/lib/test-element.ts:128</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+of the returned value is the TestElement subclass matching the type of the found element. So, if the
+matched element is an input for example, the method will return a TestInput.</p>
+<p>Usage:</p>
+<code>
+const testElement: TestTextArea | null = tester.element&lt;HTMLTextAreaElement>('.selector');
+</code></div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selector</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>a CSS selector</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TestTextArea.html" target="_self" >TestTextArea | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>the wrapped element, or null if no element matches the selector.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="element"></a>
+                    <span class="name">
+                        <b>
+                            element
+                        </b>
+                        <a href="#element"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>element(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="140"
+                            class="link-to-prism">src/lib/test-element.ts:140</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+of the returned value is the TestElement subclass matching the type of the found element. So, if the
+matched element is an input for example, the method will return a TestInput.</p>
+<p>Usage:</p>
+<code>
+const testElement: TestSelect | null = tester.element&lt;HTMLSelectElement>('.selector');
+</code></div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selector</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>a CSS selector</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TestSelect.html" target="_self" >TestSelect | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>the wrapped element, or null if no element matches the selector.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="element"></a>
+                    <span class="name">
+                        <b>
+                            element
+                        </b>
+                        <a href="#element"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>element(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="152"
+                            class="link-to-prism">src/lib/test-element.ts:152</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+of the returned value is the TestElement subclass matching the type of the found element. So, if the
+matched element is an input for example, the method will return a TestInput.</p>
+<p>Usage:</p>
+<code>
+const testElement: TestButton | null = tester.element&lt;HTMLButtonElement>('.selector');
+</code></div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selector</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>a CSS selector</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TestButton.html" target="_self" >TestButton | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>the wrapped element, or null if no element matches the selector.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="element"></a>
+                    <span class="name">
+                        <b>
+                            element
+                        </b>
+                        <a href="#element"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>element(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="164"
+                            class="link-to-prism">src/lib/test-element.ts:164</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+of the returned value is the TestElement subclass matching the type of the found element. So, if the
+matched element is an input for example, the method will return a TestInput.</p>
+<p>Usage:</p>
+<code>
+const testElement: TestHtmlElement&lt;HTMLDivElement> | null = tester.element&lt;HTMLDivElement>('.selector');
+</code></div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selector</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>a CSS selector</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TestHtmlElement.html" target="_self" >TestHtmlElement | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>the wrapped element, or null if no element matches the selector.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="element"></a>
+                    <span class="name">
+                        <b>
+                            element
+                        </b>
+                        <a href="#element"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>element(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="176"
+                            class="link-to-prism">src/lib/test-element.ts:176</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+of the returned value is the TestElement subclass matching the type of the found element. So, if the
+matched element is an input for example, the method will return a TestInput.</p>
+<p>Usage:</p>
+<code>
+const testElement: TestElement&lt;SVGLineElement> | null = tester.element&lt;SVGLineElement>('.selector');
+</code></div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selector</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>a CSS selector</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >TestElement | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>the wrapped element, or null if no element matches the selector.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="element"></a>
+                    <span class="name">
+                        <b>
+                            element
+                        </b>
+                        <a href="#element"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>element(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="177"
+                            class="link-to-prism">src/lib/test-element.ts:177</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selector</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >TestElement | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="elements"></a>
+                    <span class="name">
+                        <b>
+                            elements
+                        </b>
+                        <a href="#elements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>elements(selector: K)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="192"
+                            class="link-to-prism">src/lib/test-element.ts:192</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>K</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+matched elements are inputs for example, the method will return an array of TestInput.</p>
+<p>Usage:</p>
+<code>
+const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elements('div');
+</code></div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selector</td>
+                                    <td>
+                                            <code>K</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>a CSS selector</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TestHtmlElement.html" target="_self" >Array&lt;TestHtmlElement&lt;&gt;&gt;</a></code>
 
                     </div>
                     <div class="io-description">
                         <p>the array of matched elements, empty if no element was matched</p>
 
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="elements"></a>
+                    <span class="name">
+                        <b>
+                            elements
+                        </b>
+                        <a href="#elements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>elements(selector: K)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="204"
+                            class="link-to-prism">src/lib/test-element.ts:204</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>K</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+matched elements are inputs for example, the method will return an array of TestInput.</p>
+<p>Usage:</p>
+<code>
+const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements('line');
+</code></div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selector</td>
+                                    <td>
+                                            <code>K</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>a CSS selector</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >Array&lt;TestElement&lt;&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>the array of matched elements, empty if no element was matched</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="elements"></a>
+                    <span class="name">
+                        <b>
+                            elements
+                        </b>
+                        <a href="#elements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>elements(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="216"
+                            class="link-to-prism">src/lib/test-element.ts:216</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+matched elements are inputs for example, the method will return an array of TestInput.</p>
+<p>Usage:</p>
+<code>
+const testElements: Array&lt;TestElement> = tester.elements('.selector');
+</code></div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selector</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>a CSS selector</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >Array&lt;TestElement&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>the array of matched elements, empty if no element was matched</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="elements"></a>
+                    <span class="name">
+                        <b>
+                            elements
+                        </b>
+                        <a href="#elements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>elements(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="228"
+                            class="link-to-prism">src/lib/test-element.ts:228</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+matched elements are inputs for example, the method will return an array of TestInput.</p>
+<p>Usage:</p>
+<code>
+const testElements: Array&lt;TestInput> = tester.elements&lt;HTMLInputElement>('.selector');
+</code></div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selector</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>a CSS selector</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TestInput.html" target="_self" >Array&lt;TestInput&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>the array of matched elements, empty if no element was matched</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="elements"></a>
+                    <span class="name">
+                        <b>
+                            elements
+                        </b>
+                        <a href="#elements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>elements(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="240"
+                            class="link-to-prism">src/lib/test-element.ts:240</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+matched elements are inputs for example, the method will return an array of TestInput.</p>
+<p>Usage:</p>
+<code>
+const testElements: Array&lt;TestTextArea> = tester.elements&lt;HTMLTextAreaElement>('.selector');
+</code></div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selector</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>a CSS selector</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TestTextArea.html" target="_self" >Array&lt;TestTextArea&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>the array of matched elements, empty if no element was matched</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="elements"></a>
+                    <span class="name">
+                        <b>
+                            elements
+                        </b>
+                        <a href="#elements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>elements(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="252"
+                            class="link-to-prism">src/lib/test-element.ts:252</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+matched elements are inputs for example, the method will return an array of TestInput.</p>
+<p>Usage:</p>
+<code>
+const testElements: Array&lt;TestButton> = tester.elements&lt;HTMLButtonElement>('.selector');
+</code></div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selector</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>a CSS selector</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TestButton.html" target="_self" >Array&lt;TestButton&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>the array of matched elements, empty if no element was matched</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="elements"></a>
+                    <span class="name">
+                        <b>
+                            elements
+                        </b>
+                        <a href="#elements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>elements(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="264"
+                            class="link-to-prism">src/lib/test-element.ts:264</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+matched elements are inputs for example, the method will return an array of TestInput.</p>
+<p>Usage:</p>
+<code>
+const testElements: Array&lt;TestSelect> = tester.elements<HTMLSelectElement>('.selector');
+</code></div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selector</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>a CSS selector</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TestSelect.html" target="_self" >Array&lt;TestSelect&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>the array of matched elements, empty if no element was matched</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="elements"></a>
+                    <span class="name">
+                        <b>
+                            elements
+                        </b>
+                        <a href="#elements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>elements(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="276"
+                            class="link-to-prism">src/lib/test-element.ts:276</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+matched elements are inputs for example, the method will return an array of TestInput.</p>
+<p>Usage:</p>
+<code>
+const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elements&lt;HTMLDivElement>('.selector');
+</code></div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selector</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>a CSS selector</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TestHtmlElement.html" target="_self" >Array&lt;TestHtmlElement&lt;T&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>the array of matched elements, empty if no element was matched</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="elements"></a>
+                    <span class="name">
+                        <b>
+                            elements
+                        </b>
+                        <a href="#elements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>elements(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="288"
+                            class="link-to-prism">src/lib/test-element.ts:288</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+matched elements are inputs for example, the method will return an array of TestInput.</p>
+<p>Usage:</p>
+<code>
+const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&lt;SVGLineElement>('.selector');
+</code></div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selector</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>a CSS selector</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >Array&lt;TestElement&lt;T&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>the array of matched elements, empty if no element was matched</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="elements"></a>
+                    <span class="name">
+                        <b>
+                            elements
+                        </b>
+                        <a href="#elements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>elements(selector: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="289"
+                            class="link-to-prism">src/lib/test-element.ts:289</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selector</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >Array&lt;TestElement&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -696,8 +2350,8 @@ matched elements are inputs for example, the method will return an array of Test
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="97"
-                            class="link-to-prism">src/lib/test-element.ts:97</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="298"
+                            class="link-to-prism">src/lib/test-element.ts:298</a></div>
                 </td>
             </tr>
 
@@ -774,8 +2428,8 @@ matched elements are inputs for example, the method will return an array of Test
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="106"
-                            class="link-to-prism">src/lib/test-element.ts:106</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="307"
+                            class="link-to-prism">src/lib/test-element.ts:307</a></div>
                 </td>
             </tr>
 
@@ -852,8 +2506,8 @@ matched elements are inputs for example, the method will return an array of Test
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="116"
-                            class="link-to-prism">src/lib/test-element.ts:116</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="317"
+                            class="link-to-prism">src/lib/test-element.ts:317</a></div>
                 </td>
             </tr>
 
@@ -934,7 +2588,7 @@ matched elements are inputs for example, the method will return an array of Test
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/lib/test-element.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/lib/test-element.ts:27</a></div>
                                 </td>
                             </tr>
 
@@ -956,7 +2610,7 @@ matched elements are inputs for example, the method will return an array of Test
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/lib/test-element.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/lib/test-element.ts:34</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -985,7 +2639,7 @@ matched elements are inputs for example, the method will return an array of Test
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/lib/test-element.ts:56</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/lib/test-element.ts:57</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1014,16 +2668,17 @@ import { TestTextArea } from &#x27;./test-textarea&#x27;;
 import { TestInput } from &#x27;./test-input&#x27;;
 import { TestElementQuerier } from &#x27;./test-element-querier&#x27;;
 import { DebugElement } from &#x27;@angular/core&#x27;;
+import { TestHtmlElement } from &#x27;./test-html-element&#x27;;
 
 /**
  * A wrapped DOM element, providing additional methods and attributes helping with writing tests
  */
-export class TestElement&lt;E extends Element&gt; {
+export class TestElement&lt;E extends Element &#x3D; Element&gt; {
 
   private querier: TestElementQuerier;
 
   constructor(
-    protected tester: ComponentTester&lt;any&gt;,
+    protected tester: ComponentTester&lt;unknown&gt;,
     /**
      * the wrapped debug element
      */
@@ -1077,24 +2732,224 @@ export class TestElement&lt;E extends Element&gt; {
   /**
    * Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
    * of the returned value is the TestElement subclass matching the type of the found element. So, if the
-   * matched element is an input for example, the method will return a TestInput. You can thus use
-   * &#x60;tester.element(&#x27;#some-input&#x27;) as TestInput&#x60;.
+   * matched element is an input for example, the method will return a TestInput.
+   * &lt;p&gt;Usage:&lt;/p&gt;
+   * &lt;code&gt;
+   * const testElement: TestHtmlElement&amp;lt;HTMLDivElement&gt; | null &#x3D; tester.element(&#x27;div&#x27;);
+   * &lt;/code&gt;
    * @param selector a CSS selector
    * @returns the wrapped element, or null if no element matches the selector.
    */
-  element(selector: string): TestElement&lt;Element&gt; | null {
+  element&lt;K extends keyof HTMLElementTagNameMap&gt;(selector: K): TestHtmlElement&lt;HTMLElementTagNameMap[K]&gt; | null;
+  /**
+   * Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+   * of the returned value is the TestElement subclass matching the type of the found element. So, if the
+   * matched element is an input for example, the method will return a TestInput.
+   * &lt;p&gt;Usage:&lt;/p&gt;
+   * &lt;code&gt;
+   * const testElement: TestElement&amp;lt;SVGLineElement&gt; | null &#x3D; tester.element(&#x27;line&#x27;);
+   * &lt;/code&gt;
+   * @param selector a CSS selector
+   * @returns the wrapped element, or null if no element matches the selector.
+   */
+  element&lt;K extends keyof SVGElementTagNameMap&gt;(selector: K): TestElement&lt;SVGElementTagNameMap[K]&gt; | null;
+  /**
+   * Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+   * of the returned value is the TestElement subclass matching the type of the found element. So, if the
+   * matched element is an input for example, the method will return a TestInput.
+   * &lt;p&gt;Usage:&lt;/p&gt;
+   * &lt;code&gt;
+   * const testElement: TestElement | null &#x3D; tester.element(&#x27;.selector&#x27;);
+   * &lt;/code&gt;
+   * @param selector a CSS selector
+   * @returns the wrapped element, or null if no element matches the selector.
+   */
+  element(selector: string): TestElement | null;
+  /**
+   * Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+   * of the returned value is the TestElement subclass matching the type of the found element. So, if the
+   * matched element is an input for example, the method will return a TestInput.
+   * &lt;p&gt;Usage:&lt;/p&gt;
+   * &lt;code&gt;
+   * const testElement: TestInput | null &#x3D; tester.element&amp;lt;HTMLInputElement&gt;(&#x27;.selector&#x27;);
+   * &lt;/code&gt;
+   * @param selector a CSS selector
+   * @returns the wrapped element, or null if no element matches the selector.
+   */
+  element&lt;T extends HTMLInputElement&gt;(selector: string): TestInput | null;
+  /**
+   * Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+   * of the returned value is the TestElement subclass matching the type of the found element. So, if the
+   * matched element is an input for example, the method will return a TestInput.
+   * &lt;p&gt;Usage:&lt;/p&gt;
+   * &lt;code&gt;
+   * const testElement: TestTextArea | null &#x3D; tester.element&amp;lt;HTMLTextAreaElement&gt;(&#x27;.selector&#x27;);
+   * &lt;/code&gt;
+   * @param selector a CSS selector
+   * @returns the wrapped element, or null if no element matches the selector.
+   */
+  element&lt;T extends HTMLTextAreaElement&gt;(selector: string): TestTextArea | null;
+  /**
+   * Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+   * of the returned value is the TestElement subclass matching the type of the found element. So, if the
+   * matched element is an input for example, the method will return a TestInput.
+   * &lt;p&gt;Usage:&lt;/p&gt;
+   * &lt;code&gt;
+   * const testElement: TestSelect | null &#x3D; tester.element&amp;lt;HTMLSelectElement&gt;(&#x27;.selector&#x27;);
+   * &lt;/code&gt;
+   * @param selector a CSS selector
+   * @returns the wrapped element, or null if no element matches the selector.
+   */
+  element&lt;T extends HTMLSelectElement&gt;(selector: string): TestSelect | null;
+  /**
+   * Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+   * of the returned value is the TestElement subclass matching the type of the found element. So, if the
+   * matched element is an input for example, the method will return a TestInput.
+   * &lt;p&gt;Usage:&lt;/p&gt;
+   * &lt;code&gt;
+   * const testElement: TestButton | null &#x3D; tester.element&amp;lt;HTMLButtonElement&gt;(&#x27;.selector&#x27;);
+   * &lt;/code&gt;
+   * @param selector a CSS selector
+   * @returns the wrapped element, or null if no element matches the selector.
+   */
+  element&lt;T extends HTMLButtonElement&gt;(selector: string): TestButton | null;
+  /**
+   * Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+   * of the returned value is the TestElement subclass matching the type of the found element. So, if the
+   * matched element is an input for example, the method will return a TestInput.
+   * &lt;p&gt;Usage:&lt;/p&gt;
+   * &lt;code&gt;
+   * const testElement: TestHtmlElement&amp;lt;HTMLDivElement&gt; | null &#x3D; tester.element&amp;lt;HTMLDivElement&gt;(&#x27;.selector&#x27;);
+   * &lt;/code&gt;
+   * @param selector a CSS selector
+   * @returns the wrapped element, or null if no element matches the selector.
+   */
+  element&lt;T extends HTMLElement&gt;(selector: string): TestHtmlElement&lt;T&gt; | null;
+  /**
+   * Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+   * of the returned value is the TestElement subclass matching the type of the found element. So, if the
+   * matched element is an input for example, the method will return a TestInput.
+   * &lt;p&gt;Usage:&lt;/p&gt;
+   * &lt;code&gt;
+   * const testElement: TestElement&amp;lt;SVGLineElement&gt; | null &#x3D; tester.element&amp;lt;SVGLineElement&gt;(&#x27;.selector&#x27;);
+   * &lt;/code&gt;
+   * @param selector a CSS selector
+   * @returns the wrapped element, or null if no element matches the selector.
+   */
+  element&lt;T extends Element&gt;(selector: string): TestElement&lt;T&gt; | null;
+  element(selector: string): TestElement | null {
     return this.querier.element(selector);
   }
 
   /**
    * Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
    * of the returned elements is the TestElement subclass matching the type of the found element. So, if the
-   * matched elements are inputs for example, the method will return an array of TestInput. You can thus use
-   * &#x60;tester.elements(&#x27;input&#x27;) as Array&lt;TestInput&gt;&#x60;.
+   * matched elements are inputs for example, the method will return an array of TestInput.
+   * &lt;p&gt;Usage:&lt;/p&gt;
+   * &lt;code&gt;
+   * const testElements: Array&amp;lt;TestHtmlElement&amp;lt;HTMLDivElement&gt;&gt; &#x3D; tester.elements(&#x27;div&#x27;);
+   * &lt;/code&gt;
    * @param selector a CSS selector
    * @returns the array of matched elements, empty if no element was matched
    */
-  elements(selector: string): Array&lt;TestElement&lt;Element&gt;&gt; {
+  elements&lt;K extends keyof HTMLElementTagNameMap&gt;(selector: K): Array&lt;TestHtmlElement&lt;HTMLElementTagNameMap[K]&gt;&gt;;
+  /**
+   * Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+   * of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+   * matched elements are inputs for example, the method will return an array of TestInput.
+   * &lt;p&gt;Usage:&lt;/p&gt;
+   * &lt;code&gt;
+   * const testElements: Array&amp;lt;TestElement&amp;lt;SVGLineElement&gt;&gt; &#x3D; tester.elements(&#x27;line&#x27;);
+   * &lt;/code&gt;
+   * @param selector a CSS selector
+   * @returns the array of matched elements, empty if no element was matched
+   */
+  elements&lt;K extends keyof SVGElementTagNameMap&gt;(selector: K): Array&lt;TestElement&lt;SVGElementTagNameMap[K]&gt;&gt;;
+  /**
+   * Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+   * of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+   * matched elements are inputs for example, the method will return an array of TestInput.
+   * &lt;p&gt;Usage:&lt;/p&gt;
+   * &lt;code&gt;
+   * const testElements: Array&amp;lt;TestElement&gt; &#x3D; tester.elements(&#x27;.selector&#x27;);
+   * &lt;/code&gt;
+   * @param selector a CSS selector
+   * @returns the array of matched elements, empty if no element was matched
+   */
+  elements(selector: string): Array&lt;TestElement&gt;;
+  /**
+   * Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+   * of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+   * matched elements are inputs for example, the method will return an array of TestInput.
+   * &lt;p&gt;Usage:&lt;/p&gt;
+   * &lt;code&gt;
+   * const testElements: Array&amp;lt;TestInput&gt; &#x3D; tester.elements&amp;lt;HTMLInputElement&gt;(&#x27;.selector&#x27;);
+   * &lt;/code&gt;
+   * @param selector a CSS selector
+   * @returns the array of matched elements, empty if no element was matched
+   */
+  elements&lt;T extends HTMLInputElement&gt;(selector: string): Array&lt;TestInput&gt;;
+  /**
+   * Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+   * of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+   * matched elements are inputs for example, the method will return an array of TestInput.
+   * &lt;p&gt;Usage:&lt;/p&gt;
+   * &lt;code&gt;
+   * const testElements: Array&amp;lt;TestTextArea&gt; &#x3D; tester.elements&amp;lt;HTMLTextAreaElement&gt;(&#x27;.selector&#x27;);
+   * &lt;/code&gt;
+   * @param selector a CSS selector
+   * @returns the array of matched elements, empty if no element was matched
+   */
+  elements&lt;T extends HTMLTextAreaElement&gt;(selector: string): Array&lt;TestTextArea&gt;;
+  /**
+   * Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+   * of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+   * matched elements are inputs for example, the method will return an array of TestInput.
+   * &lt;p&gt;Usage:&lt;/p&gt;
+   * &lt;code&gt;
+   * const testElements: Array&amp;lt;TestButton&gt; &#x3D; tester.elements&amp;lt;HTMLButtonElement&gt;(&#x27;.selector&#x27;);
+   * &lt;/code&gt;
+   * @param selector a CSS selector
+   * @returns the array of matched elements, empty if no element was matched
+   */
+  elements&lt;T extends HTMLButtonElement&gt;(selector: string): Array&lt;TestButton&gt;;
+  /**
+   * Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+   * of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+   * matched elements are inputs for example, the method will return an array of TestInput.
+   * &lt;p&gt;Usage:&lt;/p&gt;
+   * &lt;code&gt;
+   * const testElements: Array&amp;lt;TestSelect&gt; &#x3D; tester.elements&lt;HTMLSelectElement&gt;(&#x27;.selector&#x27;);
+   * &lt;/code&gt;
+   * @param selector a CSS selector
+   * @returns the array of matched elements, empty if no element was matched
+   */
+  elements&lt;T extends HTMLSelectElement&gt;(selector: string): Array&lt;TestSelect&gt;;
+  /**
+   * Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+   * of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+   * matched elements are inputs for example, the method will return an array of TestInput.
+   * &lt;p&gt;Usage:&lt;/p&gt;
+   * &lt;code&gt;
+   * const testElements: Array&amp;lt;TestHtmlElement&amp;lt;HTMLDivElement&gt;&gt; &#x3D; tester.elements&amp;lt;HTMLDivElement&gt;(&#x27;.selector&#x27;);
+   * &lt;/code&gt;
+   * @param selector a CSS selector
+   * @returns the array of matched elements, empty if no element was matched
+   */
+  elements&lt;T extends HTMLElement&gt;(selector: string): Array&lt;TestHtmlElement&lt;T&gt;&gt;;
+  /**
+   * Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+   * of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+   * matched elements are inputs for example, the method will return an array of TestInput.
+   * &lt;p&gt;Usage:&lt;/p&gt;
+   * &lt;code&gt;
+   * const testElements: Array&amp;lt;TestElement&amp;lt;SVGLineElement&gt;&gt; &#x3D; tester.elements&amp;lt;SVGLineElement&gt;(&#x27;.selector&#x27;);
+   * &lt;/code&gt;
+   * @param selector a CSS selector
+   * @returns the array of matched elements, empty if no element was matched
+   */
+  elements&lt;T extends Element&gt;(selector: string): Array&lt;TestElement&lt;T&gt;&gt;;
+  elements(selector: string): Array&lt;TestElement&gt; {
     return this.querier.elements(selector);
   }
 

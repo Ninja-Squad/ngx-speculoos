@@ -94,7 +94,7 @@
    * Checks that the receiver is a TestElement wrapping a DOM element and as the given CSS class
    */
   toHaveClass: (util: jasmine.MatchersUtil, customEqualityTesters: ReadonlyArray&lt;jasmine.CustomEqualityTester&gt;): jasmine.CustomMatcher &#x3D;&gt; {
-    const assert &#x3D; (isNegative: boolean, el: any, expected: string) &#x3D;&gt; {
+    const assert &#x3D; (isNegative: boolean, el: unknown, expected: string) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check class &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
       }
@@ -108,10 +108,10 @@
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      compare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
         return assert(false, el, expected);
       },
-      negativeCompare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      negativeCompare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
         return assert(true, el, expected);
       }
     };
@@ -121,7 +121,7 @@
    * Checks that the receiver is a TestInput or a TestTextArea and has the given value
    */
   toHaveValue: (util: jasmine.MatchersUtil, customEqualityTesters: ReadonlyArray&lt;jasmine.CustomEqualityTester&gt;): jasmine.CustomMatcher &#x3D;&gt; {
-    const assert &#x3D; (isNegative: boolean, el: any, expected: string) &#x3D;&gt; {
+    const assert &#x3D; (isNegative: boolean, el: unknown, expected: string) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check value &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
       }
@@ -137,10 +137,10 @@
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      compare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
         return assert(false, el, expected);
       },
-      negativeCompare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      negativeCompare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
         return assert(true, el, expected);
       }
     };
@@ -150,7 +150,7 @@
    * Checks that the receiver is a TestElement wrapping a DOM element and has the exact given textContent
    */
   toHaveText: (util: jasmine.MatchersUtil, customEqualityTesters: ReadonlyArray&lt;jasmine.CustomEqualityTester&gt;): jasmine.CustomMatcher &#x3D;&gt; {
-    const assert &#x3D; (isNegative: boolean, el: any, expected: string) &#x3D;&gt; {
+    const assert &#x3D; (isNegative: boolean, el: unknown, expected: string) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check text &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
       }
@@ -163,10 +163,10 @@
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      compare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
         return assert(false, el, expected);
       },
-      negativeCompare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      negativeCompare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
         return assert(true, el, expected);
       }
     };
@@ -179,7 +179,7 @@
     util: jasmine.MatchersUtil,
     customEqualityTesters: ReadonlyArray&lt;jasmine.CustomEqualityTester&gt;
   ): jasmine.CustomMatcher &#x3D;&gt; {
-    const assert &#x3D; (isNegative: boolean, el: any, expected: string) &#x3D;&gt; {
+    const assert &#x3D; (isNegative: boolean, el: unknown, expected: string) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check text &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
       }
@@ -198,10 +198,10 @@
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      compare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
         return assert(false, el, expected);
       },
-      negativeCompare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      negativeCompare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
         return assert(true, el, expected);
       }
     };
@@ -211,7 +211,7 @@
    * Checks that the receiver is a TestElement wrapping a DOM element and contains the given textContent
    */
   toBeChecked: (util: jasmine.MatchersUtil, customEqualityTesters: ReadonlyArray&lt;jasmine.CustomEqualityTester&gt;): jasmine.CustomMatcher &#x3D;&gt; {
-    const assert &#x3D; (isNegative: boolean, el: any) &#x3D;&gt; {
+    const assert &#x3D; (isNegative: boolean, el: unknown) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check if element was checked, but element was falsy&#x60; };
       }
@@ -223,10 +223,10 @@
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: any): jasmine.CustomMatcherResult &#x3D;&gt; {
+      compare: (el: unknown): jasmine.CustomMatcherResult &#x3D;&gt; {
         return assert(false, el);
       },
-      negativeCompare: (el: any): jasmine.CustomMatcherResult &#x3D;&gt; {
+      negativeCompare: (el: unknown): jasmine.CustomMatcherResult &#x3D;&gt; {
         return assert(true, el);
       }
     };
@@ -239,7 +239,7 @@
     util: jasmine.MatchersUtil,
     customEqualityTesters: ReadonlyArray&lt;jasmine.CustomEqualityTester&gt;
   ): jasmine.CustomMatcher &#x3D;&gt; {
-    const assert &#x3D; (isNegative: boolean, el: any, expected: number) &#x3D;&gt; {
+    const assert &#x3D; (isNegative: boolean, el: unknown, expected: number) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check selected index ${expected} on element, but element was falsy&#x60; };
       }
@@ -252,10 +252,10 @@
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: any, expected: number): jasmine.CustomMatcherResult &#x3D;&gt; {
+      compare: (el: unknown, expected: number): jasmine.CustomMatcherResult &#x3D;&gt; {
         return assert(false, el, expected);
       },
-      negativeCompare: (el: any, expected: number): jasmine.CustomMatcherResult &#x3D;&gt; {
+      negativeCompare: (el: unknown, expected: number): jasmine.CustomMatcherResult &#x3D;&gt; {
         return assert(true, el, expected);
       }
     };
@@ -268,7 +268,7 @@
     util: jasmine.MatchersUtil,
     customEqualityTesters: ReadonlyArray&lt;jasmine.CustomEqualityTester&gt;
   ): jasmine.CustomMatcher &#x3D;&gt; {
-    const assert &#x3D; (isNegative: boolean, el: any, expected: string) &#x3D;&gt; {
+    const assert &#x3D; (isNegative: boolean, el: unknown, expected: string) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check selected value &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
       }
@@ -281,10 +281,10 @@
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      compare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
         return assert(false, el, expected);
       },
-      negativeCompare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      negativeCompare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
         return assert(true, el, expected);
       }
     };
@@ -297,7 +297,7 @@
     util: jasmine.MatchersUtil,
     customEqualityTesters: ReadonlyArray&lt;jasmine.CustomEqualityTester&gt;
   ): jasmine.CustomMatcher &#x3D;&gt; {
-    const assert &#x3D; (isNegative: boolean, el: any, expected: string) &#x3D;&gt; {
+    const assert &#x3D; (isNegative: boolean, el: unknown, expected: string) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check selected label &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
       }
@@ -310,10 +310,10 @@
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      compare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
         return assert(false, el, expected);
       },
-      negativeCompare: (el: any, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      negativeCompare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
         return assert(true, el, expected);
       }
     };
