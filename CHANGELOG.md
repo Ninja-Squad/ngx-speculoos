@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v3.0.0...v4.0.0) (2020-06-26)
+
+
+### Features
+
+* strict and better typings ([822963d](https://github.com/Ninja-Squad/ngx-speculoos/commit/822963de66609826c44edf88d0b60c1931af5dc0))
+
+We now properly infer (if possible) the type of the queried element(s).
+For example:
+
+    const testElement = tester.element('div'); // inferred as TestHtmlElement<HTMLDivElement> | null
+    const testLink = tester.element<HTMLAnchorElement>('.selector'); // inferred as TestHtmlElement<HTMLAnchorElement> | null
+    const testButtons = tester.elements<HTMLButtonElement>('.btn'); // inferred as Array<TestButton>
+    const testElements = tester.elements('div'); // inferred as Array<TestHtmlElement<HTMLDivElement>>
+    const testLinks = tester.elements<HTMLAnchorElement>('.selector'); // inferred as Array<TestHtmlElement<HTMLAnchorElement>>
+
+### ⚠ BREAKING CHANGES
+
+* ngx-speculoos is now built against Angular 10.0.0. If you want to use it with Angular 9.x, stick to the previous version of ngx-speculoos.
+
 ## [3.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v2.0.0...v3.0.0) (2020-02-07)
 
 
