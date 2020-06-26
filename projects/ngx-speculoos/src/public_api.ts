@@ -10,5 +10,6 @@ export * from './lib/test-html-element';
 export * from './lib/test-input';
 export * from './lib/test-button';
 export * from './lib/test-select';
+export * from './lib/test-textarea';
 export * from './lib/route';
 export * from './lib/matchers';

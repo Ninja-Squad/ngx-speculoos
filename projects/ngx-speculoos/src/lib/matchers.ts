@@ -8,7 +8,7 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
    * Checks that the receiver is a TestElement wrapping a DOM element and as the given CSS class
    */
   toHaveClass: (util: jasmine.MatchersUtil, customEqualityTesters: ReadonlyArray<jasmine.CustomEqualityTester>): jasmine.CustomMatcher => {
-    const assert = (isNegative: boolean, el: any, expected: string) => {
+    const assert = (isNegative: boolean, el: unknown, expected: string) => {
       if (!el) {
         return { pass: false, message: `Expected to check class '${expected}' on element, but element was falsy` };
       }
@@ -22,10 +22,10 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: any, expected: string): jasmine.CustomMatcherResult => {
+      compare: (el: unknown, expected: string): jasmine.CustomMatcherResult => {
         return assert(false, el, expected);
       },
-      negativeCompare: (el: any, expected: string): jasmine.CustomMatcherResult => {
+      negativeCompare: (el: unknown, expected: string): jasmine.CustomMatcherResult => {
         return assert(true, el, expected);
       }
     };
@@ -35,7 +35,7 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
    * Checks that the receiver is a TestInput or a TestTextArea and has the given value
    */
   toHaveValue: (util: jasmine.MatchersUtil, customEqualityTesters: ReadonlyArray<jasmine.CustomEqualityTester>): jasmine.CustomMatcher => {
-    const assert = (isNegative: boolean, el: any, expected: string) => {
+    const assert = (isNegative: boolean, el: unknown, expected: string) => {
       if (!el) {
         return { pass: false, message: `Expected to check value '${expected}' on element, but element was falsy` };
       }
@@ -51,10 +51,10 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: any, expected: string): jasmine.CustomMatcherResult => {
+      compare: (el: unknown, expected: string): jasmine.CustomMatcherResult => {
         return assert(false, el, expected);
       },
-      negativeCompare: (el: any, expected: string): jasmine.CustomMatcherResult => {
+      negativeCompare: (el: unknown, expected: string): jasmine.CustomMatcherResult => {
         return assert(true, el, expected);
       }
     };
@@ -64,7 +64,7 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
    * Checks that the receiver is a TestElement wrapping a DOM element and has the exact given textContent
    */
   toHaveText: (util: jasmine.MatchersUtil, customEqualityTesters: ReadonlyArray<jasmine.CustomEqualityTester>): jasmine.CustomMatcher => {
-    const assert = (isNegative: boolean, el: any, expected: string) => {
+    const assert = (isNegative: boolean, el: unknown, expected: string) => {
       if (!el) {
         return { pass: false, message: `Expected to check text '${expected}' on element, but element was falsy` };
       }
@@ -77,10 +77,10 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: any, expected: string): jasmine.CustomMatcherResult => {
+      compare: (el: unknown, expected: string): jasmine.CustomMatcherResult => {
         return assert(false, el, expected);
       },
-      negativeCompare: (el: any, expected: string): jasmine.CustomMatcherResult => {
+      negativeCompare: (el: unknown, expected: string): jasmine.CustomMatcherResult => {
         return assert(true, el, expected);
       }
     };
@@ -93,7 +93,7 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
     util: jasmine.MatchersUtil,
     customEqualityTesters: ReadonlyArray<jasmine.CustomEqualityTester>
   ): jasmine.CustomMatcher => {
-    const assert = (isNegative: boolean, el: any, expected: string) => {
+    const assert = (isNegative: boolean, el: unknown, expected: string) => {
       if (!el) {
         return { pass: false, message: `Expected to check text '${expected}' on element, but element was falsy` };
       }
@@ -112,10 +112,10 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: any, expected: string): jasmine.CustomMatcherResult => {
+      compare: (el: unknown, expected: string): jasmine.CustomMatcherResult => {
         return assert(false, el, expected);
       },
-      negativeCompare: (el: any, expected: string): jasmine.CustomMatcherResult => {
+      negativeCompare: (el: unknown, expected: string): jasmine.CustomMatcherResult => {
         return assert(true, el, expected);
       }
     };
@@ -125,7 +125,7 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
    * Checks that the receiver is a TestElement wrapping a DOM element and contains the given textContent
    */
   toBeChecked: (util: jasmine.MatchersUtil, customEqualityTesters: ReadonlyArray<jasmine.CustomEqualityTester>): jasmine.CustomMatcher => {
-    const assert = (isNegative: boolean, el: any) => {
+    const assert = (isNegative: boolean, el: unknown) => {
       if (!el) {
         return { pass: false, message: `Expected to check if element was checked, but element was falsy` };
       }
@@ -137,10 +137,10 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: any): jasmine.CustomMatcherResult => {
+      compare: (el: unknown): jasmine.CustomMatcherResult => {
         return assert(false, el);
       },
-      negativeCompare: (el: any): jasmine.CustomMatcherResult => {
+      negativeCompare: (el: unknown): jasmine.CustomMatcherResult => {
         return assert(true, el);
       }
     };
@@ -153,7 +153,7 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
     util: jasmine.MatchersUtil,
     customEqualityTesters: ReadonlyArray<jasmine.CustomEqualityTester>
   ): jasmine.CustomMatcher => {
-    const assert = (isNegative: boolean, el: any, expected: number) => {
+    const assert = (isNegative: boolean, el: unknown, expected: number) => {
       if (!el) {
         return { pass: false, message: `Expected to check selected index ${expected} on element, but element was falsy` };
       }
@@ -166,10 +166,10 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: any, expected: number): jasmine.CustomMatcherResult => {
+      compare: (el: unknown, expected: number): jasmine.CustomMatcherResult => {
         return assert(false, el, expected);
       },
-      negativeCompare: (el: any, expected: number): jasmine.CustomMatcherResult => {
+      negativeCompare: (el: unknown, expected: number): jasmine.CustomMatcherResult => {
         return assert(true, el, expected);
       }
     };
@@ -182,7 +182,7 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
     util: jasmine.MatchersUtil,
     customEqualityTesters: ReadonlyArray<jasmine.CustomEqualityTester>
   ): jasmine.CustomMatcher => {
-    const assert = (isNegative: boolean, el: any, expected: string) => {
+    const assert = (isNegative: boolean, el: unknown, expected: string) => {
       if (!el) {
         return { pass: false, message: `Expected to check selected value '${expected}' on element, but element was falsy` };
       }
@@ -195,10 +195,10 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: any, expected: string): jasmine.CustomMatcherResult => {
+      compare: (el: unknown, expected: string): jasmine.CustomMatcherResult => {
         return assert(false, el, expected);
       },
-      negativeCompare: (el: any, expected: string): jasmine.CustomMatcherResult => {
+      negativeCompare: (el: unknown, expected: string): jasmine.CustomMatcherResult => {
         return assert(true, el, expected);
       }
     };
@@ -211,7 +211,7 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
     util: jasmine.MatchersUtil,
     customEqualityTesters: ReadonlyArray<jasmine.CustomEqualityTester>
   ): jasmine.CustomMatcher => {
-    const assert = (isNegative: boolean, el: any, expected: string) => {
+    const assert = (isNegative: boolean, el: unknown, expected: string) => {
       if (!el) {
         return { pass: false, message: `Expected to check selected label '${expected}' on element, but element was falsy` };
       }
@@ -224,10 +224,10 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: any, expected: string): jasmine.CustomMatcherResult => {
+      compare: (el: unknown, expected: string): jasmine.CustomMatcherResult => {
         return assert(false, el, expected);
       },
-      negativeCompare: (el: any, expected: string): jasmine.CustomMatcherResult => {
+      negativeCompare: (el: unknown, expected: string): jasmine.CustomMatcherResult => {
         return assert(true, el, expected);
       }
     };

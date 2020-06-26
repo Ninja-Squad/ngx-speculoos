@@ -32,7 +32,7 @@ export function fakeRoute(options: {
   /** The outlet name of the route. It's a constant */
   outlet?: string;
   /** The component of the route. It's a constant */
-  component?: Type<any> | string | null;
+  component?: Type<unknown> | string | null;
   /** The current snapshot of this route */
   snapshot?: ActivatedRouteSnapshot;
   /** The configuration used to match this route */
@@ -67,18 +67,18 @@ export function fakeRoute(options: {
     pathFromRoot: options.pathFromRoot
   } as ActivatedRoute;
 
-  for (let route: any = result; !!route; route = route.parent) {
+  for (let route: null | ActivatedRoute = result; !!route; route = route.parent) {
     if (route.parent && route.parent.snapshot && !route.snapshot) {
       route.snapshot = fakeSnapshot({});
     }
     if (route.parent && route.parent.snapshot && !route.snapshot.parent) {
-      (route.snapshot as any).parent = route.parent.snapshot;
+      (route.snapshot as Omit<ActivatedRouteSnapshot, 'parent'> & { parent: ActivatedRouteSnapshot }).parent = route.parent.snapshot;
     }
 
     if (route.snapshot && route.snapshot.parent && !route.parent) {
-      route.parent = fakeRoute({});
+      (route as Omit<ActivatedRoute, 'parent'> & { parent: ActivatedRoute }).parent = fakeRoute({});
     }
-    if (route.snapshot && route.snapshot.parent && !route.parent.snapshot) {
+    if (route.snapshot && route.snapshot.parent && route.parent && !route.parent.snapshot) {
       route.parent.snapshot = route.snapshot.parent;
     }
   }
@@ -107,7 +107,7 @@ export function fakeSnapshot(options: {
   /** The outlet name of the route */
   outlet?: string;
   /** The component of the route */
-  component?: Type<any> | string | null;
+  component?: Type<unknown> | string | null;
   /** The configuration used to match this route */
   routeConfig?: Route;
   /** The root of the router state */

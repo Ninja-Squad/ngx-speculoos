@@ -10,7 +10,8 @@
     "lint": "ng lint",
     "release": "cd projects/ngx-speculoos && standard-version --infile ../../CHANGELOG.md",
     "doc": "node scripts/prepare-doc.js && cd projects/ngx-speculoos && compodoc",
-    "codecov": "codecov"
+    "codecov": "codecov",
+    "tsd": "tsd projects/tsd-test"
   },
   "private": true,
   "dependencies": {
@@ -47,7 +48,16 @@
     "ng-packagr": "10.0.0",
     "standard-version": "8.0.0",
     "ts-node": "8.10.2",
+    "tsd": "0.11.0",
     "tslint": "6.1.2",
     "typescript": "3.9.5"
+  },
+  "tsd": {
+    "directory": "projects/tsd-test",
+    "compilerOptions": {
+      "lib": [
+        "dom"
+      ]
+    }
   }
 }

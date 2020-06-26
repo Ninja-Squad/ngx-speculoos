@@ -6,7 +6,7 @@ import { DebugElement } from '@angular/core';
  * A wrapped DOM HTML select element, providing additional methods and attributes helping with writing tests
  */
 export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
-  constructor(tester: ComponentTester<any>, debugElement: DebugElement) {
+  constructor(tester: ComponentTester<unknown>, debugElement: DebugElement) {
     super(tester, debugElement);
   }
 

@@ -10,7 +10,7 @@ import { TestHtmlElement } from './test-html-element';
   `
 })
 class TestComponent {
-  onClick($event) { }
+  onClick($event: Event) { }
 }
 
 class TestComponentTester extends ComponentTester<TestComponent> {

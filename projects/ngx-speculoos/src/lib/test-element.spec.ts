@@ -24,7 +24,7 @@ import { TestInput } from './test-input';
   `
 })
 class TestComponent {
-  onChange($event) { }
+  onChange($event: Event) { }
 }
 
 class TestComponentTester extends ComponentTester<TestComponent> {
@@ -101,7 +101,7 @@ describe('TestElement', () => {
   });
 
   describe('queries', () => {
-    let parent: TestElement<any>;
+    let parent: TestElement;
 
     beforeEach(() => {
       parent = tester.parent;

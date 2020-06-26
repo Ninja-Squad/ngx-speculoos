@@ -13,10 +13,10 @@ import { By } from '@angular/platform-browser';
  */
 export class TestElementQuerier {
 
-  constructor(private tester: ComponentTester<any>,
+  constructor(private tester: ComponentTester<unknown>,
               private root: DebugElement) { }
 
-  static wrap(childDebugElement: DebugElement, tester: ComponentTester<any>): TestElement<any> {
+  static wrap(childDebugElement: DebugElement, tester: ComponentTester<unknown>): TestElement {
     const childElement = childDebugElement.nativeElement;
     if (childElement instanceof HTMLButtonElement) {
       return new TestButton(tester, childDebugElement);
@@ -41,7 +41,7 @@ export class TestElementQuerier {
    * @param selector a CSS selector
    * @returns the wrapped element, or null if no element matches the selector.
    */
-  element(selector: string): TestElement<Element> | null {
+  element(selector: string): TestElement | null {
     const childElement = this.query(selector);
     return childElement && TestElementQuerier.wrap(childElement, this.tester);
   }
@@ -54,7 +54,7 @@ export class TestElementQuerier {
    * @param selector a CSS selector
    * @returns the array of matched elements, empty if no element was matched
    */
-  elements(selector: string): Array<TestElement<Element>> {
+  elements(selector: string): Array<TestElement> {
     const childElements = this.queryAll(selector);
     return childElements.map(debugElement => TestElementQuerier.wrap(debugElement, this.tester));
   }

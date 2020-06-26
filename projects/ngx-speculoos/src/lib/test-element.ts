@@ -5,16 +5,17 @@ import { TestTextArea } from './test-textarea';
 import { TestInput } from './test-input';
 import { TestElementQuerier } from './test-element-querier';
 import { DebugElement } from '@angular/core';
+import { TestHtmlElement } from './test-html-element';
 
 /**
  * A wrapped DOM element, providing additional methods and attributes helping with writing tests
  */
-export class TestElement<E extends Element> {
+export class TestElement<E extends Element = Element> {
 
   private querier: TestElementQuerier;
 
   constructor(
-    protected tester: ComponentTester<any>,
+    protected tester: ComponentTester<unknown>,
     /**
      * the wrapped debug element
      */
@@ -68,24 +69,224 @@ export class TestElement<E extends Element> {
   /**
    * Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
    * of the returned value is the TestElement subclass matching the type of the found element. So, if the
-   * matched element is an input for example, the method will return a TestInput. You can thus use
-   * `tester.element('#some-input') as TestInput`.
+   * matched element is an input for example, the method will return a TestInput.
+   * <p>Usage:</p>
+   * <code>
+   * const testElement: TestHtmlElement&lt;HTMLDivElement> | null = tester.element('div');
+   * </code>
    * @param selector a CSS selector
    * @returns the wrapped element, or null if no element matches the selector.
    */
-  element(selector: string): TestElement<Element> | null {
+  element<K extends keyof HTMLElementTagNameMap>(selector: K): TestHtmlElement<HTMLElementTagNameMap[K]> | null;
+  /**
+   * Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+   * of the returned value is the TestElement subclass matching the type of the found element. So, if the
+   * matched element is an input for example, the method will return a TestInput.
+   * <p>Usage:</p>
+   * <code>
+   * const testElement: TestElement&lt;SVGLineElement> | null = tester.element('line');
+   * </code>
+   * @param selector a CSS selector
+   * @returns the wrapped element, or null if no element matches the selector.
+   */
+  element<K extends keyof SVGElementTagNameMap>(selector: K): TestElement<SVGElementTagNameMap[K]> | null;
+  /**
+   * Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+   * of the returned value is the TestElement subclass matching the type of the found element. So, if the
+   * matched element is an input for example, the method will return a TestInput.
+   * <p>Usage:</p>
+   * <code>
+   * const testElement: TestElement | null = tester.element('.selector');
+   * </code>
+   * @param selector a CSS selector
+   * @returns the wrapped element, or null if no element matches the selector.
+   */
+  element(selector: string): TestElement | null;
+  /**
+   * Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+   * of the returned value is the TestElement subclass matching the type of the found element. So, if the
+   * matched element is an input for example, the method will return a TestInput.
+   * <p>Usage:</p>
+   * <code>
+   * const testElement: TestInput | null = tester.element&lt;HTMLInputElement>('.selector');
+   * </code>
+   * @param selector a CSS selector
+   * @returns the wrapped element, or null if no element matches the selector.
+   */
+  element<T extends HTMLInputElement>(selector: string): TestInput | null;
+  /**
+   * Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+   * of the returned value is the TestElement subclass matching the type of the found element. So, if the
+   * matched element is an input for example, the method will return a TestInput.
+   * <p>Usage:</p>
+   * <code>
+   * const testElement: TestTextArea | null = tester.element&lt;HTMLTextAreaElement>('.selector');
+   * </code>
+   * @param selector a CSS selector
+   * @returns the wrapped element, or null if no element matches the selector.
+   */
+  element<T extends HTMLTextAreaElement>(selector: string): TestTextArea | null;
+  /**
+   * Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+   * of the returned value is the TestElement subclass matching the type of the found element. So, if the
+   * matched element is an input for example, the method will return a TestInput.
+   * <p>Usage:</p>
+   * <code>
+   * const testElement: TestSelect | null = tester.element&lt;HTMLSelectElement>('.selector');
+   * </code>
+   * @param selector a CSS selector
+   * @returns the wrapped element, or null if no element matches the selector.
+   */
+  element<T extends HTMLSelectElement>(selector: string): TestSelect | null;
+  /**
+   * Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+   * of the returned value is the TestElement subclass matching the type of the found element. So, if the
+   * matched element is an input for example, the method will return a TestInput.
+   * <p>Usage:</p>
+   * <code>
+   * const testElement: TestButton | null = tester.element&lt;HTMLButtonElement>('.selector');
+   * </code>
+   * @param selector a CSS selector
+   * @returns the wrapped element, or null if no element matches the selector.
+   */
+  element<T extends HTMLButtonElement>(selector: string): TestButton | null;
+  /**
+   * Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+   * of the returned value is the TestElement subclass matching the type of the found element. So, if the
+   * matched element is an input for example, the method will return a TestInput.
+   * <p>Usage:</p>
+   * <code>
+   * const testElement: TestHtmlElement&lt;HTMLDivElement> | null = tester.element&lt;HTMLDivElement>('.selector');
+   * </code>
+   * @param selector a CSS selector
+   * @returns the wrapped element, or null if no element matches the selector.
+   */
+  element<T extends HTMLElement>(selector: string): TestHtmlElement<T> | null;
+  /**
+   * Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+   * of the returned value is the TestElement subclass matching the type of the found element. So, if the
+   * matched element is an input for example, the method will return a TestInput.
+   * <p>Usage:</p>
+   * <code>
+   * const testElement: TestElement&lt;SVGLineElement> | null = tester.element&lt;SVGLineElement>('.selector');
+   * </code>
+   * @param selector a CSS selector
+   * @returns the wrapped element, or null if no element matches the selector.
+   */
+  element<T extends Element>(selector: string): TestElement<T> | null;
+  element(selector: string): TestElement | null {
     return this.querier.element(selector);
   }
 
   /**
    * Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
    * of the returned elements is the TestElement subclass matching the type of the found element. So, if the
-   * matched elements are inputs for example, the method will return an array of TestInput. You can thus use
-   * `tester.elements('input') as Array<TestInput>`.
+   * matched elements are inputs for example, the method will return an array of TestInput.
+   * <p>Usage:</p>
+   * <code>
+   * const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elements('div');
+   * </code>
    * @param selector a CSS selector
    * @returns the array of matched elements, empty if no element was matched
    */
-  elements(selector: string): Array<TestElement<Element>> {
+  elements<K extends keyof HTMLElementTagNameMap>(selector: K): Array<TestHtmlElement<HTMLElementTagNameMap[K]>>;
+  /**
+   * Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+   * of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+   * matched elements are inputs for example, the method will return an array of TestInput.
+   * <p>Usage:</p>
+   * <code>
+   * const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements('line');
+   * </code>
+   * @param selector a CSS selector
+   * @returns the array of matched elements, empty if no element was matched
+   */
+  elements<K extends keyof SVGElementTagNameMap>(selector: K): Array<TestElement<SVGElementTagNameMap[K]>>;
+  /**
+   * Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+   * of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+   * matched elements are inputs for example, the method will return an array of TestInput.
+   * <p>Usage:</p>
+   * <code>
+   * const testElements: Array&lt;TestElement> = tester.elements('.selector');
+   * </code>
+   * @param selector a CSS selector
+   * @returns the array of matched elements, empty if no element was matched
+   */
+  elements(selector: string): Array<TestElement>;
+  /**
+   * Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+   * of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+   * matched elements are inputs for example, the method will return an array of TestInput.
+   * <p>Usage:</p>
+   * <code>
+   * const testElements: Array&lt;TestInput> = tester.elements&lt;HTMLInputElement>('.selector');
+   * </code>
+   * @param selector a CSS selector
+   * @returns the array of matched elements, empty if no element was matched
+   */
+  elements<T extends HTMLInputElement>(selector: string): Array<TestInput>;
+  /**
+   * Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+   * of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+   * matched elements are inputs for example, the method will return an array of TestInput.
+   * <p>Usage:</p>
+   * <code>
+   * const testElements: Array&lt;TestTextArea> = tester.elements&lt;HTMLTextAreaElement>('.selector');
+   * </code>
+   * @param selector a CSS selector
+   * @returns the array of matched elements, empty if no element was matched
+   */
+  elements<T extends HTMLTextAreaElement>(selector: string): Array<TestTextArea>;
+  /**
+   * Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+   * of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+   * matched elements are inputs for example, the method will return an array of TestInput.
+   * <p>Usage:</p>
+   * <code>
+   * const testElements: Array&lt;TestButton> = tester.elements&lt;HTMLButtonElement>('.selector');
+   * </code>
+   * @param selector a CSS selector
+   * @returns the array of matched elements, empty if no element was matched
+   */
+  elements<T extends HTMLButtonElement>(selector: string): Array<TestButton>;
+  /**
+   * Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+   * of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+   * matched elements are inputs for example, the method will return an array of TestInput.
+   * <p>Usage:</p>
+   * <code>
+   * const testElements: Array&lt;TestSelect> = tester.elements<HTMLSelectElement>('.selector');
+   * </code>
+   * @param selector a CSS selector
+   * @returns the array of matched elements, empty if no element was matched
+   */
+  elements<T extends HTMLSelectElement>(selector: string): Array<TestSelect>;
+  /**
+   * Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+   * of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+   * matched elements are inputs for example, the method will return an array of TestInput.
+   * <p>Usage:</p>
+   * <code>
+   * const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elements&lt;HTMLDivElement>('.selector');
+   * </code>
+   * @param selector a CSS selector
+   * @returns the array of matched elements, empty if no element was matched
+   */
+  elements<T extends HTMLElement>(selector: string): Array<TestHtmlElement<T>>;
+  /**
+   * Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+   * of the returned elements is the TestElement subclass matching the type of the found element. So, if the
+   * matched elements are inputs for example, the method will return an array of TestInput.
+   * <p>Usage:</p>
+   * <code>
+   * const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&lt;SVGLineElement>('.selector');
+   * </code>
+   * @param selector a CSS selector
+   * @returns the array of matched elements, empty if no element was matched
+   */
+  elements<T extends Element>(selector: string): Array<TestElement<T>>;
+  elements(selector: string): Array<TestElement> {
     return this.querier.elements(selector);
   }
 

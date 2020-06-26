@@ -6,7 +6,7 @@ import { DebugElement } from '@angular/core';
  * A wrapped button element, providing additional methods and attributes helping with writing tests
  */
 export class TestButton extends TestHtmlElement<HTMLButtonElement> {
-  constructor(tester: ComponentTester<any>, debugElement: DebugElement) {
+  constructor(tester: ComponentTester<unknown>, debugElement: DebugElement) {
     super(tester, debugElement);
   }
 
