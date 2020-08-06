@@ -25,6 +25,6 @@
     "save": "devDependencies"
   },
   "dependencies": {
-    "tslib": "2.0.0"
+    "tslib": "2.0.1"
   }
 }
