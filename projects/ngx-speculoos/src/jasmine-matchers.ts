@@ -41,5 +41,10 @@ declare namespace jasmine {
      * Checks that the receiver is a TestSelect wrapping a DOM element with the selected option's label equal to the given label
      */
     toHaveSelectedLabel(label: string): boolean;
+
+    /**
+     * Checks that the receiver is a TestHtmlElement which is visible.
+     */
+    toBeVisible(): boolean;
   }
 }

@@ -19,6 +19,7 @@ import { speculoosMatchers } from './matchers';
       <option value="a" selected>A</option>
       <option value="b">B</option>
     </select>
+    <div style="display: none;" id="invisible"></div>
   `
 })
 class TestComponent {
@@ -57,6 +58,10 @@ class TestComponentTester extends ComponentTester<TestComponent> {
 
   get selectBox() {
     return this.select('#selectBox');
+  }
+
+  get invisible() {
+    return this.element('#invisible');
   }
 }
 
@@ -516,6 +521,56 @@ describe('Custom matchers', () => {
       const result = matcher.negativeCompare(tester.textArea, 'A');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check selected label 'A' on element, but element was not a TestSelect`);
+    });
+  });
+
+  describe('toBeVisible', () => {
+    const matcher = speculoosMatchers.toBeVisible(undefined, undefined);
+
+    it('should check if visible', () => {
+      expect(tester.div).toBeVisible();
+      expect(tester.invisible).not.toBeVisible();
+    });
+
+    it('should return false if not visible', () => {
+      const result = matcher.compare(tester.invisible);
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected element to be visible, but was invisible`);
+    });
+
+    it('should return true if not visible and .not', () => {
+      const result = matcher.negativeCompare(tester.invisible);
+      expect(result.pass).toBeTruthy();
+    });
+
+    it('should return false if visible and .not', () => {
+      const result = matcher.negativeCompare(tester.div);
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected element to be invisible, but was visible`);
+    });
+
+    it('should return false if no element', () => {
+      const result = matcher.compare(null);
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check if element was visible, but element was falsy`);
+    });
+
+    it('should return false if no element and .not too', () => {
+      const result = matcher.negativeCompare(null);
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check if element was invisible, but element was falsy`);
+    });
+
+    it('should return false if element of wrong type', () => {
+      const result = matcher.compare('hello');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check if element was visible, but element was not a TestHtmlElement`);
+    });
+
+    it('should return false if element of wrong type and .not too', () => {
+      const result = matcher.negativeCompare('hello');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check if element was invisible, but element was not a TestHtmlElement`);
     });
   });
 });

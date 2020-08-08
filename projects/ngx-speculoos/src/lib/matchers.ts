@@ -2,6 +2,7 @@ import { TestTextArea } from './test-textarea';
 import { TestInput } from './test-input';
 import { TestElement } from './test-element';
 import { TestSelect } from './test-select';
+import { TestHtmlElement } from './test-html-element';
 
 const speculoosMatchers: jasmine.CustomMatcherFactories = {
   /**
@@ -229,6 +230,36 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
       },
       negativeCompare: (el: unknown, expected: string): jasmine.CustomMatcherResult => {
         return assert(true, el, expected);
+      }
+    };
+  },
+
+  /**
+   * Checks that the receiver is a TestHtmlElement which is visible
+   */
+  toBeVisible: (
+    util: jasmine.MatchersUtil,
+    customEqualityTesters: ReadonlyArray<jasmine.CustomEqualityTester>
+  ): jasmine.CustomMatcher => {
+    const assert = (isNegative: boolean, el: unknown) => {
+      const expectedState = `${isNegative ? 'in' : ''}visible`;
+      const inverseState = `${isNegative ? '' : 'in'}visible`;
+      if (!el) {
+        return { pass: false, message: `Expected to check if element was ${expectedState}, but element was falsy` };
+      }
+      if (!(el instanceof TestHtmlElement)) {
+        return { pass: false, message: `Expected to check if element was ${expectedState}, but element was not a TestHtmlElement` };
+      }
+      const pass = el.visible;
+      const message = `Expected element to be ${expectedState}, but was ${inverseState}`;
+      return { pass: isNegative ? !pass : pass, message };
+    };
+    return {
+      compare: (el: unknown): jasmine.CustomMatcherResult => {
+        return assert(false, el);
+      },
+      negativeCompare: (el: unknown): jasmine.CustomMatcherResult => {
+        return assert(true, el);
       }
     };
   }
