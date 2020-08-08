@@ -107,6 +107,7 @@ The complete matcher list includes:
 - `toHaveSelectedIndex(index: number)`
 - `toHaveSelectedValue(value: string)`
 - `toHaveSelectedLabel(label: string)`
+- `toBeVisible()`
 
 ## Installation
 
@@ -128,7 +129,8 @@ Using yarn: `yarn add --dev ngx-speculoos`
  - If needed, you can always get the fixture, componentInstance, debugElement, nativeElement, etc.
    from the ComponentTester, and the nativeElement from each TestXxx wrapper.
  - If you like our custom matchers, add them in a beforeEach block as shown above, and enjoy.
-   
+   You can also add them for all tests at once by adding the beforeEach to block the CLI-generated `test.ts` file.
+      
 ## Issues, questions
 
 Please, provide feedback by filing issues, or by submitting pull requests, to the [Github Project](https://github.com/Ninja-Squad/ngx-speculoos).
