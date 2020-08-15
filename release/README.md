@@ -7,7 +7,7 @@
    Read [the guide](https://github.com/conventional-changelog/standard-version#cut-a-release) for more information. In any case, if you screw up, it's not a big deal: you haven't pushed anything yet, nor published the npm package to the registry.
 4. You might want to check that the generated version in projects/ngx-speculoos/package.json. 
    If something is wrong, you just need to delete the tag created by yarn-release, reset hard to master and start again.
-5. Delete your dist directory (`rm -rf dist`) then run `yarn build` and `yarn test` and `yarn doc` to make sure everything is fine. 
+5. Delete your dist directory (`rm -rf dist`) then run `yarn build`, `yarn test`, `yarn tsd` and `yarn doc` to make sure everything is fine. 
    The CI will also do it, but you'd better know sooner than later and check twice). 
    You can test the produced library release by linking it (`cd dist/ngx-speculoos; yarn link`) and using it 
    in an external project: (in the project: `yarn link ngx-speculoos`).
