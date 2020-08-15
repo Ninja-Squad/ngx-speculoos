@@ -317,6 +317,36 @@
         return assert(true, el, expected);
       }
     };
+  },
+
+  /**
+   * Checks that the receiver is a TestHtmlElement which is visible
+   */
+  toBeVisible: (
+    util: jasmine.MatchersUtil,
+    customEqualityTesters: ReadonlyArray&lt;jasmine.CustomEqualityTester&gt;
+  ): jasmine.CustomMatcher &#x3D;&gt; {
+    const assert &#x3D; (isNegative: boolean, el: unknown) &#x3D;&gt; {
+      const expectedState &#x3D; &#x60;${isNegative ? &#x27;in&#x27; : &#x27;&#x27;}visible&#x60;;
+      const inverseState &#x3D; &#x60;${isNegative ? &#x27;&#x27; : &#x27;in&#x27;}visible&#x60;;
+      if (!el) {
+        return { pass: false, message: &#x60;Expected to check if element was ${expectedState}, but element was falsy&#x60; };
+      }
+      if (!(el instanceof TestHtmlElement)) {
+        return { pass: false, message: &#x60;Expected to check if element was ${expectedState}, but element was not a TestHtmlElement&#x60; };
+      }
+      const pass &#x3D; el.visible;
+      const message &#x3D; &#x60;Expected element to be ${expectedState}, but was ${inverseState}&#x60;;
+      return { pass: isNegative ? !pass : pass, message };
+    };
+    return {
+      compare: (el: unknown): jasmine.CustomMatcherResult &#x3D;&gt; {
+        return assert(false, el);
+      },
+      negativeCompare: (el: unknown): jasmine.CustomMatcherResult &#x3D;&gt; {
+        return assert(true, el);
+      }
+    };
   }
 }</code>
                         </td>

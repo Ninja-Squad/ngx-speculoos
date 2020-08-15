@@ -185,6 +185,20 @@
 
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#visible">visible</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
         </tbody>
     </table>
 </section>
@@ -2760,6 +2774,42 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
 
 
 
+            <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="visible"></a>
+                        <span class="name"><b>visible</b><a href="#visible"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>visible()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/lib/test-html-element.ts:26</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Tests if the element is visible, in the same meaning (and implementation) as in jQuery, i.e.
+present anywhere in the DOM, and visible.
+An element is not visible typically, if its display style or any of its ancestors display style is none.</p>
+</div>
+
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+</section>
     </div>
 
 
@@ -2782,6 +2832,15 @@ export class TestHtmlElement&lt;E extends HTMLElement&gt; extends TestElement&lt
   click() {
     this.nativeElement.click();
     this.tester.detectChanges();
+  }
+
+  /**
+   * Tests if the element is visible, in the same meaning (and implementation) as in jQuery, i.e.
+   * present anywhere in the DOM, and visible.
+   * An element is not visible typically, if its display style or any of its ancestors display style is none.
+   */
+  get visible() {
+    return !!(this.nativeElement.offsetWidth || this.nativeElement.offsetHeight || this.nativeElement.getClientRects().length);
   }
 }
 </code></pre>

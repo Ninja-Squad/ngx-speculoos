@@ -119,6 +119,7 @@ it(&#39;should hide cities when selecting empty country option&#39;, () =&gt; {
 <li><code>toHaveSelectedIndex(index: number)</code></li>
 <li><code>toHaveSelectedValue(value: string)</code></li>
 <li><code>toHaveSelectedLabel(label: string)</code></li>
+<li><code>toBeVisible()</code></li>
 </ul>
 <h2 id="installation">Installation</h2>
 <p>Using the CLI: <code>ng add ngx-speculoos</code></p>
@@ -135,7 +136,8 @@ See the API documentation for details</li>
 <li>Write your tests, as shown above, benefitting from the additional methods on the TestXxx classes.</li>
 <li>If needed, you can always get the fixture, componentInstance, debugElement, nativeElement, etc.
 from the ComponentTester, and the nativeElement from each TestXxx wrapper.</li>
-<li>If you like our custom matchers, add them in a beforeEach block as shown above, and enjoy.</li>
+<li>If you like our custom matchers, add them in a beforeEach block as shown above, and enjoy.
+You can also add them for all tests at once by adding the beforeEach to block the CLI-generated <code>test.ts</code> file.</li>
 </ul>
 <h2 id="issues-questions">Issues, questions</h2>
 <p>Please, provide feedback by filing issues, or by submitting pull requests, to the <a href="https://github.com/Ninja-Squad/ngx-speculoos">Github Project</a>.</p>

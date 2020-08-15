@@ -82,6 +82,9 @@
                                     <a href="#toBeChecked">toBeChecked</a>
                                 </li>
                                 <li>
+                                    <a href="#toBeVisible">toBeVisible</a>
+                                </li>
+                                <li>
                                     <a href="#toContainText">toContainText</a>
                                 </li>
                                 <li>
@@ -145,6 +148,47 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Checks that the receiver is a TestInput and is checked</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toBeVisible"></a>
+                    <span class="name">
+                        <b>
+                            toBeVisible
+                        </b>
+                        <a href="#toBeVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toBeVisible()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">src/jasmine-matchers.ts:48</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Checks that the receiver is a TestHtmlElement which is visible.</p>
 </div>
 
                     <div class="io-description">
@@ -707,6 +751,11 @@
      * Checks that the receiver is a TestSelect wrapping a DOM element with the selected option&#x27;s label equal to the given label
      */
     toHaveSelectedLabel(label: string): boolean;
+
+    /**
+     * Checks that the receiver is a TestHtmlElement which is visible.
+     */
+    toBeVisible(): boolean;
   }
 }
 </code></pre>
