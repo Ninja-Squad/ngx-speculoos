@@ -40,7 +40,7 @@ describe('AppComponent', () => {
 
     // a first call to detectChanges() is necessary. If the component had inputs, you would initialize them
     // before calling detectChanges. For example:
-    // tester.someInput = 'someValue';
+    // tester.componentInstance.someInput = 'someValue';
     tester.detectChanges();
 
     jasmine.addMatchers(speculoosMatchers);
