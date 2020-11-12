@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ComponentTester } from './component-tester';
 import { TestBed } from '@angular/core/testing';
-import { TestElement } from './test-element';
 import { TestHtmlElement } from './test-html-element';
 
 @Component({

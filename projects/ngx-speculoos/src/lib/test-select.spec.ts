@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ComponentTester } from './component-tester';
 import { TestBed } from '@angular/core/testing';
-import { TestButton } from './test-button';
 import { TestSelect } from './test-select';
 
 @Component({
