@@ -12,13 +12,13 @@ export class AppComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.form = this.fb.group({
       firstName: ['', [Validators.required]]
     });
   }
 
-  sayHello() {
+  sayHello(): void {
     this.greeting = `Hello ${this.form.value.firstName}`;
   }
 }

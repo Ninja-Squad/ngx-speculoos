@@ -13,7 +13,7 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
   /**
    * Selects the option at the given index, then dispatches an event of type change and triggers a change detection
    */
-  selectIndex(index: number) {
+  selectIndex(index: number): void {
     this.nativeElement.selectedIndex = index;
     this.dispatchEventOfType('change');
   }
@@ -23,7 +23,7 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
    * If there is no option with the given value, then does nothing
    * TODO should it throw instead?
    */
-  selectValue(value: string) {
+  selectValue(value: string): void {
     const index = this.optionValues.indexOf(value);
     if (index >= 0) {
       this.selectIndex(index);
@@ -35,7 +35,7 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
    * If there is no option with the given label, then does nothing
    * TODO should it throw instead?
    */
-  selectLabel(label: string) {
+  selectLabel(label: string): void {
     const index = this.optionLabels.indexOf(label);
     if (index >= 0) {
       this.selectIndex(index);
@@ -86,14 +86,14 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
   /**
    * the number of options in the select
    */
-  get size() {
+  get size(): number {
     return this.nativeElement.options.length;
   }
 
   /**
    * the disabled property of the wrapped select
    */
-  get disabled() {
+  get disabled(): boolean {
     return this.nativeElement.disabled;
   }
 }

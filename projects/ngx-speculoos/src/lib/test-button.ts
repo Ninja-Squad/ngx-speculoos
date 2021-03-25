@@ -13,7 +13,7 @@ export class TestButton extends TestHtmlElement<HTMLButtonElement> {
   /**
    * the disabled flag of the button
    */
-  get disabled() {
+  get disabled(): boolean {
     return this.nativeElement.disabled;
   }
 }

@@ -1,4 +1,4 @@
-// tslint:disable:no-reference
+/* eslint-disable @typescript-eslint/triple-slash-reference */
 /// <reference path="../jasmine-matchers.ts" />
 import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ComponentTester } from './component-tester';
 import { TestButton } from './test-button';
 import { TestSelect } from './test-select';
@@ -30,14 +31,14 @@ export class TestElement<E extends Element = Element> {
   /**
    * the text content of this element
    */
-  get textContent() {
+  get textContent(): string | null {
     return this.nativeElement.textContent;
   }
 
   /**
    * dispatches an event of the given type from the wrapped element, then triggers a change detection
    */
-  dispatchEventOfType(type: string) {
+  dispatchEventOfType(type: string): void {
     this.nativeElement.dispatchEvent(new Event(type));
     this.tester.detectChanges();
   }
@@ -45,7 +46,7 @@ export class TestElement<E extends Element = Element> {
   /**
    * dispatches the given event from the wrapped element, then triggers a change detection
    */
-  dispatchEvent(event: Event) {
+  dispatchEvent(event: Event): void {
     this.nativeElement.dispatchEvent(event);
     this.tester.detectChanges();
   }
@@ -61,7 +62,7 @@ export class TestElement<E extends Element = Element> {
    * Gets the attribute of the wrapped element with the given name
    * @param name the name of the attribute to get
    */
-  attr(name: string) {
+  attr(name: string): string | null {
     return this.nativeElement.getAttribute(name);
   }
 

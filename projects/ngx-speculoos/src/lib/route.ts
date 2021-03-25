@@ -67,7 +67,7 @@ export function fakeRoute(options: {
     pathFromRoot: options.pathFromRoot
   } as ActivatedRoute;
 
-  for (let route: null | ActivatedRoute = result; !!route; route = route.parent) {
+  for (let route: null | ActivatedRoute = result; route; route = route.parent) {
     if (route.parent && route.parent.snapshot && !route.snapshot) {
       route.snapshot = fakeSnapshot({});
     }

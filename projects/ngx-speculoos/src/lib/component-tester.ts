@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement, Type } from '@angular/core';
 import { TestTextArea } from './test-textarea';
@@ -27,7 +28,7 @@ export class ComponentTester<C> {
   /**
    * Creates a component fixture of the given type with the TestBed and wraps it into a ComponentTester
    */
-  static create<C>(componentType: Type<C>) {
+  static create<C>(componentType: Type<C>): ComponentTester<C> {
     const fixture = TestBed.createComponent(componentType);
     return new ComponentTester(fixture);
   }
@@ -333,7 +334,7 @@ export class ComponentTester<C> {
   /**
    * Triggers a change detection using the wrapped fixture
    */
-  detectChanges(checkNoChanges?: boolean) {
+  detectChanges(checkNoChanges?: boolean): void {
     this.fixture.detectChanges(checkNoChanges);
   }
 }

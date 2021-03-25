@@ -13,7 +13,7 @@ export class TestHtmlElement<E extends HTMLElement> extends TestElement<E> {
   /**
    * Clicks on the wrapped element, then triggers a change detection
    */
-  click() {
+  click(): void {
     this.nativeElement.click();
     this.tester.detectChanges();
   }
@@ -23,7 +23,7 @@ export class TestHtmlElement<E extends HTMLElement> extends TestElement<E> {
    * present anywhere in the DOM, and visible.
    * An element is not visible typically, if its display style or any of its ancestors display style is none.
    */
-  get visible() {
+  get visible(): boolean {
     return !!(this.nativeElement.offsetWidth || this.nativeElement.offsetHeight || this.nativeElement.getClientRects().length);
   }
 }

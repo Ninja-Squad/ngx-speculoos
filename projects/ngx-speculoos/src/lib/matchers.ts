@@ -8,7 +8,7 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
   /**
    * Checks that the receiver is a TestElement wrapping a DOM element and as the given CSS class
    */
-  toHaveClass: (util: jasmine.MatchersUtil, customEqualityTesters: ReadonlyArray<jasmine.CustomEqualityTester>): jasmine.CustomMatcher => {
+  toHaveClass: (): jasmine.CustomMatcher => {
     const assert = (isNegative: boolean, el: unknown, expected: string) => {
       if (!el) {
         return { pass: false, message: `Expected to check class '${expected}' on element, but element was falsy` };
@@ -36,7 +36,7 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
   /**
    * Checks that the receiver is a TestInput or a TestTextArea and has the given value
    */
-  toHaveValue: (util: jasmine.MatchersUtil, customEqualityTesters: ReadonlyArray<jasmine.CustomEqualityTester>): jasmine.CustomMatcher => {
+  toHaveValue: (): jasmine.CustomMatcher => {
     const assert = (isNegative: boolean, el: unknown, expected: string) => {
       if (!el) {
         return { pass: false, message: `Expected to check value '${expected}' on element, but element was falsy` };
@@ -65,7 +65,7 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
   /**
    * Checks that the receiver is a TestElement wrapping a DOM element and has the exact given textContent
    */
-  toHaveText: (util: jasmine.MatchersUtil, customEqualityTesters: ReadonlyArray<jasmine.CustomEqualityTester>): jasmine.CustomMatcher => {
+  toHaveText: (): jasmine.CustomMatcher => {
     const assert = (isNegative: boolean, el: unknown, expected: string) => {
       if (!el) {
         return { pass: false, message: `Expected to check text '${expected}' on element, but element was falsy` };
@@ -91,10 +91,7 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
   /**
    * Checks that the receiver is a TestElement wrapping a DOM element and contains the given textContent
    */
-  toContainText: (
-    util: jasmine.MatchersUtil,
-    customEqualityTesters: ReadonlyArray<jasmine.CustomEqualityTester>
-  ): jasmine.CustomMatcher => {
+  toContainText: (): jasmine.CustomMatcher => {
     const assert = (isNegative: boolean, el: unknown, expected: string) => {
       if (!el) {
         return { pass: false, message: `Expected to check text '${expected}' on element, but element was falsy` };
@@ -126,7 +123,7 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
   /**
    * Checks that the receiver is a TestElement wrapping a DOM element and contains the given textContent
    */
-  toBeChecked: (util: jasmine.MatchersUtil, customEqualityTesters: ReadonlyArray<jasmine.CustomEqualityTester>): jasmine.CustomMatcher => {
+  toBeChecked: (): jasmine.CustomMatcher => {
     const assert = (isNegative: boolean, el: unknown) => {
       if (!el) {
         return { pass: false, message: `Expected to check if element was checked, but element was falsy` };
@@ -151,10 +148,7 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
   /**
    * Checks that the receiver is a TestSelect wrapping a DOM element and has the given selected index
    */
-  toHaveSelectedIndex: (
-    util: jasmine.MatchersUtil,
-    customEqualityTesters: ReadonlyArray<jasmine.CustomEqualityTester>
-  ): jasmine.CustomMatcher => {
+  toHaveSelectedIndex: (): jasmine.CustomMatcher => {
     const assert = (isNegative: boolean, el: unknown, expected: number) => {
       if (!el) {
         return { pass: false, message: `Expected to check selected index ${expected} on element, but element was falsy` };
@@ -180,10 +174,7 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
   /**
    * Checks that the receiver is a TestSelect wrapping a DOM element with the selected option's value equal to the given value
    */
-  toHaveSelectedValue: (
-    util: jasmine.MatchersUtil,
-    customEqualityTesters: ReadonlyArray<jasmine.CustomEqualityTester>
-  ): jasmine.CustomMatcher => {
+  toHaveSelectedValue: (): jasmine.CustomMatcher => {
     const assert = (isNegative: boolean, el: unknown, expected: string) => {
       if (!el) {
         return { pass: false, message: `Expected to check selected value '${expected}' on element, but element was falsy` };
@@ -209,10 +200,7 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
   /**
    * Checks that the receiver is a TestSelect wrapping a DOM element with the selected option's label equal to the given label
    */
-  toHaveSelectedLabel: (
-    util: jasmine.MatchersUtil,
-    customEqualityTesters: ReadonlyArray<jasmine.CustomEqualityTester>
-  ): jasmine.CustomMatcher => {
+  toHaveSelectedLabel: (): jasmine.CustomMatcher => {
     const assert = (isNegative: boolean, el: unknown, expected: string) => {
       if (!el) {
         return { pass: false, message: `Expected to check selected label '${expected}' on element, but element was falsy` };
@@ -238,7 +226,7 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
   /**
    * Checks that the receiver is a TestHtmlElement which is visible
    */
-  toBeVisible: (util: jasmine.MatchersUtil, customEqualityTesters: ReadonlyArray<jasmine.CustomEqualityTester>): jasmine.CustomMatcher => {
+  toBeVisible: (): jasmine.CustomMatcher => {
     const assert = (isNegative: boolean, el: unknown) => {
       const expectedState = `${isNegative ? 'in' : ''}visible`;
       const inverseState = `${isNegative ? '' : 'in'}visible`;

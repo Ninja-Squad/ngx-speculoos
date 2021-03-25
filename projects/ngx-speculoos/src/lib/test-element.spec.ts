@@ -24,6 +24,7 @@ import { TestInput } from './test-input';
   `
 })
 class TestComponent {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   onChange($event: Event) {}
 }
 

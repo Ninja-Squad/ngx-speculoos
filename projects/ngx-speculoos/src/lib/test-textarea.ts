@@ -14,7 +14,7 @@ export class TestTextArea extends TestHtmlElement<HTMLTextAreaElement> {
    * Sets the value of the wrapped textarea, then dispatches an event of type input and triggers a change detection
    * @param value the new value of the textarea
    */
-  fillWith(value: string) {
+  fillWith(value: string): void {
     this.nativeElement.value = value;
     this.dispatchEventOfType('input');
   }
@@ -22,14 +22,14 @@ export class TestTextArea extends TestHtmlElement<HTMLTextAreaElement> {
   /**
    * the value of the wrapped textarea
    */
-  get value() {
+  get value(): string {
     return this.nativeElement.value;
   }
 
   /**
    * the disabled property of the wrapped textarea
    */
-  get disabled() {
+  get disabled(): boolean {
     return this.nativeElement.disabled;
   }
 }

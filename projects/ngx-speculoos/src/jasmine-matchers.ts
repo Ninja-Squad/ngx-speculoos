@@ -1,4 +1,4 @@
-// tslint:disable:no-namespace
+/* eslint-disable @typescript-eslint/no-namespace,@typescript-eslint/no-unused-vars */
 declare namespace jasmine {
   interface Matchers<T> {
     /**

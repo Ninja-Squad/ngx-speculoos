@@ -13,6 +13,7 @@ import { TestHtmlElement } from './test-html-element';
 })
 class TestComponent {
   invisible = false;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   onClick($event: Event) {}
 }
 
