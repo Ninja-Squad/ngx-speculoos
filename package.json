@@ -11,7 +11,8 @@
     "release": "cd projects/ngx-speculoos && standard-version --infile ../../CHANGELOG.md",
     "doc": "node scripts/prepare-doc.js && cd projects/ngx-speculoos && compodoc",
     "codecov": "codecov",
-    "tsd": "tsd projects/tsd-test"
+    "tsd": "tsd projects/tsd-test",
+    "format": "prettier --write ./"
   },
   "private": true,
   "dependencies": {
@@ -43,6 +44,7 @@
     "karma-jasmine": "4.0.1",
     "karma-jasmine-html-reporter": "1.5.4",
     "ng-packagr": "11.2.4",
+    "prettier": "2.2.1",
     "standard-version": "9.1.1",
     "ts-node": "9.1.1",
     "tsd": "0.14.0",
