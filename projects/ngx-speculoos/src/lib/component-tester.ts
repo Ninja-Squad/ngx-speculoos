@@ -14,7 +14,6 @@ import { TestHtmlElement } from './test-html-element';
  * @param <C> the type of the component to test
  */
 export class ComponentTester<C> {
-
   /**
    * The test element of the component
    */
@@ -45,7 +44,7 @@ export class ComponentTester<C> {
    * @param arg the type of the component to wrap, or a component fixture to wrap
    */
   constructor(arg: Type<C> | ComponentFixture<C>) {
-    this.fixture = (arg instanceof ComponentFixture) ? arg : TestBed.createComponent(arg);
+    this.fixture = arg instanceof ComponentFixture ? arg : TestBed.createComponent(arg);
     this.testElement = TestElementQuerier.wrap(this.debugElement, this) as TestElement<HTMLElement>;
   }
 
@@ -299,7 +298,7 @@ export class ComponentTester<C> {
    * @param selector a CSS selector
    * @returns the wrapped input, or null if no element was matched
    */
-  input(selector: string): TestInput | null  {
+  input(selector: string): TestInput | null {
     return this.testElement.input(selector);
   }
 
@@ -308,7 +307,7 @@ export class ComponentTester<C> {
    * @param selector a CSS selector
    * @returns the wrapped select, or null if no element was matched
    */
-  select(selector: string): TestSelect | null  {
+  select(selector: string): TestSelect | null {
     return this.testElement.select(selector);
   }
 

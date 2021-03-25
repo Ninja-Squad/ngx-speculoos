@@ -36,9 +36,7 @@ describe('TestButton', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        TestComponent
-      ]
+      declarations: [TestComponent]
     });
     tester = new TestComponentTester();
     tester.detectChanges();

@@ -18,14 +18,12 @@ import { TestHtmlElement } from './test-html-element';
     <textarea id="textarea"></textarea>
   `
 })
-class TestComponent { }
+class TestComponent {}
 
 describe('ComponentTester', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        TestComponent
-      ]
+      declarations: [TestComponent]
     });
   });
 

@@ -11,8 +11,8 @@ import { speculoosMatchers } from './matchers';
     <div id="classes" class="foo bar">Hello</div>
     <div id="none">Hello</div>
     <div id="noTextDiv"></div>
-    <input id="name" [value]="name"/>
-    <input id="checkbox" type="checkbox" [checked]="isChecked"/>
+    <input id="name" [value]="name" />
+    <input id="checkbox" type="checkbox" [checked]="isChecked" />
     <textarea>Hi</textarea>
     <select id="selectBox">
       <option value=""></option>
@@ -66,7 +66,6 @@ class TestComponentTester extends ComponentTester<TestComponent> {
 }
 
 describe('Custom matchers', () => {
-
   let tester: TestComponentTester;
 
   beforeEach(() => {
@@ -130,7 +129,6 @@ describe('Custom matchers', () => {
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check class 'baz' on element, but element was not a TestElement`);
     });
-
   });
 
   describe('toHaveValue', () => {
@@ -186,7 +184,6 @@ describe('Custom matchers', () => {
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check value 'baz' on element, but element was neither a TestInput nor a TestTextArea`);
     });
-
   });
 
   describe('toHaveText', () => {
@@ -254,7 +251,6 @@ describe('Custom matchers', () => {
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check text 'baz' on element, but element was not a TestElement`);
     });
-
   });
 
   describe('toContainText', () => {
@@ -317,7 +313,6 @@ describe('Custom matchers', () => {
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check text 'baz' on element, but element was not a TestElement`);
     });
-
   });
 
   describe('toBeChecked', () => {
@@ -371,7 +366,6 @@ describe('Custom matchers', () => {
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check if element was checked, but element was not a TestInput`);
     });
-
   });
 
   describe('toHaveSelectedIndex', () => {

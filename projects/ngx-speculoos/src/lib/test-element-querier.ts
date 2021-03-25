@@ -12,9 +12,7 @@ import { By } from '@angular/platform-browser';
  * @internal
  */
 export class TestElementQuerier {
-
-  constructor(private tester: ComponentTester<unknown>,
-              private root: DebugElement) { }
+  constructor(private tester: ComponentTester<unknown>, private root: DebugElement) {}
 
   static wrap(childDebugElement: DebugElement, tester: ComponentTester<unknown>): TestElement {
     const childElement = childDebugElement.nativeElement;

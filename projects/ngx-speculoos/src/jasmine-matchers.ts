@@ -1,7 +1,6 @@
 // tslint:disable:no-namespace
 declare namespace jasmine {
   interface Matchers<T> {
-
     /**
      * Checks that the receiver is a TestElement wrapping a DOM element and has the given CSS class
      */

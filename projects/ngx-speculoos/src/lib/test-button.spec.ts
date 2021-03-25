@@ -9,8 +9,7 @@ import { TestButton } from './test-button';
     <button id="b2" disabled>Test</button>
   `
 })
-class TestComponent {
-}
+class TestComponent {}
 
 class TestComponentTester extends ComponentTester<TestComponent> {
   constructor() {
@@ -31,9 +30,7 @@ describe('TestButton', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        TestComponent
-      ]
+      declarations: [TestComponent]
     });
     tester = new TestComponentTester();
     tester.detectChanges();

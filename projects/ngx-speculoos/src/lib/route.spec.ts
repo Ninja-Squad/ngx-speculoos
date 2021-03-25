@@ -49,9 +49,11 @@ describe('routes', () => {
         })
       });
 
-      route.params.subscribe(p => expect(p).toEqual({
-        foo: 'bar'
-      }));
+      route.params.subscribe(p =>
+        expect(p).toEqual({
+          foo: 'bar'
+        })
+      );
       route.paramMap.subscribe(p => expect(p.get('foo')).toBe('bar'));
     });
 
@@ -62,9 +64,11 @@ describe('routes', () => {
         })
       });
 
-      route.queryParams.subscribe(p => expect(p).toEqual({
-        foo: 'bar'
-      }));
+      route.queryParams.subscribe(p =>
+        expect(p).toEqual({
+          foo: 'bar'
+        })
+      );
       route.queryParamMap.subscribe(p => expect(p.get('foo')).toBe('bar'));
     });
 
@@ -72,10 +76,10 @@ describe('routes', () => {
       const route = fakeRoute({
         parent: fakeRoute({
           snapshot: fakeSnapshot({
-           data: {
-             baz: 'bing'
-           }
-         })
+            data: {
+              baz: 'bing'
+            }
+          })
         })
       });
 

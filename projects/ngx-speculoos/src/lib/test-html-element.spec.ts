@@ -13,7 +13,7 @@ import { TestHtmlElement } from './test-html-element';
 })
 class TestComponent {
   invisible = false;
-  onClick($event: Event) { }
+  onClick($event: Event) {}
 }
 
 class TestComponentTester extends ComponentTester<TestComponent> {
@@ -39,9 +39,7 @@ describe('TestElement', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        TestComponent
-      ]
+      declarations: [TestComponent]
     });
     tester = new TestComponentTester();
     tester.detectChanges();

@@ -26,12 +26,8 @@ describe('AppComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent,
-      ],
-      imports: [
-        ReactiveFormsModule
-      ]
+      declarations: [AppComponent],
+      imports: [ReactiveFormsModule]
     });
   });
 

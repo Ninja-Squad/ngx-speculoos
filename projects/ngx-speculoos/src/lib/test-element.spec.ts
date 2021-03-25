@@ -24,7 +24,7 @@ import { TestInput } from './test-input';
   `
 })
 class TestComponent {
-  onChange($event: Event) { }
+  onChange($event: Event) {}
 }
 
 class TestComponentTester extends ComponentTester<TestComponent> {
@@ -46,9 +46,7 @@ describe('TestElement', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        TestComponent
-      ]
+      declarations: [TestComponent]
     });
     tester = new TestComponentTester();
     tester.detectChanges();

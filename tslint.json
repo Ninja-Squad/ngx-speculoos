@@ -94,10 +94,6 @@
     "object-literal-sort-keys": false,
     "ordered-imports": false,
     "prefer-while": true,
-    "quotemark": [
-      true,
-      "single"
-    ],
     "semicolon": {
       "options": [
         "always"

@@ -18,8 +18,9 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
       }
       const actual = el.classes;
       const pass = actual.indexOf(expected) !== -1;
-      const message = `Expected element to ${isNegative ? 'not ' : ''}have class '${expected}', `
-      + `but had ${actual.length ? '\'' + actual.join(', ') + '\'' : 'none'}`;
+      const message =
+        `Expected element to ${isNegative ? 'not ' : ''}have class '${expected}', ` +
+        `but had ${actual.length ? "'" + actual.join(', ') + "'" : 'none'}`;
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
@@ -237,10 +238,7 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
   /**
    * Checks that the receiver is a TestHtmlElement which is visible
    */
-  toBeVisible: (
-    util: jasmine.MatchersUtil,
-    customEqualityTesters: ReadonlyArray<jasmine.CustomEqualityTester>
-  ): jasmine.CustomMatcher => {
+  toBeVisible: (util: jasmine.MatchersUtil, customEqualityTesters: ReadonlyArray<jasmine.CustomEqualityTester>): jasmine.CustomMatcher => {
     const assert = (isNegative: boolean, el: unknown) => {
       const expectedState = `${isNegative ? 'in' : ''}visible`;
       const inverseState = `${isNegative ? '' : 'in'}visible`;

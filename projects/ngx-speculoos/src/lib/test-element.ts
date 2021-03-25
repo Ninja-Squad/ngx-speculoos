@@ -11,7 +11,6 @@ import { TestHtmlElement } from './test-html-element';
  * A wrapped DOM element, providing additional methods and attributes helping with writing tests
  */
 export class TestElement<E extends Element = Element> {
-
   private querier: TestElementQuerier;
 
   constructor(
