@@ -7,7 +7,7 @@
     "test": "ng test --no-progress --no-watch --code-coverage --project=ngx-speculoos",
     "demobuild": "ng build --prod --no-progress --project=demo",
     "demotest": "ng test --no-progress --no-watch --project=demo",
-    "lint": "ng lint",
+    "lint": "ng lint --max-warnings=0",
     "release": "cd projects/ngx-speculoos && standard-version --infile ../../CHANGELOG.md",
     "doc": "node scripts/prepare-doc.js && cd projects/ngx-speculoos && compodoc",
     "codecov": "codecov",
