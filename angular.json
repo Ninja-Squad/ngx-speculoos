@@ -133,6 +133,7 @@
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
+              "projects/tsd-test/**/*.ts",
               "projects/demo/**/*.ts",
               "projects/demo/**/*.html"
             ],

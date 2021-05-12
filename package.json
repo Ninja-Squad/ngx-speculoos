@@ -11,7 +11,7 @@
     "release": "cd projects/ngx-speculoos && standard-version --infile ../../CHANGELOG.md",
     "doc": "node scripts/prepare-doc.js && cd projects/ngx-speculoos && compodoc",
     "codecov": "codecov",
-    "tsd": "tsd projects/tsd-test",
+    "tsd": "tsc -p projects/tsd-test/tsconfig.tsd.json",
     "format": "prettier --write ./"
   },
   "private": true,
@@ -58,16 +58,6 @@
     "prettier": "2.3.0",
     "standard-version": "9.3.0",
     "ts-node": "9.1.1",
-    "tsd": "0.15.1",
     "typescript": "4.1.5"
-  },
-  "tsd": {
-    "directory": "projects/tsd-test",
-    "compilerOptions": {
-      "lib": [
-        "es2018",
-        "dom"
-      ]
-    }
   }
 }

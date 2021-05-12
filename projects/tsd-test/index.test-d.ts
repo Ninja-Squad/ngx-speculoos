@@ -1,5 +1,5 @@
-import { expectType } from 'tsd';
-import { ComponentTester, TestButton, TestElement, TestHtmlElement, TestInput, TestSelect, TestTextArea } from './';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { expectType, ComponentTester, TestButton, TestElement, TestHtmlElement, TestInput, TestSelect, TestTextArea } from './';
 
 // @ts-ignore
 const componentTester: ComponentTester<unknown> = null;
@@ -9,6 +9,8 @@ const testElement: TestElement = null;
   // element
   expectType<TestHtmlElement<HTMLDivElement> | null>(test.element('div'));
   expectType<TestElement<SVGLineElement> | null>(test.element('line'));
+  // @ts-expect-error SVGLineElement is not HTMLDivElement
+  expectType<TestElement<HTMLDivElement> | null>(test.element('line'));
   expectType<TestElement | null>(test.element('.any-selector'));
   expectType<TestHtmlElement<HTMLDivElement> | null>(test.element<HTMLDivElement>('.any-selector'));
   expectType<TestElement<SVGLineElement> | null>(test.element<SVGLineElement>('.any-selector'));
