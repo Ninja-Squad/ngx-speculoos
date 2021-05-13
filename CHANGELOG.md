@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v5.0.0...v6.0.0) (2021-05-13)
+
+
+### Features
+
+* enable Ivy partial compilation ([5731919](https://github.com/Ninja-Squad/ngx-speculoos/commit/573191925e21a62f80ffafc15906f71db54fc83a))
+
+
+### Bug Fixes
+
+* renovate config ([2df1219](https://github.com/Ninja-Squad/ngx-speculoos/commit/2df12199bdd69c858daafdbbe54bb82816fb9999))
+
+### ⚠ BREAKING CHANGES
+
+* ngx-speculoos now targets Angular 12.0.0 and Ivy only. If you want to use it with Angular 11.x or View Engine, stick to the previous version of ngx-speculoos. Partial Ivy compilation is now enabled, allowing ngcc to skip this package and you to have faster builds! 🚀
+
+
 ## [5.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v4.1.0...v5.0.0) (2020-11-20)
 
 
