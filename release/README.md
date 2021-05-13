@@ -31,6 +31,6 @@
    cp -r dist/documentation/ ../ngx-speculoos.ninja-squad.com/documentation
    cd ../ngx-speculoos.ninja-squad.com
    git add .
-   git commit -am "docs: release-xxx"
+   git commit -am "docs: release-xxx [ci skip]"
    git push
    ```
