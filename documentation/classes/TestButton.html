@@ -390,7 +390,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>string | null</code>
 
                     </div>
                     <div class="io-description">
@@ -2808,6 +2808,10 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
                                 <div class="io-description"><p>the disabled flag of the button</p>
 </div>
 
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                </div>
                         </td>
                     </tr>
 
@@ -2833,7 +2837,7 @@ export class TestButton extends TestHtmlElement&lt;HTMLButtonElement&gt; {
   /**
    * the disabled flag of the button
    */
-  get disabled() {
+  get disabled(): boolean {
     return this.nativeElement.disabled;
   }
 }

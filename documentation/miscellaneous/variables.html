@@ -93,7 +93,7 @@
   /**
    * Checks that the receiver is a TestElement wrapping a DOM element and as the given CSS class
    */
-  toHaveClass: (util: jasmine.MatchersUtil, customEqualityTesters: ReadonlyArray&lt;jasmine.CustomEqualityTester&gt;): jasmine.CustomMatcher &#x3D;&gt; {
+  toHaveClass: (): jasmine.CustomMatcher &#x3D;&gt; {
     const assert &#x3D; (isNegative: boolean, el: unknown, expected: string) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check class &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
@@ -103,8 +103,9 @@
       }
       const actual &#x3D; el.classes;
       const pass &#x3D; actual.indexOf(expected) !&#x3D;&#x3D; -1;
-      const message &#x3D; &#x60;Expected element to ${isNegative ? &#x27;not &#x27; : &#x27;&#x27;}have class &#x27;${expected}&#x27;, &#x60;
-      + &#x60;but had ${actual.length ? &#x27;\&#x27;&#x27; + actual.join(&#x27;, &#x27;) + &#x27;\&#x27;&#x27; : &#x27;none&#x27;}&#x60;;
+      const message &#x3D;
+        &#x60;Expected element to ${isNegative ? &#x27;not &#x27; : &#x27;&#x27;}have class &#x27;${expected}&#x27;, &#x60; +
+        &#x60;but had ${actual.length ? &quot;&#x27;&quot; + actual.join(&#x27;, &#x27;) + &quot;&#x27;&quot; : &#x27;none&#x27;}&#x60;;
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
@@ -120,7 +121,7 @@
   /**
    * Checks that the receiver is a TestInput or a TestTextArea and has the given value
    */
-  toHaveValue: (util: jasmine.MatchersUtil, customEqualityTesters: ReadonlyArray&lt;jasmine.CustomEqualityTester&gt;): jasmine.CustomMatcher &#x3D;&gt; {
+  toHaveValue: (): jasmine.CustomMatcher &#x3D;&gt; {
     const assert &#x3D; (isNegative: boolean, el: unknown, expected: string) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check value &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
@@ -149,7 +150,7 @@
   /**
    * Checks that the receiver is a TestElement wrapping a DOM element and has the exact given textContent
    */
-  toHaveText: (util: jasmine.MatchersUtil, customEqualityTesters: ReadonlyArray&lt;jasmine.CustomEqualityTester&gt;): jasmine.CustomMatcher &#x3D;&gt; {
+  toHaveText: (): jasmine.CustomMatcher &#x3D;&gt; {
     const assert &#x3D; (isNegative: boolean, el: unknown, expected: string) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check text &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
@@ -175,10 +176,7 @@
   /**
    * Checks that the receiver is a TestElement wrapping a DOM element and contains the given textContent
    */
-  toContainText: (
-    util: jasmine.MatchersUtil,
-    customEqualityTesters: ReadonlyArray&lt;jasmine.CustomEqualityTester&gt;
-  ): jasmine.CustomMatcher &#x3D;&gt; {
+  toContainText: (): jasmine.CustomMatcher &#x3D;&gt; {
     const assert &#x3D; (isNegative: boolean, el: unknown, expected: string) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check text &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
@@ -210,7 +208,7 @@
   /**
    * Checks that the receiver is a TestElement wrapping a DOM element and contains the given textContent
    */
-  toBeChecked: (util: jasmine.MatchersUtil, customEqualityTesters: ReadonlyArray&lt;jasmine.CustomEqualityTester&gt;): jasmine.CustomMatcher &#x3D;&gt; {
+  toBeChecked: (): jasmine.CustomMatcher &#x3D;&gt; {
     const assert &#x3D; (isNegative: boolean, el: unknown) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check if element was checked, but element was falsy&#x60; };
@@ -235,10 +233,7 @@
   /**
    * Checks that the receiver is a TestSelect wrapping a DOM element and has the given selected index
    */
-  toHaveSelectedIndex: (
-    util: jasmine.MatchersUtil,
-    customEqualityTesters: ReadonlyArray&lt;jasmine.CustomEqualityTester&gt;
-  ): jasmine.CustomMatcher &#x3D;&gt; {
+  toHaveSelectedIndex: (): jasmine.CustomMatcher &#x3D;&gt; {
     const assert &#x3D; (isNegative: boolean, el: unknown, expected: number) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check selected index ${expected} on element, but element was falsy&#x60; };
@@ -264,10 +259,7 @@
   /**
    * Checks that the receiver is a TestSelect wrapping a DOM element with the selected option&#x27;s value equal to the given value
    */
-  toHaveSelectedValue: (
-    util: jasmine.MatchersUtil,
-    customEqualityTesters: ReadonlyArray&lt;jasmine.CustomEqualityTester&gt;
-  ): jasmine.CustomMatcher &#x3D;&gt; {
+  toHaveSelectedValue: (): jasmine.CustomMatcher &#x3D;&gt; {
     const assert &#x3D; (isNegative: boolean, el: unknown, expected: string) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check selected value &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
@@ -293,10 +285,7 @@
   /**
    * Checks that the receiver is a TestSelect wrapping a DOM element with the selected option&#x27;s label equal to the given label
    */
-  toHaveSelectedLabel: (
-    util: jasmine.MatchersUtil,
-    customEqualityTesters: ReadonlyArray&lt;jasmine.CustomEqualityTester&gt;
-  ): jasmine.CustomMatcher &#x3D;&gt; {
+  toHaveSelectedLabel: (): jasmine.CustomMatcher &#x3D;&gt; {
     const assert &#x3D; (isNegative: boolean, el: unknown, expected: string) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check selected label &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
@@ -322,10 +311,7 @@
   /**
    * Checks that the receiver is a TestHtmlElement which is visible
    */
-  toBeVisible: (
-    util: jasmine.MatchersUtil,
-    customEqualityTesters: ReadonlyArray&lt;jasmine.CustomEqualityTester&gt;
-  ): jasmine.CustomMatcher &#x3D;&gt; {
+  toBeVisible: (): jasmine.CustomMatcher &#x3D;&gt; {
     const assert &#x3D; (isNegative: boolean, el: unknown) &#x3D;&gt; {
       const expectedState &#x3D; &#x60;${isNegative ? &#x27;in&#x27; : &#x27;&#x27;}visible&#x60;;
       const inverseState &#x3D; &#x60;${isNegative ? &#x27;&#x27; : &#x27;in&#x27;}visible&#x60;;

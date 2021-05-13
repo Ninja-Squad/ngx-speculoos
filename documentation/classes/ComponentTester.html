@@ -514,7 +514,7 @@ have been set on the component instance.</p>
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester&lt;{}&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester&lt;C&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -2722,7 +2722,6 @@ import { TestHtmlElement } from &#x27;./test-html-element&#x27;;
  * @param &lt;C&gt; the type of the component to test
  */
 export class ComponentTester&lt;C&gt; {
-
   /**
    * The test element of the component
    */
@@ -2736,7 +2735,7 @@ export class ComponentTester&lt;C&gt; {
   /**
    * Creates a component fixture of the given type with the TestBed and wraps it into a ComponentTester
    */
-  static create&lt;C&gt;(componentType: Type&lt;C&gt;) {
+  static create&lt;C&gt;(componentType: Type&lt;C&gt;): ComponentTester&lt;C&gt; {
     const fixture &#x3D; TestBed.createComponent(componentType);
     return new ComponentTester(fixture);
   }
@@ -2753,7 +2752,7 @@ export class ComponentTester&lt;C&gt; {
    * @param arg the type of the component to wrap, or a component fixture to wrap
    */
   constructor(arg: Type&lt;C&gt; | ComponentFixture&lt;C&gt;) {
-    this.fixture &#x3D; (arg instanceof ComponentFixture) ? arg : TestBed.createComponent(arg);
+    this.fixture &#x3D; arg instanceof ComponentFixture ? arg : TestBed.createComponent(arg);
     this.testElement &#x3D; TestElementQuerier.wrap(this.debugElement, this) as TestElement&lt;HTMLElement&gt;;
   }
 
@@ -3007,7 +3006,7 @@ export class ComponentTester&lt;C&gt; {
    * @param selector a CSS selector
    * @returns the wrapped input, or null if no element was matched
    */
-  input(selector: string): TestInput | null  {
+  input(selector: string): TestInput | null {
     return this.testElement.input(selector);
   }
 
@@ -3016,7 +3015,7 @@ export class ComponentTester&lt;C&gt; {
    * @param selector a CSS selector
    * @returns the wrapped select, or null if no element was matched
    */
-  select(selector: string): TestSelect | null  {
+  select(selector: string): TestSelect | null {
     return this.testElement.select(selector);
   }
 
@@ -3042,7 +3041,7 @@ export class ComponentTester&lt;C&gt; {
   /**
    * Triggers a change detection using the wrapped fixture
    */
-  detectChanges(checkNoChanges?: boolean) {
+  detectChanges(checkNoChanges?: boolean): void {
     this.fixture.detectChanges(checkNoChanges);
   }
 }

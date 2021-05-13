@@ -334,7 +334,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>string | null</code>
 
                     </div>
                     <div class="io-description">
@@ -2618,6 +2618,10 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
                                 <div class="io-description"><p>the text content of this element</p>
 </div>
 
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>string | null</code>
+
+                                </div>
                         </td>
                     </tr>
 
@@ -2674,7 +2678,6 @@ import { TestHtmlElement } from &#x27;./test-html-element&#x27;;
  * A wrapped DOM element, providing additional methods and attributes helping with writing tests
  */
 export class TestElement&lt;E extends Element &#x3D; Element&gt; {
-
   private querier: TestElementQuerier;
 
   constructor(
@@ -2694,14 +2697,14 @@ export class TestElement&lt;E extends Element &#x3D; Element&gt; {
   /**
    * the text content of this element
    */
-  get textContent() {
+  get textContent(): string | null {
     return this.nativeElement.textContent;
   }
 
   /**
    * dispatches an event of the given type from the wrapped element, then triggers a change detection
    */
-  dispatchEventOfType(type: string) {
+  dispatchEventOfType(type: string): void {
     this.nativeElement.dispatchEvent(new Event(type));
     this.tester.detectChanges();
   }
@@ -2709,7 +2712,7 @@ export class TestElement&lt;E extends Element &#x3D; Element&gt; {
   /**
    * dispatches the given event from the wrapped element, then triggers a change detection
    */
-  dispatchEvent(event: Event) {
+  dispatchEvent(event: Event): void {
     this.nativeElement.dispatchEvent(event);
     this.tester.detectChanges();
   }
@@ -2725,7 +2728,7 @@ export class TestElement&lt;E extends Element &#x3D; Element&gt; {
    * Gets the attribute of the wrapped element with the given name
    * @param name the name of the attribute to get
    */
-  attr(name: string) {
+  attr(name: string): string | null {
     return this.nativeElement.getAttribute(name);
   }
 

@@ -718,7 +718,7 @@ TODO should it throw instead?</p>
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>string | null</code>
 
                     </div>
                     <div class="io-description">
@@ -3175,7 +3175,7 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>string | null</code>
 
                     </div>
                     <div class="io-description">
@@ -5758,6 +5758,10 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
                                 <div class="io-description"><p>the number of options in the select</p>
 </div>
 
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                </div>
                         </td>
                     </tr>
 
@@ -5787,6 +5791,10 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
                                 <div class="io-description"><p>the disabled property of the wrapped select</p>
 </div>
 
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                </div>
                         </td>
                     </tr>
 
@@ -5812,7 +5820,7 @@ export class TestSelect extends TestHtmlElement&lt;HTMLSelectElement&gt; {
   /**
    * Selects the option at the given index, then dispatches an event of type change and triggers a change detection
    */
-  selectIndex(index: number) {
+  selectIndex(index: number): void {
     this.nativeElement.selectedIndex &#x3D; index;
     this.dispatchEventOfType(&#x27;change&#x27;);
   }
@@ -5822,7 +5830,7 @@ export class TestSelect extends TestHtmlElement&lt;HTMLSelectElement&gt; {
    * If there is no option with the given value, then does nothing
    * TODO should it throw instead?
    */
-  selectValue(value: string) {
+  selectValue(value: string): void {
     const index &#x3D; this.optionValues.indexOf(value);
     if (index &gt;&#x3D; 0) {
       this.selectIndex(index);
@@ -5834,7 +5842,7 @@ export class TestSelect extends TestHtmlElement&lt;HTMLSelectElement&gt; {
    * If there is no option with the given label, then does nothing
    * TODO should it throw instead?
    */
-  selectLabel(label: string) {
+  selectLabel(label: string): void {
     const index &#x3D; this.optionLabels.indexOf(label);
     if (index &gt;&#x3D; 0) {
       this.selectIndex(index);
@@ -5885,14 +5893,14 @@ export class TestSelect extends TestHtmlElement&lt;HTMLSelectElement&gt; {
   /**
    * the number of options in the select
    */
-  get size() {
+  get size(): number {
     return this.nativeElement.options.length;
   }
 
   /**
    * the disabled property of the wrapped select
    */
-  get disabled() {
+  get disabled(): boolean {
     return this.nativeElement.disabled;
   }
 }

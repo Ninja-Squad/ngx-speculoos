@@ -384,7 +384,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>string | null</code>
 
                     </div>
                     <div class="io-description">
@@ -2804,6 +2804,10 @@ present anywhere in the DOM, and visible.
 An element is not visible typically, if its display style or any of its ancestors display style is none.</p>
 </div>
 
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                </div>
                         </td>
                     </tr>
 
@@ -2829,7 +2833,7 @@ export class TestHtmlElement&lt;E extends HTMLElement&gt; extends TestElement&lt
   /**
    * Clicks on the wrapped element, then triggers a change detection
    */
-  click() {
+  click(): void {
     this.nativeElement.click();
     this.tester.detectChanges();
   }
@@ -2839,7 +2843,7 @@ export class TestHtmlElement&lt;E extends HTMLElement&gt; extends TestElement&lt
    * present anywhere in the DOM, and visible.
    * An element is not visible typically, if its display style or any of its ancestors display style is none.
    */
-  get visible() {
+  get visible(): boolean {
     return !!(this.nativeElement.offsetWidth || this.nativeElement.offsetHeight || this.nativeElement.getClientRects().length);
   }
 }
