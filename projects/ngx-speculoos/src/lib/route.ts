@@ -1,6 +1,5 @@
 import { ActivatedRoute, ActivatedRouteSnapshot, convertToParamMap, Data, Params, Route, UrlSegment } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, map } from 'rxjs';
 import { Type } from '@angular/core';
 
 /**
