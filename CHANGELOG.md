@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### ⚠ BREAKING CHANGES
 
-* `ngx-speculoos` is now based on Angular 13.x. If you want to use it with an older version of Angular, then stick to the previous version of `ngx-speculoos`.
+* `ngx-speculoos` is now based on Angular 13.x. It also needs RxJS v7.4+. If you want to use it with an older version of Angular, then stick to the previous version of `ngx-speculoos`.
 
 * bump to ng and cli v13 ([6ca161c](https://github.com/Ninja-Squad/ngx-speculoos/commit/6ca161c2fd757f6aafd2bc3666d38908c1e220ab))
 
