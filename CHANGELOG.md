@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v6.0.0...v7.0.0) (2021-11-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* `ngx-speculoos` is now based on Angular 13.x. If you want to use it with an older version of Angular, then stick to the previous version of `ngx-speculoos`.
+
+* bump to ng and cli v13 ([6ca161c](https://github.com/Ninja-Squad/ngx-speculoos/commit/6ca161c2fd757f6aafd2bc3666d38908c1e220ab))
+
 ## [6.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v5.0.0...v6.0.0) (2021-05-13)
 
 
