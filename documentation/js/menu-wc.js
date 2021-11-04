@@ -1,6 +1,5 @@
 'use strict';
 
-
 customElements.define('compodoc-menu', class extends HTMLElement {
     constructor() {
         super();
@@ -60,25 +59,25 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
-                                <a href="classes/ComponentTester.html" data-type="entity-link">ComponentTester</a>
+                                <a href="classes/ComponentTester.html" data-type="entity-link" >ComponentTester</a>
                             </li>
                             <li class="link">
-                                <a href="classes/TestButton.html" data-type="entity-link">TestButton</a>
+                                <a href="classes/TestButton.html" data-type="entity-link" >TestButton</a>
                             </li>
                             <li class="link">
-                                <a href="classes/TestElement.html" data-type="entity-link">TestElement</a>
+                                <a href="classes/TestElement.html" data-type="entity-link" >TestElement</a>
                             </li>
                             <li class="link">
-                                <a href="classes/TestHtmlElement.html" data-type="entity-link">TestHtmlElement</a>
+                                <a href="classes/TestHtmlElement.html" data-type="entity-link" >TestHtmlElement</a>
                             </li>
                             <li class="link">
-                                <a href="classes/TestInput.html" data-type="entity-link">TestInput</a>
+                                <a href="classes/TestInput.html" data-type="entity-link" >TestInput</a>
                             </li>
                             <li class="link">
-                                <a href="classes/TestSelect.html" data-type="entity-link">TestSelect</a>
+                                <a href="classes/TestSelect.html" data-type="entity-link" >TestSelect</a>
                             </li>
                             <li class="link">
-                                <a href="classes/TestTextArea.html" data-type="entity-link">TestTextArea</a>
+                                <a href="classes/TestTextArea.html" data-type="entity-link" >TestTextArea</a>
                             </li>
                         </ul>
                     </li>
@@ -91,7 +90,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
-                                <a href="interfaces/Matchers.html" data-type="entity-link">Matchers</a>
+                                <a href="interfaces/Matchers.html" data-type="entity-link" >Matchers</a>
                             </li>
                         </ul>
                     </li>

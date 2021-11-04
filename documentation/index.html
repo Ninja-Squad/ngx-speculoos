@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-	      <link rel="stylesheet" href="./styles/style.css">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -45,7 +46,7 @@ how to write Angular unit tests.</p>
   countrySelect.selectedIndex = 12; // what is at index 12?
   countrySelect.dispatchEvent(new Event(&#39;change&#39;)); // why do I need to do that?
   fixture.detectChanges();
-
+  
   const city = fixture.nativeElement.querySelector(&#39;#city&#39;); // city is of type any
   expect(city).toBeTruthy();
   expect(city.options.length).toBe(3);
@@ -62,7 +63,7 @@ it(&#39;should hide cities when selecting the empty country option&#39;, () =&gt
   countrySelect.selectedIndex = 0;
   countrySelect.dispatchEvent(new Event(&#39;change&#39;)); // why do I need to do that?
   fixture.detectChanges(); // why do I need to do that?
-
+  
   expect(fixture.nativeElement.querySelector(&#39;#city&#39;)).toBeFalsy(); // I did that previously. What about DRY?
 });</code></pre></div><p>ngx-speculoos allows writing the above tests in a simpler, cleaner way:</p>
 <ul>
@@ -76,11 +77,11 @@ it(&#39;should hide cities when selecting the empty country option&#39;, () =&gt
   constructor() {
     super(MyComponent);
   }
-
+  
   get country() {
     return this.select(&#39;#country&#39;); // returns a TestSelect object, not any. Similar methods exist for inputs, buttons, etc.
   }
-
+  
   get city() {
     return this.select(&#39;#city&#39;); // returns a TestSelect object, not any
   }
@@ -90,14 +91,14 @@ it(&#39;should hide cities when selecting the empty country option&#39;, () =&gt
 
 it(&#39;should display French cities when selecting the country France&#39;, () =&gt; {
   tester.country.selectLabel(&#39;France&#39;); // no dispatchEvent, no detectChanges needed
-
+  
   expect(tester.city.optionValues).toEqual([&#39;&#39;, &#39;PARIS&#39;, &#39;LYON&#39;]);
   expect(tester.city.optionLabels).toEqual([&#39;&#39;, &#39;Paris&#39;, &#39;Lyon&#39;]);
 });
 
 it(&#39;should hide cities when selecting empty country option&#39;, () =&gt; {
   tester.country.selectIndex(0); // no repetition of the selector, no dispatchEvent, no detectChanges needed
-
+  
   expect(tester.city).toBeFalsy(); // no repetition of the selector
 });</code></pre></div><h2 id="custom-matchers">Custom matchers</h2>
 <p>If you use Jasmine, we also have custom matchers for frequent expectations:</p>
@@ -157,14 +158,14 @@ You can also add them for all tests at once by adding the beforeEach to block th
 
 
 
-                   
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -185,9 +186,9 @@ You can also add them for all tests at once by adding the beforeEach to block th
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+
        <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 

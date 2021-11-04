@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -43,7 +44,7 @@
 
 
 
-                   
+
 
 <ol class="breadcrumb">
   <li>Miscellaneous</li>
@@ -58,10 +59,10 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#fakeRoute" title="src/lib/route.ts"><b>fakeRoute</b>&nbsp;&nbsp;&nbsp;(src/.../route.ts)</a>
+                            <a href="#fakeRoute" title="src/lib/route.ts" ><b>fakeRoute</b>&nbsp;&nbsp;&nbsp;(src/.../route.ts)</a>
                         </li>
                         <li>
-                            <a href="#fakeSnapshot" title="src/lib/route.ts"><b>fakeSnapshot</b>&nbsp;&nbsp;&nbsp;(src/.../route.ts)</a>
+                            <a href="#fakeSnapshot" title="src/lib/route.ts" ><b>fakeSnapshot</b>&nbsp;&nbsp;&nbsp;(src/.../route.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -78,9 +79,7 @@
                 <td class="col-md-4">
                     <a name="fakeRoute"></a>
                     <span class="name">
-                        <b>
-                            fakeRoute
-                        </b>
+                        <span ><b>fakeRoute</b></span>
                         <a href="#fakeRoute"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -109,6 +108,7 @@ parent snapshot will be set to the given snapshot&#39;s parent. This allows the 
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -149,9 +149,7 @@ parent snapshot will be set to the given snapshot&#39;s parent. This allows the 
                 <td class="col-md-4">
                     <a name="fakeSnapshot"></a>
                     <span class="name">
-                        <b>
-                            fakeSnapshot
-                        </b>
+                        <span ><b>fakeSnapshot</b></span>
                         <a href="#fakeSnapshot"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -174,6 +172,7 @@ The same goes for queryParams and queryParamMap.</p>
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -213,7 +212,7 @@ The same goes for queryParams and queryParamMap.</p>
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -234,9 +233,9 @@ The same goes for queryParams and queryParamMap.</p>
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+
        <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 
