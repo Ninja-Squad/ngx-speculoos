@@ -13,3 +13,4 @@ export * from './lib/test-select';
 export * from './lib/test-textarea';
 export * from './lib/route';
 export * from './lib/matchers';
+export * from './lib/mock';
