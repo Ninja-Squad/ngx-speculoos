@@ -1,5 +1,5 @@
 import { ActivatedRoute, ActivatedRouteSnapshot, convertToParamMap, Data, Params, Route, UrlSegment } from '@angular/router';
-import { Observable, map } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Type } from '@angular/core';
 
 /**
@@ -17,6 +17,7 @@ import { Type } from '@angular/core';
  * `route.parent.snapshot` or `route.snapshot.parent`.
  *
  * @returns a partially populated, fake ActivatedRoute, depending on what you passed in
+ * @deprecated favor stubRoute, which creates an easier to use and more logical stub
  */
 export function fakeRoute(options: {
   url?: Observable<UrlSegment[]>;
@@ -68,6 +69,7 @@ export function fakeRoute(options: {
 
   for (let route: null | ActivatedRoute = result; route; route = route.parent) {
     if (route.parent && route.parent.snapshot && !route.snapshot) {
+      // eslint-disable-next-line deprecation/deprecation
       route.snapshot = fakeSnapshot({});
     }
     if (route.parent && route.parent.snapshot && !route.snapshot.parent) {
@@ -75,6 +77,7 @@ export function fakeRoute(options: {
     }
 
     if (route.snapshot && route.snapshot.parent && !route.parent) {
+      // eslint-disable-next-line deprecation/deprecation
       (route as Omit<ActivatedRoute, 'parent'> & { parent: ActivatedRoute }).parent = fakeRoute({});
     }
     if (route.snapshot && route.snapshot.parent && route.parent && !route.parent.snapshot) {
@@ -92,6 +95,7 @@ export function fakeRoute(options: {
  * The same goes for queryParams and queryParamMap.
  *
  * @returns a partially populated, fake ActivatedRoute, depending on what you passed in
+ * @deprecated favor stubRoute, which creates an easier to use and more logical stub for both the route and its snapshot
  */
 export function fakeSnapshot(options: {
   url?: UrlSegment[];
@@ -137,4 +141,319 @@ export function fakeSnapshot(options: {
     children: options.children,
     pathFromRoot: options.pathFromRoot
   } as ActivatedRouteSnapshot;
+}
+
+/**
+ * The options that are passed when creating an ActivatedRouteStub.
+ */
+export interface ActivatedRouteStubOptions {
+  /**
+   * The initial values of the parameters of the route
+   */
+  params?: Params;
+  /**
+   * The initial values of the query parameters of the route
+   */
+  queryParams?: Params;
+  /**
+   * The initial values of the data of the route
+   */
+  data?: Data;
+  /**
+   * The initial fragment of the route
+   */
+  fragment?: string | null;
+  /**
+   * The initial url of the route
+   */
+  url?: UrlSegment[];
+  /**
+   * The parent of the route
+   */
+  parent?: ActivatedRouteStub | null;
+  /**
+   * The first child of the route
+   */
+  firstChild?: ActivatedRouteStub | null;
+  /**
+   * The children of the route
+   */
+  children?: ActivatedRouteStub[] | null;
+}
+
+class ActivatedRouteSnapshotStub extends ActivatedRouteSnapshot {
+  private _parent: ActivatedRouteSnapshot | null = null;
+  private _root: ActivatedRouteSnapshot;
+  private _firstChild: ActivatedRouteSnapshot | null = null;
+  private _children: Array<ActivatedRouteSnapshot> = [];
+  private _pathFromRoot: Array<ActivatedRouteSnapshot> = [];
+
+  get parent(): ActivatedRouteSnapshot | null {
+    return this._parent;
+  }
+
+  set parent(value: ActivatedRouteSnapshot | null) {
+    this._parent = value;
+  }
+
+  get root(): ActivatedRouteSnapshot {
+    return this._root;
+  }
+
+  set root(value: ActivatedRouteSnapshot) {
+    this._root = value;
+  }
+
+  get firstChild(): ActivatedRouteSnapshot | null {
+    return this._firstChild;
+  }
+
+  set firstChild(value: ActivatedRouteSnapshot | null) {
+    this._firstChild = value;
+  }
+
+  get children(): Array<ActivatedRouteSnapshot> {
+    return this._children;
+  }
+
+  set children(value: Array<ActivatedRouteSnapshot>) {
+    this._children = value;
+  }
+
+  get pathFromRoot(): Array<ActivatedRouteSnapshot> {
+    return this._pathFromRoot;
+  }
+
+  set pathFromRoot(value: Array<ActivatedRouteSnapshot>) {
+    this._pathFromRoot = value;
+  }
+
+  constructor() {
+    super();
+    this._root = this;
+  }
+}
+
+/**
+ * A stub for ActivatedRoute. It behaves almost the same way as the actual ActivatedRoute, exposing a snapshot
+ * and observables for the params, query params etc., which are kept in sync.
+ *
+ * In addition, this stub allows simulating a navigation by changing the params, the query params, the fragment, etc.
+ * When that happens, the snapshot is modified, then the relevant observables emit the new values.
+ *
+ * There are some things that don't really work the same way as the real ActivatedRoute though:
+ * - the handling of the firstChild and of the children is entirely under the tester's responsibility. Setting the parent
+ *   of a route stub does not add this route to the children of its parent, for example.
+ * - when changing the params, query params, fragment, etc., their associated observable emits unconditionally, instead of
+ *   first checking if the value is actually different from before. It's thus the responsibility of the tester to not
+ *   change the values if they're the same as before.
+ */
+export class ActivatedRouteStub extends ActivatedRoute {
+  private _firstChild: ActivatedRouteStub | null;
+  private _children: Array<ActivatedRouteStub>;
+
+  private readonly paramsSubject: BehaviorSubject<Params>;
+  private readonly queryParamsSubject: BehaviorSubject<Params>;
+  private readonly dataSubject: BehaviorSubject<Data>;
+  private readonly fragmentSubject: BehaviorSubject<string | null>;
+  private readonly urlSubject: BehaviorSubject<Array<UrlSegment>>;
+
+  private _parent: ActivatedRouteStub | null;
+  private _root: ActivatedRouteStub;
+  private _pathFromRoot: Array<ActivatedRouteStub>;
+
+  /**
+   * Constructs a new instance, based on the given options.
+   * If an option is not provided (or if no option is provided at all), then the route has a default value for this option
+   * (empty parameters for example, null fragment, etc.)
+   * If no parent is passed, then this route has no parent and is thus set as the root. Otherwise, the root and the path
+   * from root are created based on the root and path from root of the given parent route.
+   */
+  constructor(options?: ActivatedRouteStubOptions) {
+    super();
+
+    const snapshot = new ActivatedRouteSnapshotStub();
+    this.snapshot = snapshot;
+
+    this._firstChild = options?.firstChild ?? null;
+    this._children = options?.children ?? [];
+    this._parent = options?.parent ?? null;
+    this._root = this.parent?.root ?? this;
+    this._pathFromRoot = this.parent ? [...this.parent.pathFromRoot, this] : [this];
+
+    snapshot.params = options?.params ?? {};
+    snapshot.queryParams = options?.queryParams ?? {};
+    snapshot.data = options?.data ?? {};
+    snapshot.fragment = options?.fragment ?? null;
+    snapshot.url = options?.url ?? [];
+
+    snapshot.firstChild = this.firstChild?.snapshot ?? null;
+    snapshot.children = this.children?.map(route => route.snapshot) ?? [];
+    snapshot.parent = this.parent?.snapshot ?? null;
+    snapshot.root = this.root.snapshot;
+    snapshot.pathFromRoot = this.pathFromRoot.map(route => route.snapshot);
+
+    this.paramsSubject = new BehaviorSubject<Params>(this.snapshot.params);
+    this.queryParamsSubject = new BehaviorSubject<Params>(this.snapshot.queryParams);
+    this.dataSubject = new BehaviorSubject<Data>(this.snapshot.data);
+    this.fragmentSubject = new BehaviorSubject<string | null>(this.snapshot.fragment);
+    this.urlSubject = new BehaviorSubject<Array<UrlSegment>>(this.snapshot.url);
+
+    this.params = this.paramsSubject.asObservable();
+    this.queryParams = this.queryParamsSubject.asObservable();
+    this.data = this.dataSubject.asObservable();
+    this.fragment = this.fragmentSubject.asObservable();
+    this.url = this.urlSubject.asObservable();
+  }
+
+  get root() {
+    return this._root;
+  }
+
+  get parent(): ActivatedRouteStub | null {
+    return this._parent;
+  }
+
+  get pathFromRoot(): Array<ActivatedRouteStub> {
+    return this._pathFromRoot;
+  }
+
+  get firstChild(): ActivatedRouteStub | null {
+    return this._firstChild;
+  }
+
+  get children(): Array<ActivatedRouteStub> {
+    return this._children;
+  }
+
+  /**
+   * Triggers a navigation with the given new parameters. All the other parts (query params etc.) stay as the are.
+   * This is a shortcut to `triggerNavigation` that can be used to only change the parameters.
+   */
+  public setParams(params: Params): void {
+    this.triggerNavigation({ params });
+  }
+
+  /**
+   * Triggers a navigation with the given new parameter. The other parameters, as well as all the other parts (query params etc.)
+   * stay as the are.
+   * This is a shortcut to `triggerNavigation` that can be used to only change one parameter.
+   */
+  public setParam(name: string, value: string): void {
+    this.setParams({ ...this.snapshot.params, [name]: value });
+  }
+
+  /**
+   * Triggers a navigation with the given new query parameters. All the other parts (params etc.) stay as the are.
+   * This is a shortcut to `triggerNavigation` that can be used to only change the query parameters.
+   */
+  public setQueryParams(queryParams: Params): void {
+    this.triggerNavigation({ queryParams });
+  }
+
+  /**
+   * Triggers a navigation with the given new parameter. The other query parameters, as well as all the other parts (params etc.)
+   * stay as the are.
+   * This is a shortcut to `triggerNavigation` that can be used to only change one query parameter.
+   */
+  public setQueryParam(name: string, value: string): void {
+    this.setQueryParams({ ...this.snapshot.queryParams, [name]: value });
+  }
+
+  /**
+   * Triggers a navigation with the given new data. The other parameters, as well as all the other parts (params etc.)
+   * stay as the are.
+   * This is a shortcut to `triggerNavigation` that can be used to only change the data.
+   */
+  public setData(data: Data): void {
+    this.triggerNavigation({ data });
+  }
+
+  /**
+   * Triggers a navigation with the given new data item. The other data, as well as all the other parts (params etc.)
+   * stay as the are.
+   * This is a shortcut to `triggerNavigation` that can be used to only change one data item.
+   */
+  public setDataItem(name: string, value: unknown): void {
+    this.setData({ ...this.snapshot.data, [name]: value });
+  }
+
+  /**
+   * Triggers a navigation with the given new fragment. The other parts (params etc.)  stay as the are.
+   * This is a shortcut to `triggerNavigation` that can be used to only change the fragment.
+   */
+  public setFragment(fragment: string | null): void {
+    this.triggerNavigation({ fragment });
+  }
+
+  /**
+   * Triggers a navigation with the given new url. The other parts (params etc.)  stay as the are.
+   * This is a shortcut to `triggerNavigation` that can be used to only change the url.
+   */
+  public setUrl(url: Array<UrlSegment>): void {
+    this.triggerNavigation({ url });
+  }
+
+  /**
+   * Triggers a navigation based on the given options. If an option is undefined or null, it's ignored. Except for fragment, which is only
+   * ignored if it's undefined, because null is a valid value for a fragment.
+   *
+   * The non-ignored values are used to change the snapshot of the route. Once the snapshot has been modified,
+   * the observables corresponding to the updated parts emit the new value.
+   *
+   * So, setting params and query params will make the params and queryParams observables emit, but not the fragment, data and
+   * url observables for example. This is consistent to how the router behaves.
+   */
+  public triggerNavigation(options: {
+    params?: Params;
+    queryParams?: Params;
+    fragment?: string | null;
+    data?: Data | null;
+    url?: Array<UrlSegment> | null;
+  }): void {
+    // set the snapshot first
+    if (options.params) {
+      this.snapshot.params = options.params;
+    }
+    if (options.queryParams) {
+      this.snapshot.queryParams = options.queryParams;
+    }
+    if (options.fragment !== undefined) {
+      this.snapshot.fragment = options.fragment;
+    }
+    if (options.data) {
+      this.snapshot.data = options.data;
+    }
+    if (options.url) {
+      this.snapshot.url = options.url;
+    }
+
+    // then emit everything that has changed
+    if (options.params) {
+      this.paramsSubject.next(this.snapshot.params);
+    }
+    if (options.queryParams) {
+      this.queryParamsSubject.next(this.snapshot.queryParams);
+    }
+    if (options.fragment !== undefined) {
+      this.fragmentSubject.next(this.snapshot.fragment);
+    }
+    if (options.data) {
+      this.dataSubject.next(this.snapshot.data);
+    }
+    if (options.url) {
+      this.urlSubject.next(this.snapshot.url);
+    }
+  }
+
+  public toString(): string {
+    return 'ActivatedRouteStub';
+  }
+}
+
+/**
+ * Creates a new ActivatedRouteStub, by calling its constructor.
+ */
+export function stubRoute(options?: ActivatedRouteStubOptions): ActivatedRouteStub {
+  return new ActivatedRouteStub(options);
 }
