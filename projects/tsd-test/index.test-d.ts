@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { expectType, ComponentTester, TestButton, TestElement, TestHtmlElement, TestInput, TestSelect, TestTextArea } from './';
 
+class TestDirective {}
+
 // @ts-ignore
 const componentTester: ComponentTester<unknown> = null;
 // @ts-ignore
@@ -29,4 +31,22 @@ const testElement: TestElement = null;
   expectType<Array<TestTextArea>>(test.elements<HTMLTextAreaElement>('.any-selector'));
   expectType<Array<TestButton>>(test.elements<HTMLButtonElement>('.any-selector'));
   expectType<Array<TestSelect>>(test.elements<HTMLSelectElement>('.any-selector'));
+
+  // element by type
+  expectType<TestElement | null>(test.element(TestDirective));
+  expectType<TestHtmlElement<HTMLDivElement> | null>(test.element<HTMLDivElement>(TestDirective));
+  expectType<TestElement<SVGLineElement> | null>(test.element<SVGLineElement>(TestDirective));
+  expectType<TestInput | null>(test.element<HTMLInputElement>(TestDirective));
+  expectType<TestTextArea | null>(test.element<HTMLTextAreaElement>(TestDirective));
+  expectType<TestButton | null>(test.element<HTMLButtonElement>(TestDirective));
+  expectType<TestSelect | null>(test.element<HTMLSelectElement>(TestDirective));
+
+  // elements by type
+  expectType<Array<TestElement>>(test.elements(TestDirective));
+  expectType<Array<TestHtmlElement<HTMLDivElement>>>(test.elements<HTMLDivElement>(TestDirective));
+  expectType<Array<TestElement<SVGLineElement>>>(test.elements<SVGLineElement>(TestDirective));
+  expectType<Array<TestInput>>(test.elements<HTMLInputElement>(TestDirective));
+  expectType<Array<TestTextArea>>(test.elements<HTMLTextAreaElement>(TestDirective));
+  expectType<Array<TestButton>>(test.elements<HTMLButtonElement>(TestDirective));
+  expectType<Array<TestSelect>>(test.elements<HTMLSelectElement>(TestDirective));
 });
