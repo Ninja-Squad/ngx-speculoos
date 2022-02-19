@@ -1,4 +1,4 @@
-import { Component, Directive, Input } from '@angular/core';
+import { Component, DebugElement, Directive, Input } from '@angular/core';
 import { ComponentTester } from './component-tester';
 import { TestBed } from '@angular/core/testing';
 import { TestElement } from './test-element';
@@ -23,6 +23,24 @@ class SubComponent {
   @Input() sub?: string;
 }
 
+class TestDatepicker extends TestHtmlElement<HTMLElement> {
+  constructor(tester: ComponentTester<unknown>, debugElement: DebugElement) {
+    super(tester, debugElement);
+  }
+
+  get inputField() {
+    return this.input('input');
+  }
+
+  setDate(year: number, month: number, day: number) {
+    this.inputField.fillWith(`${year}-${month}-${day}`);
+  }
+
+  toggleDropdown() {
+    this.button('button').click();
+  }
+}
+
 @Component({
   template: `
     <svg id="s1" foo="bar" class="baz bing" (change)="onChange($event)">Test</svg>
@@ -42,6 +60,10 @@ class SubComponent {
         <lib-sub libTestdir="b" id="sub1" sub="sub1"></lib-sub>
         <lib-sub id="sub2" sub="sub2"></lib-sub>
       </div>
+    </div>
+    <div datepicker>
+      <input />
+      <button>Open</button>
     </div>
   `
 })
@@ -65,6 +87,14 @@ class TestComponentTester extends ComponentTester<TestComponent> {
 
   get typeParent() {
     return this.element('#type-parent');
+  }
+
+  get datepicker() {
+    return this.custom('div[datepicker]', TestDatepicker);
+  }
+
+  get datepickers() {
+    return this.customs('div[datepicker]', TestDatepicker);
   }
 }
 
@@ -282,6 +312,20 @@ describe('TestElement', () => {
       expect(directives[0]?.value).toBe('a');
       expect(directives[1]).toBeInstanceOf(TestDirective);
       expect(directives[1]?.value).toBe('b');
+    });
+  });
+
+  describe('custom element', () => {
+    it(`should create custom test element`, () => {
+      expect(tester.datepicker).toBeInstanceOf(TestDatepicker);
+      tester.datepicker.setDate(2022, 10, 11);
+      expect(tester.datepicker.inputField.value).toBe('2022-10-11');
+    });
+
+    it(`should create custom test elements`, () => {
+      expect(tester.datepickers.length).toBe(1);
+      tester.datepickers[0].setDate(2022, 10, 11);
+      expect(tester.datepickers[0].inputField.value).toBe('2022-10-11');
     });
   });
 });
