@@ -367,6 +367,28 @@ export class ComponentTester<C> {
   }
 
   /**
+   * Gets the element matching the given selector, and if found, creates and returns a custom TestElement of the provided
+   * type. This is useful to create custom higher-level abstractions similar to TestInput, TestSelect, etc. for
+   * custom elements or components.
+   * @param selector a CSS or directive selector
+   * @param customTestElementType the type of the TestElement subclass that will wrap the found element
+   */
+  custom<E extends TestElement>(selector: string | Type<any>, customTestElementType: Type<E>): E | null {
+    return this.testElement.custom(selector, customTestElementType);
+  }
+
+  /**
+   * Gets the elements matching the given selector, and creates and returns custom TestElements of the provided
+   * type. This is useful to create custom higher-level abstractions similar to TestInput, TestSelect, etc. for
+   * custom elements or components.
+   * @param selector a CSS or directive selector
+   * @param customTestElementType the type of the TestElement subclass that will wrap the found elements
+   */
+  customs<E extends TestElement>(selector: string | Type<any>, customTestElementType: Type<E>): Array<E> {
+    return this.testElement.customs(selector, customTestElementType);
+  }
+
+  /**
    * Triggers a change detection using the wrapped fixture
    */
   detectChanges(checkNoChanges?: boolean): void {

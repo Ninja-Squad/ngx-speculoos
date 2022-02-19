@@ -361,4 +361,27 @@ export class TestElement<E extends Element = Element> {
   tokens<R>(selector: string | Type<any>, token: ProviderToken<R>): Array<R | null> {
     return this.querier.elements(selector).map(e => e.debugElement.injector.get(token, null) ?? null);
   }
+
+  /**
+   * Gets the element matching the given selector, and if found, creates and returns a custom TestElement of the provided
+   * type. This is useful to create custom higher-level abstractions similar to TestInput, TestSelect, etc. for
+   * custom elements or components.
+   * @param selector a CSS or directive selector
+   * @param customTestElementType the type of the TestElement subclass that will wrap the found element
+   */
+  custom<E extends TestElement>(selector: string | Type<any>, customTestElementType: Type<E>): E | null {
+    const element = this.querier.element(selector);
+    return element && new customTestElementType(this.tester, element.debugElement);
+  }
+
+  /**
+   * Gets the elements matching the given selector, and creates and returns custom TestElements of the provided
+   * type. This is useful to create custom higher-level abstractions similar to TestInput, TestSelect, etc. for
+   * custom elements or components.
+   * @param selector a CSS or directive selector
+   * @param customTestElementType the type of the TestElement subclass that will wrap the found elements
+   */
+  customs<E extends TestElement>(selector: string | Type<any>, customTestElementType: Type<E>): Array<E> {
+    return this.querier.elements(selector).map(element => new customTestElementType(this.tester, element.debugElement));
+  }
 }
