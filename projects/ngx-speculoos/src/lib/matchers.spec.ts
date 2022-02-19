@@ -6,8 +6,12 @@ import { TestBed } from '@angular/core/testing';
 import { ComponentTester } from './component-tester';
 import { speculoosMatchers } from './matchers';
 
-@Component({
-  template: `
+// externalize it from the component decorator otherwise prettier complains about the formatting of the title,
+// which has to stay like it is.
+const TEMPLATE = `
+    <h1>
+      Long title
+    </h1>
     <div id="classes" class="foo bar">Hello</div>
     <div id="none">Hello</div>
     <div id="noTextDiv"></div>
@@ -20,7 +24,10 @@ import { speculoosMatchers } from './matchers';
       <option value="b">B</option>
     </select>
     <div style="display: none;" id="invisible"></div>
-  `
+  `;
+
+@Component({
+  template: TEMPLATE
 })
 class TestComponent {
   name = 'Hello';
@@ -30,6 +37,10 @@ class TestComponent {
 class TestComponentTester extends ComponentTester<TestComponent> {
   constructor() {
     super(TestComponent);
+  }
+
+  get title() {
+    return this.element('h1');
   }
 
   get div() {
@@ -250,6 +261,74 @@ describe('Custom matchers', () => {
       const result = matcher.negativeCompare('hello', 'baz');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check text 'baz' on element, but element was not a TestElement`);
+    });
+  });
+
+  describe('toHaveTrimmedText', () => {
+    const matcher = speculoosMatchers.toHaveTrimmedText(undefined, undefined);
+
+    it('should check for a textContent', () => {
+      expect(tester.title).toHaveTrimmedText('Long title');
+      expect(tester.title).toHaveTrimmedText('  Long title  ');
+      expect(tester.title).not.toHaveTrimmedText('Long');
+      expect(tester.title).not.toHaveTrimmedText('baz');
+    });
+
+    it('should check for an empty textContent', () => {
+      expect(tester.noTextDiv).toHaveTrimmedText('');
+      expect(tester.noTextDiv).not.toHaveTrimmedText('Hello');
+    });
+
+    it('should return false if wrong textContent', () => {
+      const result = matcher.compare(tester.title, ' baz ');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected element to have trimmed text 'baz', but had 'Long title'`);
+    });
+
+    it('should return true if wrong textContent and .not', () => {
+      const result = matcher.negativeCompare(tester.title, 'baz');
+      expect(result.pass).toBeTruthy();
+    });
+
+    it('should return false if matching textContent and .not', () => {
+      const result = matcher.negativeCompare(tester.title, ' Long title ');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected element to not have trimmed text 'Long title', but had 'Long title'`);
+    });
+
+    it('should return false if no textContent', () => {
+      const result = matcher.compare(tester.noTextDiv, 'baz');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected element to have trimmed text 'baz', but had ''`);
+    });
+
+    it('should return true if no textContent and .not', () => {
+      const result = matcher.negativeCompare(tester.name, 'baz');
+      expect(result.pass).toBeTruthy();
+    });
+
+    it('should return false if no element', () => {
+      const result = matcher.compare(null, ' baz ');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check trimmed text 'baz' on element, but element was falsy`);
+    });
+
+    it('should return false if no element and .not too', () => {
+      const result = matcher.negativeCompare(null, ' baz ');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check trimmed text 'baz' on element, but element was falsy`);
+    });
+
+    it('should return false if element of wrong type', () => {
+      const result = matcher.compare('hello', ' baz ');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check trimmed text 'baz' on element, but element was not a TestElement`);
+    });
+
+    it('should return false if element of wrong type and .not too', () => {
+      const result = matcher.negativeCompare('hello', ' baz ');
+      expect(result.pass).toBeFalsy();
+      expect(result.message).toBe(`Expected to check trimmed text 'baz' on element, but element was not a TestElement`);
     });
   });
 

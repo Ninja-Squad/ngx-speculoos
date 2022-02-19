@@ -89,6 +89,46 @@ const speculoosMatchers: jasmine.CustomMatcherFactories = {
   },
 
   /**
+   * Checks that the receiver is a TestElement wrapping a DOM element and has the given textContent, after both have been trimmed.
+   * So, An element such as
+   * ```
+   * <h1>
+   *   Some title
+   * </h1>
+   * ```
+   * will pass the test
+   * ```
+   * expect(tester.title).toHaveTrimmedText('Some title')
+   * ```
+   */
+  toHaveTrimmedText: (): jasmine.CustomMatcher => {
+    const assert = (isNegative: boolean, el: unknown, expected: string) => {
+      const trimmedExpected = expected.trim();
+      if (!el) {
+        return { pass: false, message: `Expected to check trimmed text '${trimmedExpected}' on element, but element was falsy` };
+      }
+      if (!(el instanceof TestElement)) {
+        return {
+          pass: false,
+          message: `Expected to check trimmed text '${trimmedExpected}' on element, but element was not a TestElement`
+        };
+      }
+      const actual = el.textContent?.trim();
+      const pass = actual === trimmedExpected;
+      const message = `Expected element to ${isNegative ? 'not ' : ''}have trimmed text '${trimmedExpected}', but had '${actual}'`;
+      return { pass: isNegative ? !pass : pass, message };
+    };
+    return {
+      compare: (el: unknown, expected: string): jasmine.CustomMatcherResult => {
+        return assert(false, el, expected);
+      },
+      negativeCompare: (el: unknown, expected: string): jasmine.CustomMatcherResult => {
+        return assert(true, el, expected);
+      }
+    };
+  },
+
+  /**
    * Checks that the receiver is a TestElement wrapping a DOM element and contains the given textContent
    */
   toContainText: (): jasmine.CustomMatcher => {
