@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.1.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v7.0.0...v7.1.0) (2022-02-21)
+
+
+### Features
+
+* allow selecting by type, and getting tokens ([a84096b](https://github.com/Ninja-Squad/ngx-speculoos/commit/a84096ba3c726e80f175ae1ee625330535631521))
+* createMock, for easier SpyObj creations ([bf9309e](https://github.com/Ninja-Squad/ngx-speculoos/commit/bf9309edf0575534ae7ef8265f094fd2dcda2f70))
+* introduce stubRoute and deprecate fakeRoute and fakeSnapshot ([55de6e2](https://github.com/Ninja-Squad/ngx-speculoos/commit/55de6e2f8f126d4b1851388e3fb377a06b14c69b))
+* query for custom test elements ([53b3a45](https://github.com/Ninja-Squad/ngx-speculoos/commit/53b3a45780a882318a08481cf42c14e23fddf434))
+* toHaveTrimmedText matcher ([825f19f](https://github.com/Ninja-Squad/ngx-speculoos/commit/825f19f267c8323d055d110135e6056d1fa746eb))
+
 ## [7.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v6.0.0...v7.0.0) (2021-11-04)
 
 
