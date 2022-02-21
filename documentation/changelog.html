@@ -9,7 +9,7 @@
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
 	   <link rel="stylesheet" href="./styles/style.css">
-        <link rel="stylesheet" href="./styles/dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="./styles/dark.css">
     </head>
     <body>
 
@@ -33,16 +33,25 @@
 
 <h1 id="changelog">Changelog</h1>
 <p>All notable changes to this project will be documented in this file. See <a href="https://github.com/conventional-changelog/standard-version">standard-version</a> for commit guidelines.</p>
+<h2 id="710-2022-02-21"><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v7.0.0...v7.1.0">7.1.0</a> (2022-02-21)</h2>
+<h3 id="features">Features</h3>
+<ul>
+<li>allow selecting by type, and getting tokens (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/a84096ba3c726e80f175ae1ee625330535631521">a84096b</a>)</li>
+<li>createMock, for easier SpyObj creations (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/bf9309edf0575534ae7ef8265f094fd2dcda2f70">bf9309e</a>)</li>
+<li>introduce stubRoute and deprecate fakeRoute and fakeSnapshot (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/55de6e2f8f126d4b1851388e3fb377a06b14c69b">55de6e2</a>)</li>
+<li>query for custom test elements (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/53b3a45780a882318a08481cf42c14e23fddf434">53b3a45</a>)</li>
+<li>toHaveTrimmedText matcher (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/825f19f267c8323d055d110135e6056d1fa746eb">825f19f</a>)</li>
+</ul>
 <h2 id="700-2021-11-04"><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v6.0.0...v7.0.0">7.0.0</a> (2021-11-04)</h2>
 <h3 id="⚠-breaking-changes">⚠ BREAKING CHANGES</h3>
 <ul>
-<li><p><code>ngx-speculoos</code> is now based on Angular 13.x. If you want to use it with an older version of Angular, then stick to the previous version of <code>ngx-speculoos</code>.</p>
+<li><p><code>ngx-speculoos</code> is now based on Angular 13.x. It also needs RxJS v7.4+. If you want to use it with an older version of Angular, then stick to the previous version of <code>ngx-speculoos</code>.</p>
 </li>
 <li><p>bump to ng and cli v13 (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/6ca161c2fd757f6aafd2bc3666d38908c1e220ab">6ca161c</a>)</p>
 </li>
 </ul>
 <h2 id="600-2021-05-13"><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v5.0.0...v6.0.0">6.0.0</a> (2021-05-13)</h2>
-<h3 id="features">Features</h3>
+<h3 id="features-1">Features</h3>
 <ul>
 <li>enable Ivy partial compilation (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/573191925e21a62f80ffafc15906f71db54fc83a">5731919</a>)</li>
 </ul>
@@ -59,17 +68,17 @@
 <ul>
 <li>ngx-speculoos is now built against Angular 11.0.0. If you want to use it with Angular 10.x, stick to the previous version of ngx-speculoos.</li>
 </ul>
-<h3 id="features-1">Features</h3>
+<h3 id="features-2">Features</h3>
 <ul>
 <li>bump to Angular v11 (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/060449f5997e2d6c921df89425996d0afb27b30a">060449f</a>)</li>
 </ul>
 <h2 id="410-2020-08-15"><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v4.0.0...v4.1.0">4.1.0</a> (2020-08-15)</h2>
-<h3 id="features-2">Features</h3>
+<h3 id="features-3">Features</h3>
 <ul>
 <li>test if html element is visible + corresponding matcher (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/192a2bdea64d54bead9b6bdc0760195448df3b41">192a2bd</a>)</li>
 </ul>
 <h2 id="400-2020-06-26"><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v3.0.0...v4.0.0">4.0.0</a> (2020-06-26)</h2>
-<h3 id="features-3">Features</h3>
+<h3 id="features-4">Features</h3>
 <ul>
 <li>strict and better typings (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/822963de66609826c44edf88d0b60c1931af5dc0">822963d</a>)</li>
 </ul>
@@ -88,7 +97,7 @@ const testLinks = tester.elements&lt;HTMLAnchorElement&gt;(&#39;.selector&#39;);
 <ul>
 <li>ngx-speculoos is now built against Angular 9.0.0. If you want to use it with Angular 8.x, stick to the previous version of ngx-speculoos.</li>
 </ul>
-<h3 id="features-4">Features</h3>
+<h3 id="features-5">Features</h3>
 <ul>
 <li>support basic ng-add (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/80a3aac1270c62c111986da826dabfbc7a66f080">80a3aac</a>)</li>
 </ul>
@@ -124,7 +133,7 @@ const testLinks = tester.elements&lt;HTMLAnchorElement&gt;(&#39;.selector&#39;);
 </ul>
 <p><a name="1.1.0"></a></p>
 <h1 id="110-2018-11-17"><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v1.0.0...v1.1.0">1.1.0</a> (2018-11-17)</h1>
-<h3 id="features-5">Features</h3>
+<h3 id="features-6">Features</h3>
 <ul>
 <li>add disabled property on TestInput, TestTextarea and TestSelect (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/b2e77d6">b2e77d6</a>), closes <a href="https://github.com/Ninja-Squad/ngx-speculoos/issues/100">#100</a></li>
 </ul>
@@ -149,7 +158,7 @@ Future versions are not guaranteed to support Angular 6, though. We encourage yo
 <li>custom matchers always return false if no element (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/a282826">a282826</a>)</li>
 <li>fix toHaveText on empty text contents (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/0172de3">0172de3</a>)</li>
 </ul>
-<h3 id="features-6">Features</h3>
+<h3 id="features-7">Features</h3>
 <ul>
 <li>add custom matcher for class (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/39d1f3a">39d1f3a</a>)</li>
 <li>add custom matcher for value (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/eee2e97">eee2e97</a>)</li>
@@ -182,6 +191,7 @@ Future versions are not guaranteed to support Angular 6, though. We encourage yo
 
 
 
+
                    </div><div class="search-results">
     <div class="has-results">
         <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
@@ -195,6 +205,15 @@ Future versions are not guaranteed to support Angular 6, though. We encourage yo
                <!-- END CONTENT -->
            </div>
        </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;

@@ -9,7 +9,7 @@
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
 
@@ -46,6 +46,7 @@
 
 
 
+
 <ol class="breadcrumb">
   <li>Miscellaneous</li>
   <li>Functions</li>
@@ -59,10 +60,19 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#fakeRoute" title="src/lib/route.ts" ><b>fakeRoute</b>&nbsp;&nbsp;&nbsp;(src/.../route.ts)</a>
+                            <a href="#collectMethodNames" title="src/lib/mock.ts" ><b>collectMethodNames</b>&nbsp;&nbsp;&nbsp;(src/.../mock.ts)</a>
                         </li>
                         <li>
-                            <a href="#fakeSnapshot" title="src/lib/route.ts" ><b>fakeSnapshot</b>&nbsp;&nbsp;&nbsp;(src/.../route.ts)</a>
+                            <a href="#createMock" title="src/lib/mock.ts" ><b>createMock</b>&nbsp;&nbsp;&nbsp;(src/.../mock.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#fakeRoute" title="src/lib/route.ts" class="deprecated-name"><b>fakeRoute</b>&nbsp;&nbsp;&nbsp;(src/.../route.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#fakeSnapshot" title="src/lib/route.ts" class="deprecated-name"><b>fakeSnapshot</b>&nbsp;&nbsp;&nbsp;(src/.../route.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#stubRoute" title="src/lib/route.ts" ><b>stubRoute</b>&nbsp;&nbsp;&nbsp;(src/.../route.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -71,7 +81,141 @@
     </table>
 </section>
 
-    <h3>src/lib/route.ts</h3>
+    <h3>src/lib/mock.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="collectMethodNames"></a>
+                    <span class="name">
+                        <span ><b>collectMethodNames</b></span>
+                        <a href="#collectMethodNames"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>collectMethodNames(proto)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>proto</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Array&lt;string&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createMock"></a>
+                    <span class="name">
+                        <span ><b>createMock</b></span>
+                        <a href="#createMock"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createMock(type: <a href="https://angular.io/api/core/Type" target="_blank">Type</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Creates a spy object for a class where all the methods of the class (and of its superclasses) are spies.
+I.e., for a class <code>UserService</code> with methods <code>get()</code>, <code>create()</code>, <code>update()</code> and <code>delete()</code>, calling
+<code>createMock(UserService)</code> is equivalent to calling
+`jasmine.createSpyObj<UserService>(&#39;UserService&#39;, [&#39;get&#39;, &#39;create&#39;, &#39;update&#39;, &#39;delete&#39;]).</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>type</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/core/Type" target="_blank" >Type</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the type to mock (usually a service class)</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>jasmine.SpyObj&lt;T&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/route.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -79,9 +223,14 @@
                 <td class="col-md-4">
                     <a name="fakeRoute"></a>
                     <span class="name">
-                        <span ><b>fakeRoute</b></span>
+                        <span class="deprecated-name"><b>fakeRoute</b></span>
                         <a href="#fakeRoute"><span class="icon ion-ios-link"></span></a>
                     </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4 deprecated">
+                    favor stubRoute, which creates an easier to use and more logical stub
                 </td>
             </tr>
             <tr>
@@ -149,9 +298,14 @@ parent snapshot will be set to the given snapshot&#39;s parent. This allows the 
                 <td class="col-md-4">
                     <a name="fakeSnapshot"></a>
                     <span class="name">
-                        <span ><b>fakeSnapshot</b></span>
+                        <span class="deprecated-name"><b>fakeSnapshot</b></span>
                         <a href="#fakeSnapshot"><span class="icon ion-ios-link"></span></a>
                     </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4 deprecated">
+                    favor stubRoute, which creates an easier to use and more logical stub for both the route and its snapshot
                 </td>
             </tr>
             <tr>
@@ -207,6 +361,71 @@ The same goes for queryParams and queryParamMap.</p>
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stubRoute"></a>
+                    <span class="name">
+                        <span ><b>stubRoute</b></span>
+                        <a href="#stubRoute"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>stubRoute(options?: <a href="../interfaces/ActivatedRouteStubOptions.html" target="_self">ActivatedRouteStubOptions</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Creates a new ActivatedRouteStub, by calling its constructor.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                                <code><a href="../interfaces/ActivatedRouteStubOptions.html" target="_self" >ActivatedRouteStubOptions</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ActivatedRouteStub.html" target="_self" >ActivatedRouteStub</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
 
@@ -223,6 +442,15 @@ The same goes for queryParams and queryParamMap.</p>
                <!-- END CONTENT -->
            </div>
        </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;

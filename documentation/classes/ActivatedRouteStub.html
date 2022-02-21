@@ -1,0 +1,1625 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-speculoos documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">ngx-speculoos documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Classes</li>
+  <li >ActivatedRouteStub</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/lib/route.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>A stub for ActivatedRoute. It behaves almost the same way as the actual ActivatedRoute, exposing a snapshot
+and observables for the params, query params etc., which are kept in sync.</p>
+<p>In addition, this stub allows simulating a navigation by changing the params, the query params, the fragment, etc.
+When that happens, the snapshot is modified, then the relevant observables emit the new values.</p>
+<p>There are some things that don&#39;t really work the same way as the real ActivatedRoute though:</p>
+<ul>
+<li>the handling of the firstChild and of the children is entirely under the tester&#39;s responsibility. Setting the parent
+of a route stub does not add this route to the children of its parent, for example.</li>
+<li>when changing the params, query params, fragment, etc., their associated observable emits unconditionally, instead of
+first checking if the value is actually different from before. It&#39;s thus the responsibility of the tester to not
+change the values if they&#39;re the same as before.</li>
+</ul>
+
+            </p>
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+            </p>
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setData" >setData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setDataItem" >setDataItem</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setFragment" >setFragment</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setParam" >setParam</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setParams" >setParams</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setQueryParam" >setQueryParam</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setQueryParams" >setQueryParams</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setUrl" >setUrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toString" >toString</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#triggerNavigation" >triggerNavigation</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#root" >root</a>
+                                </li>
+                                <li>
+                                    <a href="#pathFromRoot" >pathFromRoot</a>
+                                </li>
+                                <li>
+                                    <a href="#firstChild" >firstChild</a>
+                                </li>
+                                <li>
+                                    <a href="#children" >children</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(options?: <a href="../interfaces/ActivatedRouteStubOptions.html" target="_self">ActivatedRouteStubOptions</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="263" class="link-to-prism">src/lib/route.ts:263</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructs a new instance, based on the given options.
+If an option is not provided (or if no option is provided at all), then the route has a default value for this option
+(empty parameters for example, null fragment, etc.)
+If no parent is passed, then this route has no parent and is thus set as the root. Otherwise, the root and the path
+from root are created based on the root and path from root of the given parent route.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>options</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/ActivatedRouteStubOptions.html" target="_self" >ActivatedRouteStubOptions</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setData"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>setData</b></span>
+                        <a href="#setData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setData(data: <a href="https://angular.io/api/router/Data" target="_blank">Data</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="368"
+                            class="link-to-prism">src/lib/route.ts:368</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Triggers a navigation with the given new data. The other parameters, as well as all the other parts (params etc.)
+stay as the are.
+This is a shortcut to <code>triggerNavigation</code> that can be used to only change the data.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/router/Data" target="_blank" >Data</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setDataItem"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>setDataItem</b></span>
+                        <a href="#setDataItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setDataItem(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, value)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="377"
+                            class="link-to-prism">src/lib/route.ts:377</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Triggers a navigation with the given new data item. The other data, as well as all the other parts (params etc.)
+stay as the are.
+This is a shortcut to <code>triggerNavigation</code> that can be used to only change one data item.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setFragment"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>setFragment</b></span>
+                        <a href="#setFragment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setFragment(fragment: string | null)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="385"
+                            class="link-to-prism">src/lib/route.ts:385</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Triggers a navigation with the given new fragment. The other parts (params etc.)  stay as the are.
+This is a shortcut to <code>triggerNavigation</code> that can be used to only change the fragment.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>fragment</td>
+                                    <td>
+                                            <code>string | null</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setParam"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>setParam</b></span>
+                        <a href="#setParam"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setParam(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="342"
+                            class="link-to-prism">src/lib/route.ts:342</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Triggers a navigation with the given new parameter. The other parameters, as well as all the other parts (query params etc.)
+stay as the are.
+This is a shortcut to <code>triggerNavigation</code> that can be used to only change one parameter.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setParams"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>setParams</b></span>
+                        <a href="#setParams"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setParams(params: <a href="https://angular.io/api/router/Params" target="_blank">Params</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="333"
+                            class="link-to-prism">src/lib/route.ts:333</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Triggers a navigation with the given new parameters. All the other parts (query params etc.) stay as the are.
+This is a shortcut to <code>triggerNavigation</code> that can be used to only change the parameters.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/router/Params" target="_blank" >Params</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setQueryParam"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>setQueryParam</b></span>
+                        <a href="#setQueryParam"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setQueryParam(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="359"
+                            class="link-to-prism">src/lib/route.ts:359</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Triggers a navigation with the given new parameter. The other query parameters, as well as all the other parts (params etc.)
+stay as the are.
+This is a shortcut to <code>triggerNavigation</code> that can be used to only change one query parameter.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setQueryParams"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>setQueryParams</b></span>
+                        <a href="#setQueryParams"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setQueryParams(queryParams: <a href="https://angular.io/api/router/Params" target="_blank">Params</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="350"
+                            class="link-to-prism">src/lib/route.ts:350</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Triggers a navigation with the given new query parameters. All the other parts (params etc.) stay as the are.
+This is a shortcut to <code>triggerNavigation</code> that can be used to only change the query parameters.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>queryParams</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/router/Params" target="_blank" >Params</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setUrl"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>setUrl</b></span>
+                        <a href="#setUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setUrl(url: Array<UrlSegment>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="393"
+                            class="link-to-prism">src/lib/route.ts:393</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Triggers a navigation with the given new url. The other parts (params etc.)  stay as the are.
+This is a shortcut to <code>triggerNavigation</code> that can be used to only change the url.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>url</td>
+                                    <td>
+                                            <code>Array&lt;UrlSegment&gt;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toString"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>toString</b></span>
+                        <a href="#toString"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>toString()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="449"
+                            class="link-to-prism">src/lib/route.ts:449</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="triggerNavigation"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>triggerNavigation</b></span>
+                        <a href="#triggerNavigation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>triggerNavigation(options: literal type)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="407"
+                            class="link-to-prism">src/lib/route.ts:407</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Triggers a navigation based on the given options. If an option is undefined or null, it&#39;s ignored. Except for fragment, which is only
+ignored if it&#39;s undefined, because null is a valid value for a fragment.</p>
+<p>The non-ignored values are used to change the snapshot of the route. Once the snapshot has been modified,
+the observables corresponding to the updated parts emit the new value.</p>
+<p>So, setting params and query params will make the params and queryParams observables emit, but not the fragment, data and
+url observables for example. This is consistent to how the router behaves.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                            <code>literal type</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+            <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="root"></a>
+                        <span class="name"><b>root</b><a href="#root"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>root()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="309" class="link-to-prism">src/lib/route.ts:309</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="pathFromRoot"></a>
+                        <span class="name"><b>pathFromRoot</b><a href="#pathFromRoot"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>pathFromRoot()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="317" class="link-to-prism">src/lib/route.ts:317</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="firstChild"></a>
+                        <span class="name"><b>firstChild</b><a href="#firstChild"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>firstChild()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="321" class="link-to-prism">src/lib/route.ts:321</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="children"></a>
+                        <span class="name"><b>children</b><a href="#children"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>children()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="325" class="link-to-prism">src/lib/route.ts:325</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ActivatedRoute, ActivatedRouteSnapshot, convertToParamMap, Data, Params, Route, UrlSegment } from &#x27;@angular/router&#x27;;
+import { BehaviorSubject, map, Observable } from &#x27;rxjs&#x27;;
+import { Type } from &#x27;@angular/core&#x27;;
+
+/**
+ * Creates a fake partial ActivatedRoute for tests.
+ *
+ * If you pass params, then the created route&#x27;s paramMap will contain the same values.
+ * The same goes for queryParams and queryParamMap.
+ *
+ * If you pass a parent route and a snapshot, and the passed snapshot doesn&#x27;t have a parent, then the snapshot&#x27;s
+ * parent will be set to the parent route snapshot. This allows the code under test to use
+ * &#x60;route.parent.snapshot&#x60; or &#x60;route.snapshot.parent&#x60;.
+ *
+ * If you pass a snapshot with a parent, but don&#x27;t pass a parent or pass a parent without snapshot, then the route&#x27;s
+ * parent snapshot will be set to the given snapshot&#x27;s parent. This allows the code under test to use
+ * &#x60;route.parent.snapshot&#x60; or &#x60;route.snapshot.parent&#x60;.
+ *
+ * @returns a partially populated, fake ActivatedRoute, depending on what you passed in
+ * @deprecated favor stubRoute, which creates an easier to use and more logical stub
+ */
+export function fakeRoute(options: {
+  url?: Observable&lt;UrlSegment[]&gt;;
+  /** An observable of the matrix parameters scoped to this route */
+  params?: Observable&lt;Params&gt;;
+  /** An observable of the query parameters shared by all the routes */
+  queryParams?: Observable&lt;Params&gt;;
+  /** An observable of the URL fragment shared by all the routes */
+  fragment?: Observable&lt;string&gt;;
+  /** An observable of the static and resolved data of this route. */
+  data?: Observable&lt;Data&gt;;
+  /** The outlet name of the route. It&#x27;s a constant */
+  outlet?: string;
+  /** The component of the route. It&#x27;s a constant */
+  component?: Type&lt;unknown&gt; | string | null;
+  /** The current snapshot of this route */
+  snapshot?: ActivatedRouteSnapshot;
+  /** The configuration used to match this route */
+  routeConfig?: Route | null;
+  /** The root of the router state */
+  root?: ActivatedRoute;
+  /** The parent of this route in the router state tree */
+  parent?: ActivatedRoute | null;
+  /** The first child of this route in the router state tree */
+  firstChild?: ActivatedRoute;
+  /** The children of this route in the router state tree */
+  children?: ActivatedRoute[];
+  /** The path from the root of the router state tree to this route */
+  pathFromRoot?: ActivatedRoute[];
+}): ActivatedRoute {
+  const result &#x3D; {
+    url: options.url,
+    params: options.params,
+    paramMap: options.params &amp;&amp; options.params.pipe(map(params &#x3D;&gt; convertToParamMap(params))),
+    queryParams: options.queryParams,
+    queryParamMap: options.queryParams &amp;&amp; options.queryParams.pipe(map(params &#x3D;&gt; convertToParamMap(params))),
+    fragment: options.fragment,
+    data: options.data,
+    outlet: options.outlet,
+    component: options.component,
+    snapshot: options.snapshot,
+    routeConfig: options.routeConfig,
+    root: options.root,
+    parent: options.parent,
+    firstChild: options.firstChild,
+    children: options.children,
+    pathFromRoot: options.pathFromRoot
+  } as ActivatedRoute;
+
+  for (let route: null | ActivatedRoute &#x3D; result; route; route &#x3D; route.parent) {
+    if (route.parent &amp;&amp; route.parent.snapshot &amp;&amp; !route.snapshot) {
+      // eslint-disable-next-line deprecation/deprecation
+      route.snapshot &#x3D; fakeSnapshot({});
+    }
+    if (route.parent &amp;&amp; route.parent.snapshot &amp;&amp; !route.snapshot.parent) {
+      (route.snapshot as Omit&lt;ActivatedRouteSnapshot, &#x27;parent&#x27;&gt; &amp; { parent: ActivatedRouteSnapshot }).parent &#x3D; route.parent.snapshot;
+    }
+
+    if (route.snapshot &amp;&amp; route.snapshot.parent &amp;&amp; !route.parent) {
+      // eslint-disable-next-line deprecation/deprecation
+      (route as Omit&lt;ActivatedRoute, &#x27;parent&#x27;&gt; &amp; { parent: ActivatedRoute }).parent &#x3D; fakeRoute({});
+    }
+    if (route.snapshot &amp;&amp; route.snapshot.parent &amp;&amp; route.parent &amp;&amp; !route.parent.snapshot) {
+      route.parent.snapshot &#x3D; route.snapshot.parent;
+    }
+  }
+
+  return result;
+}
+
+/**
+ * Creates a fake partial ActivatedRouteSnapshot for tests.
+ *
+ * If you pass params, then the created snapshot&#x27;s paramMap will contain the same values.
+ * The same goes for queryParams and queryParamMap.
+ *
+ * @returns a partially populated, fake ActivatedRoute, depending on what you passed in
+ * @deprecated favor stubRoute, which creates an easier to use and more logical stub for both the route and its snapshot
+ */
+export function fakeSnapshot(options: {
+  url?: UrlSegment[];
+  /** The matrix parameters scoped to this route */
+  params?: Params;
+  /** The query parameters shared by all the routes */
+  queryParams?: Params;
+  /** The URL fragment shared by all the routes */
+  fragment?: string;
+  /** The static and resolved data of this route */
+  data?: Data;
+  /** The outlet name of the route */
+  outlet?: string;
+  /** The component of the route */
+  component?: Type&lt;unknown&gt; | string | null;
+  /** The configuration used to match this route */
+  routeConfig?: Route;
+  /** The root of the router state */
+  root?: ActivatedRouteSnapshot;
+  /** The parent of this route in the router state tree */
+  parent?: ActivatedRouteSnapshot | null;
+  /** The first child of this route in the router state tree */
+  firstChild?: ActivatedRouteSnapshot | null;
+  /** The children of this route in the router state tree */
+  children?: ActivatedRouteSnapshot[];
+  /** The path from the root of the router state tree to this route */
+  pathFromRoot?: ActivatedRouteSnapshot[];
+}): ActivatedRouteSnapshot {
+  return {
+    url: options.url,
+    params: options.params,
+    paramMap: options.params &amp;&amp; convertToParamMap(options.params),
+    queryParams: options.queryParams,
+    queryParamMap: options.queryParams &amp;&amp; convertToParamMap(options.queryParams),
+    fragment: options.fragment,
+    data: options.data,
+    outlet: options.outlet,
+    component: options.component,
+    routeConfig: options.routeConfig,
+    root: options.root,
+    parent: options.parent,
+    firstChild: options.firstChild,
+    children: options.children,
+    pathFromRoot: options.pathFromRoot
+  } as ActivatedRouteSnapshot;
+}
+
+/**
+ * The options that are passed when creating an ActivatedRouteStub.
+ */
+export interface ActivatedRouteStubOptions {
+  /**
+   * The initial values of the parameters of the route
+   */
+  params?: Params;
+  /**
+   * The initial values of the query parameters of the route
+   */
+  queryParams?: Params;
+  /**
+   * The initial values of the data of the route
+   */
+  data?: Data;
+  /**
+   * The initial fragment of the route
+   */
+  fragment?: string | null;
+  /**
+   * The initial url of the route
+   */
+  url?: UrlSegment[];
+  /**
+   * The parent of the route
+   */
+  parent?: ActivatedRouteStub | null;
+  /**
+   * The first child of the route
+   */
+  firstChild?: ActivatedRouteStub | null;
+  /**
+   * The children of the route
+   */
+  children?: ActivatedRouteStub[] | null;
+}
+
+class ActivatedRouteSnapshotStub extends ActivatedRouteSnapshot {
+  private _parent: ActivatedRouteSnapshot | null &#x3D; null;
+  private _root: ActivatedRouteSnapshot;
+  private _firstChild: ActivatedRouteSnapshot | null &#x3D; null;
+  private _children: Array&lt;ActivatedRouteSnapshot&gt; &#x3D; [];
+  private _pathFromRoot: Array&lt;ActivatedRouteSnapshot&gt; &#x3D; [];
+
+  get parent(): ActivatedRouteSnapshot | null {
+    return this._parent;
+  }
+
+  set parent(value: ActivatedRouteSnapshot | null) {
+    this._parent &#x3D; value;
+  }
+
+  get root(): ActivatedRouteSnapshot {
+    return this._root;
+  }
+
+  set root(value: ActivatedRouteSnapshot) {
+    this._root &#x3D; value;
+  }
+
+  get firstChild(): ActivatedRouteSnapshot | null {
+    return this._firstChild;
+  }
+
+  set firstChild(value: ActivatedRouteSnapshot | null) {
+    this._firstChild &#x3D; value;
+  }
+
+  get children(): Array&lt;ActivatedRouteSnapshot&gt; {
+    return this._children;
+  }
+
+  set children(value: Array&lt;ActivatedRouteSnapshot&gt;) {
+    this._children &#x3D; value;
+  }
+
+  get pathFromRoot(): Array&lt;ActivatedRouteSnapshot&gt; {
+    return this._pathFromRoot;
+  }
+
+  set pathFromRoot(value: Array&lt;ActivatedRouteSnapshot&gt;) {
+    this._pathFromRoot &#x3D; value;
+  }
+
+  constructor() {
+    super();
+    this._root &#x3D; this;
+  }
+}
+
+/**
+ * A stub for ActivatedRoute. It behaves almost the same way as the actual ActivatedRoute, exposing a snapshot
+ * and observables for the params, query params etc., which are kept in sync.
+ *
+ * In addition, this stub allows simulating a navigation by changing the params, the query params, the fragment, etc.
+ * When that happens, the snapshot is modified, then the relevant observables emit the new values.
+ *
+ * There are some things that don&#x27;t really work the same way as the real ActivatedRoute though:
+ * - the handling of the firstChild and of the children is entirely under the tester&#x27;s responsibility. Setting the parent
+ *   of a route stub does not add this route to the children of its parent, for example.
+ * - when changing the params, query params, fragment, etc., their associated observable emits unconditionally, instead of
+ *   first checking if the value is actually different from before. It&#x27;s thus the responsibility of the tester to not
+ *   change the values if they&#x27;re the same as before.
+ */
+export class ActivatedRouteStub extends ActivatedRoute {
+  private _firstChild: ActivatedRouteStub | null;
+  private _children: Array&lt;ActivatedRouteStub&gt;;
+
+  private readonly paramsSubject: BehaviorSubject&lt;Params&gt;;
+  private readonly queryParamsSubject: BehaviorSubject&lt;Params&gt;;
+  private readonly dataSubject: BehaviorSubject&lt;Data&gt;;
+  private readonly fragmentSubject: BehaviorSubject&lt;string | null&gt;;
+  private readonly urlSubject: BehaviorSubject&lt;Array&lt;UrlSegment&gt;&gt;;
+
+  private _parent: ActivatedRouteStub | null;
+  private _root: ActivatedRouteStub;
+  private _pathFromRoot: Array&lt;ActivatedRouteStub&gt;;
+
+  /**
+   * Constructs a new instance, based on the given options.
+   * If an option is not provided (or if no option is provided at all), then the route has a default value for this option
+   * (empty parameters for example, null fragment, etc.)
+   * If no parent is passed, then this route has no parent and is thus set as the root. Otherwise, the root and the path
+   * from root are created based on the root and path from root of the given parent route.
+   */
+  constructor(options?: ActivatedRouteStubOptions) {
+    super();
+
+    const snapshot &#x3D; new ActivatedRouteSnapshotStub();
+    this.snapshot &#x3D; snapshot;
+
+    this._firstChild &#x3D; options?.firstChild ?? null;
+    this._children &#x3D; options?.children ?? [];
+    this._parent &#x3D; options?.parent ?? null;
+    this._root &#x3D; this.parent?.root ?? this;
+    this._pathFromRoot &#x3D; this.parent ? [...this.parent.pathFromRoot, this] : [this];
+
+    snapshot.params &#x3D; options?.params ?? {};
+    snapshot.queryParams &#x3D; options?.queryParams ?? {};
+    snapshot.data &#x3D; options?.data ?? {};
+    snapshot.fragment &#x3D; options?.fragment ?? null;
+    snapshot.url &#x3D; options?.url ?? [];
+
+    snapshot.firstChild &#x3D; this.firstChild?.snapshot ?? null;
+    snapshot.children &#x3D; this.children?.map(route &#x3D;&gt; route.snapshot) ?? [];
+    snapshot.parent &#x3D; this.parent?.snapshot ?? null;
+    snapshot.root &#x3D; this.root.snapshot;
+    snapshot.pathFromRoot &#x3D; this.pathFromRoot.map(route &#x3D;&gt; route.snapshot);
+
+    this.paramsSubject &#x3D; new BehaviorSubject&lt;Params&gt;(this.snapshot.params);
+    this.queryParamsSubject &#x3D; new BehaviorSubject&lt;Params&gt;(this.snapshot.queryParams);
+    this.dataSubject &#x3D; new BehaviorSubject&lt;Data&gt;(this.snapshot.data);
+    this.fragmentSubject &#x3D; new BehaviorSubject&lt;string | null&gt;(this.snapshot.fragment);
+    this.urlSubject &#x3D; new BehaviorSubject&lt;Array&lt;UrlSegment&gt;&gt;(this.snapshot.url);
+
+    this.params &#x3D; this.paramsSubject.asObservable();
+    this.queryParams &#x3D; this.queryParamsSubject.asObservable();
+    this.data &#x3D; this.dataSubject.asObservable();
+    this.fragment &#x3D; this.fragmentSubject.asObservable();
+    this.url &#x3D; this.urlSubject.asObservable();
+  }
+
+  get root() {
+    return this._root;
+  }
+
+  get parent(): ActivatedRouteStub | null {
+    return this._parent;
+  }
+
+  get pathFromRoot(): Array&lt;ActivatedRouteStub&gt; {
+    return this._pathFromRoot;
+  }
+
+  get firstChild(): ActivatedRouteStub | null {
+    return this._firstChild;
+  }
+
+  get children(): Array&lt;ActivatedRouteStub&gt; {
+    return this._children;
+  }
+
+  /**
+   * Triggers a navigation with the given new parameters. All the other parts (query params etc.) stay as the are.
+   * This is a shortcut to &#x60;triggerNavigation&#x60; that can be used to only change the parameters.
+   */
+  public setParams(params: Params): void {
+    this.triggerNavigation({ params });
+  }
+
+  /**
+   * Triggers a navigation with the given new parameter. The other parameters, as well as all the other parts (query params etc.)
+   * stay as the are.
+   * This is a shortcut to &#x60;triggerNavigation&#x60; that can be used to only change one parameter.
+   */
+  public setParam(name: string, value: string): void {
+    this.setParams({ ...this.snapshot.params, [name]: value });
+  }
+
+  /**
+   * Triggers a navigation with the given new query parameters. All the other parts (params etc.) stay as the are.
+   * This is a shortcut to &#x60;triggerNavigation&#x60; that can be used to only change the query parameters.
+   */
+  public setQueryParams(queryParams: Params): void {
+    this.triggerNavigation({ queryParams });
+  }
+
+  /**
+   * Triggers a navigation with the given new parameter. The other query parameters, as well as all the other parts (params etc.)
+   * stay as the are.
+   * This is a shortcut to &#x60;triggerNavigation&#x60; that can be used to only change one query parameter.
+   */
+  public setQueryParam(name: string, value: string): void {
+    this.setQueryParams({ ...this.snapshot.queryParams, [name]: value });
+  }
+
+  /**
+   * Triggers a navigation with the given new data. The other parameters, as well as all the other parts (params etc.)
+   * stay as the are.
+   * This is a shortcut to &#x60;triggerNavigation&#x60; that can be used to only change the data.
+   */
+  public setData(data: Data): void {
+    this.triggerNavigation({ data });
+  }
+
+  /**
+   * Triggers a navigation with the given new data item. The other data, as well as all the other parts (params etc.)
+   * stay as the are.
+   * This is a shortcut to &#x60;triggerNavigation&#x60; that can be used to only change one data item.
+   */
+  public setDataItem(name: string, value: unknown): void {
+    this.setData({ ...this.snapshot.data, [name]: value });
+  }
+
+  /**
+   * Triggers a navigation with the given new fragment. The other parts (params etc.)  stay as the are.
+   * This is a shortcut to &#x60;triggerNavigation&#x60; that can be used to only change the fragment.
+   */
+  public setFragment(fragment: string | null): void {
+    this.triggerNavigation({ fragment });
+  }
+
+  /**
+   * Triggers a navigation with the given new url. The other parts (params etc.)  stay as the are.
+   * This is a shortcut to &#x60;triggerNavigation&#x60; that can be used to only change the url.
+   */
+  public setUrl(url: Array&lt;UrlSegment&gt;): void {
+    this.triggerNavigation({ url });
+  }
+
+  /**
+   * Triggers a navigation based on the given options. If an option is undefined or null, it&#x27;s ignored. Except for fragment, which is only
+   * ignored if it&#x27;s undefined, because null is a valid value for a fragment.
+   *
+   * The non-ignored values are used to change the snapshot of the route. Once the snapshot has been modified,
+   * the observables corresponding to the updated parts emit the new value.
+   *
+   * So, setting params and query params will make the params and queryParams observables emit, but not the fragment, data and
+   * url observables for example. This is consistent to how the router behaves.
+   */
+  public triggerNavigation(options: {
+    params?: Params;
+    queryParams?: Params;
+    fragment?: string | null;
+    data?: Data | null;
+    url?: Array&lt;UrlSegment&gt; | null;
+  }): void {
+    // set the snapshot first
+    if (options.params) {
+      this.snapshot.params &#x3D; options.params;
+    }
+    if (options.queryParams) {
+      this.snapshot.queryParams &#x3D; options.queryParams;
+    }
+    if (options.fragment !&#x3D;&#x3D; undefined) {
+      this.snapshot.fragment &#x3D; options.fragment;
+    }
+    if (options.data) {
+      this.snapshot.data &#x3D; options.data;
+    }
+    if (options.url) {
+      this.snapshot.url &#x3D; options.url;
+    }
+
+    // then emit everything that has changed
+    if (options.params) {
+      this.paramsSubject.next(this.snapshot.params);
+    }
+    if (options.queryParams) {
+      this.queryParamsSubject.next(this.snapshot.queryParams);
+    }
+    if (options.fragment !&#x3D;&#x3D; undefined) {
+      this.fragmentSubject.next(this.snapshot.fragment);
+    }
+    if (options.data) {
+      this.dataSubject.next(this.snapshot.data);
+    }
+    if (options.url) {
+      this.urlSubject.next(this.snapshot.url);
+    }
+  }
+
+  public toString(): string {
+    return &#x27;ActivatedRouteStub&#x27;;
+  }
+}
+
+/**
+ * Creates a new ActivatedRouteStub, by calling its constructor.
+ */
+export function stubRoute(options?: ActivatedRouteStubOptions): ActivatedRouteStub {
+  return new ActivatedRouteStub(options);
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'ActivatedRouteStub.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

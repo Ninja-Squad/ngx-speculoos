@@ -59,6 +59,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
+                                <a href="classes/ActivatedRouteSnapshotStub.html" data-type="entity-link" >ActivatedRouteSnapshotStub</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ActivatedRouteStub.html" data-type="entity-link" >ActivatedRouteStub</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/ComponentTester.html" data-type="entity-link" >ComponentTester</a>
                             </li>
                             <li class="link">
@@ -89,6 +95,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <span class="icon ion-ios-arrow-down"></span>
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
+                            <li class="link">
+                                <a href="interfaces/ActivatedRouteStubOptions.html" data-type="entity-link" >ActivatedRouteStubOptions</a>
+                            </li>
                             <li class="link">
                                 <a href="interfaces/Matchers.html" data-type="entity-link" >Matchers</a>
                             </li>
