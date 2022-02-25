@@ -19,7 +19,7 @@ function collectMethodNames(proto: unknown): Array<string> {
  * Creates a spy object for a class where all the methods of the class (and of its superclasses) are spies.
  * I.e., for a class `UserService` with methods `get()`, `create()`, `update()` and `delete()`, calling
  * `createMock(UserService)` is equivalent to calling
- * `jasmine.createSpyObj<UserService>('UserService', ['get', 'create', 'update', 'delete']).
+ * `jasmine.createSpyObj<UserService>('UserService', ['get', 'create', 'update', 'delete'])`.
  * @param type the type to mock (usually a service class)
  */
 export function createMock<T>(type: Type<T>): jasmine.SpyObj<T> {
