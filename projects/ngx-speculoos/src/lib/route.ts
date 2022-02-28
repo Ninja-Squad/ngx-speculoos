@@ -179,6 +179,10 @@ export interface ActivatedRouteStubOptions {
    * The children of the route
    */
   children?: ActivatedRouteStub[] | null;
+  /**
+   * The configuration of the route
+   */
+  routeConfig?: Route | null;
 }
 
 class ActivatedRouteSnapshotStub extends ActivatedRouteSnapshot {
@@ -187,6 +191,7 @@ class ActivatedRouteSnapshotStub extends ActivatedRouteSnapshot {
   private _firstChild: ActivatedRouteSnapshot | null = null;
   private _children: Array<ActivatedRouteSnapshot> = [];
   private _pathFromRoot: Array<ActivatedRouteSnapshot> = [];
+  private _routeConfig: Route | null = null;
 
   get parent(): ActivatedRouteSnapshot | null {
     return this._parent;
@@ -226,6 +231,16 @@ class ActivatedRouteSnapshotStub extends ActivatedRouteSnapshot {
 
   set pathFromRoot(value: Array<ActivatedRouteSnapshot>) {
     this._pathFromRoot = value;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  get routeConfig(): Route | null {
+    return this._routeConfig;
+  }
+
+  set routeConfig(route: Route | null) {
+    this._routeConfig = route;
   }
 
   constructor() {
@@ -286,6 +301,7 @@ export class ActivatedRouteStub extends ActivatedRoute {
     snapshot.data = options?.data ?? {};
     snapshot.fragment = options?.fragment ?? null;
     snapshot.url = options?.url ?? [];
+    snapshot.routeConfig = options?.routeConfig ?? null;
 
     snapshot.firstChild = this.firstChild?.snapshot ?? null;
     snapshot.children = this.children?.map(route => route.snapshot) ?? [];
@@ -324,6 +340,10 @@ export class ActivatedRouteStub extends ActivatedRoute {
 
   get children(): Array<ActivatedRouteStub> {
     return this._children;
+  }
+
+  get routeConfig(): Route | null {
+    return this.snapshot.routeConfig;
   }
 
   /**
