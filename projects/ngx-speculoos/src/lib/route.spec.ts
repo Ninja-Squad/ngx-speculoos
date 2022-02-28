@@ -1,4 +1,4 @@
-import { ActivatedRoute, ActivatedRouteSnapshot, Data, ParamMap, Params, UrlSegment } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, Data, ParamMap, Params, Route, UrlSegment } from '@angular/router';
 import { fakeRoute, fakeSnapshot, stubRoute } from './route';
 import { of } from 'rxjs';
 
@@ -171,6 +171,7 @@ describe('routes', () => {
       expect(route.snapshot.firstChild).toBeNull();
       expect(route.snapshot.pathFromRoot).toEqual([route.snapshot]);
       expect(route.snapshot.root).toBe(route.snapshot);
+      expect(route.snapshot.routeConfig).toBeNull();
 
       let params: Params;
       route.params.subscribe(p => (params = p));
@@ -205,6 +206,7 @@ describe('routes', () => {
       expect(route.firstChild).toBeNull();
       expect(route.pathFromRoot).toEqual([route]);
       expect(route.root).toBe(route);
+      expect(route.routeConfig).toBeNull();
     });
 
     it('should fill the snapshot and the route with values if options are provided', () => {
@@ -213,6 +215,7 @@ describe('routes', () => {
       const providedData = { jing: 'zoom' };
       const providedFragment = 'hello';
       const providedUrl = [new UrlSegment('/path', {})];
+      const providedRouteConfig: Route = { path: 'foo' };
 
       const parent = stubRoute();
       const firstChild = stubRoute();
@@ -226,7 +229,8 @@ describe('routes', () => {
         url: providedUrl,
         parent,
         firstChild,
-        children
+        children,
+        routeConfig: providedRouteConfig
       });
 
       expect(route.snapshot.params).toBe(providedParams);
@@ -236,6 +240,7 @@ describe('routes', () => {
       expect(route.snapshot.data).toEqual(providedData);
       expect(route.snapshot.fragment).toBe(providedFragment);
       expect(route.snapshot.url).toBe(providedUrl);
+      expect(route.snapshot.routeConfig).toBe(providedRouteConfig);
       expect(route.snapshot.parent).toBe(parent.snapshot);
       expect(route.snapshot.children).toEqual(children.map(c => c.snapshot));
       expect(route.snapshot.firstChild).toBe(firstChild.snapshot);
@@ -275,6 +280,7 @@ describe('routes', () => {
       expect(route.firstChild).toBe(firstChild);
       expect(route.pathFromRoot).toEqual([parent, route]);
       expect(route.root).toBe(parent);
+      expect(route.routeConfig).toBe(providedRouteConfig);
     });
 
     it('should set a param', () => {
