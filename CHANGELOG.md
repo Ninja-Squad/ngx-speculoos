@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.2.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v7.1.0...v7.2.0) (2022-03-03)
+
+
+### Features
+
+* add routeConfig to the stub snapshot and route ([768c113](https://github.com/Ninja-Squad/ngx-speculoos/commit/768c1132d04d55c59bc0e9c8881622ba06e3593f))
+
 ## [7.1.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v7.0.0...v7.1.0) (2022-02-21)
 
 
