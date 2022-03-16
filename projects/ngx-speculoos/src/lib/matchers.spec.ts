@@ -78,6 +78,8 @@ class TestComponentTester extends ComponentTester<TestComponent> {
 
 describe('Custom matchers', () => {
   let tester: TestComponentTester;
+  // Jasmine types v4 forces us to pass a MatchersUtil to the factory even if we don't use it
+  const util = null as unknown as jasmine.MatchersUtil;
 
   beforeEach(() => {
     TestBed.configureTestingModule({ declarations: [TestComponent] });
@@ -87,7 +89,7 @@ describe('Custom matchers', () => {
   });
 
   describe('toHaveClass', () => {
-    const matcher = speculoosMatchers.toHaveClass(undefined, undefined);
+    const matcher = speculoosMatchers.toHaveClass(util);
 
     it('should check for a class', () => {
       expect(tester.div).toHaveClass('foo');
@@ -101,7 +103,7 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if class is present and .not', () => {
-      const result = matcher.negativeCompare(tester.div, 'foo');
+      const result = matcher.negativeCompare!(tester.div, 'foo');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected element to not have class 'foo', but had 'foo, bar'`);
     });
@@ -113,7 +115,7 @@ describe('Custom matchers', () => {
     });
 
     it('should return true if class is absent and .not', () => {
-      const result = matcher.negativeCompare(tester.none, 'baz');
+      const result = matcher.negativeCompare!(tester.none, 'baz');
       expect(result.pass).toBeTruthy();
     });
 
@@ -124,7 +126,7 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if no element and .not too', () => {
-      const result = matcher.negativeCompare(null, 'baz');
+      const result = matcher.negativeCompare!(null, 'baz');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check class 'baz' on element, but element was falsy`);
     });
@@ -136,14 +138,14 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if element of wrong type and .not too', () => {
-      const result = matcher.negativeCompare('hello', 'baz');
+      const result = matcher.negativeCompare!('hello', 'baz');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check class 'baz' on element, but element was not a TestElement`);
     });
   });
 
   describe('toHaveValue', () => {
-    const matcher = speculoosMatchers.toHaveValue(undefined, undefined);
+    const matcher = speculoosMatchers.toHaveValue(util);
 
     it('should check for a value on an input', () => {
       expect(tester.name).toHaveValue('Hello');
@@ -162,12 +164,12 @@ describe('Custom matchers', () => {
     });
 
     it('should return true if wrong value and .not', () => {
-      const result = matcher.negativeCompare(tester.name, 'baz');
+      const result = matcher.negativeCompare!(tester.name, 'baz');
       expect(result.pass).toBeTruthy();
     });
 
     it('should return false if matching value and .not', () => {
-      const result = matcher.negativeCompare(tester.name, 'Hello');
+      const result = matcher.negativeCompare!(tester.name, 'Hello');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected element to not have value 'Hello', but had value 'Hello'`);
     });
@@ -179,7 +181,7 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if no element and .not too', () => {
-      const result = matcher.negativeCompare(null, 'baz');
+      const result = matcher.negativeCompare!(null, 'baz');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check value 'baz' on element, but element was falsy`);
     });
@@ -191,14 +193,14 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if element of wrong type and .not too', () => {
-      const result = matcher.negativeCompare('hello', 'baz');
+      const result = matcher.negativeCompare!('hello', 'baz');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check value 'baz' on element, but element was neither a TestInput nor a TestTextArea`);
     });
   });
 
   describe('toHaveText', () => {
-    const matcher = speculoosMatchers.toHaveText(undefined, undefined);
+    const matcher = speculoosMatchers.toHaveText(util);
 
     it('should check for a textContent', () => {
       expect(tester.div).toHaveText('Hello');
@@ -218,12 +220,12 @@ describe('Custom matchers', () => {
     });
 
     it('should return true if wrong textContent and .not', () => {
-      const result = matcher.negativeCompare(tester.div, 'baz');
+      const result = matcher.negativeCompare!(tester.div, 'baz');
       expect(result.pass).toBeTruthy();
     });
 
     it('should return false if matching textContent and .not', () => {
-      const result = matcher.negativeCompare(tester.div, 'Hello');
+      const result = matcher.negativeCompare!(tester.div, 'Hello');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected element to not have text 'Hello', but had 'Hello'`);
     });
@@ -235,7 +237,7 @@ describe('Custom matchers', () => {
     });
 
     it('should return true if no textContent and .not', () => {
-      const result = matcher.negativeCompare(tester.name, 'baz');
+      const result = matcher.negativeCompare!(tester.name, 'baz');
       expect(result.pass).toBeTruthy();
     });
 
@@ -246,7 +248,7 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if no element and .not too', () => {
-      const result = matcher.negativeCompare(null, 'baz');
+      const result = matcher.negativeCompare!(null, 'baz');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check text 'baz' on element, but element was falsy`);
     });
@@ -258,14 +260,14 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if element of wrong type and .not too', () => {
-      const result = matcher.negativeCompare('hello', 'baz');
+      const result = matcher.negativeCompare!('hello', 'baz');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check text 'baz' on element, but element was not a TestElement`);
     });
   });
 
   describe('toHaveTrimmedText', () => {
-    const matcher = speculoosMatchers.toHaveTrimmedText(undefined, undefined);
+    const matcher = speculoosMatchers.toHaveTrimmedText(util);
 
     it('should check for a textContent', () => {
       expect(tester.title).toHaveTrimmedText('Long title');
@@ -286,12 +288,12 @@ describe('Custom matchers', () => {
     });
 
     it('should return true if wrong textContent and .not', () => {
-      const result = matcher.negativeCompare(tester.title, 'baz');
+      const result = matcher.negativeCompare!(tester.title, 'baz');
       expect(result.pass).toBeTruthy();
     });
 
     it('should return false if matching textContent and .not', () => {
-      const result = matcher.negativeCompare(tester.title, ' Long title ');
+      const result = matcher.negativeCompare!(tester.title, ' Long title ');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected element to not have trimmed text 'Long title', but had 'Long title'`);
     });
@@ -303,7 +305,7 @@ describe('Custom matchers', () => {
     });
 
     it('should return true if no textContent and .not', () => {
-      const result = matcher.negativeCompare(tester.name, 'baz');
+      const result = matcher.negativeCompare!(tester.name, 'baz');
       expect(result.pass).toBeTruthy();
     });
 
@@ -314,7 +316,7 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if no element and .not too', () => {
-      const result = matcher.negativeCompare(null, ' baz ');
+      const result = matcher.negativeCompare!(null, ' baz ');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check trimmed text 'baz' on element, but element was falsy`);
     });
@@ -326,14 +328,14 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if element of wrong type and .not too', () => {
-      const result = matcher.negativeCompare('hello', ' baz ');
+      const result = matcher.negativeCompare!('hello', ' baz ');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check trimmed text 'baz' on element, but element was not a TestElement`);
     });
   });
 
   describe('toContainText', () => {
-    const matcher = speculoosMatchers.toContainText(undefined, undefined);
+    const matcher = speculoosMatchers.toContainText(util);
 
     it('should check for a textContent', () => {
       expect(tester.div).toContainText('Hello');
@@ -348,12 +350,12 @@ describe('Custom matchers', () => {
     });
 
     it('should return true if wrong textContent and .not', () => {
-      const result = matcher.negativeCompare(tester.div, 'baz');
+      const result = matcher.negativeCompare!(tester.div, 'baz');
       expect(result.pass).toBeTruthy();
     });
 
     it('should return false if matching textContent and .not', () => {
-      const result = matcher.negativeCompare(tester.div, 'He');
+      const result = matcher.negativeCompare!(tester.div, 'He');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected element to not contain text 'He', but had text 'Hello'`);
     });
@@ -365,7 +367,7 @@ describe('Custom matchers', () => {
     });
 
     it('should return true if no textContent and .not', () => {
-      const result = matcher.negativeCompare(tester.name, 'baz');
+      const result = matcher.negativeCompare!(tester.name, 'baz');
       expect(result.pass).toBeTruthy();
     });
 
@@ -376,7 +378,7 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if no element and .not too', () => {
-      const result = matcher.negativeCompare(null, 'baz');
+      const result = matcher.negativeCompare!(null, 'baz');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check text 'baz' on element, but element was falsy`);
     });
@@ -388,36 +390,36 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if element of wrong type and .not too', () => {
-      const result = matcher.negativeCompare('hello', 'baz');
+      const result = matcher.negativeCompare!('hello', 'baz');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check text 'baz' on element, but element was not a TestElement`);
     });
   });
 
   describe('toBeChecked', () => {
-    const matcher = speculoosMatchers.toBeChecked(undefined, undefined);
+    const matcher = speculoosMatchers.toBeChecked(util);
 
     it('should check if checked', () => {
       expect(tester.checkbox).toBeChecked();
-      tester.checkbox.uncheck();
+      tester.checkbox!.uncheck();
       expect(tester.checkbox).not.toBeChecked();
     });
 
     it('should return false if not checked', () => {
-      tester.checkbox.uncheck();
+      tester.checkbox!.uncheck();
       const result = matcher.compare(tester.checkbox);
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected element to be checked, but was not`);
     });
 
     it('should return true if not checked and .not', () => {
-      tester.checkbox.uncheck();
-      const result = matcher.negativeCompare(tester.checkbox);
+      tester.checkbox!.uncheck();
+      const result = matcher.negativeCompare!(tester.checkbox);
       expect(result.pass).toBeTruthy();
     });
 
     it('should return false if checked and .not', () => {
-      const result = matcher.negativeCompare(tester.checkbox);
+      const result = matcher.negativeCompare!(tester.checkbox);
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected element to be not checked, but was`);
     });
@@ -429,7 +431,7 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if no element and .not too', () => {
-      const result = matcher.negativeCompare(null);
+      const result = matcher.negativeCompare!(null);
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check if element was checked, but element was falsy`);
     });
@@ -441,14 +443,14 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if element of wrong type and .not too', () => {
-      const result = matcher.negativeCompare('hello');
+      const result = matcher.negativeCompare!('hello');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check if element was checked, but element was not a TestInput`);
     });
   });
 
   describe('toHaveSelectedIndex', () => {
-    const matcher = speculoosMatchers.toHaveSelectedIndex(undefined, undefined);
+    const matcher = speculoosMatchers.toHaveSelectedIndex(util);
 
     it('should check selected index on a select', () => {
       expect(tester.selectBox).toHaveSelectedIndex(1);
@@ -462,12 +464,12 @@ describe('Custom matchers', () => {
     });
 
     it('should return true if wrong value and .not', () => {
-      const result = matcher.negativeCompare(tester.selectBox, 0);
+      const result = matcher.negativeCompare!(tester.selectBox, 0);
       expect(result.pass).toBeTruthy();
     });
 
     it('should return false if matching value and .not', () => {
-      const result = matcher.negativeCompare(tester.selectBox, 1);
+      const result = matcher.negativeCompare!(tester.selectBox, 1);
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected element to not have selected index 1, but had 1`);
     });
@@ -479,7 +481,7 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if no element and .not too', () => {
-      const result = matcher.negativeCompare(null, 1);
+      const result = matcher.negativeCompare!(null, 1);
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check selected index 1 on element, but element was falsy`);
     });
@@ -491,14 +493,14 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if element of wrong type and .not too', () => {
-      const result = matcher.negativeCompare(tester.textArea, 1);
+      const result = matcher.negativeCompare!(tester.textArea, 1);
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check selected index 1 on element, but element was not a TestSelect`);
     });
   });
 
   describe('toHaveSelectedValue', () => {
-    const matcher = speculoosMatchers.toHaveSelectedValue(undefined, undefined);
+    const matcher = speculoosMatchers.toHaveSelectedValue(util);
 
     it('should check selected value on a select', () => {
       expect(tester.selectBox).toHaveSelectedValue('a');
@@ -512,12 +514,12 @@ describe('Custom matchers', () => {
     });
 
     it('should return true if wrong value and .not', () => {
-      const result = matcher.negativeCompare(tester.selectBox, 'b');
+      const result = matcher.negativeCompare!(tester.selectBox, 'b');
       expect(result.pass).toBeTruthy();
     });
 
     it('should return false if matching value and .not', () => {
-      const result = matcher.negativeCompare(tester.selectBox, 'a');
+      const result = matcher.negativeCompare!(tester.selectBox, 'a');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected element to not have selected value 'a', but had 'a'`);
     });
@@ -529,7 +531,7 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if no element and .not too', () => {
-      const result = matcher.negativeCompare(null, 'a');
+      const result = matcher.negativeCompare!(null, 'a');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check selected value 'a' on element, but element was falsy`);
     });
@@ -541,14 +543,14 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if element of wrong type and .not too', () => {
-      const result = matcher.negativeCompare(tester.textArea, 'a');
+      const result = matcher.negativeCompare!(tester.textArea, 'a');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check selected value 'a' on element, but element was not a TestSelect`);
     });
   });
 
   describe('toHaveSelectedLabel', () => {
-    const matcher = speculoosMatchers.toHaveSelectedLabel(undefined, undefined);
+    const matcher = speculoosMatchers.toHaveSelectedLabel(util);
 
     it('should check selected label on a select', () => {
       expect(tester.selectBox).toHaveSelectedLabel('A');
@@ -562,12 +564,12 @@ describe('Custom matchers', () => {
     });
 
     it('should return true if wrong label and .not', () => {
-      const result = matcher.negativeCompare(tester.selectBox, 'b');
+      const result = matcher.negativeCompare!(tester.selectBox, 'b');
       expect(result.pass).toBeTruthy();
     });
 
     it('should return false if matching label and .not', () => {
-      const result = matcher.negativeCompare(tester.selectBox, 'A');
+      const result = matcher.negativeCompare!(tester.selectBox, 'A');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected element to not have selected label 'A', but had 'A'`);
     });
@@ -579,7 +581,7 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if no element and .not too', () => {
-      const result = matcher.negativeCompare(null, 'A');
+      const result = matcher.negativeCompare!(null, 'A');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check selected label 'A' on element, but element was falsy`);
     });
@@ -591,14 +593,14 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if element of wrong type and .not too', () => {
-      const result = matcher.negativeCompare(tester.textArea, 'A');
+      const result = matcher.negativeCompare!(tester.textArea, 'A');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check selected label 'A' on element, but element was not a TestSelect`);
     });
   });
 
   describe('toBeVisible', () => {
-    const matcher = speculoosMatchers.toBeVisible(undefined, undefined);
+    const matcher = speculoosMatchers.toBeVisible(util);
 
     it('should check if visible', () => {
       expect(tester.div).toBeVisible();
@@ -612,12 +614,12 @@ describe('Custom matchers', () => {
     });
 
     it('should return true if not visible and .not', () => {
-      const result = matcher.negativeCompare(tester.invisible);
+      const result = matcher.negativeCompare!(tester.invisible);
       expect(result.pass).toBeTruthy();
     });
 
     it('should return false if visible and .not', () => {
-      const result = matcher.negativeCompare(tester.div);
+      const result = matcher.negativeCompare!(tester.div);
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected element to be invisible, but was visible`);
     });
@@ -629,7 +631,7 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if no element and .not too', () => {
-      const result = matcher.negativeCompare(null);
+      const result = matcher.negativeCompare!(null);
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check if element was invisible, but element was falsy`);
     });
@@ -641,7 +643,7 @@ describe('Custom matchers', () => {
     });
 
     it('should return false if element of wrong type and .not too', () => {
-      const result = matcher.negativeCompare('hello');
+      const result = matcher.negativeCompare!('hello');
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected to check if element was invisible, but element was not a TestHtmlElement`);
     });
