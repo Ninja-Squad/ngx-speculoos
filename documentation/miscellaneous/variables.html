@@ -95,7 +95,7 @@
   /**
    * Checks that the receiver is a TestElement wrapping a DOM element and as the given CSS class
    */
-  toHaveClass: (): jasmine.CustomMatcher &#x3D;&gt; {
+  toHaveClass(): jasmine.CustomMatcher {
     const assert &#x3D; (isNegative: boolean, el: unknown, expected: string) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check class &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
@@ -111,10 +111,10 @@
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      compare(el: unknown, expected: string): jasmine.CustomMatcherResult {
         return assert(false, el, expected);
       },
-      negativeCompare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      negativeCompare(el: unknown, expected: string): jasmine.CustomMatcherResult {
         return assert(true, el, expected);
       }
     };
@@ -123,7 +123,7 @@
   /**
    * Checks that the receiver is a TestInput or a TestTextArea and has the given value
    */
-  toHaveValue: (): jasmine.CustomMatcher &#x3D;&gt; {
+  toHaveValue(): jasmine.CustomMatcher {
     const assert &#x3D; (isNegative: boolean, el: unknown, expected: string) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check value &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
@@ -140,10 +140,10 @@
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      compare(el: unknown, expected: string): jasmine.CustomMatcherResult {
         return assert(false, el, expected);
       },
-      negativeCompare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      negativeCompare(el: unknown, expected: string): jasmine.CustomMatcherResult {
         return assert(true, el, expected);
       }
     };
@@ -152,7 +152,7 @@
   /**
    * Checks that the receiver is a TestElement wrapping a DOM element and has the exact given textContent
    */
-  toHaveText: (): jasmine.CustomMatcher &#x3D;&gt; {
+  toHaveText(): jasmine.CustomMatcher {
     const assert &#x3D; (isNegative: boolean, el: unknown, expected: string) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check text &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
@@ -166,10 +166,10 @@
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      compare(el: unknown, expected: string): jasmine.CustomMatcherResult {
         return assert(false, el, expected);
       },
-      negativeCompare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      negativeCompare(el: unknown, expected: string): jasmine.CustomMatcherResult {
         return assert(true, el, expected);
       }
     };
@@ -188,7 +188,7 @@
    * expect(tester.title).toHaveTrimmedText(&#x27;Some title&#x27;)
    * &#x60;&#x60;&#x60;
    */
-  toHaveTrimmedText: (): jasmine.CustomMatcher &#x3D;&gt; {
+  toHaveTrimmedText(): jasmine.CustomMatcher {
     const assert &#x3D; (isNegative: boolean, el: unknown, expected: string) &#x3D;&gt; {
       const trimmedExpected &#x3D; expected.trim();
       if (!el) {
@@ -206,10 +206,10 @@
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      compare(el: unknown, expected: string): jasmine.CustomMatcherResult {
         return assert(false, el, expected);
       },
-      negativeCompare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      negativeCompare(el: unknown, expected: string): jasmine.CustomMatcherResult {
         return assert(true, el, expected);
       }
     };
@@ -218,7 +218,7 @@
   /**
    * Checks that the receiver is a TestElement wrapping a DOM element and contains the given textContent
    */
-  toContainText: (): jasmine.CustomMatcher &#x3D;&gt; {
+  toContainText(): jasmine.CustomMatcher {
     const assert &#x3D; (isNegative: boolean, el: unknown, expected: string) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check text &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
@@ -238,10 +238,10 @@
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      compare(el: unknown, expected: string): jasmine.CustomMatcherResult {
         return assert(false, el, expected);
       },
-      negativeCompare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      negativeCompare(el: unknown, expected: string): jasmine.CustomMatcherResult {
         return assert(true, el, expected);
       }
     };
@@ -250,7 +250,7 @@
   /**
    * Checks that the receiver is a TestElement wrapping a DOM element and contains the given textContent
    */
-  toBeChecked: (): jasmine.CustomMatcher &#x3D;&gt; {
+  toBeChecked(): jasmine.CustomMatcher {
     const assert &#x3D; (isNegative: boolean, el: unknown) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check if element was checked, but element was falsy&#x60; };
@@ -263,10 +263,10 @@
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: unknown): jasmine.CustomMatcherResult &#x3D;&gt; {
+      compare(el: unknown): jasmine.CustomMatcherResult {
         return assert(false, el);
       },
-      negativeCompare: (el: unknown): jasmine.CustomMatcherResult &#x3D;&gt; {
+      negativeCompare(el: unknown): jasmine.CustomMatcherResult {
         return assert(true, el);
       }
     };
@@ -275,7 +275,7 @@
   /**
    * Checks that the receiver is a TestSelect wrapping a DOM element and has the given selected index
    */
-  toHaveSelectedIndex: (): jasmine.CustomMatcher &#x3D;&gt; {
+  toHaveSelectedIndex(): jasmine.CustomMatcher {
     const assert &#x3D; (isNegative: boolean, el: unknown, expected: number) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check selected index ${expected} on element, but element was falsy&#x60; };
@@ -289,10 +289,10 @@
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: unknown, expected: number): jasmine.CustomMatcherResult &#x3D;&gt; {
+      compare(el: unknown, expected: number): jasmine.CustomMatcherResult {
         return assert(false, el, expected);
       },
-      negativeCompare: (el: unknown, expected: number): jasmine.CustomMatcherResult &#x3D;&gt; {
+      negativeCompare(el: unknown, expected: number): jasmine.CustomMatcherResult {
         return assert(true, el, expected);
       }
     };
@@ -301,7 +301,7 @@
   /**
    * Checks that the receiver is a TestSelect wrapping a DOM element with the selected option&#x27;s value equal to the given value
    */
-  toHaveSelectedValue: (): jasmine.CustomMatcher &#x3D;&gt; {
+  toHaveSelectedValue(): jasmine.CustomMatcher {
     const assert &#x3D; (isNegative: boolean, el: unknown, expected: string) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check selected value &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
@@ -315,10 +315,10 @@
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      compare(el: unknown, expected: string): jasmine.CustomMatcherResult {
         return assert(false, el, expected);
       },
-      negativeCompare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      negativeCompare(el: unknown, expected: string): jasmine.CustomMatcherResult {
         return assert(true, el, expected);
       }
     };
@@ -327,7 +327,7 @@
   /**
    * Checks that the receiver is a TestSelect wrapping a DOM element with the selected option&#x27;s label equal to the given label
    */
-  toHaveSelectedLabel: (): jasmine.CustomMatcher &#x3D;&gt; {
+  toHaveSelectedLabel(): jasmine.CustomMatcher {
     const assert &#x3D; (isNegative: boolean, el: unknown, expected: string) &#x3D;&gt; {
       if (!el) {
         return { pass: false, message: &#x60;Expected to check selected label &#x27;${expected}&#x27; on element, but element was falsy&#x60; };
@@ -341,10 +341,10 @@
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      compare(el: unknown, expected: string): jasmine.CustomMatcherResult {
         return assert(false, el, expected);
       },
-      negativeCompare: (el: unknown, expected: string): jasmine.CustomMatcherResult &#x3D;&gt; {
+      negativeCompare(el: unknown, expected: string): jasmine.CustomMatcherResult {
         return assert(true, el, expected);
       }
     };
@@ -353,7 +353,7 @@
   /**
    * Checks that the receiver is a TestHtmlElement which is visible
    */
-  toBeVisible: (): jasmine.CustomMatcher &#x3D;&gt; {
+  toBeVisible(): jasmine.CustomMatcher {
     const assert &#x3D; (isNegative: boolean, el: unknown) &#x3D;&gt; {
       const expectedState &#x3D; &#x60;${isNegative ? &#x27;in&#x27; : &#x27;&#x27;}visible&#x60;;
       const inverseState &#x3D; &#x60;${isNegative ? &#x27;&#x27; : &#x27;in&#x27;}visible&#x60;;
@@ -368,10 +368,10 @@
       return { pass: isNegative ? !pass : pass, message };
     };
     return {
-      compare: (el: unknown): jasmine.CustomMatcherResult &#x3D;&gt; {
+      compare(el: unknown): jasmine.CustomMatcherResult {
         return assert(false, el);
       },
-      negativeCompare: (el: unknown): jasmine.CustomMatcherResult &#x3D;&gt; {
+      negativeCompare(el: unknown): jasmine.CustomMatcherResult {
         return assert(true, el);
       }
     };
