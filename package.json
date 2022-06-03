@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "build": "ng build",
+    "build": "ng build --project=ngx-speculoos",
     "test": "ng test --no-progress --no-watch --code-coverage --project=ngx-speculoos",
-    "watch": "ng build --watch --configuration development",
-    "demobuild": "ng build --no-progress --project=demo",
+    "watch": "ng build --project=ngx-speculoos --watch --configuration development",
+    "demobuild": "ng build --project=demo",
     "demotest": "ng test --no-progress --no-watch --project=demo",
     "lint": "ng lint",
     "release": "cd projects/ngx-speculoos && standard-version --infile ../../CHANGELOG.md",
@@ -17,26 +17,26 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/common": "13.3.11",
-    "@angular/compiler": "13.3.11",
-    "@angular/core": "13.3.11",
-    "@angular/forms": "13.3.11",
-    "@angular/platform-browser": "13.3.11",
-    "@angular/platform-browser-dynamic": "13.3.11",
-    "@angular/router": "13.3.11",
+    "@angular/common": "14.0.0",
+    "@angular/compiler": "14.0.0",
+    "@angular/core": "14.0.0",
+    "@angular/forms": "14.0.0",
+    "@angular/platform-browser": "14.0.0",
+    "@angular/platform-browser-dynamic": "14.0.0",
+    "@angular/router": "14.0.0",
     "rxjs": "7.5.5",
     "tslib": "2.4.0",
     "zone.js": "0.11.5"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "13.3.7",
+    "@angular-devkit/build-angular": "14.0.0",
     "@angular-eslint/builder": "13.2.1",
     "@angular-eslint/eslint-plugin": "13.2.1",
     "@angular-eslint/eslint-plugin-template": "13.2.1",
     "@angular-eslint/schematics": "13.2.1",
     "@angular-eslint/template-parser": "13.2.1",
-    "@angular/cli": "13.3.7",
-    "@angular/compiler-cli": "13.3.11",
+    "@angular/cli": "14.0.0",
+    "@angular/compiler-cli": "14.0.0",
     "@compodoc/compodoc": "1.1.19",
     "@types/jasmine": "4.0.3",
     "@types/node": "16.11.38",
@@ -57,6 +57,6 @@
     "ng-packagr": "14.0.0",
     "prettier": "2.6.2",
     "standard-version": "9.5.0",
-    "typescript": "4.4.4"
+    "typescript": "4.6.4"
   }
 }
