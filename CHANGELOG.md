@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [8.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v7.2.0...v8.0.0) (2022-06-03)
 
+### ⚠ BREAKING CHANGES
+
+* `ngx-speculoos` is now based on Angular 14.x. It also needs RxJS v7.5+. If you want to use it with an older version of Angular, then stick to the previous version of `ngx-speculoos`.
 
 ### Bug Fixes
 
