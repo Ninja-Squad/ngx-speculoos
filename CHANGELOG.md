@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v7.2.0...v8.0.0) (2022-06-03)
+
+
+### Bug Fixes
+
+* ngx-speculoos.d.ts is now index.d.ts ([7bf3ed0](https://github.com/Ninja-Squad/ngx-speculoos/commit/7bf3ed0ebdacf7bcea7f9d446ff192ae65cf6a0b))
+
 ## [7.2.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v7.1.0...v7.2.0) (2022-03-03)
 
 
