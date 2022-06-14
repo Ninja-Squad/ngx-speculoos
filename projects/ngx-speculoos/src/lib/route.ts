@@ -1,4 +1,4 @@
-import { ActivatedRoute, ActivatedRouteSnapshot, convertToParamMap, Data, Params, Route, UrlSegment } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, convertToParamMap, Data, ParamMap, Params, Route, UrlSegment } from '@angular/router';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Type } from '@angular/core';
 
@@ -243,6 +243,14 @@ class ActivatedRouteSnapshotStub extends ActivatedRouteSnapshot {
     this._routeConfig = route;
   }
 
+  get paramMap(): ParamMap {
+    return convertToParamMap(this.params);
+  }
+
+  get queryParamMap(): ParamMap {
+    return convertToParamMap(this.queryParams);
+  }
+
   constructor() {
     super();
     this._root = this;
@@ -262,6 +270,8 @@ class ActivatedRouteSnapshotStub extends ActivatedRouteSnapshot {
  * - when changing the params, query params, fragment, etc., their associated observable emits unconditionally, instead of
  *   first checking if the value is actually different from before. It's thus the responsibility of the tester to not
  *   change the values if they're the same as before.
+ * - the params, paramMap, queryParams and queryParamMap objects of the route snapshot change when params or query params are set
+ *   on the stub route. So if the code keeps a reference to params or paramMaps, it won't see the changes.
  */
 export class ActivatedRouteStub extends ActivatedRoute {
   private _firstChild: ActivatedRouteStub | null;
