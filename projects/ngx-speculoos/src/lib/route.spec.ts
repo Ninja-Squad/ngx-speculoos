@@ -305,6 +305,19 @@ describe('routes', () => {
       expect(queryParamEmissionCount).toBe(1);
     });
 
+    it('should set a param in the map too, even if the map has already been read before', () => {
+      const route = stubRoute();
+
+      expect(route.snapshot.paramMap.get('a')).toBeNull();
+
+      const expectedParams = { a: 'a2' };
+
+      route.setParam('a', 'a2');
+
+      expect(route.snapshot.params).toEqual(expectedParams);
+      expect(route.snapshot.paramMap.get('a')).toBe('a2');
+    });
+
     it('should set a query param', () => {
       const route = stubRoute({ queryParams: { a: 'a1', b: 'b1' } });
 
@@ -316,6 +329,21 @@ describe('routes', () => {
 
       expect(route.snapshot.queryParams).toEqual(expectedQueryParams);
       expect(queryParams).toEqual(expectedQueryParams);
+      expect(route.snapshot.queryParamMap.get('a')).toBe('a2');
+      expect(route.snapshot.queryParamMap.get('b')).toBe('b1');
+    });
+
+    it('should set a query param in the map too, even if the map has already been read before', () => {
+      const route = stubRoute();
+
+      expect(route.snapshot.queryParamMap.get('a')).toBeNull();
+
+      const expectedQueryParams = { a: 'a2' };
+
+      route.setQueryParam('a', 'a2');
+
+      expect(route.snapshot.queryParams).toEqual(expectedQueryParams);
+      expect(route.snapshot.queryParamMap.get('a')).toBe('a2');
     });
 
     it('should set a datum', () => {
