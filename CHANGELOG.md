@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [8.0.1](https://github.com/Ninja-Squad/ngx-speculoos/compare/v8.0.0...v8.0.1) (2022-06-17)
+
+
+### Bug Fixes
+
+* **route:** make sure param maps contain the same values as params ([c7859a1](https://github.com/Ninja-Squad/ngx-speculoos/commit/c7859a1ac1191c9625f54ddb5cd05bcd06506c0b))
+
 ## [8.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v7.2.0...v8.0.0) (2022-06-03)
 
 ### ⚠ BREAKING CHANGES
