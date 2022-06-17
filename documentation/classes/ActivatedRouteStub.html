@@ -81,6 +81,8 @@ of a route stub does not add this route to the children of its parent, for examp
 <li>when changing the params, query params, fragment, etc., their associated observable emits unconditionally, instead of
 first checking if the value is actually different from before. It&#39;s thus the responsibility of the tester to not
 change the values if they&#39;re the same as before.</li>
+<li>the params, paramMap, queryParams and queryParamMap objects of the route snapshot change when params or query params are set
+on the stub route. So if the code keeps a reference to params or paramMaps, it won&#39;t see the changes.</li>
 </ul>
 
             </p>
@@ -196,7 +198,7 @@ change the values if they&#39;re the same as before.</li>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="278" class="link-to-prism">src/lib/route.ts:278</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="288" class="link-to-prism">src/lib/route.ts:288</a></div>
                             </td>
                         </tr>
 
@@ -268,8 +270,8 @@ from root are created based on the root and path from root of the given parent r
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="388"
-                            class="link-to-prism">src/lib/route.ts:388</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="398"
+                            class="link-to-prism">src/lib/route.ts:398</a></div>
                 </td>
             </tr>
 
@@ -343,8 +345,8 @@ This is a shortcut to <code>triggerNavigation</code> that can be used to only ch
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="397"
-                            class="link-to-prism">src/lib/route.ts:397</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="407"
+                            class="link-to-prism">src/lib/route.ts:407</a></div>
                 </td>
             </tr>
 
@@ -429,8 +431,8 @@ This is a shortcut to <code>triggerNavigation</code> that can be used to only ch
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="405"
-                            class="link-to-prism">src/lib/route.ts:405</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="415"
+                            class="link-to-prism">src/lib/route.ts:415</a></div>
                 </td>
             </tr>
 
@@ -503,8 +505,8 @@ This is a shortcut to <code>triggerNavigation</code> that can be used to only ch
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="362"
-                            class="link-to-prism">src/lib/route.ts:362</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="372"
+                            class="link-to-prism">src/lib/route.ts:372</a></div>
                 </td>
             </tr>
 
@@ -590,8 +592,8 @@ This is a shortcut to <code>triggerNavigation</code> that can be used to only ch
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="353"
-                            class="link-to-prism">src/lib/route.ts:353</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="363"
+                            class="link-to-prism">src/lib/route.ts:363</a></div>
                 </td>
             </tr>
 
@@ -664,8 +666,8 @@ This is a shortcut to <code>triggerNavigation</code> that can be used to only ch
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="379"
-                            class="link-to-prism">src/lib/route.ts:379</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="389"
+                            class="link-to-prism">src/lib/route.ts:389</a></div>
                 </td>
             </tr>
 
@@ -751,8 +753,8 @@ This is a shortcut to <code>triggerNavigation</code> that can be used to only ch
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="370"
-                            class="link-to-prism">src/lib/route.ts:370</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="380"
+                            class="link-to-prism">src/lib/route.ts:380</a></div>
                 </td>
             </tr>
 
@@ -825,8 +827,8 @@ This is a shortcut to <code>triggerNavigation</code> that can be used to only ch
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="413"
-                            class="link-to-prism">src/lib/route.ts:413</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="423"
+                            class="link-to-prism">src/lib/route.ts:423</a></div>
                 </td>
             </tr>
 
@@ -899,8 +901,8 @@ This is a shortcut to <code>triggerNavigation</code> that can be used to only ch
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="469"
-                            class="link-to-prism">src/lib/route.ts:469</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="479"
+                            class="link-to-prism">src/lib/route.ts:479</a></div>
                 </td>
             </tr>
 
@@ -938,8 +940,8 @@ This is a shortcut to <code>triggerNavigation</code> that can be used to only ch
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="427"
-                            class="link-to-prism">src/lib/route.ts:427</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="437"
+                            class="link-to-prism">src/lib/route.ts:437</a></div>
                 </td>
             </tr>
 
@@ -1020,7 +1022,7 @@ url observables for example. This is consistent to how the router behaves.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="325" class="link-to-prism">src/lib/route.ts:325</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="335" class="link-to-prism">src/lib/route.ts:335</a></div>
                                 </td>
                             </tr>
 
@@ -1042,7 +1044,7 @@ url observables for example. This is consistent to how the router behaves.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="333" class="link-to-prism">src/lib/route.ts:333</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="343" class="link-to-prism">src/lib/route.ts:343</a></div>
                                 </td>
                             </tr>
 
@@ -1064,7 +1066,7 @@ url observables for example. This is consistent to how the router behaves.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="337" class="link-to-prism">src/lib/route.ts:337</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="347" class="link-to-prism">src/lib/route.ts:347</a></div>
                                 </td>
                             </tr>
 
@@ -1086,7 +1088,7 @@ url observables for example. This is consistent to how the router behaves.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="341" class="link-to-prism">src/lib/route.ts:341</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="351" class="link-to-prism">src/lib/route.ts:351</a></div>
                                 </td>
                             </tr>
 
@@ -1108,7 +1110,7 @@ url observables for example. This is consistent to how the router behaves.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="345" class="link-to-prism">src/lib/route.ts:345</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="355" class="link-to-prism">src/lib/route.ts:355</a></div>
                                 </td>
                             </tr>
 
@@ -1119,7 +1121,7 @@ url observables for example. This is consistent to how the router behaves.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ActivatedRoute, ActivatedRouteSnapshot, convertToParamMap, Data, Params, Route, UrlSegment } from &#x27;@angular/router&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ActivatedRoute, ActivatedRouteSnapshot, convertToParamMap, Data, ParamMap, Params, Route, UrlSegment } from &#x27;@angular/router&#x27;;
 import { BehaviorSubject, map, Observable } from &#x27;rxjs&#x27;;
 import { Type } from &#x27;@angular/core&#x27;;
 
@@ -1364,6 +1366,14 @@ class ActivatedRouteSnapshotStub extends ActivatedRouteSnapshot {
     this._routeConfig &#x3D; route;
   }
 
+  get paramMap(): ParamMap {
+    return convertToParamMap(this.params);
+  }
+
+  get queryParamMap(): ParamMap {
+    return convertToParamMap(this.queryParams);
+  }
+
   constructor() {
     super();
     this._root &#x3D; this;
@@ -1383,6 +1393,8 @@ class ActivatedRouteSnapshotStub extends ActivatedRouteSnapshot {
  * - when changing the params, query params, fragment, etc., their associated observable emits unconditionally, instead of
  *   first checking if the value is actually different from before. It&#x27;s thus the responsibility of the tester to not
  *   change the values if they&#x27;re the same as before.
+ * - the params, paramMap, queryParams and queryParamMap objects of the route snapshot change when params or query params are set
+ *   on the stub route. So if the code keeps a reference to params or paramMaps, it won&#x27;t see the changes.
  */
 export class ActivatedRouteStub extends ActivatedRoute {
   private _firstChild: ActivatedRouteStub | null;

@@ -109,6 +109,12 @@
                                 <li>
                                     <a href="#routeConfig" >routeConfig</a>
                                 </li>
+                                <li>
+                                    <a href="#paramMap" >paramMap</a>
+                                </li>
+                                <li>
+                                    <a href="#queryParamMap" >queryParamMap</a>
+                                </li>
                             </ul>
                         </td>
                     </tr>
@@ -127,7 +133,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="244" class="link-to-prism">src/lib/route.ts:244</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="252" class="link-to-prism">src/lib/route.ts:252</a></div>
                             </td>
                         </tr>
 
@@ -491,12 +497,56 @@
                     </tr>
             </tbody>
         </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="paramMap"></a>
+                        <span class="name"><b>paramMap</b><a href="#paramMap"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>paramMap()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="246" class="link-to-prism">src/lib/route.ts:246</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="queryParamMap"></a>
+                        <span class="name"><b>queryParamMap</b><a href="#queryParamMap"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>queryParamMap()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="250" class="link-to-prism">src/lib/route.ts:250</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
 </section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ActivatedRoute, ActivatedRouteSnapshot, convertToParamMap, Data, Params, Route, UrlSegment } from &#x27;@angular/router&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ActivatedRoute, ActivatedRouteSnapshot, convertToParamMap, Data, ParamMap, Params, Route, UrlSegment } from &#x27;@angular/router&#x27;;
 import { BehaviorSubject, map, Observable } from &#x27;rxjs&#x27;;
 import { Type } from &#x27;@angular/core&#x27;;
 
@@ -741,6 +791,14 @@ class ActivatedRouteSnapshotStub extends ActivatedRouteSnapshot {
     this._routeConfig &#x3D; route;
   }
 
+  get paramMap(): ParamMap {
+    return convertToParamMap(this.params);
+  }
+
+  get queryParamMap(): ParamMap {
+    return convertToParamMap(this.queryParams);
+  }
+
   constructor() {
     super();
     this._root &#x3D; this;
@@ -760,6 +818,8 @@ class ActivatedRouteSnapshotStub extends ActivatedRouteSnapshot {
  * - when changing the params, query params, fragment, etc., their associated observable emits unconditionally, instead of
  *   first checking if the value is actually different from before. It&#x27;s thus the responsibility of the tester to not
  *   change the values if they&#x27;re the same as before.
+ * - the params, paramMap, queryParams and queryParamMap objects of the route snapshot change when params or query params are set
+ *   on the stub route. So if the code keeps a reference to params or paramMaps, it won&#x27;t see the changes.
  */
 export class ActivatedRouteStub extends ActivatedRoute {
   private _firstChild: ActivatedRouteStub | null;
