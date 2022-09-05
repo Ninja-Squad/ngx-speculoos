@@ -39,7 +39,7 @@
     "@angular/compiler-cli": "14.2.0",
     "@compodoc/compodoc": "1.1.19",
     "@types/jasmine": "4.3.0",
-    "@types/node": "16.11.56",
+    "@types/node": "16.11.57",
     "@typescript-eslint/eslint-plugin": "5.36.1",
     "@typescript-eslint/parser": "5.36.1",
     "codecov": "3.8.3",
