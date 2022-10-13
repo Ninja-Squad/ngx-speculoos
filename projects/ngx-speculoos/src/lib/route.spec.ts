@@ -172,6 +172,7 @@ describe('routes', () => {
       expect(route.snapshot.pathFromRoot).toEqual([route.snapshot]);
       expect(route.snapshot.root).toBe(route.snapshot);
       expect(route.snapshot.routeConfig).toBeNull();
+      expect(route.snapshot.title).toBeUndefined();
 
       let params: Params;
       route.params.subscribe(p => (params = p));
@@ -200,6 +201,10 @@ describe('routes', () => {
       let url: Array<UrlSegment>;
       route.url.subscribe(p => (url = p));
       expect(url).toEqual([]);
+
+      let title: string | undefined = 'hello';
+      route.title.subscribe(t => (title = t));
+      expect(title).toBeUndefined();
 
       expect(route.parent).toBeNull();
       expect(route.children).toEqual([]);
@@ -246,6 +251,7 @@ describe('routes', () => {
       expect(route.snapshot.firstChild).toBe(firstChild.snapshot);
       expect(route.snapshot.pathFromRoot).toEqual([parent.snapshot, route.snapshot]);
       expect(route.snapshot.root).toBe(parent.snapshot);
+      expect(route.snapshot.title).toBeUndefined();
 
       let params: Params;
       route.params.subscribe(p => (params = p));
@@ -274,6 +280,10 @@ describe('routes', () => {
       let url: Array<UrlSegment>;
       route.url.subscribe(p => (url = p));
       expect(url).toBe(providedUrl);
+
+      let title: string | undefined = 'hello';
+      route.title.subscribe(t => (title = t));
+      expect(title).toBeUndefined();
 
       expect(route.parent).toBe(parent);
       expect(route.children).toBe(children);
@@ -357,6 +367,23 @@ describe('routes', () => {
 
       expect(route.snapshot.data).toEqual(expectedData);
       expect(data).toEqual(expectedData);
+    });
+
+    it('should set a title', () => {
+      const route = stubRoute();
+
+      let title: string | undefined;
+      route.title.subscribe(t => (title = t));
+
+      route.setTitle('test');
+
+      expect(route.snapshot.title).toBe('test');
+      expect(title).toBe('test');
+
+      route.setTitle(undefined);
+
+      expect(route.snapshot.title).toBeUndefined();
+      expect(title).toBeUndefined();
     });
 
     it('should set a fragment', () => {

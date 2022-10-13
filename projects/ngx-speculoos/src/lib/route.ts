@@ -160,6 +160,10 @@ export interface ActivatedRouteStubOptions {
    */
   data?: Data;
   /**
+   * The initial values of the title of the route
+   */
+  title?: string;
+  /**
    * The initial fragment of the route
    */
   fragment?: string | null;
@@ -191,7 +195,6 @@ class ActivatedRouteSnapshotStub extends ActivatedRouteSnapshot {
   private _firstChild: ActivatedRouteSnapshot | null = null;
   private _children: Array<ActivatedRouteSnapshot> = [];
   private _pathFromRoot: Array<ActivatedRouteSnapshot> = [];
-  private _routeConfig: Route | null = null;
 
   get parent(): ActivatedRouteSnapshot | null {
     return this._parent;
@@ -233,16 +236,6 @@ class ActivatedRouteSnapshotStub extends ActivatedRouteSnapshot {
     this._pathFromRoot = value;
   }
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  get routeConfig(): Route | null {
-    return this._routeConfig;
-  }
-
-  set routeConfig(route: Route | null) {
-    this._routeConfig = route;
-  }
-
   get paramMap(): ParamMap {
     return convertToParamMap(this.params);
   }
@@ -282,6 +275,7 @@ export class ActivatedRouteStub extends ActivatedRoute {
   private readonly dataSubject: BehaviorSubject<Data>;
   private readonly fragmentSubject: BehaviorSubject<string | null>;
   private readonly urlSubject: BehaviorSubject<Array<UrlSegment>>;
+  private readonly titleSubject: BehaviorSubject<string | undefined>;
 
   private _parent: ActivatedRouteStub | null;
   private _root: ActivatedRouteStub;
@@ -309,8 +303,11 @@ export class ActivatedRouteStub extends ActivatedRoute {
     snapshot.params = options?.params ?? {};
     snapshot.queryParams = options?.queryParams ?? {};
     snapshot.data = options?.data ?? {};
+    // @ts-expect-error the title is readonly, but we need to overwrite it here
+    snapshot.title = options?.title;
     snapshot.fragment = options?.fragment ?? null;
     snapshot.url = options?.url ?? [];
+    // @ts-expect-error the routeConfig is readonly, but we need to overwrite it here
     snapshot.routeConfig = options?.routeConfig ?? null;
 
     snapshot.firstChild = this.firstChild?.snapshot ?? null;
@@ -322,6 +319,7 @@ export class ActivatedRouteStub extends ActivatedRoute {
     this.paramsSubject = new BehaviorSubject<Params>(this.snapshot.params);
     this.queryParamsSubject = new BehaviorSubject<Params>(this.snapshot.queryParams);
     this.dataSubject = new BehaviorSubject<Data>(this.snapshot.data);
+    this.titleSubject = new BehaviorSubject<string | undefined>(this.snapshot.title);
     this.fragmentSubject = new BehaviorSubject<string | null>(this.snapshot.fragment);
     this.urlSubject = new BehaviorSubject<Array<UrlSegment>>(this.snapshot.url);
 
@@ -330,6 +328,8 @@ export class ActivatedRouteStub extends ActivatedRoute {
     this.data = this.dataSubject.asObservable();
     this.fragment = this.fragmentSubject.asObservable();
     this.url = this.urlSubject.asObservable();
+    // @ts-expect-error the title is readonly, but we need to be able to initialize it  here
+    this.title = this.titleSubject.asObservable();
   }
 
   get root() {
@@ -357,7 +357,7 @@ export class ActivatedRouteStub extends ActivatedRoute {
   }
 
   /**
-   * Triggers a navigation with the given new parameters. All the other parts (query params etc.) stay as the are.
+   * Triggers a navigation with the given new parameters. All the other parts (query params etc.) stay as they are.
    * This is a shortcut to `triggerNavigation` that can be used to only change the parameters.
    */
   public setParams(params: Params): void {
@@ -366,7 +366,7 @@ export class ActivatedRouteStub extends ActivatedRoute {
 
   /**
    * Triggers a navigation with the given new parameter. The other parameters, as well as all the other parts (query params etc.)
-   * stay as the are.
+   * stay as they are.
    * This is a shortcut to `triggerNavigation` that can be used to only change one parameter.
    */
   public setParam(name: string, value: string): void {
@@ -409,6 +409,15 @@ export class ActivatedRouteStub extends ActivatedRoute {
   }
 
   /**
+   * Triggers a navigation with the given new title. The other parameters, as well as all the other parts (params etc.)
+   * stay as the are.
+   * This is a shortcut to `triggerNavigation` that can be used to only change the title.
+   */
+  public setTitle(title: string | undefined): void {
+    this.triggerNavigation({ title: { value: title } });
+  }
+
+  /**
    * Triggers a navigation with the given new fragment. The other parts (params etc.)  stay as the are.
    * This is a shortcut to `triggerNavigation` that can be used to only change the fragment.
    */
@@ -433,12 +442,20 @@ export class ActivatedRouteStub extends ActivatedRoute {
    *
    * So, setting params and query params will make the params and queryParams observables emit, but not the fragment, data and
    * url observables for example. This is consistent to how the router behaves.
+   *
+   * Note: since the title of a route can become undefined, in order to be able to distinguish between a navigation which leaves the title
+   * as it is and a navigation that sets the title to undefined, a wrapper object is used for the title. So
+   *
+   * - `triggerNavigation({ params:... })` leaves the title as is because it's undefined in the options
+   * - `triggerNavigation({ title: { value: 'test' } })` sets the title to 'test'
+   * - `triggerNavigation({ title: { value: undefined } })` sets the title to undefined
    */
   public triggerNavigation(options: {
     params?: Params;
     queryParams?: Params;
     fragment?: string | null;
     data?: Data | null;
+    title?: { value: string | undefined } | null;
     url?: Array<UrlSegment> | null;
   }): void {
     // set the snapshot first
@@ -453,6 +470,10 @@ export class ActivatedRouteStub extends ActivatedRoute {
     }
     if (options.data) {
       this.snapshot.data = options.data;
+    }
+    if (options.title) {
+      // @ts-expect-error the title is readonly, but we need to be able to overwrite it here
+      this.snapshot.title = options.title.value;
     }
     if (options.url) {
       this.snapshot.url = options.url;
@@ -470,6 +491,9 @@ export class ActivatedRouteStub extends ActivatedRoute {
     }
     if (options.data) {
       this.dataSubject.next(this.snapshot.data);
+    }
+    if (options.title) {
+      this.titleSubject.next(this.snapshot.title);
     }
     if (options.url) {
       this.urlSubject.next(this.snapshot.url);
