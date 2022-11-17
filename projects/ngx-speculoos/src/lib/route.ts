@@ -195,6 +195,7 @@ class ActivatedRouteSnapshotStub extends ActivatedRouteSnapshot {
   private _firstChild: ActivatedRouteSnapshot | null = null;
   private _children: Array<ActivatedRouteSnapshot> = [];
   private _pathFromRoot: Array<ActivatedRouteSnapshot> = [];
+  private _title: string | undefined;
 
   get parent(): ActivatedRouteSnapshot | null {
     return this._parent;
@@ -234,6 +235,14 @@ class ActivatedRouteSnapshotStub extends ActivatedRouteSnapshot {
 
   set pathFromRoot(value: Array<ActivatedRouteSnapshot>) {
     this._pathFromRoot = value;
+  }
+
+  get title(): string | undefined {
+    return this._title;
+  }
+
+  set title(value: string | undefined) {
+    this._title = value;
   }
 
   get paramMap(): ParamMap {
@@ -303,7 +312,6 @@ export class ActivatedRouteStub extends ActivatedRoute {
     snapshot.params = options?.params ?? {};
     snapshot.queryParams = options?.queryParams ?? {};
     snapshot.data = options?.data ?? {};
-    // @ts-expect-error the title is readonly, but we need to overwrite it here
     snapshot.title = options?.title;
     snapshot.fragment = options?.fragment ?? null;
     snapshot.url = options?.url ?? [];
