@@ -15,7 +15,7 @@
    `git push -u origin release-xxx`
 7. If the CI build is fine, you can merge to master and push:
    `git checkout master; git merge release-xxx; git push --follow-tags`.
-8. You can now publish the release: `npm publish dist/ngx-speculoos`
+8. You can now publish the release: `npm publish ./dist/ngx-speculoos`
 9. And publish the documentation (gh-pages branch).
    Make sure you have an `ngx-speculoos.ninja-squad.com` folder as a sibling of the project folder:
    `git clone https://github.com/Ninja-Squad/ngx-speculoos.git ngx-speculoos.ninja-squad.com`.
