@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v8.0.1...v9.0.0) (2022-11-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* `ngx-speculoos` is now based on Angular 15.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-speculoos`.
+
+### Features
+
+* **route:** Allows setting the title of a route and of its snapshot ([06d70d8](https://github.com/Ninja-Squad/ngx-speculoos/commit/06d70d8eb0fa1b7c40a1dbb572209bd45f662d38))
+* upgrade to Angular 15 ([8662e7d](https://github.com/Ninja-Squad/ngx-speculoos/commit/8662e7de40f4f9f3db06578ad149fe9f003a989e))
+
 ### [8.0.1](https://github.com/Ninja-Squad/ngx-speculoos/compare/v8.0.0...v8.0.1) (2022-06-17)
 
 
