@@ -1654,10 +1654,10 @@
     read-package-json-fast "^3.0.0"
     which "^3.0.0"
 
-"@rollup/plugin-json@^5.0.0":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@rollup/plugin-json/-/plugin-json-5.0.1.tgz#d5cd67cc83ede42967447dfabbe1be45a091f5b7"
-  integrity sha512-QCwhZZLvM8nRcTHyR1vOgyTMiAnjiNj1ebD/BMRvbO1oc/z14lZH6PfxXeegee2B6mky/u9fia4fxRM4TqrUaw==
+"@rollup/plugin-json@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-json/-/plugin-json-6.0.0.tgz#199fea6670fd4dfb1f4932250569b14719db234a"
+  integrity sha512-i/4C5Jrdr1XUarRhVu27EEwjt4GObltD7c+MkCIpO2QIbojw8MUs+CCTqOphQi3Qtg1FLmYt+l+6YeoIf51J7w==
   dependencies:
     "@rollup/pluginutils" "^5.0.1"
 
@@ -6452,12 +6452,12 @@ next-tick@^1.1.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.1.0.tgz#1836ee30ad56d67ef281b22bd199f709449b35eb"
   integrity sha512-CXdUiJembsNjuToQvxayPZF9Vqht7hewsvy2sOWafLvi2awflj9mOC6bHIg50orX8IJvWKY9wYQ/zB2kogPslQ==
 
-ng-packagr@15.0.3:
-  version "15.0.3"
-  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-15.0.3.tgz#6f9e47183e3183161253d78b0e4ebeb30af1600e"
-  integrity sha512-QRP6X2cuO3AmukYOr+b84gamDWbE2R/cdAedhUSRRYaYD9IhQWVYr64pNiu5VwWNf43zaWWp8UGfKuDjoYYMvg==
+ng-packagr@15.1.0:
+  version "15.1.0"
+  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-15.1.0.tgz#58b8de092daabe02cb1187ca6817cd40d4185abb"
+  integrity sha512-mn4ycbJ/qMUumYnpVJUBBtNWRjqMJA7vnq9JKNV/YKu8od1Hms3qfqB7lwXJphjRI8o4BuOFZlD+frdBH9TXgg==
   dependencies:
-    "@rollup/plugin-json" "^5.0.0"
+    "@rollup/plugin-json" "^6.0.0"
     "@rollup/plugin-node-resolve" "^15.0.0"
     ajv "^8.11.0"
     ansi-colors "^4.1.3"
@@ -6475,6 +6475,7 @@ ng-packagr@15.0.3:
     jsonc-parser "^3.2.0"
     less "^4.1.3"
     ora "^5.1.0"
+    piscina "^3.2.0"
     postcss "^8.4.16"
     postcss-url "^10.1.3"
     rollup "^3.0.0"
@@ -7092,7 +7093,7 @@ pify@^4.0.1:
   resolved "https://registry.yarnpkg.com/pify/-/pify-4.0.1.tgz#4b2cd25c50d598735c50292224fd8c6df41e3231"
   integrity sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==
 
-piscina@3.2.0:
+piscina@3.2.0, piscina@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/piscina/-/piscina-3.2.0.tgz#f5a1dde0c05567775690cccefe59d9223924d154"
   integrity sha512-yn/jMdHRw+q2ZJhFhyqsmANcbF6V2QwmD84c6xRau+QpQOmtrBCoRGdvTfeuFDYXB5W2m6MfLkjkvQa9lUSmIA==
