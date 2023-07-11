@@ -84,12 +84,6 @@
                   "maximumWarning": "6kb"
                 }
               ],
-              "fileReplacements": [
-                {
-                  "replace": "projects/demo/src/environments/environment.ts",
-                  "with": "projects/demo/src/environments/environment.prod.ts"
-                }
-              ],
               "buildOptimizer": true,
               "optimization": true,
               "outputHashing": "all",
