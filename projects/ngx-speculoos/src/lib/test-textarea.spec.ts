@@ -7,7 +7,8 @@ import { TestTextArea } from './test-textarea';
   template: `
     <textarea id="t1" value="hello" (input)="onInput()">hello</textarea>
     <textarea id="t2" disabled></textarea>
-  `
+  `,
+  standalone: true
 })
 class TestComponent {
   onInput() {}
@@ -32,9 +33,7 @@ describe('TestTextArea', () => {
   let tester: TestComponentTester;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [TestComponent]
-    });
+    TestBed.configureTestingModule({});
     tester = new TestComponentTester();
     tester.detectChanges();
   });

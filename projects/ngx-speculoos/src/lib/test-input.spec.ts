@@ -13,7 +13,8 @@ import { TestInput } from './test-input';
       <input type="radio" name="r" id="r2" value="y" checked (change)="onChange()" />
       <input id="t2" disabled />
     </form>
-  `
+  `,
+  standalone: true
 })
 class TestComponent {
   onInput() {}
@@ -54,9 +55,7 @@ describe('TestInput', () => {
   let tester: TestComponentTester;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [TestComponent]
-    });
+    TestBed.configureTestingModule({});
     tester = new TestComponentTester();
     tester.detectChanges();
   });

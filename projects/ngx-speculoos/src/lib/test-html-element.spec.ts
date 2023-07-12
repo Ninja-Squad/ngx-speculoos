@@ -9,7 +9,8 @@ import { TestHtmlElement } from './test-html-element';
     <div id="outer" [style]="'display: ' + (invisible ? 'none' : 'block')">
       <div id="inner"></div>
     </div>
-  `
+  `,
+  standalone: true
 })
 class TestComponent {
   invisible = false;
@@ -39,9 +40,7 @@ describe('TestElement', () => {
   let tester: TestComponentTester;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [TestComponent]
-    });
+    TestBed.configureTestingModule({});
     tester = new TestComponentTester();
     tester.detectChanges();
   });

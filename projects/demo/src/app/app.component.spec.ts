@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { ComponentTester, speculoosMatchers } from 'ngx-speculoos';
-import { ReactiveFormsModule } from '@angular/forms';
 
 class AppComponentTester extends ComponentTester<AppComponent> {
   constructor() {
@@ -25,10 +24,7 @@ describe('AppComponent', () => {
   let tester: AppComponentTester;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [AppComponent],
-      imports: [ReactiveFormsModule]
-    });
+    TestBed.configureTestingModule({});
   });
 
   beforeEach(() => {

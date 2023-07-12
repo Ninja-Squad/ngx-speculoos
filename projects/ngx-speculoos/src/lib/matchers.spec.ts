@@ -27,7 +27,8 @@ const TEMPLATE = `
   `;
 
 @Component({
-  template: TEMPLATE
+  template: TEMPLATE,
+  standalone: true
 })
 class TestComponent {
   name = 'Hello';
@@ -82,7 +83,7 @@ describe('Custom matchers', () => {
   const util = null as unknown as jasmine.MatchersUtil;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({ declarations: [TestComponent] });
+    TestBed.configureTestingModule({});
     tester = new TestComponentTester();
     tester.detectChanges();
     jasmine.addMatchers(speculoosMatchers);

@@ -7,7 +7,8 @@ import { TestButton } from './test-button';
   template: `
     <button id="b1">Test</button>
     <button id="b2" disabled>Test</button>
-  `
+  `,
+  standalone: true
 })
 class TestComponent {}
 
@@ -29,9 +30,7 @@ describe('TestButton', () => {
   let tester: TestComponentTester;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [TestComponent]
-    });
+    TestBed.configureTestingModule({});
     tester = new TestComponentTester();
     tester.detectChanges();
   });

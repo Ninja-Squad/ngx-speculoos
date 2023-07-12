@@ -9,7 +9,8 @@ import { TestTextArea } from './test-textarea';
 import { TestInput } from './test-input';
 
 @Directive({
-  selector: '[libTestdir]'
+  selector: '[libTestdir]',
+  standalone: true
 })
 class TestDirective {
   @Input('libTestdir') value?: string;
@@ -17,7 +18,8 @@ class TestDirective {
 
 @Component({
   selector: 'lib-sub',
-  template: ''
+  template: '',
+  standalone: true
 })
 class SubComponent {
   @Input() sub?: string;
@@ -65,7 +67,9 @@ class TestDatepicker extends TestHtmlElement<HTMLElement> {
       <input />
       <button>Open</button>
     </div>
-  `
+  `,
+  standalone: true,
+  imports: [SubComponent, TestDirective]
 })
 class TestComponent {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -102,9 +106,7 @@ describe('TestElement', () => {
   let tester: TestComponentTester;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [TestComponent, TestDirective, SubComponent]
-    });
+    TestBed.configureTestingModule({});
     tester = new TestComponentTester();
     tester.detectChanges();
   });

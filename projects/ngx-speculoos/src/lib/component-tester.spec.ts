@@ -16,15 +16,14 @@ import { TestHtmlElement } from './test-html-element';
     <button id="button">Test</button>
     <select id="select"></select>
     <textarea id="textarea"></textarea>
-  `
+  `,
+  standalone: true
 })
 class TestComponent {}
 
 describe('ComponentTester', () => {
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [TestComponent]
-    });
+    TestBed.configureTestingModule({});
   });
 
   describe('creation', () => {
