@@ -182,7 +182,7 @@ describe('My component', () => {
     tester.detectChanges();
   });
   
-  it ('should ...`, () => {
+  it('should ...', () => {
     
   });
 ```
