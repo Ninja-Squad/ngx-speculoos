@@ -38,7 +38,7 @@
     "@angular/cli": "16.2.6",
     "@angular/compiler-cli": "16.2.9",
     "@compodoc/compodoc": "1.1.21",
-    "@types/jasmine": "5.1.0",
+    "@types/jasmine": "5.1.1",
     "@typescript-eslint/eslint-plugin": "6.8.0",
     "@typescript-eslint/parser": "6.8.0",
     "codecov": "3.8.3",
