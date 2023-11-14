@@ -1,7 +1,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -24,7 +23,7 @@
     ],
     "paths": {
       "ngx-speculoos": [
-        "dist/ngx-speculoos"
+        "./dist/ngx-speculoos"
       ]
     },
     "useDefineForClassFields": false
