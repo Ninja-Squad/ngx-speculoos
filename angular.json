@@ -52,12 +52,12 @@
       "schematics": {},
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "aot": true,
             "outputPath": "dist/demo",
             "index": "projects/demo/src/index.html",
-            "main": "projects/demo/src/main.ts",
+            "browser": "projects/demo/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -76,24 +76,21 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
                 }
               ],
-              "buildOptimizer": true,
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false
+              "outputHashing": "all"
             },
             "development": {
-              "vendorChunk": true
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
             }
           }
         },
