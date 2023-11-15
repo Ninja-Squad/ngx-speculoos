@@ -13,7 +13,7 @@
     </head>
     <body>
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
             <a href="../" class="navbar-brand">ngx-speculoos documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
@@ -43,21 +43,27 @@
 
 
 <ol class="breadcrumb">
-  <li>Classes</li>
-  <li >TestElement</li>
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >TestElement</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
+    <div class="tab-pane fade active in" id="info">
         <p class="comment">
             <h3>File</h3>
         </p>
@@ -77,7 +83,7 @@
 
 
 
-            <section>
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -221,13 +227,13 @@
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-constructor">
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(tester: <a href="../classes/ComponentTester.html" target="_self">ComponentTester&lt;&gt;</a>, debugElement: <a href="https://angular.io/api/core/DebugElement" target="_blank">DebugElement</a>)</code>
+<code>constructor(tester: <a href="../classes/ComponentTester.html" target="_self">ComponentTester&lt;&gt;</a>, debugElement: DebugElement)</code>
                     </td>
                 </tr>
                         <tr>
@@ -265,7 +271,7 @@
                                                         <td>debugElement</td>
                                                   
                                                         <td>
-                                                                        <code><a href="https://angular.io/api/core/DebugElement" target="_blank" >DebugElement</a></code>
+                                                                    <code>DebugElement</code>
                                                         </td>
                                                   
                                                     <td>
@@ -283,7 +289,7 @@
 </section>
 
 
-            <section>
+            <section data-compodoc="block-methods">
     
     <h3 id="methods">
         Methods
@@ -306,60 +312,58 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">src/lib/test-element.ts:66</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="66"
+                                    class="link-to-prism">src/lib/test-element.ts:66</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Gets the attribute of the wrapped element with the given name</p>
+                        <div class="io-description"><p>Gets the attribute of the wrapped element with the given name</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>name</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>name</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>the name of the attribute to get</p>
+                                            <td>
+                                                    <p>the name of the attribute to get</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>string | null</code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>string | null</code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -382,61 +386,59 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="327"
-                            class="link-to-prism">src/lib/test-element.ts:327</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="327"
+                                    class="link-to-prism">src/lib/test-element.ts:327</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Gets the first button matched by the given selector. Throws an Error if the matched element isn&#39;t actually a button.</p>
+                        <div class="io-description"><p>Gets the first button matched by the given selector. Throws an Error if the matched element isn&#39;t actually a button.</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>a CSS or directive selector</p>
+                                            <td>
+                                                    <p>a CSS or directive selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestButton.html" target="_self" >TestButton | null</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestButton.html" target="_self" >TestButton | null</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>the wrapped button, or null if no element was matched</p>
+                        </div>
+                            <div class="io-description">
+                                <p>the wrapped button, or null if no element was matched</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -459,68 +461,66 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="335"
-                            class="link-to-prism">src/lib/test-element.ts:335</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="335"
+                                    class="link-to-prism">src/lib/test-element.ts:335</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>R</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>R</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets the first directive matching the given component directive selector and returns its component instance</p>
+                        <div class="io-description"><p>Gets the first directive matching the given component directive selector and returns its component instance</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>Type&lt;R&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>Type&lt;R&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>the selector of a component directive</p>
+                                            <td>
+                                                    <p>the selector of a component directive</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>R</code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>R</code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -543,68 +543,66 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="343"
-                            class="link-to-prism">src/lib/test-element.ts:343</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="343"
+                                    class="link-to-prism">src/lib/test-element.ts:343</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>R</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>R</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets the directives matching the given component directive selector and returns their component instance</p>
+                        <div class="io-description"><p>Gets the directives matching the given component directive selector and returns their component instance</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>Type&lt;R&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>Type&lt;R&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>the selector of a component directive</p>
+                                            <td>
+                                                    <p>the selector of a component directive</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Array&lt;R&gt;</code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Array&lt;R&gt;</code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -627,86 +625,84 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="372"
-                            class="link-to-prism">src/lib/test-element.ts:372</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="372"
+                                    class="link-to-prism">src/lib/test-element.ts:372</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>E</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>E</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets the element matching the given selector, and if found, creates and returns a custom TestElement of the provided
+                        <div class="io-description"><p>Gets the element matching the given selector, and if found, creates and returns a custom TestElement of the provided
 type. This is useful to create custom higher-level abstractions similar to TestInput, TestSelect, etc. for
 custom elements or components.</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>a CSS or directive selector</p>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>customTestElementType</td>
-                                    <td>
-                                            <code>Type&lt;E&gt;</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>the type of the TestElement subclass that will wrap the found element</p>
+                                            <td>
+                                                    <p>a CSS or directive selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>E | null</code>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>customTestElementType</td>
+                                            <td>
+                                                        <code>Type&lt;E&gt;</code>
+                                            </td>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>the type of the TestElement subclass that will wrap the found element</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>E | null</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -729,86 +725,84 @@ custom elements or components.</p>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="384"
-                            class="link-to-prism">src/lib/test-element.ts:384</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="384"
+                                    class="link-to-prism">src/lib/test-element.ts:384</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>E</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>E</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets the elements matching the given selector, and creates and returns custom TestElements of the provided
+                        <div class="io-description"><p>Gets the elements matching the given selector, and creates and returns custom TestElements of the provided
 type. This is useful to create custom higher-level abstractions similar to TestInput, TestSelect, etc. for
 custom elements or components.</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>a CSS or directive selector</p>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>customTestElementType</td>
-                                    <td>
-                                            <code>Type&lt;E&gt;</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>the type of the TestElement subclass that will wrap the found elements</p>
+                                            <td>
+                                                    <p>a CSS or directive selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Array&lt;E&gt;</code>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>customTestElementType</td>
+                                            <td>
+                                                        <code>Type&lt;E&gt;</code>
+                                            </td>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>the type of the TestElement subclass that will wrap the found elements</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Array&lt;E&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -826,60 +820,58 @@ custom elements or components.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>dispatchEvent(event: <a href="https://angular.io/api/router/Event" target="_blank">Event</a>)</code>
+<code>dispatchEvent(event: Event)</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">src/lib/test-element.ts:50</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">src/lib/test-element.ts:50</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>dispatches the given event from the wrapped element, then triggers a change detection</p>
+                        <div class="io-description"><p>dispatches the given event from the wrapped element, then triggers a change detection</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>event</td>
-                                    <td>
-                                                <code><a href="https://angular.io/api/router/Event" target="_blank" >Event</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -902,55 +894,53 @@ custom elements or components.</p>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">src/lib/test-element.ts:42</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="42"
+                                    class="link-to-prism">src/lib/test-element.ts:42</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>dispatches an event of the given type from the wrapped element, then triggers a change detection</p>
+                        <div class="io-description"><p>dispatches an event of the given type from the wrapped element, then triggers a change detection</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>type</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>type</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -973,25 +963,25 @@ custom elements or components.</p>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="81"
-                            class="link-to-prism">src/lib/test-element.ts:81</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="81"
+                                    class="link-to-prism">src/lib/test-element.ts:81</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>K</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>K</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+                        <div class="io-description"><p>Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
 of the returned value is the TestElement subclass matching the type of the found element. So, if the
 matched element is an input for example, the method will return a TestInput.</p>
 <p>Usage:</p>
@@ -1000,48 +990,46 @@ const testElement: TestHtmlElement&lt;HTMLDivElement> | null = tester.element('d
 </code>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>K</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>K</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>a CSS selector</p>
+                                            <td>
+                                                    <p>a CSS selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestHtmlElement.html" target="_self" >TestHtmlElement | null</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestHtmlElement.html" target="_self" >TestHtmlElement | null</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>the wrapped element, or null if no element matches the selector.</p>
+                        </div>
+                            <div class="io-description">
+                                <p>the wrapped element, or null if no element matches the selector.</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1064,25 +1052,25 @@ const testElement: TestHtmlElement&lt;HTMLDivElement> | null = tester.element('d
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="93"
-                            class="link-to-prism">src/lib/test-element.ts:93</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/lib/test-element.ts:93</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>K</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>K</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+                        <div class="io-description"><p>Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
 of the returned value is the TestElement subclass matching the type of the found element. So, if the
 matched element is an input for example, the method will return a TestInput.</p>
 <p>Usage:</p>
@@ -1091,48 +1079,46 @@ const testElement: TestElement&lt;SVGLineElement> | null = tester.element('line'
 </code>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>K</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>K</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>a CSS selector</p>
+                                            <td>
+                                                    <p>a CSS selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >TestElement | null</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >TestElement | null</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>the wrapped element, or null if no element matches the selector.</p>
+                        </div>
+                            <div class="io-description">
+                                <p>the wrapped element, or null if no element matches the selector.</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1155,17 +1141,17 @@ const testElement: TestElement&lt;SVGLineElement> | null = tester.element('line'
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="105"
-                            class="link-to-prism">src/lib/test-element.ts:105</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">src/lib/test-element.ts:105</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
+                        <div class="io-description"><p>Gets the first element matching the given CSS selector and wraps it into a TestElement. The actual type
 of the returned value is the TestElement subclass matching the type of the found element. So, if the
 matched element is an input for example, the method will return a TestInput.</p>
 <p>Usage:</p>
@@ -1174,48 +1160,46 @@ const testElement: TestElement | null = tester.element('.selector');
 </code>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>a CSS or directive selector</p>
+                                            <td>
+                                                    <p>a CSS or directive selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >TestElement | null</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >TestElement | null</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>the wrapped element, or null if no element matches the selector.</p>
+                        </div>
+                            <div class="io-description">
+                                <p>the wrapped element, or null if no element matches the selector.</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1238,25 +1222,25 @@ const testElement: TestElement | null = tester.element('.selector');
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="117"
-                            class="link-to-prism">src/lib/test-element.ts:117</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="117"
+                                    class="link-to-prism">src/lib/test-element.ts:117</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>T</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets the first element matching the given selector and wraps it into a TestElement. The actual type
+                        <div class="io-description"><p>Gets the first element matching the given selector and wraps it into a TestElement. The actual type
 of the returned value is the TestElement subclass matching the type of the found element. So, if the
 matched element is an input for example, the method will return a TestInput.</p>
 <p>Usage:</p>
@@ -1265,48 +1249,46 @@ const testElement: TestInput | null = tester.element&lt;HTMLInputElement>('.sele
 </code>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>a CSS or directive selector</p>
+                                            <td>
+                                                    <p>a CSS or directive selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestInput.html" target="_self" >TestInput | null</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestInput.html" target="_self" >TestInput | null</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>the wrapped element, or null if no element matches the selector.</p>
+                        </div>
+                            <div class="io-description">
+                                <p>the wrapped element, or null if no element matches the selector.</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1329,25 +1311,25 @@ const testElement: TestInput | null = tester.element&lt;HTMLInputElement>('.sele
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="129"
-                            class="link-to-prism">src/lib/test-element.ts:129</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="129"
+                                    class="link-to-prism">src/lib/test-element.ts:129</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>T</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets the first element matching the given selector and wraps it into a TestElement. The actual type
+                        <div class="io-description"><p>Gets the first element matching the given selector and wraps it into a TestElement. The actual type
 of the returned value is the TestElement subclass matching the type of the found element. So, if the
 matched element is an input for example, the method will return a TestInput.</p>
 <p>Usage:</p>
@@ -1356,48 +1338,46 @@ const testElement: TestTextArea | null = tester.element&lt;HTMLTextAreaElement>(
 </code>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>a CSS or directive selector</p>
+                                            <td>
+                                                    <p>a CSS or directive selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestTextArea.html" target="_self" >TestTextArea | null</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestTextArea.html" target="_self" >TestTextArea | null</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>the wrapped element, or null if no element matches the selector.</p>
+                        </div>
+                            <div class="io-description">
+                                <p>the wrapped element, or null if no element matches the selector.</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1420,25 +1400,25 @@ const testElement: TestTextArea | null = tester.element&lt;HTMLTextAreaElement>(
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="141"
-                            class="link-to-prism">src/lib/test-element.ts:141</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="141"
+                                    class="link-to-prism">src/lib/test-element.ts:141</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>T</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets the first element matching the given selector and wraps it into a TestElement. The actual type
+                        <div class="io-description"><p>Gets the first element matching the given selector and wraps it into a TestElement. The actual type
 of the returned value is the TestElement subclass matching the type of the found element. So, if the
 matched element is an input for example, the method will return a TestInput.</p>
 <p>Usage:</p>
@@ -1447,48 +1427,46 @@ const testElement: TestSelect | null = tester.element&lt;HTMLSelectElement>('.se
 </code>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>a CSS or directive selector</p>
+                                            <td>
+                                                    <p>a CSS or directive selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestSelect.html" target="_self" >TestSelect | null</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestSelect.html" target="_self" >TestSelect | null</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>the wrapped element, or null if no element matches the selector.</p>
+                        </div>
+                            <div class="io-description">
+                                <p>the wrapped element, or null if no element matches the selector.</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1511,25 +1489,25 @@ const testElement: TestSelect | null = tester.element&lt;HTMLSelectElement>('.se
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="153"
-                            class="link-to-prism">src/lib/test-element.ts:153</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="153"
+                                    class="link-to-prism">src/lib/test-element.ts:153</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>T</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets the first element matching the given selector and wraps it into a TestElement. The actual type
+                        <div class="io-description"><p>Gets the first element matching the given selector and wraps it into a TestElement. The actual type
 of the returned value is the TestElement subclass matching the type of the found element. So, if the
 matched element is an input for example, the method will return a TestInput.</p>
 <p>Usage:</p>
@@ -1538,48 +1516,46 @@ const testElement: TestButton | null = tester.element&lt;HTMLButtonElement>('.se
 </code>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>a CSS or directive selector</p>
+                                            <td>
+                                                    <p>a CSS or directive selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestButton.html" target="_self" >TestButton | null</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestButton.html" target="_self" >TestButton | null</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>the wrapped element, or null if no element matches the selector.</p>
+                        </div>
+                            <div class="io-description">
+                                <p>the wrapped element, or null if no element matches the selector.</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1602,25 +1578,25 @@ const testElement: TestButton | null = tester.element&lt;HTMLButtonElement>('.se
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="165"
-                            class="link-to-prism">src/lib/test-element.ts:165</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="165"
+                                    class="link-to-prism">src/lib/test-element.ts:165</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>T</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets the first element matching the given selector and wraps it into a TestElement. The actual type
+                        <div class="io-description"><p>Gets the first element matching the given selector and wraps it into a TestElement. The actual type
 of the returned value is the TestElement subclass matching the type of the found element. So, if the
 matched element is an input for example, the method will return a TestInput.</p>
 <p>Usage:</p>
@@ -1629,48 +1605,46 @@ const testElement: TestHtmlElement&lt;HTMLDivElement> | null = tester.element&lt
 </code>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>a CSS or directive selector</p>
+                                            <td>
+                                                    <p>a CSS or directive selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestHtmlElement.html" target="_self" >TestHtmlElement | null</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestHtmlElement.html" target="_self" >TestHtmlElement | null</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>the wrapped element, or null if no element matches the selector.</p>
+                        </div>
+                            <div class="io-description">
+                                <p>the wrapped element, or null if no element matches the selector.</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1693,25 +1667,25 @@ const testElement: TestHtmlElement&lt;HTMLDivElement> | null = tester.element&lt
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="177"
-                            class="link-to-prism">src/lib/test-element.ts:177</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="177"
+                                    class="link-to-prism">src/lib/test-element.ts:177</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>T</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets the first element matching the given selector and wraps it into a TestElement. The actual type
+                        <div class="io-description"><p>Gets the first element matching the given selector and wraps it into a TestElement. The actual type
 of the returned value is the TestElement subclass matching the type of the found element. So, if the
 matched element is an input for example, the method will return a TestInput.</p>
 <p>Usage:</p>
@@ -1720,48 +1694,46 @@ const testElement: TestElement&lt;SVGLineElement> | null = tester.element&lt;SVG
 </code>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>a CSS or directive selector</p>
+                                            <td>
+                                                    <p>a CSS or directive selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >TestElement | null</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >TestElement | null</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>the wrapped element, or null if no element matches the selector.</p>
+                        </div>
+                            <div class="io-description">
+                                <p>the wrapped element, or null if no element matches the selector.</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1784,53 +1756,51 @@ const testElement: TestElement&lt;SVGLineElement> | null = tester.element&lt;SVG
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="178"
-                            class="link-to-prism">src/lib/test-element.ts:178</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="178"
+                                    class="link-to-prism">src/lib/test-element.ts:178</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >TestElement | null</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >TestElement | null</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1853,25 +1823,25 @@ const testElement: TestElement&lt;SVGLineElement> | null = tester.element&lt;SVG
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="193"
-                            class="link-to-prism">src/lib/test-element.ts:193</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="193"
+                                    class="link-to-prism">src/lib/test-element.ts:193</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>K</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>K</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+                        <div class="io-description"><p>Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
 of the returned elements is the TestElement subclass matching the type of the found element. So, if the
 matched elements are inputs for example, the method will return an array of TestInput.</p>
 <p>Usage:</p>
@@ -1880,48 +1850,46 @@ const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elemen
 </code>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>K</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>K</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>a CSS selector</p>
+                                            <td>
+                                                    <p>a CSS selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestHtmlElement.html" target="_self" >Array&lt;TestHtmlElement&lt;&gt;&gt;</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestHtmlElement.html" target="_self" >Array&lt;TestHtmlElement&lt;&gt;&gt;</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>the array of matched elements, empty if no element was matched</p>
+                        </div>
+                            <div class="io-description">
+                                <p>the array of matched elements, empty if no element was matched</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1944,25 +1912,25 @@ const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elemen
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="205"
-                            class="link-to-prism">src/lib/test-element.ts:205</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="205"
+                                    class="link-to-prism">src/lib/test-element.ts:205</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>K</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>K</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+                        <div class="io-description"><p>Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
 of the returned elements is the TestElement subclass matching the type of the found element. So, if the
 matched elements are inputs for example, the method will return an array of TestInput.</p>
 <p>Usage:</p>
@@ -1971,48 +1939,46 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements('
 </code>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>K</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>K</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>a CSS selector</p>
+                                            <td>
+                                                    <p>a CSS selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >Array&lt;TestElement&lt;&gt;&gt;</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >Array&lt;TestElement&lt;&gt;&gt;</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>the array of matched elements, empty if no element was matched</p>
+                        </div>
+                            <div class="io-description">
+                                <p>the array of matched elements, empty if no element was matched</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -2035,17 +2001,17 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements('
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="217"
-                            class="link-to-prism">src/lib/test-element.ts:217</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="217"
+                                    class="link-to-prism">src/lib/test-element.ts:217</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Gets all the elements matching the given selector and wraps them into a TestElement. The actual type
+                        <div class="io-description"><p>Gets all the elements matching the given selector and wraps them into a TestElement. The actual type
 of the returned elements is the TestElement subclass matching the type of the found element. So, if the
 matched elements are inputs for example, the method will return an array of TestInput.</p>
 <p>Usage:</p>
@@ -2054,48 +2020,46 @@ const testElements: Array&lt;TestElement> = tester.elements('.selector');
 </code>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>a CSS or directive selector</p>
+                                            <td>
+                                                    <p>a CSS or directive selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >Array&lt;TestElement&gt;</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >Array&lt;TestElement&gt;</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>the array of matched elements, empty if no element was matched</p>
+                        </div>
+                            <div class="io-description">
+                                <p>the array of matched elements, empty if no element was matched</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -2118,25 +2082,25 @@ const testElements: Array&lt;TestElement> = tester.elements('.selector');
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="229"
-                            class="link-to-prism">src/lib/test-element.ts:229</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="229"
+                                    class="link-to-prism">src/lib/test-element.ts:229</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>T</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets all the elements matching the given selector and wraps them into a TestElement. The actual type
+                        <div class="io-description"><p>Gets all the elements matching the given selector and wraps them into a TestElement. The actual type
 of the returned elements is the TestElement subclass matching the type of the found element. So, if the
 matched elements are inputs for example, the method will return an array of TestInput.</p>
 <p>Usage:</p>
@@ -2145,48 +2109,46 @@ const testElements: Array&lt;TestInput> = tester.elements&lt;HTMLInputElement>('
 </code>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>a CSS or directive selector</p>
+                                            <td>
+                                                    <p>a CSS or directive selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestInput.html" target="_self" >Array&lt;TestInput&gt;</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestInput.html" target="_self" >Array&lt;TestInput&gt;</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>the array of matched elements, empty if no element was matched</p>
+                        </div>
+                            <div class="io-description">
+                                <p>the array of matched elements, empty if no element was matched</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -2209,25 +2171,25 @@ const testElements: Array&lt;TestInput> = tester.elements&lt;HTMLInputElement>('
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="241"
-                            class="link-to-prism">src/lib/test-element.ts:241</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="241"
+                                    class="link-to-prism">src/lib/test-element.ts:241</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>T</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets all the elements matching the given selector and wraps them into a TestElement. The actual type
+                        <div class="io-description"><p>Gets all the elements matching the given selector and wraps them into a TestElement. The actual type
 of the returned elements is the TestElement subclass matching the type of the found element. So, if the
 matched elements are inputs for example, the method will return an array of TestInput.</p>
 <p>Usage:</p>
@@ -2236,48 +2198,46 @@ const testElements: Array&lt;TestTextArea> = tester.elements&lt;HTMLTextAreaElem
 </code>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>a CSS or directive selector</p>
+                                            <td>
+                                                    <p>a CSS or directive selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestTextArea.html" target="_self" >Array&lt;TestTextArea&gt;</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestTextArea.html" target="_self" >Array&lt;TestTextArea&gt;</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>the array of matched elements, empty if no element was matched</p>
+                        </div>
+                            <div class="io-description">
+                                <p>the array of matched elements, empty if no element was matched</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -2300,25 +2260,25 @@ const testElements: Array&lt;TestTextArea> = tester.elements&lt;HTMLTextAreaElem
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="253"
-                            class="link-to-prism">src/lib/test-element.ts:253</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="253"
+                                    class="link-to-prism">src/lib/test-element.ts:253</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>T</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
+                        <div class="io-description"><p>Gets all the elements matching the given CSS selector and wraps them into a TestElement. The actual type
 of the returned elements is the TestElement subclass matching the type of the found element. So, if the
 matched elements are inputs for example, the method will return an array of TestInput.</p>
 <p>Usage:</p>
@@ -2327,48 +2287,46 @@ const testElements: Array&lt;TestButton> = tester.elements&lt;HTMLButtonElement>
 </code>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>a CSS or directive selector</p>
+                                            <td>
+                                                    <p>a CSS or directive selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestButton.html" target="_self" >Array&lt;TestButton&gt;</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestButton.html" target="_self" >Array&lt;TestButton&gt;</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>the array of matched elements, empty if no element was matched</p>
+                        </div>
+                            <div class="io-description">
+                                <p>the array of matched elements, empty if no element was matched</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -2391,25 +2349,25 @@ const testElements: Array&lt;TestButton> = tester.elements&lt;HTMLButtonElement>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="265"
-                            class="link-to-prism">src/lib/test-element.ts:265</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="265"
+                                    class="link-to-prism">src/lib/test-element.ts:265</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>T</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets all the elements matching the given selector and wraps them into a TestElement. The actual type
+                        <div class="io-description"><p>Gets all the elements matching the given selector and wraps them into a TestElement. The actual type
 of the returned elements is the TestElement subclass matching the type of the found element. So, if the
 matched elements are inputs for example, the method will return an array of TestInput.</p>
 <p>Usage:</p>
@@ -2418,48 +2376,46 @@ const testElements: Array&lt;TestSelect> = tester.elements<HTMLSelectElement>('.
 </code>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>a CSS or directive selector</p>
+                                            <td>
+                                                    <p>a CSS or directive selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestSelect.html" target="_self" >Array&lt;TestSelect&gt;</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestSelect.html" target="_self" >Array&lt;TestSelect&gt;</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>the array of matched elements, empty if no element was matched</p>
+                        </div>
+                            <div class="io-description">
+                                <p>the array of matched elements, empty if no element was matched</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -2482,25 +2438,25 @@ const testElements: Array&lt;TestSelect> = tester.elements<HTMLSelectElement>('.
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="277"
-                            class="link-to-prism">src/lib/test-element.ts:277</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="277"
+                                    class="link-to-prism">src/lib/test-element.ts:277</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>T</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets all the elements matching the given selector and wraps them into a TestElement. The actual type
+                        <div class="io-description"><p>Gets all the elements matching the given selector and wraps them into a TestElement. The actual type
 of the returned elements is the TestElement subclass matching the type of the found element. So, if the
 matched elements are inputs for example, the method will return an array of TestInput.</p>
 <p>Usage:</p>
@@ -2509,48 +2465,46 @@ const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elemen
 </code>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>a CSS or directive selector</p>
+                                            <td>
+                                                    <p>a CSS or directive selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestHtmlElement.html" target="_self" >Array&lt;TestHtmlElement&lt;T&gt;&gt;</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestHtmlElement.html" target="_self" >Array&lt;TestHtmlElement&lt;T&gt;&gt;</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>the array of matched elements, empty if no element was matched</p>
+                        </div>
+                            <div class="io-description">
+                                <p>the array of matched elements, empty if no element was matched</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -2573,25 +2527,25 @@ const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elemen
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="289"
-                            class="link-to-prism">src/lib/test-element.ts:289</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="289"
+                                    class="link-to-prism">src/lib/test-element.ts:289</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>T</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets all the elements matching the given selector and wraps them into a TestElement. The actual type
+                        <div class="io-description"><p>Gets all the elements matching the given selector and wraps them into a TestElement. The actual type
 of the returned elements is the TestElement subclass matching the type of the found element. So, if the
 matched elements are inputs for example, the method will return an array of TestInput.</p>
 <p>Usage:</p>
@@ -2600,48 +2554,46 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
 </code>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>a CSS or directive selector</p>
+                                            <td>
+                                                    <p>a CSS or directive selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >Array&lt;TestElement&lt;T&gt;&gt;</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >Array&lt;TestElement&lt;T&gt;&gt;</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>the array of matched elements, empty if no element was matched</p>
+                        </div>
+                            <div class="io-description">
+                                <p>the array of matched elements, empty if no element was matched</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -2664,53 +2616,51 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="290"
-                            class="link-to-prism">src/lib/test-element.ts:290</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="290"
+                                    class="link-to-prism">src/lib/test-element.ts:290</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >Array&lt;TestElement&gt;</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestElement.html" target="_self" >Array&lt;TestElement&gt;</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -2733,61 +2683,59 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="299"
-                            class="link-to-prism">src/lib/test-element.ts:299</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="299"
+                                    class="link-to-prism">src/lib/test-element.ts:299</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Gets the first input matched by the given selector. Throws an Error if the matched element isn&#39;t actually an input.</p>
+                        <div class="io-description"><p>Gets the first input matched by the given selector. Throws an Error if the matched element isn&#39;t actually an input.</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>a CSS or directive selector</p>
+                                            <td>
+                                                    <p>a CSS or directive selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestInput.html" target="_self" >TestInput | null</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestInput.html" target="_self" >TestInput | null</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>the wrapped input, or null if no element was matched</p>
+                        </div>
+                            <div class="io-description">
+                                <p>the wrapped input, or null if no element was matched</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -2810,61 +2758,59 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="308"
-                            class="link-to-prism">src/lib/test-element.ts:308</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="308"
+                                    class="link-to-prism">src/lib/test-element.ts:308</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Gets the first select matched by the given selector. Throws an Error if the matched element isn&#39;t actually a select.</p>
+                        <div class="io-description"><p>Gets the first select matched by the given selector. Throws an Error if the matched element isn&#39;t actually a select.</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>a CSS or directive selector</p>
+                                            <td>
+                                                    <p>a CSS or directive selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestSelect.html" target="_self" >TestSelect | null</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestSelect.html" target="_self" >TestSelect | null</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>the wrapped select, or null if no element was matched</p>
+                        </div>
+                            <div class="io-description">
+                                <p>the wrapped select, or null if no element was matched</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -2887,61 +2833,59 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="318"
-                            class="link-to-prism">src/lib/test-element.ts:318</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="318"
+                                    class="link-to-prism">src/lib/test-element.ts:318</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Gets the first textarea matched by the given selector</p>
+                        <div class="io-description"><p>Gets the first textarea matched by the given selector</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>a CSS or directive selector</p>
+                                            <td>
+                                                    <p>a CSS or directive selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TestTextArea.html" target="_self" >TestTextArea | null</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/TestTextArea.html" target="_self" >TestTextArea | null</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>the wrapped textarea, or null if no element was matched. Throws an Error if the matched element isn&#39;t actually a textarea.</p>
+                        </div>
+                            <div class="io-description">
+                                <p>the wrapped textarea, or null if no element was matched. Throws an Error if the matched element isn&#39;t actually a textarea.</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -2964,84 +2908,82 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="352"
-                            class="link-to-prism">src/lib/test-element.ts:352</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="352"
+                                    class="link-to-prism">src/lib/test-element.ts:352</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>R</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>R</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets the first element matching the given selector, then gets the given token from its injector, or null if there is no such token</p>
+                        <div class="io-description"><p>Gets the first element matching the given selector, then gets the given token from its injector, or null if there is no such token</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>a CSS or directive selector</p>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>token</td>
-                                    <td>
-                                            <code>ProviderToken&lt;R&gt;</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>the token to get from the matched element injector</p>
+                                            <td>
+                                                    <p>a CSS or directive selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>R | null</code>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>token</td>
+                                            <td>
+                                                        <code>ProviderToken&lt;R&gt;</code>
+                                            </td>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>the token to get from the matched element injector</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>R | null</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -3064,84 +3006,82 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="361"
-                            class="link-to-prism">src/lib/test-element.ts:361</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="361"
+                                    class="link-to-prism">src/lib/test-element.ts:361</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>R</li>
+                            </ul>
+                        </td>
+                    </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>R</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gets the elements matching the given selector, then gets their given token from their injector, or null if there is no such token</p>
+                        <div class="io-description"><p>Gets the elements matching the given selector, then gets their given token from their injector, or null if there is no such token</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selector</td>
-                                    <td>
-                                            <code>string | Type&lt;any&gt;</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selector</td>
+                                            <td>
+                                                        <code>string | Type&lt;any&gt;</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>a CSS or directive selector</p>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>token</td>
-                                    <td>
-                                            <code>ProviderToken&lt;R&gt;</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>the token to get from the matched element injector</p>
+                                            <td>
+                                                    <p>a CSS or directive selector</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Array&lt;R | null&gt;</code>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>token</td>
+                                            <td>
+                                                        <code>ProviderToken&lt;R&gt;</code>
+                                            </td>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>the token to get from the matched element injector</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Array&lt;R | null&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -3152,7 +3092,7 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
 
 
 
-            <section>
+            <section data-compodoc="block-accessors">
     <h3 id="accessors">
         Accessors
     </h3>
@@ -3248,7 +3188,7 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
+    <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ComponentTester } from &#x27;./component-tester&#x27;;
 import { TestButton } from &#x27;./test-button&#x27;;
 import { TestSelect } from &#x27;./test-select&#x27;;

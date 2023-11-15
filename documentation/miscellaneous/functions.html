@@ -13,7 +13,7 @@
     </head>
     <body>
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
             <a href="../" class="navbar-brand">ngx-speculoos documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
@@ -49,11 +49,11 @@
 
 
 <ol class="breadcrumb">
-  <li>Miscellaneous</li>
-  <li>Functions</li>
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Functions</li>
 </ol>
 
-<section>
+<section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -83,7 +83,7 @@
 </section>
 
     <h3>src/lib/mock.ts</h3>
-    <section>
+    <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -107,38 +107,36 @@
             <tr>
                 <td class="col-md-4">
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>proto</td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>proto</td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Array&lt;string&gt;</code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Array&lt;string&gt;</code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -156,7 +154,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>createMock(type: <a href="https://angular.io/api/core/Type" target="_blank">Type</a>)</code>
+<code>createMock(type: Type)</code>
                 </td>
             </tr>
 
@@ -165,59 +163,57 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Creates a spy object for a class where all the methods of the class (and of its superclasses) are spies.
+                        <div class="io-description"><p>Creates a spy object for a class where all the methods of the class (and of its superclasses) are spies.
 I.e., for a class <code>UserService</code> with methods <code>get()</code>, <code>create()</code>, <code>update()</code> and <code>delete()</code>, calling
 <code>createMock(UserService)</code> is equivalent to calling
 <code>jasmine.createSpyObj&lt;UserService&gt;(&#39;UserService&#39;, [&#39;get&#39;, &#39;create&#39;, &#39;update&#39;, &#39;delete&#39;])</code>.</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>type</td>
-                                    <td>
-                                                <code><a href="https://angular.io/api/core/Type" target="_blank" >Type</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>type</td>
+                                            <td>
+                                                        <code>Type</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>the type to mock (usually a service class)</p>
+                                            <td>
+                                                    <p>the type to mock (usually a service class)</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>jasmine.SpyObj&lt;T&gt;</code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>jasmine.SpyObj&lt;T&gt;</code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
     </table>
 </section>    <h3>src/lib/route.ts</h3>
-    <section>
+    <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -245,7 +241,7 @@ I.e., for a class <code>UserService</code> with methods <code>get()</code>, <cod
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Creates a fake partial ActivatedRoute for tests.</p>
+                        <div class="io-description"><p>Creates a fake partial ActivatedRoute for tests.</p>
 <p>If you pass params, then the created route&#39;s paramMap will contain the same values.
 The same goes for queryParams and queryParamMap.</p>
 <p>If you pass a parent route and a snapshot, and the passed snapshot doesn&#39;t have a parent, then the snapshot&#39;s
@@ -256,39 +252,37 @@ parent snapshot will be set to the given snapshot&#39;s parent. This allows the 
 <code>route.parent.snapshot</code> or <code>route.snapshot.parent</code>.</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>options</td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ActivatedRoute</code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>a partially populated, fake ActivatedRoute, depending on what you passed in</p>
+                        </div>
+                            <div class="io-description">
+                                <p>a partially populated, fake ActivatedRoute, depending on what you passed in</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -320,44 +314,42 @@ parent snapshot will be set to the given snapshot&#39;s parent. This allows the 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Creates a fake partial ActivatedRouteSnapshot for tests.</p>
+                        <div class="io-description"><p>Creates a fake partial ActivatedRouteSnapshot for tests.</p>
 <p>If you pass params, then the created snapshot&#39;s paramMap will contain the same values.
 The same goes for queryParams and queryParamMap.</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>options</td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://angular.io/api/router/ActivatedRouteSnapshot" target="_blank" >ActivatedRouteSnapshot</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ActivatedRouteSnapshot</code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>a partially populated, fake ActivatedRoute, depending on what you passed in</p>
+                        </div>
+                            <div class="io-description">
+                                <p>a partially populated, fake ActivatedRoute, depending on what you passed in</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -384,45 +376,43 @@ The same goes for queryParams and queryParamMap.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Creates a new ActivatedRouteStub, by calling its constructor.</p>
+                        <div class="io-description"><p>Creates a new ActivatedRouteStub, by calling its constructor.</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>options</td>
-                                    <td>
-                                                <code><a href="../interfaces/ActivatedRouteStubOptions.html" target="_self" >ActivatedRouteStubOptions</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ActivatedRouteStubOptions.html" target="_self" >ActivatedRouteStubOptions</a></code>
+                                            </td>
 
-                                    <td>
-                                        Yes
-                                    </td>
+                                            <td>
+                                                    Yes
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/ActivatedRouteStub.html" target="_self" >ActivatedRouteStub</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/ActivatedRouteStub.html" target="_self" >ActivatedRouteStub</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
