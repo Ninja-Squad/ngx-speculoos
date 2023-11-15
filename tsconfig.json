@@ -9,16 +9,13 @@
     "noUnusedLocals": true,
     "sourceMap": true,
     "declaration": false,
-    "module": "esnext",
+    "module": "ES2022",
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
     "lib": [
-      "es2018",
+      "es2022",
       "dom"
     ],
     "paths": {
