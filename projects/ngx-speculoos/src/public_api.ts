@@ -5,6 +5,7 @@
 /// <reference path="./jasmine-matchers.ts" />
 
 export * from './lib/component-tester';
+export * from './lib/routing-tester';
 export * from './lib/test-element';
 export * from './lib/test-html-element';
 export * from './lib/test-input';

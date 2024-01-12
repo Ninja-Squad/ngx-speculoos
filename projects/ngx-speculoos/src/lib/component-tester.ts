@@ -394,4 +394,12 @@ export class ComponentTester<C> {
   detectChanges(checkNoChanges?: boolean): void {
     this.fixture.detectChanges(checkNoChanges);
   }
+
+  /**
+   * Delegates to the wrapped fixture whenStable and then detect changes
+   */
+  async stable(): Promise<void> {
+    await this.fixture.whenStable();
+    this.detectChanges();
+  }
 }

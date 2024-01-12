@@ -6,7 +6,7 @@
 ngx-speculoos helps you write simpler, cleaner unit tests for your Angular components, based on the
 *page object* pattern. It also provides utilities to make writing Angular unit tests easier.
 
-The library simply wraps the standard Angular ComponentFixture, and you should thus be 
+The library simply wraps the standard Angular ComponentFixture, and you should thus be
 able to understand and start using ngx-speculoos in just a few minutes if you already know
 how to write Angular unit tests.
 
@@ -27,7 +27,9 @@ how to write Angular unit tests.
     - [Subqueries](#subqueries)
   - [Dispatching events](#dispatching-events)
   - [Custom Jasmine matchers](#custom-jasmine-matchers)
-  - [Routing helper](#routing-helper)
+  - [Routing helpers](#routing-helpers)
+    - [ActivatedRoute stub](#activatedroute-stub)
+    - [RoutingTester](#routingtester)
   - [Mocking helper](#mocking-helper)
   - [Testing with a host component](#testing-with-a-host-component)
 - [Gotchas](#gotchas)
@@ -72,12 +74,12 @@ it('should hide cities when selecting the empty country option', () => {
 
 ngx-speculoos allows writing the above tests in a simpler, cleaner way:
 
- - by using the page object pattern (which is optional, but recommended), you avoid repetitions. 
- - by using wrappers around elements, dispatching events and triggering change detection is automatic.
- - by using wrappers around elements, you get useful additional methods to make tests easier to write and read.
- - by using custom matchers, you get even simpler expectations and more readable error messages
- - in any case you need them, you always have access to the fixture, the native elements, the debug elements, etc.
- 
+- by using the page object pattern (which is optional, but recommended), you avoid repetitions.
+- by using wrappers around elements, dispatching events and triggering change detection is automatic.
+- by using wrappers around elements, you get useful additional methods to make tests easier to write and read.
+- by using custom matchers, you get even simpler expectations and more readable error messages
+- in any case you need them, you always have access to the fixture, the native elements, the debug elements, etc.
+
 ```typescript
 class MyComponentTester extends ComponentTester<MyComponent> {
   constructor() {
@@ -119,17 +121,17 @@ Using yarn: `yarn add --dev ngx-speculoos`
 
 ### Getting started
 
- - import ComponentTester, and other needed classes from ngx-speculoos
- - Create a `MyComponentTester` class (in your `my-component.spec.ts` file, typically) extending 
-   `ComponentTester<MyComponent>`, as shown above.
- - Expose getters (or methods, if you prefer) returning the elements used in your tests, using
-   one of the ComponentTester methods (`element`, `elements`, `input`, `select`, `textarea`, `button`, etc.).
-   See the [API documentation](https://ngx-speculoos.ninja-squad.com/documentation/classes/ComponentTester.html) for details
- - Write your tests, as shown above, benefiting from the additional methods on the TestXxx classes.
- - If needed, you can always get the fixture, componentInstance, debugElement, nativeElement, etc.
-   from the ComponentTester, and the nativeElement from each TestXxx wrapper.
- - If you like our custom matchers, add them in a `beforeEach` block as shown above, and enjoy.
-   You can also add them for all tests at once by adding the beforeEach block to the CLI-generated `test.ts` file.
+- import ComponentTester, and other needed classes from ngx-speculoos
+- Create a `MyComponentTester` class (in your `my-component.spec.ts` file, typically) extending
+  `ComponentTester<MyComponent>`, as shown above.
+- Expose getters (or methods, if you prefer) returning the elements used in your tests, using
+  one of the ComponentTester methods (`element`, `elements`, `input`, `select`, `textarea`, `button`, etc.).
+  See the [API documentation](https://ngx-speculoos.ninja-squad.com/documentation/classes/ComponentTester.html) for details
+- Write your tests, as shown above, benefiting from the additional methods on the TestXxx classes.
+- If needed, you can always get the fixture, componentInstance, debugElement, nativeElement, etc.
+  from the ComponentTester, and the nativeElement from each TestXxx wrapper.
+- If you like our custom matchers, add them in a `beforeEach` block as shown above, and enjoy.
+  You can also add them for all tests at once by adding the beforeEach block to the CLI-generated `test.ts` file.
 
 ## Features in details
 
@@ -142,12 +144,12 @@ You can simply create one in your tests using
 const tester = new ComponentTester(MyComponent);
 ```
 
-and then use it to query for sub elements, components, directives, etc. But we recommend adopting the 
+and then use it to query for sub elements, components, directives, etc. But we recommend adopting the
 page object pattern, in order to make your test easier to write and read, and to avoid repeating the
-same selectors over and over again. 
+same selectors over and over again.
 
 You do that by writing a class that extends `ComponentTester`, and provides getters (or functions)
-to query for elements, components, etc. 
+to query for elements, components, etc.
 
 ```typescript
 class MyComponentTester extends ComponentTester<MyComponent> {
@@ -191,16 +193,16 @@ describe('My component', () => {
 
 #### Queries for elements
 
-Most of the queries that ngx-speculoos supports are used to query for DOM elements. The queries, however, 
+Most of the queries that ngx-speculoos supports are used to query for DOM elements. The queries, however,
 don't actually returns native DOM elements, but wrappers around them, which are instances of `TestElement`.
 
 `TestElement` has more specialized subclasses: `TestHtmlElement`, `TestInput`, `TestSelect`, `TestTextarea`, `TestButton`.
 Those subclasses offer helpful methods to get information or dispatch events to HTML elements, inputs, selects, etc.
-Our custom matchers act on those `TestElement` objects. 
+Our custom matchers act on those `TestElement` objects.
 
 You can [create your own subclasses of TestElement](#queries-for-custom-testelement) and query for them, too.
 
-A TestElement is a wrapper around an Angular `DebugElement`. So it can access the `DebugElement` and the 
+A TestElement is a wrapper around an Angular `DebugElement`. So it can access the `DebugElement` and the
 native DOM element that it wraps. It also has an instance of the `ComponentTester` which created it,
 which itself wraps the Angular `ComponentFixture` and thus allows detecting changes automatically after
 an element has been dispatched, for example.
@@ -247,11 +249,11 @@ get reviewers() {
 
 #### Queries for injection tokens
 
-Querying using `element(DatepickerDirective)` will return you a `TestElement` on which the 
+Querying using `element(DatepickerDirective)` will return you a `TestElement` on which the
 `DatepickerDirective` has been applied.
 
 If you need to get the `Datepicker` directive instance itself, then use the `token()` method
-(or `tokens()` to get several of them) 
+(or `tokens()` to get several of them)
 which takes a selector (CSS or type) as first argument, and the token as second argument:
 
 ```typescript
@@ -349,7 +351,7 @@ or in all tests, by adding the above line of code in the `test.ts` file.
 
 ### Dispatching events
 
-`TestElement` provides two methods that allow dispatching events in a simple way. 
+`TestElement` provides two methods that allow dispatching events in a simple way.
 
 - `dispatchEvent(event: Event)`
 - `dispatchEventOfType(type: string)`
@@ -372,11 +374,13 @@ For example
 Creating your own TestElement subclasses is a good way to provide such custom methods to interact
 with your own reusable components in tests.
 
-### Routing helper
+### Routing helpers
 
-The library provides a stub for the `ActivatedRoute` class that you typically inject in your routing components.
+#### ActivatedRoute stub
+
+The library provides a stub for the `ActivatedRoute` class that you typically inject in your routed components.
 It mimics the behavior of the actual `ActivatedRoute`, by having a snapshot and observables that emit when this
-snapshot changes. And it also allows simulating navigations by imperatively changing the parameters, query parameters, 
+snapshot changes. And it also allows simulating navigations by imperatively changing the parameters, query parameters,
 etc.
 
 ```typescript
@@ -422,6 +426,67 @@ describe('routing component', () => {
 });
 ```
 
+#### RoutingTester
+
+An alternative approach to injecting a stub activated route consists in using the Angular `RouterTestingHarness`.
+The library helps using it by providing a `RoutingTester`, which is a `ComponentTester` wrapping the
+`RouterTestingHarness` in addition to wrapping its fixture, and additionally provides helper properties.
+
+Here's an example usage of a component displaying the value of the query parameter `'page'` and allowing
+to navigate to itself with a different value for that query parameter.
+
+```typescript
+class PageComponentTester extends RoutingTester {
+  constructor(harness: RouterTestingHarness) {
+    super(harness);
+  }
+
+  get title() {
+    return this.element('h1');
+  }
+
+  get link() {
+    return this.element('a');
+  }
+}
+
+describe('RoutingTester', () => {
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [
+        provideRouter([
+          { path: 'list', component: PageComponent }
+        ])
+      ]
+    });
+  });
+
+  it('should display the page of the query params', async () => {
+    const tester = new PageComponentTester(await RouterTestingHarness.create('/list?page=42'));
+
+    expect(tester.title).toHaveText('Current page: 42');
+
+    await tester.harness.navigateByUrl('/list?page=54');
+
+    expect(tester.title).toHaveText('Current page: 54');
+  });
+
+  it('should navigate to the next page when clicking the link', async () => {
+    const tester = new PageComponentTester(await RouterTestingHarness.create('/list?page=42'));
+
+    expect(tester.title).toHaveText('Current page: 42');
+
+    tester.link.click();
+    await tester.stable();
+
+    expect(tester.urlTree.queryParamMap.get('page')).toBe('43');
+    expect(tester.url).toBe('/list?page=43');
+    expect(tester.title).toHaveText('Current page: 43');
+  });
+});
+
+```
+
 ### Mocking helper
 
 Jasmine is quite verbose when creating mock objects in a typesafe way:
@@ -431,7 +496,7 @@ const productService = jasmine.createSpyObj<ProductService>('ProductService', ['
 ```
 
 Since most of what we mock (usually Angular services) are classes, we can actually do a bit of introspection
-and create a mock that will automatically mock all the methods declared in the class. That's what our 
+and create a mock that will automatically mock all the methods declared in the class. That's what our
 `createMock()` function does. The above code can thus be reduced to:
 
 ```typescript
@@ -452,7 +517,7 @@ class HostComponent {
     id: 'u1',
     name: 'John'
   };
-  
+
   smiled = false;
 }
 
@@ -460,11 +525,11 @@ class HostComponentTester extends ComponentTester<HostComponent> {
   constructor() {
     super(HostComponent);
   }
-  
+
   get userComponent() {
     return this.component(UserComponent);
   }
-  
+
   // ...
 }
 ```
@@ -485,7 +550,7 @@ But you still need to call `detectChanges()` by yourself in the other cases:
   `detectChanges()`. You need to do it yourself. The first call will cause the component lifecycle to start,
   just as when using a `ComponentFixture` directly.
 - to force change detection once you've changed the state of your component without dispatching an event:
-  by changing the state, or emitting an event through a subject, or triggering a navigation 
+  by changing the state, or emitting an event through a subject, or triggering a navigation
   from the `ActivatedRouteStub`
 
 ### Can I use the `TestElement` methods to act on the component element itself, rather than a sub-element?
