@@ -54,7 +54,7 @@
     "karma-jasmine": "5.1.0",
     "karma-jasmine-html-reporter": "2.1.0",
     "ng-packagr": "17.0.3",
-    "prettier": "3.2.2",
+    "prettier": "3.2.3",
     "standard-version": "9.5.0",
     "typescript": "5.2.2"
   }
