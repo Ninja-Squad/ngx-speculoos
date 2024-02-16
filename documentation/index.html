@@ -12,6 +12,64 @@
         <link rel="stylesheet" href="./styles/dark.css">
     </head>
     <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
             <a href="./" class="navbar-brand">ngx-speculoos documentation</a>
@@ -36,7 +94,7 @@
 <h1>ngx-speculoos</h1>
 <p>ngx-speculoos helps you write simpler, cleaner unit tests for your Angular components, based on the
 <em>page object</em> pattern. It also provides utilities to make writing Angular unit tests easier.</p>
-<p>The library simply wraps the standard Angular ComponentFixture, and you should thus be 
+<p>The library simply wraps the standard Angular ComponentFixture, and you should thus be
 able to understand and start using ngx-speculoos in just a few minutes if you already know
 how to write Angular unit tests.</p>
 <h2>Table of Contents</h2>
@@ -60,7 +118,11 @@ how to write Angular unit tests.</p>
 </li>
 <li><a href="#dispatching-events">Dispatching events</a></li>
 <li><a href="#custom-jasmine-matchers">Custom Jasmine matchers</a></li>
-<li><a href="#routing-helper">Routing helper</a></li>
+<li><a href="#routing-helpers">Routing helpers</a><ul>
+<li><a href="#activatedroute-stub">ActivatedRoute stub</a></li>
+<li><a href="#routingtester">RoutingTester</a></li>
+</ul>
+</li>
 <li><a href="#mocking-helper">Mocking helper</a></li>
 <li><a href="#testing-with-a-host-component">Testing with a host component</a></li>
 </ul>
@@ -102,7 +164,7 @@ it(&#39;should hide cities when selecting the empty country option&#39;, () =&gt
   expect(fixture.nativeElement.querySelector(&#39;#city&#39;)).toBeFalsy(); // I did that previously. What about DRY?
 });</code></pre></div><p>ngx-speculoos allows writing the above tests in a simpler, cleaner way:</p>
 <ul>
-<li>by using the page object pattern (which is optional, but recommended), you avoid repetitions. </li>
+<li>by using the page object pattern (which is optional, but recommended), you avoid repetitions.</li>
 <li>by using wrappers around elements, dispatching events and triggering change detection is automatic.</li>
 <li>by using wrappers around elements, you get useful additional methods to make tests easier to write and read.</li>
 <li>by using custom matchers, you get even simpler expectations and more readable error messages</li>
@@ -142,7 +204,7 @@ it(&#39;should hide cities when selecting empty country option&#39;, () =&gt; {
 <h3>Getting started</h3>
 <ul>
 <li>import ComponentTester, and other needed classes from ngx-speculoos</li>
-<li>Create a <code>MyComponentTester</code> class (in your <code>my-component.spec.ts</code> file, typically) extending 
+<li>Create a <code>MyComponentTester</code> class (in your <code>my-component.spec.ts</code> file, typically) extending
 <code>ComponentTester&lt;MyComponent&gt;</code>, as shown above.</li>
 <li>Expose getters (or methods, if you prefer) returning the elements used in your tests, using
 one of the ComponentTester methods (<code>element</code>, <code>elements</code>, <code>input</code>, <code>select</code>, <code>textarea</code>, <code>button</code>, etc.).
@@ -157,11 +219,11 @@ You can also add them for all tests at once by adding the beforeEach block to th
 <h3>ComponentTester</h3>
 <p>This is the entry point for most of the functionalities of ngx-speculoos. It wraps a <code>ComponentFixture</code>.
 You can simply create one in your tests using</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">const tester = new ComponentTester(MyComponent);</code></pre></div><p>and then use it to query for sub elements, components, directives, etc. But we recommend adopting the 
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">const tester = new ComponentTester(MyComponent);</code></pre></div><p>and then use it to query for sub elements, components, directives, etc. But we recommend adopting the
 page object pattern, in order to make your test easier to write and read, and to avoid repeating the
-same selectors over and over again. </p>
+same selectors over and over again.</p>
 <p>You do that by writing a class that extends <code>ComponentTester</code>, and provides getters (or functions)
-to query for elements, components, etc. </p>
+to query for elements, components, etc.</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">class MyComponentTester extends ComponentTester&lt;MyComponent&gt; {
   constructor() {
     super(MyComponent);
@@ -193,13 +255,13 @@ an instance of your component tester.</p>
     
   });</code></pre></div><h3>Queries</h3>
 <h4>Queries for elements</h4>
-<p>Most of the queries that ngx-speculoos supports are used to query for DOM elements. The queries, however, 
+<p>Most of the queries that ngx-speculoos supports are used to query for DOM elements. The queries, however,
 don&#39;t actually returns native DOM elements, but wrappers around them, which are instances of <code>TestElement</code>.</p>
 <p><code>TestElement</code> has more specialized subclasses: <code>TestHtmlElement</code>, <code>TestInput</code>, <code>TestSelect</code>, <code>TestTextarea</code>, <code>TestButton</code>.
 Those subclasses offer helpful methods to get information or dispatch events to HTML elements, inputs, selects, etc.
-Our custom matchers act on those <code>TestElement</code> objects. </p>
+Our custom matchers act on those <code>TestElement</code> objects.</p>
 <p>You can <a href="#queries-for-custom-testelement">create your own subclasses of TestElement</a> and query for them, too.</p>
-<p>A TestElement is a wrapper around an Angular <code>DebugElement</code>. So it can access the <code>DebugElement</code> and the 
+<p>A TestElement is a wrapper around an Angular <code>DebugElement</code>. So it can access the <code>DebugElement</code> and the
 native DOM element that it wraps. It also has an instance of the <code>ComponentTester</code> which created it,
 which itself wraps the Angular <code>ComponentFixture</code> and thus allows detecting changes automatically after
 an element has been dispatched, for example.</p>
@@ -236,10 +298,10 @@ methods:</p>
 get reviewers() {
   return this.components(ReviewerComponent); // returns an Array&lt;ReviewerComponent&gt; 
 }</code></pre></div><h4>Queries for injection tokens</h4>
-<p>Querying using <code>element(DatepickerDirective)</code> will return you a <code>TestElement</code> on which the 
+<p>Querying using <code>element(DatepickerDirective)</code> will return you a <code>TestElement</code> on which the
 <code>DatepickerDirective</code> has been applied.</p>
 <p>If you need to get the <code>Datepicker</code> directive instance itself, then use the <code>token()</code> method
-(or <code>tokens()</code> to get several of them) 
+(or <code>tokens()</code> to get several of them)
 which takes a selector (CSS or type) as first argument, and the token as second argument:</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">get datepicker() {
   return this.token(&#39;#birth-date&#39;, DatepickerDirective); // returns a DatepickerDirective instance
@@ -301,7 +363,7 @@ get cardReviewerComponent() {
 <p>These matchers must be installed in each test using them:</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">beforeEach(() =&gt; jasmine.addMatchers(speculoosMatchers));</code></pre></div><p>or in all tests, by adding the above line of code in the <code>test.ts</code> file.</p>
 <h3>Dispatching events</h3>
-<p><code>TestElement</code> provides two methods that allow dispatching events in a simple way. </p>
+<p><code>TestElement</code> provides two methods that allow dispatching events in a simple way.</p>
 <ul>
 <li><code>dispatchEvent(event: Event)</code></li>
 <li><code>dispatchEventOfType(type: string)</code></li>
@@ -322,10 +384,11 @@ For example</p>
 </ul>
 <p>Creating your own TestElement subclasses is a good way to provide such custom methods to interact
 with your own reusable components in tests.</p>
-<h3>Routing helper</h3>
-<p>The library provides a stub for the <code>ActivatedRoute</code> class that you typically inject in your routing components.
+<h3>Routing helpers</h3>
+<h4>ActivatedRoute stub</h4>
+<p>The library provides a stub for the <code>ActivatedRoute</code> class that you typically inject in your routed components.
 It mimics the behavior of the actual <code>ActivatedRoute</code>, by having a snapshot and observables that emit when this
-snapshot changes. And it also allows simulating navigations by imperatively changing the parameters, query parameters, 
+snapshot changes. And it also allows simulating navigations by imperatively changing the parameters, query parameters,
 etc.</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">import { ActivatedRouteStub } from &#39;ngx-speculoos&#39;;
 
@@ -366,10 +429,64 @@ describe(&#39;routing component&#39;, () =&gt; {
     tester.detectChanges();
     // ...
   });
-});</code></pre></div><h3>Mocking helper</h3>
+});</code></pre></div><h4>RoutingTester</h4>
+<p>An alternative approach to injecting a stub activated route consists in using the Angular <code>RouterTestingHarness</code>.
+The library helps using it by providing a <code>RoutingTester</code>, which is a <code>ComponentTester</code> wrapping the
+<code>RouterTestingHarness</code> in addition to wrapping its fixture, and additionally provides helper properties.</p>
+<p>Here&#39;s an example usage of a component displaying the value of the query parameter <code>&#39;page&#39;</code> and allowing
+to navigate to itself with a different value for that query parameter.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">class PageComponentTester extends RoutingTester {
+  constructor(harness: RouterTestingHarness) {
+    super(harness);
+  }
+
+  get title() {
+    return this.element(&#39;h1&#39;);
+  }
+
+  get link() {
+    return this.element(&#39;a&#39;);
+  }
+}
+
+describe(&#39;RoutingTester&#39;, () =&gt; {
+  beforeEach(() =&gt; {
+    TestBed.configureTestingModule({
+      providers: [
+        provideRouter([
+          { path: &#39;list&#39;, component: PageComponent }
+        ])
+      ]
+    });
+  });
+
+  it(&#39;should display the page of the query params&#39;, async () =&gt; {
+    const tester = new PageComponentTester(await RouterTestingHarness.create(&#39;/list?page=42&#39;));
+
+    expect(tester.title).toHaveText(&#39;Current page: 42&#39;);
+
+    await tester.harness.navigateByUrl(&#39;/list?page=54&#39;);
+
+    expect(tester.title).toHaveText(&#39;Current page: 54&#39;);
+  });
+
+  it(&#39;should navigate to the next page when clicking the link&#39;, async () =&gt; {
+    const tester = new PageComponentTester(await RouterTestingHarness.create(&#39;/list?page=42&#39;));
+
+    expect(tester.title).toHaveText(&#39;Current page: 42&#39;);
+
+    tester.link.click();
+    await tester.stable();
+
+    expect(tester.urlTree.queryParamMap.get(&#39;page&#39;)).toBe(&#39;43&#39;);
+    expect(tester.url).toBe(&#39;/list?page=43&#39;);
+    expect(tester.title).toHaveText(&#39;Current page: 43&#39;);
+  });
+});
+</code></pre></div><h3>Mocking helper</h3>
 <p>Jasmine is quite verbose when creating mock objects in a typesafe way:</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">const productService = jasmine.createSpyObj&lt;ProductService&gt;(&#39;ProductService&#39;, [&#39;list&#39;, &#39;get&#39;, &#39;create&#39;, &#39;update&#39;]);</code></pre></div><p>Since most of what we mock (usually Angular services) are classes, we can actually do a bit of introspection
-and create a mock that will automatically mock all the methods declared in the class. That&#39;s what our 
+and create a mock that will automatically mock all the methods declared in the class. That&#39;s what our
 <code>createMock()</code> function does. The above code can thus be reduced to:</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">const productService = createMock(ProductService);</code></pre></div><h3>Testing with a host component</h3>
 <p>ngx-speculoos doesn&#39;t provide any specific support for testing with host components, but we do it
@@ -382,7 +499,7 @@ class HostComponent {
     id: &#39;u1&#39;,
     name: &#39;John&#39;
   };
-  
+
   smiled = false;
 }
 
@@ -390,11 +507,11 @@ class HostComponentTester extends ComponentTester&lt;HostComponent&gt; {
   constructor() {
     super(HostComponent);
   }
-  
+
   get userComponent() {
     return this.component(UserComponent);
   }
-  
+
   // ...
 }</code></pre></div><p>Once you have that, you can access the host component using <code>componentInstance()</code>,
 the component under test using <code>userComponent()</code>, and any element of the component under test
@@ -409,7 +526,7 @@ method of your component is called. That&#39;s why creating a <code>ComponentTes
 <code>detectChanges()</code>. You need to do it yourself. The first call will cause the component lifecycle to start,
 just as when using a <code>ComponentFixture</code> directly.</li>
 <li>to force change detection once you&#39;ve changed the state of your component without dispatching an event:
-by changing the state, or emitting an event through a subject, or triggering a navigation 
+by changing the state, or emitting an event through a subject, or triggering a navigation
 from the <code>ActivatedRouteStub</code></li>
 </ul>
 <h3>Can I use the <code>TestElement</code> methods to act on the component element itself, rather than a sub-element?</h3>

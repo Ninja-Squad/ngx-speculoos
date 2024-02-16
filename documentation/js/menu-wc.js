@@ -73,6 +73,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/ComponentTester.html" data-type="entity-link" >ComponentTester</a>
                             </li>
                             <li class="link">
+                                <a href="classes/RoutingTester.html" data-type="entity-link" >RoutingTester</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/TestButton.html" data-type="entity-link" >TestButton</a>
                             </li>
                             <li class="link">

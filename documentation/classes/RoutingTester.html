@@ -102,7 +102,7 @@
 
 <ol class="breadcrumb">
   <li class="breadcrumb-item">Classes</li>
-  <li class="breadcrumb-item" >TestHtmlElement</li>
+  <li class="breadcrumb-item" >RoutingTester</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -126,7 +126,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/lib/test-html-element.ts</code>
+            <code>src/lib/routing-tester.ts</code>
         </p>
 
 
@@ -134,7 +134,11 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>A wrapped DOM HTML element, providing additional methods and attributes helping with writing tests</p>
+                <p>A thin wrapper around Angular RouterTestingHarness which helps testing routed components.
+It allows, based on a configured testing module where the router is provided, to initially navigate
+to a given route, then test the routed component. It&#39;s then possible to either navigate again with
+the wrapped harness, or to use the component to trigger navigation, and test that the URL has changed
+for example.</p>
 
             </p>
 
@@ -142,7 +146,7 @@
                 <h3>Extends</h3>
             </p>
             <p class="comment">
-                            <code><a href="../classes/TestElement.html" target="_self" >TestElement</a></code>
+                            <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester</a></code>
             </p>
 
 
@@ -151,6 +155,25 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#fixture" >fixture</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#testElement" >testElement</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -161,10 +184,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#click" >click</a>
-                            </li>
-                            <li>
-                                <a href="#attr" >attr</a>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#forUrl" >forUrl</a>
                             </li>
                             <li>
                                 <a href="#button" >button</a>
@@ -176,16 +198,17 @@
                                 <a href="#components" >components</a>
                             </li>
                             <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
                                 <a href="#custom" >custom</a>
                             </li>
                             <li>
                                 <a href="#customs" >customs</a>
                             </li>
                             <li>
-                                <a href="#dispatchEvent" >dispatchEvent</a>
-                            </li>
-                            <li>
-                                <a href="#dispatchEventOfType" >dispatchEventOfType</a>
+                                <a href="#detectChanges" >detectChanges</a>
                             </li>
                             <li>
                                 <a href="#element" >element</a>
@@ -198,6 +221,10 @@
                             </li>
                             <li>
                                 <a href="#select" >select</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#stable" >stable</a>
                             </li>
                             <li>
                                 <a href="#textarea" >textarea</a>
@@ -225,7 +252,10 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                    <a href="#visible" >visible</a>
+                                    <a href="#url" >url</a>
+                                </li>
+                                <li>
+                                    <a href="#urlTree" >urlTree</a>
                                 </li>
                             </ul>
                         </td>
@@ -240,12 +270,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(tester: <a href="../classes/ComponentTester.html" target="_self">ComponentTester&lt;&gt;</a>, debugElement: DebugElement)</code>
+<code>constructor(harness: RouterTestingHarness)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/lib/test-html-element.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/lib/routing-tester.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -263,22 +293,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>tester</td>
+                                                        <td>harness</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester&lt;&gt;</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>debugElement</td>
-                                                  
-                                                        <td>
-                                                                    <code>DebugElement</code>
+                                                                    <code>RouterTestingHarness</code>
                                                         </td>
                                                   
                                                     <td>
@@ -295,6 +313,92 @@
         </table>
 </section>
 
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fixture"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>fixture</b></span>
+                        <a href="#fixture"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ComponentFixture&lt;C&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/ComponentTester.html#source" target="_self" >ComponentTester:27</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The component fixture of the component</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="testElement"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>testElement</b></span>
+                        <a href="#testElement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/TestElement.html" target="_self" >TestElement&lt;HTMLElement&gt;</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/ComponentTester.html#source" target="_self" >ComponentTester:22</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The test element of the component</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
 
             <section data-compodoc="block-methods">
     
@@ -305,76 +409,35 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="click"></a>
+                    <a name="forUrl"></a>
                     <span class="name">
-                        <span ><b>click</b></span>
-                        <a href="#click"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>forUrl</b></span>
+                        <a href="#forUrl"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>click()</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>forUrl(url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="16"
-                                    class="link-to-prism">src/lib/test-html-element.ts:16</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="24"
+                                    class="link-to-prism">src/lib/routing-tester.ts:24</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Clicks on the wrapped element, then triggers a change detection</p>
-</div>
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="attr"></a>
-                    <span class="name">
-                        <span ><b>attr</b></span>
-                        <a href="#attr"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>attr(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Inherited from         <code><a href="../classes/TestElement.html" target="_self" >TestElement</a></code>
-</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/TestElement.html#source" target="_self" >TestElement:66</a></code>
-</div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-description"><p>Gets the attribute of the wrapped element with the given name</p>
+                        <div class="io-description"><p>Creates a RouterTestngHarness and uses it to navigate to the given URL
+and its fixture.</p>
 </div>
 
                             <div class="io-description">
@@ -391,7 +454,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>name</td>
+                                                <td>url</td>
                                             <td>
                                                             <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                             </td>
@@ -402,7 +465,7 @@
 
 
                                             <td>
-                                                    <p>the name of the attribute to get</p>
+                                                    <p>the URL to initially navigate to.</p>
 
                                             </td>
                                         </tr>
@@ -410,11 +473,13 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>    <code>string | null</code>
+                            <b>Returns : </b>    <code>unknown</code>
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>a promise which resolves to a RoutingTester which wraps the harness
+and its fixture.</p>
+
                             </div>
                 </td>
             </tr>
@@ -440,13 +505,13 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Inherited from         <code><a href="../classes/TestElement.html" target="_self" >TestElement</a></code>
+                            <div class="io-line">Inherited from         <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester</a></code>
 </div>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/TestElement.html#source" target="_self" >TestElement:327</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/ComponentTester.html#source" target="_self" >ComponentTester:331</a></code>
 </div>
                         </td>
                     </tr>
@@ -521,13 +586,13 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Inherited from         <code><a href="../classes/TestElement.html" target="_self" >TestElement</a></code>
+                            <div class="io-line">Inherited from         <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester</a></code>
 </div>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/TestElement.html#source" target="_self" >TestElement:335</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/ComponentTester.html#source" target="_self" >ComponentTester:339</a></code>
 </div>
                         </td>
                     </tr>
@@ -609,13 +674,13 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Inherited from         <code><a href="../classes/TestElement.html" target="_self" >TestElement</a></code>
+                            <div class="io-line">Inherited from         <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester</a></code>
 </div>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/TestElement.html#source" target="_self" >TestElement:343</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/ComponentTester.html#source" target="_self" >ComponentTester:347</a></code>
 </div>
                         </td>
                     </tr>
@@ -681,6 +746,91 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>create(componentType: Type<C>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/ComponentTester.html#source" target="_self" >ComponentTester:32</a></code>
+</div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>C</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Creates a component fixture of the given type with the TestBed and wraps it into a ComponentTester</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>componentType</td>
+                                            <td>
+                                                        <code>Type&lt;C&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester&lt;C&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="custom"></a>
                     <span class="name">
                         <span ><b>custom</b></span>
@@ -697,13 +847,13 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Inherited from         <code><a href="../classes/TestElement.html" target="_self" >TestElement</a></code>
+                            <div class="io-line">Inherited from         <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester</a></code>
 </div>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/TestElement.html#source" target="_self" >TestElement:372</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/ComponentTester.html#source" target="_self" >ComponentTester:376</a></code>
 </div>
                         </td>
                     </tr>
@@ -803,13 +953,13 @@ custom elements or components.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Inherited from         <code><a href="../classes/TestElement.html" target="_self" >TestElement</a></code>
+                            <div class="io-line">Inherited from         <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester</a></code>
 </div>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/TestElement.html#source" target="_self" >TestElement:384</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/ComponentTester.html#source" target="_self" >ComponentTester:387</a></code>
 </div>
                         </td>
                     </tr>
@@ -893,29 +1043,29 @@ custom elements or components.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="dispatchEvent"></a>
+                    <a name="detectChanges"></a>
                     <span class="name">
-                        <span ><b>dispatchEvent</b></span>
-                        <a href="#dispatchEvent"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>detectChanges</b></span>
+                        <a href="#detectChanges"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>dispatchEvent(event: Event)</code>
+<code>detectChanges(checkNoChanges?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Inherited from         <code><a href="../classes/TestElement.html" target="_self" >TestElement</a></code>
+                            <div class="io-line">Inherited from         <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester</a></code>
 </div>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/TestElement.html#source" target="_self" >TestElement:50</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/ComponentTester.html#source" target="_self" >ComponentTester:394</a></code>
 </div>
                         </td>
                     </tr>
@@ -923,7 +1073,7 @@ custom elements or components.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>dispatches the given event from the wrapped element, then triggers a change detection</p>
+                        <div class="io-description"><p>Triggers a change detection using the wrapped fixture</p>
 </div>
 
                             <div class="io-description">
@@ -939,88 +1089,13 @@ custom elements or components.</p>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>event</td>
+                                                <td>checkNoChanges</td>
                                             <td>
-                                                        <code>Event</code>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
                                             </td>
 
                                             <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
-                            <div class="io-description">
-                                
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="dispatchEventOfType"></a>
-                    <span class="name">
-                        <span ><b>dispatchEventOfType</b></span>
-                        <a href="#dispatchEventOfType"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>dispatchEventOfType(type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Inherited from         <code><a href="../classes/TestElement.html" target="_self" >TestElement</a></code>
-</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/TestElement.html#source" target="_self" >TestElement:42</a></code>
-</div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-description"><p>dispatches an event of the given type from the wrapped element, then triggers a change detection</p>
-</div>
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>type</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
+                                                    Yes
                                             </td>
 
 
@@ -1059,13 +1134,13 @@ custom elements or components.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Inherited from         <code><a href="../classes/TestElement.html" target="_self" >TestElement</a></code>
+                            <div class="io-line">Inherited from         <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester</a></code>
 </div>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/TestElement.html#source" target="_self" >TestElement:81</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/ComponentTester.html#source" target="_self" >ComponentTester:85</a></code>
 </div>
                         </td>
                     </tr>
@@ -1154,13 +1229,13 @@ const testElement: TestHtmlElement&lt;HTMLDivElement> | null = tester.element('d
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Inherited from         <code><a href="../classes/TestElement.html" target="_self" >TestElement</a></code>
+                            <div class="io-line">Inherited from         <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester</a></code>
 </div>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/TestElement.html#source" target="_self" >TestElement:193</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/ComponentTester.html#source" target="_self" >ComponentTester:197</a></code>
 </div>
                         </td>
                     </tr>
@@ -1249,13 +1324,13 @@ const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elemen
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Inherited from         <code><a href="../classes/TestElement.html" target="_self" >TestElement</a></code>
+                            <div class="io-line">Inherited from         <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester</a></code>
 </div>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/TestElement.html#source" target="_self" >TestElement:299</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/ComponentTester.html#source" target="_self" >ComponentTester:303</a></code>
 </div>
                         </td>
                     </tr>
@@ -1330,13 +1405,13 @@ const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elemen
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Inherited from         <code><a href="../classes/TestElement.html" target="_self" >TestElement</a></code>
+                            <div class="io-line">Inherited from         <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester</a></code>
 </div>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/TestElement.html#source" target="_self" >TestElement:308</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/ComponentTester.html#source" target="_self" >ComponentTester:312</a></code>
 </div>
                         </td>
                     </tr>
@@ -1395,6 +1470,53 @@ const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elemen
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="stable"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>stable</b></span>
+                        <a href="#stable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>stable()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/ComponentTester.html#source" target="_self" >ComponentTester:401</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Delegates to the wrapped fixture whenStable and then detect changes</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="textarea"></a>
                     <span class="name">
                         <span ><b>textarea</b></span>
@@ -1411,13 +1533,13 @@ const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elemen
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Inherited from         <code><a href="../classes/TestElement.html" target="_self" >TestElement</a></code>
+                            <div class="io-line">Inherited from         <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester</a></code>
 </div>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/TestElement.html#source" target="_self" >TestElement:318</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/ComponentTester.html#source" target="_self" >ComponentTester:322</a></code>
 </div>
                         </td>
                     </tr>
@@ -1492,13 +1614,13 @@ const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elemen
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Inherited from         <code><a href="../classes/TestElement.html" target="_self" >TestElement</a></code>
+                            <div class="io-line">Inherited from         <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester</a></code>
 </div>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/TestElement.html#source" target="_self" >TestElement:352</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/ComponentTester.html#source" target="_self" >ComponentTester:356</a></code>
 </div>
                         </td>
                     </tr>
@@ -1596,13 +1718,13 @@ const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elemen
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Inherited from         <code><a href="../classes/TestElement.html" target="_self" >TestElement</a></code>
+                            <div class="io-line">Inherited from         <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester</a></code>
 </div>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/TestElement.html#source" target="_self" >TestElement:361</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/ComponentTester.html#source" target="_self" >ComponentTester:365</a></code>
 </div>
                         </td>
                     </tr>
@@ -1694,30 +1816,62 @@ const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elemen
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="visible"></a>
-                        <span class="name"><b>visible</b><a href="#visible"><span class="icon ion-ios-link"></span></a></span>
+                        <a name="url"></a>
+                        <span class="name"><b>url</b><a href="#url"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <span class="accessor"><b>get</b><code>visible()</code></span>
+                        <span class="accessor"><b>get</b><code>url()</code></span>
                     </td>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/lib/test-html-element.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/lib/routing-tester.ts:32</a></div>
                                 </td>
                             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-description"><p>Tests if the element is visible, in the same meaning (and implementation) as in jQuery, i.e.
-present anywhere in the DOM, and visible.
-An element is not visible typically, if its display style or any of its ancestors display style is none.</p>
+                                <div class="io-description"><p>Gets the current URL of the Router service as a string</p>
 </div>
 
                                 <div class="io-description">
-                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="urlTree"></a>
+                        <span class="name"><b>urlTree</b><a href="#urlTree"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>urlTree()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/lib/routing-tester.ts:41</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets the current URL of the Router service as an UrlTree, to be able to test its
+elements (query params, etc.)</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>UrlTree</code>
 
                                 </div>
                         </td>
@@ -1731,32 +1885,48 @@ An element is not visible typically, if its display style or any of its ancestor
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ComponentTester } from &#x27;./component-tester&#x27;;
-import { TestElement } from &#x27;./test-element&#x27;;
-import { DebugElement } from &#x27;@angular/core&#x27;;
+import { RouterTestingHarness } from &#x27;@angular/router/testing&#x27;;
+import { Router, UrlTree } from &#x27;@angular/router&#x27;;
+import { TestBed } from &#x27;@angular/core/testing&#x27;;
 
 /**
- * A wrapped DOM HTML element, providing additional methods and attributes helping with writing tests
+ * A thin wrapper around Angular RouterTestingHarness which helps testing routed components.
+ * It allows, based on a configured testing module where the router is provided, to initially navigate
+ * to a given route, then test the routed component. It&#x27;s then possible to either navigate again with
+ * the wrapped harness, or to use the component to trigger navigation, and test that the URL has changed
+ * for example.
  */
-export class TestHtmlElement&lt;E extends HTMLElement&gt; extends TestElement&lt;E&gt; {
-  constructor(tester: ComponentTester&lt;unknown&gt;, debugElement: DebugElement) {
-    super(tester, debugElement);
+export class RoutingTester extends ComponentTester&lt;unknown&gt; {
+  constructor(readonly harness: RouterTestingHarness) {
+    super(harness.fixture);
   }
 
   /**
-   * Clicks on the wrapped element, then triggers a change detection
+   * Creates a RouterTestngHarness and uses it to navigate to the given URL
+   * @param url the URL to initially navigate to.
+   * @return a promise which resolves to a RoutingTester which wraps the harness
+   * and its fixture.
    */
-  click(): void {
-    this.nativeElement.click();
-    this.tester.detectChanges();
+  static async forUrl(url: string) {
+    const harness &#x3D; await RouterTestingHarness.create(url);
+    return new RoutingTester(harness);
   }
 
   /**
-   * Tests if the element is visible, in the same meaning (and implementation) as in jQuery, i.e.
-   * present anywhere in the DOM, and visible.
-   * An element is not visible typically, if its display style or any of its ancestors display style is none.
+   * Gets the current URL of the Router service as a string
    */
-  get visible(): boolean {
-    return !!(this.nativeElement.offsetWidth || this.nativeElement.offsetHeight || this.nativeElement.getClientRects().length);
+  get url(): string {
+    const router &#x3D; TestBed.inject(Router);
+    return router.url;
+  }
+
+  /**
+   * Gets the current URL of the Router service as an UrlTree, to be able to test its
+   * elements (query params, etc.)
+   */
+  get urlTree(): UrlTree {
+    const router &#x3D; TestBed.inject(Router);
+    return router.parseUrl(router.url);
   }
 }
 </code></pre>
@@ -1797,7 +1967,7 @@ export class TestHtmlElement&lt;E extends HTMLElement&gt; extends TestElement&lt
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'TestHtmlElement.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'RoutingTester.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
