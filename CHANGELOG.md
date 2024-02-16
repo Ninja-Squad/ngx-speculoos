@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [11.1.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v11.0.0...v11.1.0) (2024-02-16)
+
+
+### Features
+
+* introduce routing tester to test with the RouterTestingHarness ([4bebe7c](https://github.com/Ninja-Squad/ngx-speculoos/commit/4bebe7cedda53d2d9f49288b291548a9c4286658))
+
 ## [11.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v10.0.0...v11.0.0) (2023-11-15)
 
 
