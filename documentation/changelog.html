@@ -60,15 +60,6 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
@@ -91,6 +82,20 @@
 
 <h1>Changelog</h1>
 <p>All notable changes to this project will be documented in this file. See <a href="https://github.com/conventional-changelog/standard-version">standard-version</a> for commit guidelines.</p>
+<h2><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v11.1.0...v12.0.0">12.0.0</a> (2024-05-26)</h2>
+<h3>⚠ BREAKING CHANGES</h3>
+<ul>
+<li><code>ngx-speculoos</code> is now based on Angular 18.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-speculoos</li>
+<li><code>TestSelect</code>&#39;s <code>selectIndex</code>, <code>selectValue</code> and <code>selectLabel</code> methods now throw if an invalid index, value or label is passed, instead of ignoring it.</li>
+<li>The deprecated <code>fakeRoute</code> and <code>fakeSnapshot</code> functions have been dropped.
+Use <code>stubRoute</code>, or the <code>RoutingTester</code> instead.</li>
+</ul>
+<h3>Features</h3>
+<ul>
+<li>drop the deprecated fakeRoute and fakeSnapshot functions (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/6a5225a6c4a99cfc26ee7387d04cd68a2ca0c0c4">6a5225a</a>)</li>
+<li>throw when selecting invalid index, value or label (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/093cb5aca96732b0bcbeefb68be198fddb691bf2">093cb5a</a>)</li>
+<li>upgrade to Angular and CLI 18 (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/99af81ce92905d9ee91da5c785475e25be211b79">99af81c</a>)</li>
+</ul>
 <h2><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v11.0.0...v11.1.0">11.1.0</a> (2024-02-16)</h2>
 <h3>Features</h3>
 <ul>
@@ -332,6 +337,19 @@ Future versions are not guaranteed to support Angular 6, though. We encourage yo
             var COMPODOC_CURRENT_PAGE_URL = 'changelog.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>

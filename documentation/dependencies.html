@@ -60,15 +60,6 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
@@ -118,13 +109,13 @@
     </ol>
     <ul class="dependencies-list">
         <li>
-            <b>@angular/core</b> : ^17.0.0</li>
+            <b>@angular/core</b> : ^18.0.0</li>
         <li>
-            <b>@angular/platform-browser</b> : ^17.0.0</li>
+            <b>@angular/platform-browser</b> : ^18.0.0</li>
         <li>
-            <b>@angular/router</b> : ^17.0.0</li>
+            <b>@angular/router</b> : ^18.0.0</li>
         <li>
-            <b>rxjs</b> : ^7.8.0</li>
+            <b>rxjs</b> : ^7.8.1</li>
     </ul>
 
 
@@ -161,6 +152,19 @@
             var COMPODOC_CURRENT_PAGE_URL = 'dependencies.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>

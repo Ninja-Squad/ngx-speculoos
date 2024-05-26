@@ -60,15 +60,6 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
@@ -348,15 +339,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="16"
-                                    class="link-to-prism">src/lib/test-select.ts:16</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="17"
+                                    class="link-to-prism">src/lib/test-select.ts:17</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Selects the option at the given index, then dispatches an event of type change and triggers a change detection</p>
+                        <div class="io-description"><p>Selects the option at the given index, then dispatches an event of type change and triggers a change detection.
+If the index is out of bounds and is not -1, then throws an error.</p>
 </div>
 
                             <div class="io-description">
@@ -417,8 +409,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="38"
-                                    class="link-to-prism">src/lib/test-select.ts:38</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="42"
+                                    class="link-to-prism">src/lib/test-select.ts:42</a></div>
                         </td>
                     </tr>
 
@@ -426,8 +418,7 @@
             <tr>
                 <td class="col-md-4">
                         <div class="io-description"><p>Selects the first option with the given label (or text), then dispatches an event of type change and triggers a change detection.
-If there is no option with the given label, then does nothing
-TODO should it throw instead?</p>
+If there is no option with the given label, then throws an error.</p>
 </div>
 
                             <div class="io-description">
@@ -488,8 +479,8 @@ TODO should it throw instead?</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="26"
-                                    class="link-to-prism">src/lib/test-select.ts:26</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="29"
+                                    class="link-to-prism">src/lib/test-select.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -497,8 +488,7 @@ TODO should it throw instead?</p>
             <tr>
                 <td class="col-md-4">
                         <div class="io-description"><p>Selects the first option with the given value, then dispatches an event of type change and triggers a change detection.
-If there is no option with the given value, then does nothing
-TODO should it throw instead?</p>
+If there is no option with the given value, then throws an error.</p>
 </div>
 
                             <div class="io-description">
@@ -1950,7 +1940,7 @@ const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elemen
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/lib/test-select.ts:48</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/lib/test-select.ts:54</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1983,7 +1973,7 @@ const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elemen
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/lib/test-select.ts:55</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/lib/test-select.ts:61</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2016,7 +2006,7 @@ const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elemen
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/lib/test-select.ts:65</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/lib/test-select.ts:71</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2049,7 +2039,7 @@ const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elemen
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/lib/test-select.ts:75</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/lib/test-select.ts:81</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2082,7 +2072,7 @@ const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elemen
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/lib/test-select.ts:82</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/lib/test-select.ts:88</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2115,7 +2105,7 @@ const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elemen
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">src/lib/test-select.ts:89</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">src/lib/test-select.ts:95</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2148,7 +2138,7 @@ const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elemen
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/lib/test-select.ts:96</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/lib/test-select.ts:102</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2183,34 +2173,40 @@ export class TestSelect extends TestHtmlElement&lt;HTMLSelectElement&gt; {
   }
 
   /**
-   * Selects the option at the given index, then dispatches an event of type change and triggers a change detection
+   * Selects the option at the given index, then dispatches an event of type change and triggers a change detection.
+   * If the index is out of bounds and is not -1, then throws an error.
    */
   selectIndex(index: number): void {
+    if (index &lt; -1 || index &gt;&#x3D; this.nativeElement.options.length) {
+      throw new Error(&#x60;The index ${index} is out of bounds&#x60;);
+    }
     this.nativeElement.selectedIndex &#x3D; index;
     this.dispatchEventOfType(&#x27;change&#x27;);
   }
 
   /**
    * Selects the first option with the given value, then dispatches an event of type change and triggers a change detection.
-   * If there is no option with the given value, then does nothing
-   * TODO should it throw instead?
+   * If there is no option with the given value, then throws an error.
    */
   selectValue(value: string): void {
     const index &#x3D; this.optionValues.indexOf(value);
     if (index &gt;&#x3D; 0) {
       this.selectIndex(index);
+    } else {
+      throw new Error(&#x60;The value ${value} is not part of the option values (${this.optionValues.join(&#x27;, &#x27;)}&#x60;);
     }
   }
 
   /**
    * Selects the first option with the given label (or text), then dispatches an event of type change and triggers a change detection.
-   * If there is no option with the given label, then does nothing
-   * TODO should it throw instead?
+   * If there is no option with the given label, then throws an error.
    */
   selectLabel(label: string): void {
     const index &#x3D; this.optionLabels.indexOf(label);
     if (index &gt;&#x3D; 0) {
       this.selectIndex(index);
+    } else {
+      throw new Error(&#x60;The label ${label} is not part of the option labels (${this.optionLabels.join(&#x27;, &#x27;)}&#x60;);
     }
   }
 
@@ -2310,6 +2306,19 @@ export class TestSelect extends TestHtmlElement&lt;HTMLSelectElement&gt; {
             var COMPODOC_CURRENT_PAGE_URL = 'TestSelect.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>

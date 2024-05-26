@@ -60,15 +60,6 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
@@ -123,12 +114,6 @@
                         </li>
                         <li>
                             <a href="#createMock" title="src/lib/mock.ts" ><b>createMock</b>&nbsp;&nbsp;&nbsp;(src/.../mock.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#fakeRoute" title="src/lib/route.ts" class="deprecated-name"><b>fakeRoute</b>&nbsp;&nbsp;&nbsp;(src/.../route.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#fakeSnapshot" title="src/lib/route.ts" class="deprecated-name"><b>fakeSnapshot</b>&nbsp;&nbsp;&nbsp;(src/.../route.ts)</a>
                         </li>
                         <li>
                             <a href="#stubRoute" title="src/lib/route.ts" ><b>stubRoute</b>&nbsp;&nbsp;&nbsp;(src/.../route.ts)</a>
@@ -276,146 +261,6 @@ I.e., for a class <code>UserService</code> with methods <code>get()</code>, <cod
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="fakeRoute"></a>
-                    <span class="name">
-                        <span class="deprecated-name"><b>fakeRoute</b></span>
-                        <a href="#fakeRoute"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4 deprecated">
-                    favor stubRoute, which creates an easier to use and more logical stub
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>fakeRoute(options)</code>
-                </td>
-            </tr>
-
-
-
-
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-description"><p>Creates a fake partial ActivatedRoute for tests.</p>
-<p>If you pass params, then the created route&#39;s paramMap will contain the same values.
-The same goes for queryParams and queryParamMap.</p>
-<p>If you pass a parent route and a snapshot, and the passed snapshot doesn&#39;t have a parent, then the snapshot&#39;s
-parent will be set to the parent route snapshot. This allows the code under test to use
-<code>route.parent.snapshot</code> or <code>route.snapshot.parent</code>.</p>
-<p>If you pass a snapshot with a parent, but don&#39;t pass a parent or pass a parent without snapshot, then the route&#39;s
-parent snapshot will be set to the given snapshot&#39;s parent. This allows the code under test to use
-<code>route.parent.snapshot</code> or <code>route.snapshot.parent</code>.</p>
-</div>
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>options</td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>    <code>ActivatedRoute</code>
-
-                        </div>
-                            <div class="io-description">
-                                <p>a partially populated, fake ActivatedRoute, depending on what you passed in</p>
-
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="fakeSnapshot"></a>
-                    <span class="name">
-                        <span class="deprecated-name"><b>fakeSnapshot</b></span>
-                        <a href="#fakeSnapshot"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4 deprecated">
-                    favor stubRoute, which creates an easier to use and more logical stub for both the route and its snapshot
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>fakeSnapshot(options)</code>
-                </td>
-            </tr>
-
-
-
-
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-description"><p>Creates a fake partial ActivatedRouteSnapshot for tests.</p>
-<p>If you pass params, then the created snapshot&#39;s paramMap will contain the same values.
-The same goes for queryParams and queryParamMap.</p>
-</div>
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>options</td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>    <code>ActivatedRouteSnapshot</code>
-
-                        </div>
-                            <div class="io-description">
-                                <p>a partially populated, fake ActivatedRoute, depending on what you passed in</p>
-
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="stubRoute"></a>
                     <span class="name">
                         <span ><b>stubRoute</b></span>
@@ -507,6 +352,19 @@ The same goes for queryParams and queryParamMap.</p>
             var COMPODOC_CURRENT_PAGE_URL = 'functions.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
