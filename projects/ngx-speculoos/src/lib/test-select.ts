@@ -11,34 +11,40 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
   }
 
   /**
-   * Selects the option at the given index, then dispatches an event of type change and triggers a change detection
+   * Selects the option at the given index, then dispatches an event of type change and triggers a change detection.
+   * If the index is out of bounds and is not -1, then throws an error.
    */
   selectIndex(index: number): void {
+    if (index < -1 || index >= this.nativeElement.options.length) {
+      throw new Error(`The index ${index} is out of bounds`);
+    }
     this.nativeElement.selectedIndex = index;
     this.dispatchEventOfType('change');
   }
 
   /**
    * Selects the first option with the given value, then dispatches an event of type change and triggers a change detection.
-   * If there is no option with the given value, then does nothing
-   * TODO should it throw instead?
+   * If there is no option with the given value, then throws an error.
    */
   selectValue(value: string): void {
     const index = this.optionValues.indexOf(value);
     if (index >= 0) {
       this.selectIndex(index);
+    } else {
+      throw new Error(`The value ${value} is not part of the option values (${this.optionValues.join(', ')}`);
     }
   }
 
   /**
    * Selects the first option with the given label (or text), then dispatches an event of type change and triggers a change detection.
-   * If there is no option with the given label, then does nothing
-   * TODO should it throw instead?
+   * If there is no option with the given label, then throws an error.
    */
   selectLabel(label: string): void {
     const index = this.optionLabels.indexOf(label);
     if (index >= 0) {
       this.selectIndex(index);
+    } else {
+      throw new Error(`The label ${label} is not part of the option labels (${this.optionLabels.join(', ')}`);
     }
   }
 
