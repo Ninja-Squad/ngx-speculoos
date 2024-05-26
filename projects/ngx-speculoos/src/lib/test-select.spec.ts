@@ -32,7 +32,7 @@ class TestComponentTester extends ComponentTester<TestComponent> {
   }
 }
 
-describe('TestButton', () => {
+describe('TestSelect', () => {
   let tester: TestComponentTester;
 
   beforeEach(() => {
@@ -59,6 +59,11 @@ describe('TestButton', () => {
     expect(tester.detectChanges).toHaveBeenCalled();
   });
 
+  it('should throw if index is out of bounds', () => {
+    expect(() => tester.selectBox.selectIndex(-2)).toThrowError();
+    expect(() => tester.selectBox.selectIndex(3)).toThrowError();
+  });
+
   it('should select by value', () => {
     spyOn(tester.componentInstance, 'onChange');
     spyOn(tester, 'detectChanges').and.callThrough();
@@ -69,6 +74,10 @@ describe('TestButton', () => {
     expect(tester.detectChanges).toHaveBeenCalled();
   });
 
+  it('should throw if value does not exist', () => {
+    expect(() => tester.selectBox.selectValue('oops')).toThrowError();
+  });
+
   it('should select by label', () => {
     spyOn(tester.componentInstance, 'onChange');
     spyOn(tester, 'detectChanges').and.callThrough();
@@ -77,6 +86,10 @@ describe('TestButton', () => {
     expect(tester.selectBox.selectedIndex).toBe(1);
     expect(tester.componentInstance.onChange).toHaveBeenCalled();
     expect(tester.detectChanges).toHaveBeenCalled();
+  });
+
+  it('should throw if label does not exist', () => {
+    expect(() => tester.selectBox.selectLabel('oops')).toThrowError();
   });
 
   it('should expose the selected value', () => {
