@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [12.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v11.1.0...v12.0.0) (2024-05-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* `ngx-speculoos` is now based on Angular 18.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-speculoos
+* `TestSelect`'s `selectIndex`, `selectValue` and `selectLabel` methods now throw if an invalid index, value or label is passed, instead of ignoring it.
+* The deprecated `fakeRoute` and `fakeSnapshot` functions have been dropped.
+Use `stubRoute`, or the `RoutingTester` instead.
+
+### Features
+
+* drop the deprecated fakeRoute and fakeSnapshot functions ([6a5225a](https://github.com/Ninja-Squad/ngx-speculoos/commit/6a5225a6c4a99cfc26ee7387d04cd68a2ca0c0c4))
+* throw when selecting invalid index, value or label ([093cb5a](https://github.com/Ninja-Squad/ngx-speculoos/commit/093cb5aca96732b0bcbeefb68be198fddb691bf2))
+* upgrade to Angular and CLI 18 ([99af81c](https://github.com/Ninja-Squad/ngx-speculoos/commit/99af81ce92905d9ee91da5c785475e25be211b79))
+
 ## [11.1.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v11.0.0...v11.1.0) (2024-02-16)
 
 
