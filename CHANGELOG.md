@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [12.0.1](https://github.com/Ninja-Squad/ngx-speculoos/compare/v12.0.0...v12.0.1) (2024-05-27)
+
+
+### Bug Fixes
+
+* missing ending parenthesis in error message ([e9f07a0](https://github.com/Ninja-Squad/ngx-speculoos/commit/e9f07a0dc644f735b9a0e38737a7273e3052a561))
+
 ## [12.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v11.1.0...v12.0.0) (2024-05-26)
 
 
