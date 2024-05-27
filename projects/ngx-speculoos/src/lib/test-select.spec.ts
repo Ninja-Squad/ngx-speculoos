@@ -60,8 +60,8 @@ describe('TestSelect', () => {
   });
 
   it('should throw if index is out of bounds', () => {
-    expect(() => tester.selectBox.selectIndex(-2)).toThrowError();
-    expect(() => tester.selectBox.selectIndex(3)).toThrowError();
+    expect(() => tester.selectBox.selectIndex(-2)).toThrowError('The index -2 is out of bounds');
+    expect(() => tester.selectBox.selectIndex(3)).toThrowError('The index 3 is out of bounds');
   });
 
   it('should select by value', () => {
@@ -75,7 +75,7 @@ describe('TestSelect', () => {
   });
 
   it('should throw if value does not exist', () => {
-    expect(() => tester.selectBox.selectValue('oops')).toThrowError();
+    expect(() => tester.selectBox.selectValue('oops')).toThrowError('The value oops is not part of the option values (, a, b)');
   });
 
   it('should select by label', () => {
@@ -89,7 +89,7 @@ describe('TestSelect', () => {
   });
 
   it('should throw if label does not exist', () => {
-    expect(() => tester.selectBox.selectLabel('oops')).toThrowError();
+    expect(() => tester.selectBox.selectLabel('oops')).toThrowError('The label oops is not part of the option labels (, A, B)');
   });
 
   it('should expose the selected value', () => {
