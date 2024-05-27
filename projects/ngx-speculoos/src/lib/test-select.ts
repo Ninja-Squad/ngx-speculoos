@@ -31,7 +31,7 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
     if (index >= 0) {
       this.selectIndex(index);
     } else {
-      throw new Error(`The value ${value} is not part of the option values (${this.optionValues.join(', ')}`);
+      throw new Error(`The value ${value} is not part of the option values (${this.optionValues.join(', ')})`);
     }
   }
 
@@ -44,7 +44,7 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
     if (index >= 0) {
       this.selectIndex(index);
     } else {
-      throw new Error(`The label ${label} is not part of the option labels (${this.optionLabels.join(', ')}`);
+      throw new Error(`The label ${label} is not part of the option labels (${this.optionLabels.join(', ')})`);
     }
   }
 
