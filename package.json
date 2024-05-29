@@ -37,7 +37,7 @@
     "@angular-eslint/template-parser": "17.5.2",
     "@angular/cli": "18.0.2",
     "@angular/compiler-cli": "18.0.1",
-    "@compodoc/compodoc": "1.1.24",
+    "@compodoc/compodoc": "1.1.25",
     "@types/jasmine": "5.1.4",
     "@typescript-eslint/eslint-plugin": "7.11.0",
     "@typescript-eslint/parser": "7.11.0",
