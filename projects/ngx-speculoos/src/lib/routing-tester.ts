@@ -1,4 +1,4 @@
-import { ComponentTester } from './component-tester';
+import { ComponentTester, TestingOptions } from './component-tester';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { Router, UrlTree } from '@angular/router';
 import { TestBed } from '@angular/core/testing';
@@ -11,12 +11,12 @@ import { TestBed } from '@angular/core/testing';
  * for example.
  */
 export class RoutingTester extends ComponentTester<unknown> {
-  constructor(readonly harness: RouterTestingHarness) {
-    super(harness.fixture);
+  constructor(readonly harness: RouterTestingHarness, options: TestingOptions = { autoDetectChanges: false }) {
+    super(harness.fixture, options);
   }
 
   /**
-   * Creates a RouterTestngHarness and uses it to navigate to the given URL
+   * Creates a RouterTestingHarness and uses it to navigate to the given URL
    * @param url the URL to initially navigate to.
    * @return a promise which resolves to a RoutingTester which wraps the harness
    * and its fixture.

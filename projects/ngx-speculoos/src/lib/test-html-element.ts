@@ -14,8 +14,19 @@ export class TestHtmlElement<E extends HTMLElement> extends TestElement<E> {
    * Clicks on the wrapped element, then triggers a change detection
    */
   click(): void {
+    if (this.tester.isAutoDetectingChanges()) {
+      throw new Error('Avoid calling click when the autoDetectChanges option is true');
+    }
     this.nativeElement.click();
     this.tester.detectChanges();
+  }
+
+  /**
+   * Clicks on the wrapped element, then awaits the tester is stable
+   */
+  async asyncClick(): Promise<void> {
+    this.nativeElement.click();
+    await this.tester.stable();
   }
 
   /**
