@@ -10,6 +10,10 @@ import { TestButton } from './test-button';
 import { TestElementQuerier } from './test-element-querier';
 import { TestHtmlElement } from './test-html-element';
 
+export interface TestingOptions {
+  autoDetectChanges: boolean
+}
+
 /**
  * The main entry point of the API. It wraps an Angular ComponentFixture<T>, and gives access to its
  * most used properties and methods. It also allows getting elements wrapped in TestElement (and its subclasses)
@@ -26,12 +30,14 @@ export class ComponentTester<C> {
    */
   readonly fixture: ComponentFixture<C>;
 
+  private readonly options: TestingOptions;
+
   /**
    * Creates a component fixture of the given type with the TestBed and wraps it into a ComponentTester
    */
-  static create<C>(componentType: Type<C>): ComponentTester<C> {
+  static create<C>(componentType: Type<C>, options: TestingOptions = { autoDetectChanges: false }): ComponentTester<C> {
     const fixture = TestBed.createComponent(componentType);
-    return new ComponentTester(fixture);
+    return new ComponentTester(fixture,  options);
   }
 
   /**
@@ -45,8 +51,13 @@ export class ComponentTester<C> {
    *
    * @param arg the type of the component to wrap, or a component fixture to wrap
    */
-  constructor(arg: Type<C> | ComponentFixture<C>) {
+  constructor(arg: Type<C> | ComponentFixture<C>, options: TestingOptions = { autoDetectChanges: false }) {
     this.fixture = arg instanceof ComponentFixture ? arg : TestBed.createComponent(arg);
+    this.options = { ...options };
+    // TODO should set it to false in all cases, but there is a bug if we do it: https://github.com/angular/angular/issues/56878
+    if (this.options.autoDetectChanges) {
+      this.fixture.autoDetectChanges(this.options.autoDetectChanges);
+    }
     this.testElement = TestElementQuerier.wrap(this.debugElement, this) as TestElement<HTMLElement>;
   }
 
@@ -392,14 +403,23 @@ export class ComponentTester<C> {
    * Triggers a change detection using the wrapped fixture
    */
   detectChanges(checkNoChanges?: boolean): void {
+    if (this.options.autoDetectChanges) {
+      throw new Error('Avoid calling detectChanges when the autoDetectChanges option is true')
+    }
     this.fixture.detectChanges(checkNoChanges);
   }
 
   /**
-   * Delegates to the wrapped fixture whenStable and then detect changes
+   * Delegates to the wrapped fixture whenStable and then detect changes unless the autoDetectChanges option is true
    */
   async stable(): Promise<void> {
     await this.fixture.whenStable();
-    this.detectChanges();
+    if (!this.options.autoDetectChanges) {
+      this.detectChanges();
+    }
+  }
+
+  isAutoDetectingChanges() {
+    return this.options.autoDetectChanges;
   }
 }

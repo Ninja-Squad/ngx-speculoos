@@ -15,8 +15,20 @@ export class TestTextArea extends TestHtmlElement<HTMLTextAreaElement> {
    * @param value the new value of the textarea
    */
   fillWith(value: string): void {
+    if (this.tester.isAutoDetectingChanges()) {
+      throw new Error('Avoid calling fillWith when the autoDetectChanges option is true');
+    }
     this.nativeElement.value = value;
     this.dispatchEventOfType('input');
+  }
+
+  /**
+   * Sets the value of the wrapped textarea, then dispatches an event of type input and awaits the tester is stable
+   * @param value the new value of the textarea
+   */
+  async asyncFillWith(value: string): Promise<void> {
+    this.nativeElement.value = value;
+    await this.dispatchEventOfType('input');
   }
 
   /**

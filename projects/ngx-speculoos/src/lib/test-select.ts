@@ -15,6 +15,9 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
    * If the index is out of bounds and is not -1, then throws an error.
    */
   selectIndex(index: number): void {
+    if (this.tester.isAutoDetectingChanges()) {
+      throw new Error('Avoid calling selectIndex when the autoDetectChanges option is true');
+    }
     if (index < -1 || index >= this.nativeElement.options.length) {
       throw new Error(`The index ${index} is out of bounds`);
     }
@@ -23,13 +26,44 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
   }
 
   /**
+   * Selects the option at the given index, then dispatches an event of type change and awaits the tester is stable.
+   * If the index is out of bounds and is not -1, then throws an error.
+   */
+  async asyncSelectIndex(index: number): Promise<void> {
+    if (this.tester.isAutoDetectingChanges()) {
+      throw new Error('Avoid calling selectIndex when the autoDetectChanges option is true');
+    }
+    if (index < -1 || index >= this.nativeElement.options.length) {
+      throw new Error(`The index ${index} is out of bounds`);
+    }
+    this.nativeElement.selectedIndex = index;
+    await this.asyncDispatchEventOfType('change');
+  }
+
+  /**
    * Selects the first option with the given value, then dispatches an event of type change and triggers a change detection.
    * If there is no option with the given value, then throws an error.
    */
   selectValue(value: string): void {
+    if (this.tester.isAutoDetectingChanges()) {
+      throw new Error('Avoid calling selectValue when the autoDetectChanges option is true');
+    }
     const index = this.optionValues.indexOf(value);
     if (index >= 0) {
       this.selectIndex(index);
+    } else {
+      throw new Error(`The value ${value} is not part of the option values (${this.optionValues.join(', ')})`);
+    }
+  }
+
+  /**
+   * Selects the first option with the given value, then dispatches an event of type change and awaits the tester is stable.
+   * If there is no option with the given value, then throws an error.
+   */
+  async asyncSelectValue(value: string): Promise<void> {
+    const index = this.optionValues.indexOf(value);
+    if (index >= 0) {
+      await this.selectIndex(index);
     } else {
       throw new Error(`The value ${value} is not part of the option values (${this.optionValues.join(', ')})`);
     }
@@ -40,9 +74,25 @@ export class TestSelect extends TestHtmlElement<HTMLSelectElement> {
    * If there is no option with the given label, then throws an error.
    */
   selectLabel(label: string): void {
+    if (this.tester.isAutoDetectingChanges()) {
+      throw new Error('Avoid calling selectLabel when the autoDetectChanges option is true');
+    }
     const index = this.optionLabels.indexOf(label);
     if (index >= 0) {
       this.selectIndex(index);
+    } else {
+      throw new Error(`The label ${label} is not part of the option labels (${this.optionLabels.join(', ')})`);
+    }
+  }
+
+  /**
+   * Selects the first option with the given label (or text), then dispatches an event of type change and awaits the tester is stable.
+   * If there is no option with the given label, then throws an error.
+   */
+  async asyncSelectLabel(label: string): Promise<void> {
+    const index = this.optionLabels.indexOf(label);
+    if (index >= 0) {
+      await this.selectIndex(index);
     } else {
       throw new Error(`The label ${label} is not part of the option labels (${this.optionLabels.join(', ')})`);
     }
