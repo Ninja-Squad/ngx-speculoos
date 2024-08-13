@@ -34,7 +34,7 @@
     "@angular/compiler-cli": "18.1.4",
     "@compodoc/compodoc": "1.1.25",
     "@types/jasmine": "5.1.4",
-    "angular-eslint": "18.2.0",
+    "angular-eslint": "18.3.0",
     "codecov": "3.8.3",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
