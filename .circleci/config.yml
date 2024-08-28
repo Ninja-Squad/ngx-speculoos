@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   browser-tools: circleci/browser-tools@1.4.8
+  codecov: codecov/codecov@4.1.0
 jobs:
   build:
     working_directory: ~/ngx-speculoos
@@ -17,4 +18,4 @@ jobs:
       - run: pnpm demotest
       - run: pnpm demobuild
       - run: pnpm doc
-      - run: pnpm codecov
+      - codecov/upload
