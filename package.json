@@ -9,7 +9,7 @@
     "demobuild": "ng build --project=demo",
     "demotest": "ng test --no-progress --no-watch --project=demo",
     "lint": "ng lint",
-    "release": "cd projects/ngx-speculoos && standard-version --infile ../../CHANGELOG.md",
+    "release": "cd projects/ngx-speculoos && commit-and-tag-version --infile ../../CHANGELOG.md",
     "doc": "node scripts/prepare-doc.js && cd projects/ngx-speculoos && compodoc",
     "tsd": "tsc -p projects/tsd-test/tsconfig.tsd.json",
     "format": "prettier --write ./"
@@ -36,6 +36,7 @@
     "@types/jasmine": "5.1.4",
     "@types/node": "18.19.47",
     "angular-eslint": "18.3.0",
+    "commit-and-tag-version": "12.4.2",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-ban": "1.6.0",
@@ -48,7 +49,6 @@
     "karma-jasmine-html-reporter": "2.1.0",
     "ng-packagr": "18.2.1",
     "prettier": "3.3.3",
-    "standard-version": "9.5.0",
     "typescript": "5.4.5",
     "typescript-eslint": "8.3.0"
   }
