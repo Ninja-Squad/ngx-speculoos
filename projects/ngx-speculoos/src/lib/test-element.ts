@@ -40,6 +40,9 @@ export class TestElement<E extends Element = Element> {
    * dispatches an event of the given type from the wrapped element, then triggers a change detection
    */
   dispatchEventOfType(type: string): void {
+    if (this.tester.isAutoDetectingChanges()) {
+      throw new Error('Avoid calling dispatchEventOfType when the autoDetectChanges option is true')
+    }
     this.nativeElement.dispatchEvent(new Event(type));
     this.tester.detectChanges();
   }
@@ -48,8 +51,27 @@ export class TestElement<E extends Element = Element> {
    * dispatches the given event from the wrapped element, then triggers a change detection
    */
   dispatchEvent(event: Event): void {
+    if (this.tester.isAutoDetectingChanges()) {
+      throw new Error('Avoid calling dispatchEvent when the autoDetectChanges option is true')
+    }
     this.nativeElement.dispatchEvent(event);
     this.tester.detectChanges();
+  }
+
+  /**
+   * dispatches an event of the given type from the wrapped element, then awaits the tester is stable
+   */
+  async asyncDispatchEventOfType(type: string): Promise<void> {
+    this.nativeElement.dispatchEvent(new Event(type));
+    await this.tester.stable();
+  }
+
+  /**
+   * dispatches the given event from the wrapped element, then awaits the tester is stable
+   */
+  async asyncDispatchEvent(event: Event): Promise<void> {
+    this.nativeElement.dispatchEvent(event);
+    await this.tester.stable();
   }
 
   /**
