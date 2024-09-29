@@ -48,7 +48,7 @@ class TestDatepicker extends TestHtmlElement<HTMLElement> {
     <svg id="s1" foo="bar" class="baz bing" (change)="onChange($event)">Test</svg>
     <div id="parent">
       <div>
-        <svg id="svg"></svg>
+        <svg id="svg" />
         <a id="a">link</a>
         <input id="input" />
         <button id="button">Test</button>
@@ -59,8 +59,8 @@ class TestDatepicker extends TestHtmlElement<HTMLElement> {
     <div id="type-parent">
       <div>
         <textarea libTestdir="a" id="textarea2"></textarea>
-        <lib-sub libTestdir="b" id="sub1" sub="sub1"></lib-sub>
-        <lib-sub id="sub2" sub="sub2"></lib-sub>
+        <lib-sub libTestdir="b" id="sub1" sub="sub1" />
+        <lib-sub id="sub2" sub="sub2" />
       </div>
     </div>
     <div datepicker>
