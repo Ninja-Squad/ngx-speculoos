@@ -1,4 +1,4 @@
-import { Component, DebugElement, Directive, input } from '@angular/core';
+import { Component, DebugElement, Directive, input, signal } from '@angular/core';
 import { ComponentTester } from './component-tester';
 import { TestBed } from '@angular/core/testing';
 import { TestElement } from './test-element';
@@ -7,6 +7,7 @@ import { TestButton } from './test-button';
 import { TestSelect } from './test-select';
 import { TestTextArea } from './test-textarea';
 import { TestInput } from './test-input';
+import { provideAutomaticChangeDetection } from './providers';
 
 @Directive({
   selector: '[libTestdir]'
@@ -61,12 +62,17 @@ class TestDatepicker extends TestHtmlElement<HTMLElement> {
       <input />
       <button>Open</button>
     </div>
+    <span id="text">{{ text() }}</span>
   `,
   imports: [SubComponent, TestDirective]
 })
 class TestComponent {
+  text = signal('');
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  onChange(_$event: Event) {}
+  onChange(event: Event) {
+    this.text.set('changed');
+  }
 }
 
 class TestComponentTester extends ComponentTester<TestComponent> {
@@ -92,6 +98,10 @@ class TestComponentTester extends ComponentTester<TestComponent> {
 
   get datepickers() {
     return this.customs('div[datepicker]', TestDatepicker);
+  }
+
+  get text() {
+    return this.element('#text');
   }
 }
 
@@ -130,24 +140,26 @@ describe('TestElement', () => {
   });
 
   it('should dispatch an event', () => {
-    spyOn(tester.componentInstance, 'onChange');
-    spyOn(tester, 'detectChanges');
+    spyOn(tester.componentInstance, 'onChange').and.callThrough();
+    spyOn(tester, 'change').and.callThrough();
 
     const event = new Event('change');
     tester.svg.dispatchEvent(event);
 
+    expect(tester.text.textContent).toBe('changed');
     expect(tester.componentInstance.onChange).toHaveBeenCalledWith(event);
-    expect(tester.detectChanges).toHaveBeenCalled();
+    expect(tester.change).toHaveBeenCalled();
   });
 
   it('should dispatch an event of a given type', () => {
-    spyOn(tester.componentInstance, 'onChange');
-    spyOn(tester, 'detectChanges');
+    spyOn(tester.componentInstance, 'onChange').and.callThrough();
+    spyOn(tester, 'change').and.callThrough();
 
     tester.svg.dispatchEventOfType('change');
 
+    expect(tester.text.textContent).toBe('changed');
     expect(tester.componentInstance.onChange).toHaveBeenCalled();
-    expect(tester.detectChanges).toHaveBeenCalled();
+    expect(tester.change).toHaveBeenCalled();
   });
 
   describe('CSS queries', () => {
@@ -322,5 +334,40 @@ describe('TestElement', () => {
       tester.datepickers[0].setDate(2022, 10, 11);
       expect(tester.datepickers[0].inputField!.value).toBe('2022-10-11');
     });
+  });
+});
+
+describe('TestElement in automatic mode', () => {
+  let tester: TestComponentTester;
+
+  beforeEach(async () => {
+    TestBed.configureTestingModule({
+      providers: [provideAutomaticChangeDetection()]
+    });
+    tester = new TestComponentTester();
+    await tester.change();
+  });
+
+  it('should dispatch an event', async () => {
+    spyOn(tester.componentInstance, 'onChange').and.callThrough();
+    spyOn(tester, 'change').and.callThrough();
+
+    const event = new Event('change');
+    await tester.svg.dispatchEvent(event);
+
+    expect(tester.text.textContent).toBe('changed');
+    expect(tester.componentInstance.onChange).toHaveBeenCalledWith(event);
+    expect(tester.change).toHaveBeenCalled();
+  });
+
+  it('should dispatch an event of a given type', async () => {
+    spyOn(tester.componentInstance, 'onChange').and.callThrough();
+    spyOn(tester, 'change').and.callThrough();
+
+    await tester.svg.dispatchEventOfType('change');
+
+    expect(tester.text.textContent).toBe('changed');
+    expect(tester.componentInstance.onChange).toHaveBeenCalled();
+    expect(tester.change).toHaveBeenCalled();
   });
 });

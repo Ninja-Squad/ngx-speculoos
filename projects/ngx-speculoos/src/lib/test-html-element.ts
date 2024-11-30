@@ -13,9 +13,9 @@ export class TestHtmlElement<E extends HTMLElement> extends TestElement<E> {
   /**
    * Clicks on the wrapped element, then triggers a change detection
    */
-  click(): void {
+  async click(): Promise<void> {
     this.nativeElement.click();
-    this.tester.detectChanges();
+    await this.tester.change();
   }
 
   /**

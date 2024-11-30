@@ -4,21 +4,19 @@ import { TestBed } from '@angular/core/testing';
 import { RoutingTester } from './routing-tester';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { speculoosMatchers } from './matchers';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { map } from 'rxjs';
+import { provideAutomaticChangeDetection } from './providers';
 
 @Component({
   imports: [RouterLink],
   template: `
-    <h1>Current page: {{ page }}</h1>
-    <a routerLink="." [queryParams]="{ page: page + 1 }">Next</a>
+    <h1>Current page: {{ page() }}</h1>
+    <a routerLink="." [queryParams]="{ page: page() + 1 }">Next</a>
   `
 })
 class PageComponent {
-  page!: number;
-
-  constructor() {
-    const route = inject(ActivatedRoute);
-    route.queryParamMap.subscribe(map => (this.page = parseInt(map.get('page')!)));
-  }
+  page = toSignal(inject(ActivatedRoute).queryParamMap.pipe(map(m => parseInt(m.get('page') ?? '0'))));
 }
 
 class PageComponentTester extends RoutingTester {
@@ -60,6 +58,37 @@ describe('RoutingTester', () => {
 
     tester.link.click();
     await tester.stable();
+
+    expect(tester.urlTree.queryParamMap.get('page')).toBe('43');
+    expect(tester.url).toBe('/list?page=43');
+    expect(tester.title).toHaveText('Current page: 43');
+  });
+});
+
+describe('RoutingTester in automatic mode', () => {
+  beforeEach(() => {
+    jasmine.addMatchers(speculoosMatchers);
+    TestBed.configureTestingModule({
+      providers: [provideAutomaticChangeDetection(), provideRouter([{ path: 'list', component: PageComponent }])]
+    });
+  });
+
+  it('should display the page of the query params', async () => {
+    const tester = new PageComponentTester(await RouterTestingHarness.create('/list?page=42'));
+
+    expect(tester.title).toHaveText('Current page: 42');
+
+    await tester.harness.navigateByUrl('/list?page=54');
+
+    expect(tester.title).toHaveText('Current page: 54');
+  });
+
+  it('should navigate to the next page when clicking the link', async () => {
+    const tester = new PageComponentTester(await RouterTestingHarness.create('/list?page=42'));
+
+    expect(tester.title).toHaveText('Current page: 42');
+
+    await tester.link.click();
 
     expect(tester.urlTree.queryParamMap.get('page')).toBe('43');
     expect(tester.url).toBe('/list?page=43');

@@ -39,17 +39,17 @@ export class TestElement<E extends Element = Element> {
   /**
    * dispatches an event of the given type from the wrapped element, then triggers a change detection
    */
-  dispatchEventOfType(type: string): void {
+  async dispatchEventOfType(type: string): Promise<void> {
     this.nativeElement.dispatchEvent(new Event(type));
-    this.tester.detectChanges();
+    await this.tester.change();
   }
 
   /**
    * dispatches the given event from the wrapped element, then triggers a change detection
    */
-  dispatchEvent(event: Event): void {
+  async dispatchEvent(event: Event): Promise<void> {
     this.nativeElement.dispatchEvent(event);
-    this.tester.detectChanges();
+    await this.tester.change();
   }
 
   /**

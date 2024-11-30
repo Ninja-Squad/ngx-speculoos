@@ -14,9 +14,9 @@ export class TestInput extends TestHtmlElement<HTMLInputElement> {
    * Sets the value of the wrapped input, then dispatches an event of type input and triggers a change detection
    * @param value the new value of the input
    */
-  fillWith(value: string): void {
+  async fillWith(value: string): Promise<void> {
     this.nativeElement.value = value;
-    this.dispatchEventOfType('input');
+    await this.dispatchEventOfType('input');
   }
 
   /**
@@ -43,16 +43,16 @@ export class TestInput extends TestHtmlElement<HTMLInputElement> {
   /**
    * Checks the wrapped input, then dispatches an event of type change and triggers a change detection
    */
-  check(): void {
+  async check(): Promise<void> {
     this.nativeElement.checked = true;
-    this.dispatchEventOfType('change');
+    await this.dispatchEventOfType('change');
   }
 
   /**
    * Unchecks the wrapped input, then dispatches an event of type change and triggers a change detection
    */
-  uncheck(): void {
+  async uncheck(): Promise<void> {
     this.nativeElement.checked = false;
-    this.dispatchEventOfType('change');
+    await this.dispatchEventOfType('change');
   }
 }

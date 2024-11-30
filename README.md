@@ -18,6 +18,7 @@ how to write Angular unit tests.
   - [Getting started](#getting-started)
 - [Features in details](#features-in-details)
   - [ComponentTester](#componenttester)
+  - [Automatic change detection](#automatic-change-detection)
   - [Queries](#queries)
     - [Queries for elements](#queries-for-elements)
     - [CSS and Type selectors](#css-and-type-selectors)
@@ -37,6 +38,7 @@ how to write Angular unit tests.
   - [Can I use the TestElement methods to act on the component element itself, rather than a sub-element?](#can-i-use-the-testelement-methods-to-act-on-the-component-element-itself-rather-than-a-sub-element)
 - [Issues, questions](#issues-questions)
 - [Complete example](#complete-example)
+- [Upgrading to v13](#upgrading-to-v13)
 
 ## Quick presentation
 
@@ -181,13 +183,81 @@ describe('My component', () => {
     });
     
     tester = new MyComponentTester();
-    tester.detectChanges();
+    tester.change();
   });
   
   it('should ...', () => {
     
   });
 ```
+
+### Automatic change detection
+
+The future of Angular is zoneless. Without ZoneJS, components have to make sure to properly notify
+Angular that they must be checked for changes, typically by updating signals.
+Instead of imperatively triggering change detections in tests, it's thus a better idea to let
+Angular decide if change detection must be run, in order to spot bugs where the component doesn't
+properly handle its state changes.
+
+This can be done by:
+
+- adding a provider in the testing module to configure the fixtures to be in _automatic_ mode
+- awaiting the component fixture stability when the test *thinks* that a change detection should
+  automatically happen.
+
+When the `provideAutomaticChangeDetection()` provider is added, the `ComponentTester` will run in
+_automatic_ mode. In this mode, calling `detectChanges()` throws an error, because you should always
+let Angular decide if change detection is necessary.
+
+Here's an example of a test that uses this technique:
+
+```ts
+class AppComponentTester extends ComponentTester<AppComponent> {
+  constructor() {
+    super(AppComponent);
+  }
+
+  get incrementButton() {
+    return this.button('button');
+  }
+
+  get count() {
+    return this.element('#count');
+  }
+}
+
+describe('AppComponent', () => {
+  let tester: AppComponentTester;
+
+  beforeEach(async () => {
+    TestBed.configureTestingModule({
+      providers: [
+        provideComponentFixtureAutoDetection(),
+        provideExperimentalZonelessChangeDetection() // if you already uses zoneless also add this provider
+      ]
+    });
+
+    jasmine.addMatchers(speculoosMatchers);
+    
+    tester = new AppComponentTester();
+    // a first call to change() is necessary to let Angular run its first change detection
+    await tester.change();
+  });
+
+  it('should display the counter value and increment it', async () => {
+    expect(tester.count).toHaveText('0');
+    
+    // this clicks the button and then lets Angular decide if a CD is necessary, and waits until
+    // the DOM has been updated (or not)
+    await tester.incrementButton.click();
+    
+    expect(tester.count).toHaveText('1');
+  });
+});
+```
+
+In _automatic_ mode, your test functions should be `async`, and each action you do with the elements
+(`click()`, `dispatchEvent`, etc.) should be awaited.
 
 ### Queries
 
@@ -281,12 +351,12 @@ class TestDatepicker extends TestHtmlElement<HTMLElement> {
     return this.input('input');
   }
 
-  setDate(year: number, month: number, day: number) {
-    this.inputField.fillWith(`${year}-${month}-${day}`);
+  async setDate(year: number, month: number, day: number) {
+    await this.inputField.fillWith(`${year}-${month}-${day}`);
   }
 
-  toggleDropdown() {
-    this.button('button').click();
+  async toggleDropdown() {
+    await this.button('button').click();
   }
 }
 ```
@@ -301,13 +371,25 @@ get birthDate() {
 ```
 
 ```typescript
-it('should not save if birth date is in the future') {
+it('should not save if birth date is in the future', () =>) {
   // ...
   tester.birthDate.setDate(2200, 1, 1);
   tester.save.click();
   expect(userService.create).not.toHaveBenCalled();
-}
+});
 ```
+
+or, in _automatic_ mode
+
+```typescript
+it('should not save if birth date is in the future'), async () => {
+  // ...
+  await tester.birthDate.setDate(2200, 1, 1);
+  await tester.save.click();
+  expect(userService.create).not.toHaveBenCalled();
+});
+```
+
 
 #### Subqueries
 
@@ -540,10 +622,10 @@ using the usual queries.
 
 ## Gotchas
 
-### When do I need to call `detectChanges()`?
+### When do I need to call `change` or `detectChanges()`?
 
-Any event dispatched through a `TestElement` automatically calls `detectChanges()` for you.
-But you still need to call `detectChanges()` by yourself in the other cases:
+In _imperative_ mode, any event dispatched through a `TestElement` automatically calls `detectChanges()` for you.
+But you still need to call `change()` or `detectChanges()` by yourself in the other cases:
 
 - to actually initialize your component. Sometimes, you want to configure some mocks before the `ngOnInit()`
   method of your component is called. That's why creating a `ComponentTester` does not automatically call
@@ -552,6 +634,15 @@ But you still need to call `detectChanges()` by yourself in the other cases:
 - to force change detection once you've changed the state of your component without dispatching an event:
   by changing the state, or emitting an event through a subject, or triggering a navigation
   from the `ActivatedRouteStub`
+
+Note that, in _imperative_ mode, `change()` calls `detectChanges()`. So you can call either one of the other
+when you want to trigger a change detection.
+
+In _automatic_ mode, any event dispatched through a `TestElement` automatically calls `await change()` for you.
+But you still need to call `await change()` by yourself in the same other cases as in the _imperative_ mode:
+
+- to actually initialize your component. 
+- to force change detection once you've changed the state of your component without dispatching an event.
 
 ### Can I use the `TestElement` methods to act on the component element itself, rather than a sub-element?
 
@@ -564,3 +655,53 @@ Please, provide feedback by filing issues, or by submitting pull requests, to th
 ## Complete example
 
 You can look at a minimal complete example in the [demo](https://github.com/Ninja-Squad/ngx-speculoos/tree/master/projects/demo/src/app) project.
+
+## Upgrading to v13
+
+Version 13 of `ngx-speculoos` introduces the _automatic_ mode, consisting in using automatic change detection
+instead of imperatively running change detections. See the [Automatic change detection](#automatic-change-detection)
+section above for details.
+
+As a result, all the methods that used to call `detectChanges()` for you now return a `Promise` instead of returning
+`void`. In _imperative_ mode (the default), they are in fact synchronous and call `detectChanges()`, just as before.
+In _automatic_ mode however, they call `await change()` and should thus be awaited.
+
+Your tests should generally keep compiling and running without changes. 
+But if you created custom test elements which override methods that now return a promise, and return something 
+other than `void`, for example:
+
+```typescript
+class CustomInput extends TestInput {
+  //...
+  fillWith(s: string): CustomInput {
+    super.fillWith(s);
+    return this;
+  }
+}
+```
+
+Then that won't compile anymore.
+
+And in general, if you want your custom test element to be usable in both modes, all their method that explicitly
+or indirectly called `detectChanges()` should now return a promise and explicitly of indirectly call `await change()`.
+For example:
+
+```typescript
+class CustomInput extends TestHtmlElement {
+  //...
+  async fillInput(s: string): Promise<void> {
+    await this.element('input').fillWith(s);
+    // ...
+  }
+  
+  async clickButton(): Promise<void> {
+    await this.element('button').click();
+    // ...
+  } 
+  
+  async changeState(): Promise<void> {
+    this.component(Foo).doSomething();
+    await this.change();
+  }
+}
+```
