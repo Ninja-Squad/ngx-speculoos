@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, ComponentFixtureAutoDetect, TestBed } from '@angular/core/testing';
 import { DebugElement, ProviderToken, Type } from '@angular/core';
 import { TestTextArea } from './test-textarea';
 import { TestElement } from './test-element';
@@ -27,6 +27,11 @@ export class ComponentTester<C> {
   readonly fixture: ComponentFixture<C>;
 
   /**
+   * The mode used by the ComponentTester
+   */
+  readonly mode: 'imperative' | 'automatic';
+
+  /**
    * Creates a component fixture of the given type with the TestBed and wraps it into a ComponentTester
    */
   static create<C>(componentType: Type<C>): ComponentTester<C> {
@@ -47,7 +52,9 @@ export class ComponentTester<C> {
    */
   constructor(arg: Type<C> | ComponentFixture<C>) {
     this.fixture = arg instanceof ComponentFixture ? arg : TestBed.createComponent(arg);
+    const autoDetect = TestBed.inject(ComponentFixtureAutoDetect, false);
     this.testElement = TestElementQuerier.wrap(this.debugElement, this) as TestElement<HTMLElement>;
+    this.mode = autoDetect ? 'automatic' : 'imperative';
   }
 
   /**
@@ -389,17 +396,36 @@ export class ComponentTester<C> {
   }
 
   /**
-   * Triggers a change detection using the wrapped fixture
+   * Triggers a change detection using the wrapped fixture in imperative mode.
+   * Throws an error in autodetection mode.
+   * You should generally prever
    */
   detectChanges(checkNoChanges?: boolean): void {
+    if (this.mode === 'automatic') {
+      throw new Error('In automatic mode, you should not call detectChanges');
+    }
     this.fixture.detectChanges(checkNoChanges);
   }
 
   /**
-   * Delegates to the wrapped fixture whenStable and then detect changes
+   * In imperative mode, runs change detection.
+   * In implicit mode, awaits stability.
+   */
+  async change() {
+    if (this.mode === 'automatic') {
+      await this.stable();
+    } else {
+      this.fixture.detectChanges();
+    }
+  }
+
+  /**
+   * Delegates to the wrapped fixture whenStable and, in imperative mode, detect changes
    */
   async stable(): Promise<void> {
     await this.fixture.whenStable();
-    this.detectChanges();
+    if (this.mode === 'imperative') {
+      this.detectChanges();
+    }
   }
 }

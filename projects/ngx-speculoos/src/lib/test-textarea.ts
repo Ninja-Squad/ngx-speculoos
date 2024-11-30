@@ -14,9 +14,9 @@ export class TestTextArea extends TestHtmlElement<HTMLTextAreaElement> {
    * Sets the value of the wrapped textarea, then dispatches an event of type input and triggers a change detection
    * @param value the new value of the textarea
    */
-  fillWith(value: string): void {
+  async fillWith(value: string): Promise<void> {
     this.nativeElement.value = value;
-    this.dispatchEventOfType('input');
+    await this.dispatchEventOfType('input');
   }
 
   /**

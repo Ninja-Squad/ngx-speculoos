@@ -15,3 +15,4 @@ export * from './lib/test-textarea';
 export * from './lib/route';
 export * from './lib/matchers';
 export * from './lib/mock';
+export * from './lib/providers';
