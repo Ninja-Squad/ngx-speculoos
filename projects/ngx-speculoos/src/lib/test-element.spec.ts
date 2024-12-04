@@ -29,11 +29,11 @@ class TestDatepicker extends TestHtmlElement<HTMLElement> {
   }
 
   get inputField() {
-    return this.input('input');
+    return this.input('input')!;
   }
 
   setDate(year: number, month: number, day: number) {
-    this.inputField!.fillWith(`${year}-${month}-${day}`);
+    this.inputField.fillWith(`${year}-${month}-${day}`);
   }
 }
 
