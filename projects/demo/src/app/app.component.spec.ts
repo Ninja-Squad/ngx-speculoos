@@ -8,15 +8,15 @@ class AppComponentTester extends ComponentTester<AppComponent> {
   }
 
   get firstName() {
-    return this.input('#firstName');
+    return this.input('#firstName')!;
   }
 
   get submit() {
-    return this.button('button');
+    return this.button('button')!;
   }
 
   get greeting() {
-    return this.element('#greeting');
+    return this.element('#greeting')!;
   }
 }
 

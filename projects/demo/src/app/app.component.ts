@@ -1,26 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { NgIf } from '@angular/common';
+import { Component, inject, signal } from '@angular/core';
+import { Validators, ReactiveFormsModule, NonNullableFormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  imports: [ReactiveFormsModule, NgIf]
+  imports: [ReactiveFormsModule]
 })
-export class AppComponent implements OnInit {
-  form!: FormGroup;
-  greeting = '';
-
-  constructor(private fb: FormBuilder) {}
-
-  ngOnInit(): void {
-    this.form = this.fb.group({
-      firstName: ['', [Validators.required]]
-    });
-  }
+export class AppComponent {
+  form = inject(NonNullableFormBuilder).group({
+    firstName: ['', [Validators.required]]
+  });
+  greeting = signal('');
 
   sayHello(): void {
-    this.greeting = `Hello ${this.form.value.firstName}`;
+    this.greeting.set(`Hello ${this.form.value.firstName}`);
   }
 }

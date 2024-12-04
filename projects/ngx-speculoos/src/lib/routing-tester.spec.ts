@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute, provideRouter, RouterLink } from '@angular/router';
 import { TestBed } from '@angular/core/testing';
 import { RoutingTester } from './routing-tester';
@@ -15,8 +15,9 @@ import { speculoosMatchers } from './matchers';
 class PageComponent {
   page!: number;
 
-  constructor(route: ActivatedRoute) {
-    route.queryParamMap.subscribe(map => (this.page = parseInt(map.get('page'))));
+  constructor() {
+    const route = inject(ActivatedRoute);
+    route.queryParamMap.subscribe(map => (this.page = parseInt(map.get('page')!)));
   }
 }
 
@@ -26,11 +27,11 @@ class PageComponentTester extends RoutingTester {
   }
 
   get title() {
-    return this.element('h1');
+    return this.element('h1')!;
   }
 
   get link() {
-    return this.element('a');
+    return this.element('a')!;
   }
 }
 
