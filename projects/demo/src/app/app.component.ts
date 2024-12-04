@@ -6,7 +6,6 @@ import { NgIf } from '@angular/common';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  standalone: true,
   imports: [ReactiveFormsModule, NgIf]
 })
 export class AppComponent implements OnInit {

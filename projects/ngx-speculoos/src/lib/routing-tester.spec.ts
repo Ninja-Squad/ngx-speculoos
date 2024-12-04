@@ -6,7 +6,6 @@ import { RouterTestingHarness } from '@angular/router/testing';
 import { speculoosMatchers } from './matchers';
 
 @Component({
-  standalone: true,
   imports: [RouterLink],
   template: `
     <h1>Current page: {{ page }}</h1>

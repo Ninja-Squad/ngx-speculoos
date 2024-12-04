@@ -9,8 +9,7 @@ import { TestHtmlElement } from './test-html-element';
     <div id="outer" [style]="'display: ' + (invisible ? 'none' : 'block')">
       <div id="inner"></div>
     </div>
-  `,
-  standalone: true
+  `
 })
 class TestComponent {
   invisible = false;

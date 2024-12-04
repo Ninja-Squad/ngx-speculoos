@@ -9,8 +9,7 @@ import { TestTextArea } from './test-textarea';
 import { TestInput } from './test-input';
 
 @Directive({
-  selector: '[libTestdir]',
-  standalone: true
+  selector: '[libTestdir]'
 })
 class TestDirective {
   @Input('libTestdir') value?: string;
@@ -18,8 +17,7 @@ class TestDirective {
 
 @Component({
   selector: 'lib-sub',
-  template: '',
-  standalone: true
+  template: ''
 })
 class SubComponent {
   @Input() sub?: string;
@@ -68,7 +66,6 @@ class TestDatepicker extends TestHtmlElement<HTMLElement> {
       <button>Open</button>
     </div>
   `,
-  standalone: true,
   imports: [SubComponent, TestDirective]
 })
 class TestComponent {

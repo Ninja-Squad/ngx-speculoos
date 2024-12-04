@@ -16,8 +16,7 @@ import { TestHtmlElement } from './test-html-element';
     <button id="button">Test</button>
     <select id="select"></select>
     <textarea id="textarea"></textarea>
-  `,
-  standalone: true
+  `
 })
 class TestComponent {}
 

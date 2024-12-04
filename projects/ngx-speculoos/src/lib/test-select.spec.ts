@@ -11,8 +11,7 @@ import { TestSelect } from './test-select';
       <option value="b" label="B"></option>
     </select>
     <select id="s2" disabled></select>
-  `,
-  standalone: true
+  `
 })
 class TestComponent {
   onChange() {}

@@ -27,8 +27,7 @@ const TEMPLATE = `
   `;
 
 @Component({
-  template: TEMPLATE,
-  standalone: true
+  template: TEMPLATE
 })
 class TestComponent {
   name = 'Hello';

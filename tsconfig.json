@@ -7,23 +7,17 @@
     "skipLibCheck": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "sourceMap": true,
+    "isolatedModules": true,
     "esModuleInterop": true,
-    "declaration": false,
-    "module": "ES2022",
     "moduleResolution": "bundler",
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
-    "lib": [
-      "es2022",
-      "dom"
-    ],
+    "module": "ES2022",
     "paths": {
       "ngx-speculoos": [
         "./dist/ngx-speculoos"
       ]
-    },
-    "useDefineForClassFields": false
+    }
   }
 }
