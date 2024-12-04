@@ -1,4 +1,4 @@
-import { Component, DebugElement, Directive, Input } from '@angular/core';
+import { Component, DebugElement, Directive, input } from '@angular/core';
 import { ComponentTester } from './component-tester';
 import { TestBed } from '@angular/core/testing';
 import { TestElement } from './test-element';
@@ -12,7 +12,7 @@ import { TestInput } from './test-input';
   selector: '[libTestdir]'
 })
 class TestDirective {
-  @Input('libTestdir') value?: string;
+  readonly value = input<string>(undefined, { alias: 'libTestdir' });
 }
 
 @Component({
@@ -20,7 +20,7 @@ class TestDirective {
   template: ''
 })
 class SubComponent {
-  @Input() sub?: string;
+  readonly sub = input<string>();
 }
 
 class TestDatepicker extends TestHtmlElement<HTMLElement> {
@@ -33,11 +33,7 @@ class TestDatepicker extends TestHtmlElement<HTMLElement> {
   }
 
   setDate(year: number, month: number, day: number) {
-    this.inputField.fillWith(`${year}-${month}-${day}`);
-  }
-
-  toggleDropdown() {
-    this.button('button').click();
+    this.inputField!.fillWith(`${year}-${month}-${day}`);
   }
 }
 
@@ -70,7 +66,7 @@ class TestDatepicker extends TestHtmlElement<HTMLElement> {
 })
 class TestComponent {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  onChange($event: Event) {}
+  onChange(_$event: Event) {}
 }
 
 class TestComponentTester extends ComponentTester<TestComponent> {
@@ -79,19 +75,19 @@ class TestComponentTester extends ComponentTester<TestComponent> {
   }
 
   get svg() {
-    return this.element('#s1');
+    return this.element('#s1')!;
   }
 
   get parent() {
-    return this.element('#parent');
+    return this.element('#parent')!;
   }
 
   get typeParent() {
-    return this.element('#type-parent');
+    return this.element('#type-parent')!;
   }
 
   get datepicker() {
-    return this.custom('div[datepicker]', TestDatepicker);
+    return this.custom('div[datepicker]', TestDatepicker)!;
   }
 
   get datepickers() {
@@ -114,7 +110,7 @@ describe('TestElement', () => {
   });
 
   it('should expose the native element', () => {
-    expect(tester.svg.nativeElement).toBe(tester.nativeElement.querySelector('#s1'));
+    expect(tester.svg.nativeElement).toBe(tester.nativeElement.querySelector('#s1')!);
   });
 
   it('should expose the debug element', () => {
@@ -163,7 +159,7 @@ describe('TestElement', () => {
 
     it('should select existing input', () => {
       expect(parent.input('#input')).toBeInstanceOf(TestInput);
-      expect(parent.input('#input').attr('id')).toBe('input');
+      expect(parent.input('#input')!.attr('id')).toBe('input');
     });
 
     it('should select unexisting input', () => {
@@ -176,7 +172,7 @@ describe('TestElement', () => {
 
     it('should select existing button', () => {
       expect(parent.button('#button')).toBeInstanceOf(TestButton);
-      expect(parent.button('#button').attr('id')).toBe('button');
+      expect(parent.button('#button')!.attr('id')).toBe('button');
     });
 
     it('should select unexisting button', () => {
@@ -189,7 +185,7 @@ describe('TestElement', () => {
 
     it('should select existing select', () => {
       expect(parent.select('#select')).toBeInstanceOf(TestSelect);
-      expect(parent.select('#select').attr('id')).toBe('select');
+      expect(parent.select('#select')!.attr('id')).toBe('select');
     });
 
     it('should select unexisting select', () => {
@@ -202,7 +198,7 @@ describe('TestElement', () => {
 
     it('should select existing textarea', () => {
       expect(parent.textarea('#textarea')).toBeInstanceOf(TestTextArea);
-      expect(parent.textarea('#textarea').attr('id')).toBe('textarea');
+      expect(parent.textarea('#textarea')!.attr('id')).toBe('textarea');
     });
 
     it('should select unexisting textarea', () => {
@@ -219,7 +215,7 @@ describe('TestElement', () => {
     });
 
     it('should support complex queries', () => {
-      expect(parent.select('div:first-of-type select[name=foo]').nativeElement).toBe(tester.select('#select').nativeElement);
+      expect(parent.select('div:first-of-type select[name=foo]')!.nativeElement).toBe(tester.select('#select')!.nativeElement);
       expect(parent.select('div:first-of-type select[name=bar]')).toBeNull();
     });
   });
@@ -233,7 +229,7 @@ describe('TestElement', () => {
 
     it('should select existing textarea', () => {
       expect(parent.textarea(TestDirective)).toBeInstanceOf(TestTextArea);
-      expect(parent.textarea(TestDirective).attr('id')).toBe('textarea2');
+      expect(parent.textarea(TestDirective)!.attr('id')).toBe('textarea2');
     });
 
     it('should throw when selecting input that is not an input', () => {
@@ -257,9 +253,9 @@ describe('TestElement', () => {
       const components = parent.components(SubComponent);
       expect(components.length).toBe(2);
       expect(components[0]).toBeInstanceOf(SubComponent);
-      expect(components[0].sub).toBe('sub1');
+      expect(components[0].sub()).toBe('sub1');
       expect(components[1]).toBeInstanceOf(SubComponent);
-      expect(components[1].sub).toBe('sub2');
+      expect(components[1].sub()).toBe('sub2');
     });
   });
 
@@ -273,44 +269,44 @@ describe('TestElement', () => {
     it('should query token by type', () => {
       const directive = parent.token(SubComponent, TestDirective);
       expect(directive).toBeInstanceOf(TestDirective);
-      expect(directive.value).toBe('b');
+      expect(directive!.value()).toBe('b');
     });
 
     it('should query multiple tokens by type', () => {
       const directives = parent.tokens(SubComponent, TestDirective);
       expect(directives.length).toBe(2);
       expect(directives[0]).toBeInstanceOf(TestDirective);
-      expect(directives[0]?.value).toBe('b');
+      expect(directives[0]?.value()).toBe('b');
       expect(directives[1]).toBeNull();
     });
 
     it('should query token by CSS', () => {
       const directive = parent.token('lib-sub', TestDirective);
       expect(directive).toBeInstanceOf(TestDirective);
-      expect(directive.value).toBe('b');
+      expect(directive!.value()).toBe('b');
     });
 
     it('should query multiple tokens by CSS', () => {
       const directives = parent.tokens('lib-sub', TestDirective);
       expect(directives.length).toBe(2);
       expect(directives[0]).toBeInstanceOf(TestDirective);
-      expect(directives[0]?.value).toBe('b');
+      expect(directives[0]?.value()).toBe('b');
       expect(directives[1]).toBeNull();
     });
 
     it('should query directive', () => {
       const directive = parent.token(TestDirective, TestDirective);
       expect(directive).toBeInstanceOf(TestDirective);
-      expect(directive.value).toBe('a');
+      expect(directive!.value()).toBe('a');
     });
 
     it('should query multiple directive', () => {
       const directives = parent.tokens(TestDirective, TestDirective);
       expect(directives.length).toBe(2);
       expect(directives[0]).toBeInstanceOf(TestDirective);
-      expect(directives[0]?.value).toBe('a');
+      expect(directives[0]?.value()).toBe('a');
       expect(directives[1]).toBeInstanceOf(TestDirective);
-      expect(directives[1]?.value).toBe('b');
+      expect(directives[1]?.value()).toBe('b');
     });
   });
 
@@ -318,13 +314,13 @@ describe('TestElement', () => {
     it(`should create custom test element`, () => {
       expect(tester.datepicker).toBeInstanceOf(TestDatepicker);
       tester.datepicker.setDate(2022, 10, 11);
-      expect(tester.datepicker.inputField.value).toBe('2022-10-11');
+      expect(tester.datepicker.inputField!.value).toBe('2022-10-11');
     });
 
     it(`should create custom test elements`, () => {
       expect(tester.datepickers.length).toBe(1);
       tester.datepickers[0].setDate(2022, 10, 11);
-      expect(tester.datepickers[0].inputField.value).toBe('2022-10-11');
+      expect(tester.datepickers[0].inputField!.value).toBe('2022-10-11');
     });
   });
 });
