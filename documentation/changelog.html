@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -62,9 +62,11 @@
                toggleDarkMode(darkModeState);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="./" class="navbar-brand">ngx-speculoos documentation</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">ngx-speculoos documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -73,7 +75,7 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
@@ -81,7 +83,21 @@
                    <div class="content-data">
 
 <h1>Changelog</h1>
-<p>All notable changes to this project will be documented in this file. See <a href="https://github.com/conventional-changelog/standard-version">standard-version</a> for commit guidelines.</p>
+<p>All notable changes to this project will be documented in this file. See <a href="https://github.com/absolute-version/commit-and-tag-version">commit-and-tag-version</a> for commit guidelines.</p>
+<h2><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v12.0.1...v13.0.0">13.0.0</a> (2024-12-06)</h2>
+<h3>⚠ BREAKING CHANGES</h3>
+<ul>
+<li>ngx-speculoos now allows running test in <em>automatic</em> mode. In this mode,
+instead of imperatively triggering a change detection, you await the stability
+and thus let Angular decide if a CD is necessary or not.
+See the &quot;Upgrading to v13&quot; section of the README for details.</li>
+<li>ngx-speculoos is now based on Angular 19.x. If you want to use it with an older version of Angular, then stick to a previous version of <code>ngx-speculoos</code></li>
+</ul>
+<h3>Features</h3>
+<ul>
+<li>provide a way to run tests in automatic mode (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/758ff9c8f7f1b0a08e44e0fe6dc2f39e2d2014d2">758ff9c</a>)</li>
+<li>upgrade to angular and cli 19 (<a href="https://github.com/Ninja-Squad/ngx-speculoos/commit/aac3132816f46519afd3cd1c1e9afd9653db1e37">aac3132</a>)</li>
+</ul>
 <h3><a href="https://github.com/Ninja-Squad/ngx-speculoos/compare/v12.0.0...v12.0.1">12.0.1</a> (2024-05-27)</h3>
 <h3>Bug Fixes</h3>
 <ul>
@@ -367,7 +383,6 @@ Future versions are not guaranteed to support Angular 6, though. We encourage yo
        <script src="./js/libs/es6-shim.min.js"></script>
        <script src="./js/libs/EventDispatcher.js"></script>
        <script src="./js/libs/promise.min.js"></script>
-       <script src="./js/libs/zepto.min.js"></script>
 
        <script src="./js/compodoc.js"></script>
 

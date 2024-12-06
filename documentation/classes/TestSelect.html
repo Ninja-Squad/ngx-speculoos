@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -62,9 +62,11 @@
                toggleDarkMode(darkModeState);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">ngx-speculoos documentation</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">ngx-speculoos documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -73,7 +75,7 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
@@ -161,6 +163,7 @@
                                 <a href="#selectValue" >selectValue</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#click" >click</a>
                             </li>
                             <li>
@@ -182,9 +185,11 @@
                                 <a href="#customs" >customs</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#dispatchEvent" >dispatchEvent</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#dispatchEventOfType" >dispatchEventOfType</a>
                             </li>
                             <li>
@@ -379,7 +384,7 @@ If the index is out of bounds and is not -1, then throws an error.</p>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                         </div>
                             <div class="io-description">
@@ -449,7 +454,7 @@ If there is no option with the given label, then throws an error.</p>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                         </div>
                             <div class="io-description">
@@ -519,7 +524,7 @@ If there is no option with the given value, then throws an error.</p>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                         </div>
                             <div class="io-description">
@@ -535,6 +540,7 @@ If there is no option with the given value, then throws an error.</p>
                 <td class="col-md-4">
                     <a name="click"></a>
                     <span class="name">
+                            <span class="modifier">Async</span>
                         <span ><b>click</b></span>
                         <a href="#click"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -542,7 +548,8 @@ If there is no option with the given value, then throws an error.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>click()</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>click()</code>
                 </td>
             </tr>
 
@@ -567,7 +574,7 @@ If there is no option with the given value, then throws an error.</p>
 </div>
 
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                         </div>
                 </td>
@@ -1129,6 +1136,7 @@ custom elements or components.</p>
                 <td class="col-md-4">
                     <a name="dispatchEvent"></a>
                     <span class="name">
+                            <span class="modifier">Async</span>
                         <span ><b>dispatchEvent</b></span>
                         <a href="#dispatchEvent"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -1136,7 +1144,8 @@ custom elements or components.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>dispatchEvent(event: Event)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>dispatchEvent(event: Event)</code>
                 </td>
             </tr>
 
@@ -1188,7 +1197,7 @@ custom elements or components.</p>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                         </div>
                             <div class="io-description">
@@ -1204,6 +1213,7 @@ custom elements or components.</p>
                 <td class="col-md-4">
                     <a name="dispatchEventOfType"></a>
                     <span class="name">
+                            <span class="modifier">Async</span>
                         <span ><b>dispatchEventOfType</b></span>
                         <a href="#dispatchEventOfType"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -1211,7 +1221,8 @@ custom elements or components.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>dispatchEventOfType(type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>dispatchEventOfType(type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -1263,7 +1274,7 @@ custom elements or components.</p>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                         </div>
                             <div class="io-description">
@@ -2176,22 +2187,22 @@ export class TestSelect extends TestHtmlElement&lt;HTMLSelectElement&gt; {
    * Selects the option at the given index, then dispatches an event of type change and triggers a change detection.
    * If the index is out of bounds and is not -1, then throws an error.
    */
-  selectIndex(index: number): void {
+  selectIndex(index: number): Promise&lt;void&gt; {
     if (index &lt; -1 || index &gt;&#x3D; this.nativeElement.options.length) {
       throw new Error(&#x60;The index ${index} is out of bounds&#x60;);
     }
     this.nativeElement.selectedIndex &#x3D; index;
-    this.dispatchEventOfType(&#x27;change&#x27;);
+    return this.dispatchEventOfType(&#x27;change&#x27;);
   }
 
   /**
    * Selects the first option with the given value, then dispatches an event of type change and triggers a change detection.
    * If there is no option with the given value, then throws an error.
    */
-  selectValue(value: string): void {
+  selectValue(value: string): Promise&lt;void&gt; {
     const index &#x3D; this.optionValues.indexOf(value);
     if (index &gt;&#x3D; 0) {
-      this.selectIndex(index);
+      return this.selectIndex(index);
     } else {
       throw new Error(&#x60;The value ${value} is not part of the option values (${this.optionValues.join(&#x27;, &#x27;)})&#x60;);
     }
@@ -2201,10 +2212,10 @@ export class TestSelect extends TestHtmlElement&lt;HTMLSelectElement&gt; {
    * Selects the first option with the given label (or text), then dispatches an event of type change and triggers a change detection.
    * If there is no option with the given label, then throws an error.
    */
-  selectLabel(label: string): void {
+  selectLabel(label: string): Promise&lt;void&gt; {
     const index &#x3D; this.optionLabels.indexOf(label);
     if (index &gt;&#x3D; 0) {
-      this.selectIndex(index);
+      return this.selectIndex(index);
     } else {
       throw new Error(&#x60;The label ${label} is not part of the option labels (${this.optionLabels.join(&#x27;, &#x27;)})&#x60;);
     }
@@ -2331,7 +2342,6 @@ export class TestSelect extends TestHtmlElement&lt;HTMLSelectElement&gt; {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

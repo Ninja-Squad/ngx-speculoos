@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -62,9 +62,11 @@
                toggleDarkMode(darkModeState);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">ngx-speculoos documentation</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">ngx-speculoos documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -73,7 +75,7 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
@@ -151,6 +153,10 @@ most used properties and methods. It also allows getting elements wrapped in Tes
                             </li>
                             <li>
                                     <span class="modifier">Readonly</span>
+                                <a href="#mode" >mode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
                                 <a href="#testElement" >testElement</a>
                             </li>
                         </ul>
@@ -167,6 +173,10 @@ most used properties and methods. It also allows getting elements wrapped in Tes
                         <ul class="index-list">
                             <li>
                                 <a href="#button" >button</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#change" >change</a>
                             </li>
                             <li>
                                 <a href="#component" >component</a>
@@ -309,7 +319,7 @@ most used properties and methods. It also allows getting elements wrapped in Tes
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/lib/component-tester.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/lib/component-tester.ts:40</a></div>
                             </td>
                         </tr>
 
@@ -401,6 +411,39 @@ have been set on the component instance.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="mode"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>mode</b></span>
+                        <a href="#mode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;imperative&quot; | &quot;automatic&quot;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/lib/component-tester.ts:32</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The mode used by the ComponentTester</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="testElement"></a>
                     <span class="name">
                             <span class="modifier">Readonly</span>
@@ -457,8 +500,8 @@ have been set on the component instance.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="331"
-                                    class="link-to-prism">src/lib/component-tester.ts:331</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="338"
+                                    class="link-to-prism">src/lib/component-tester.ts:338</a></div>
                         </td>
                     </tr>
 
@@ -516,6 +559,48 @@ have been set on the component instance.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="change"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>change</b></span>
+                        <a href="#change"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>change()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="414"
+                                    class="link-to-prism">src/lib/component-tester.ts:414</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>In imperative mode, runs change detection.
+In implicit mode, awaits stability.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="component"></a>
                     <span class="name">
                         <span ><b>component</b></span>
@@ -532,8 +617,8 @@ have been set on the component instance.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="339"
-                                    class="link-to-prism">src/lib/component-tester.ts:339</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="346"
+                                    class="link-to-prism">src/lib/component-tester.ts:346</a></div>
                         </td>
                     </tr>
 
@@ -614,8 +699,8 @@ have been set on the component instance.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="347"
-                                    class="link-to-prism">src/lib/component-tester.ts:347</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="354"
+                                    class="link-to-prism">src/lib/component-tester.ts:354</a></div>
                         </td>
                     </tr>
 
@@ -698,8 +783,8 @@ have been set on the component instance.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="32"
-                                    class="link-to-prism">src/lib/component-tester.ts:32</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="37"
+                                    class="link-to-prism">src/lib/component-tester.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -775,8 +860,8 @@ have been set on the component instance.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="376"
-                                    class="link-to-prism">src/lib/component-tester.ts:376</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="383"
+                                    class="link-to-prism">src/lib/component-tester.ts:383</a></div>
                         </td>
                     </tr>
 
@@ -875,8 +960,8 @@ custom elements or components.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="387"
-                                    class="link-to-prism">src/lib/component-tester.ts:387</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="394"
+                                    class="link-to-prism">src/lib/component-tester.ts:394</a></div>
                         </td>
                     </tr>
 
@@ -975,15 +1060,17 @@ custom elements or components.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="394"
-                                    class="link-to-prism">src/lib/component-tester.ts:394</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="403"
+                                    class="link-to-prism">src/lib/component-tester.ts:403</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Triggers a change detection using the wrapped fixture</p>
+                        <div class="io-description"><p>Triggers a change detection using the wrapped fixture in imperative mode.
+Throws an error in autodetection mode.
+You should generally prever</p>
 </div>
 
                             <div class="io-description">
@@ -1044,8 +1131,8 @@ custom elements or components.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="85"
-                                    class="link-to-prism">src/lib/component-tester.ts:85</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="92"
+                                    class="link-to-prism">src/lib/component-tester.ts:92</a></div>
                         </td>
                     </tr>
 
@@ -1133,8 +1220,8 @@ const testElement: TestHtmlElement&lt;HTMLDivElement> | null = tester.element('d
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="97"
-                                    class="link-to-prism">src/lib/component-tester.ts:97</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="104"
+                                    class="link-to-prism">src/lib/component-tester.ts:104</a></div>
                         </td>
                     </tr>
 
@@ -1222,8 +1309,8 @@ const testElement: TestElement&lt;SVGLineElement> | null = tester.element('line'
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="109"
-                                    class="link-to-prism">src/lib/component-tester.ts:109</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="116"
+                                    class="link-to-prism">src/lib/component-tester.ts:116</a></div>
                         </td>
                     </tr>
 
@@ -1303,8 +1390,8 @@ const testElement: TestElement | null = tester.element('.selector');
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="121"
-                                    class="link-to-prism">src/lib/component-tester.ts:121</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="128"
+                                    class="link-to-prism">src/lib/component-tester.ts:128</a></div>
                         </td>
                     </tr>
 
@@ -1392,8 +1479,8 @@ const testElement: TestInput | null = tester.element&lt;HTMLInputElement>('.sele
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="133"
-                                    class="link-to-prism">src/lib/component-tester.ts:133</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="140"
+                                    class="link-to-prism">src/lib/component-tester.ts:140</a></div>
                         </td>
                     </tr>
 
@@ -1481,8 +1568,8 @@ const testElement: TestTextArea | null = tester.element&lt;HTMLTextAreaElement>(
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="145"
-                                    class="link-to-prism">src/lib/component-tester.ts:145</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="152"
+                                    class="link-to-prism">src/lib/component-tester.ts:152</a></div>
                         </td>
                     </tr>
 
@@ -1570,8 +1657,8 @@ const testElement: TestSelect | null = tester.element&lt;HTMLSelectElement>('.se
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="157"
-                                    class="link-to-prism">src/lib/component-tester.ts:157</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="164"
+                                    class="link-to-prism">src/lib/component-tester.ts:164</a></div>
                         </td>
                     </tr>
 
@@ -1659,8 +1746,8 @@ const testElement: TestButton | null = tester.element&lt;HTMLButtonElement>('.se
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="169"
-                                    class="link-to-prism">src/lib/component-tester.ts:169</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="176"
+                                    class="link-to-prism">src/lib/component-tester.ts:176</a></div>
                         </td>
                     </tr>
 
@@ -1748,8 +1835,8 @@ const testElement: TestHtmlElement&lt;HTMLDivElement> | null = tester.element&lt
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="181"
-                                    class="link-to-prism">src/lib/component-tester.ts:181</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="188"
+                                    class="link-to-prism">src/lib/component-tester.ts:188</a></div>
                         </td>
                     </tr>
 
@@ -1837,8 +1924,8 @@ const testElement: TestElement&lt;SVGLineElement> | null = tester.element&lt;SVG
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="182"
-                                    class="link-to-prism">src/lib/component-tester.ts:182</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="189"
+                                    class="link-to-prism">src/lib/component-tester.ts:189</a></div>
                         </td>
                     </tr>
 
@@ -1904,8 +1991,8 @@ const testElement: TestElement&lt;SVGLineElement> | null = tester.element&lt;SVG
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="197"
-                                    class="link-to-prism">src/lib/component-tester.ts:197</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="204"
+                                    class="link-to-prism">src/lib/component-tester.ts:204</a></div>
                         </td>
                     </tr>
 
@@ -1993,8 +2080,8 @@ const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elemen
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="209"
-                                    class="link-to-prism">src/lib/component-tester.ts:209</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="216"
+                                    class="link-to-prism">src/lib/component-tester.ts:216</a></div>
                         </td>
                     </tr>
 
@@ -2082,8 +2169,8 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements('
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="221"
-                                    class="link-to-prism">src/lib/component-tester.ts:221</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="228"
+                                    class="link-to-prism">src/lib/component-tester.ts:228</a></div>
                         </td>
                     </tr>
 
@@ -2163,8 +2250,8 @@ const testElements: Array&lt;TestElement> = tester.elements('.selector');
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="233"
-                                    class="link-to-prism">src/lib/component-tester.ts:233</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="240"
+                                    class="link-to-prism">src/lib/component-tester.ts:240</a></div>
                         </td>
                     </tr>
 
@@ -2252,8 +2339,8 @@ const testElements: Array&lt;TestInput> = tester.elements&lt;HTMLInputElement>('
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="245"
-                                    class="link-to-prism">src/lib/component-tester.ts:245</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="252"
+                                    class="link-to-prism">src/lib/component-tester.ts:252</a></div>
                         </td>
                     </tr>
 
@@ -2341,8 +2428,8 @@ const testElements: Array&lt;TestTextArea> = tester.elements&lt;HTMLTextAreaElem
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="257"
-                                    class="link-to-prism">src/lib/component-tester.ts:257</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="264"
+                                    class="link-to-prism">src/lib/component-tester.ts:264</a></div>
                         </td>
                     </tr>
 
@@ -2430,8 +2517,8 @@ const testElements: Array&lt;TestButton> = tester.elements&lt;HTMLButtonElement>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="269"
-                                    class="link-to-prism">src/lib/component-tester.ts:269</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="276"
+                                    class="link-to-prism">src/lib/component-tester.ts:276</a></div>
                         </td>
                     </tr>
 
@@ -2519,8 +2606,8 @@ const testElements: Array&lt;TestSelect> = tester.elements<HTMLSelectElement>('.
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="281"
-                                    class="link-to-prism">src/lib/component-tester.ts:281</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="288"
+                                    class="link-to-prism">src/lib/component-tester.ts:288</a></div>
                         </td>
                     </tr>
 
@@ -2608,8 +2695,8 @@ const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elemen
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="293"
-                                    class="link-to-prism">src/lib/component-tester.ts:293</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="300"
+                                    class="link-to-prism">src/lib/component-tester.ts:300</a></div>
                         </td>
                     </tr>
 
@@ -2697,8 +2784,8 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="294"
-                                    class="link-to-prism">src/lib/component-tester.ts:294</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="301"
+                                    class="link-to-prism">src/lib/component-tester.ts:301</a></div>
                         </td>
                     </tr>
 
@@ -2764,8 +2851,8 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="303"
-                                    class="link-to-prism">src/lib/component-tester.ts:303</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="310"
+                                    class="link-to-prism">src/lib/component-tester.ts:310</a></div>
                         </td>
                     </tr>
 
@@ -2839,8 +2926,8 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="312"
-                                    class="link-to-prism">src/lib/component-tester.ts:312</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="319"
+                                    class="link-to-prism">src/lib/component-tester.ts:319</a></div>
                         </td>
                     </tr>
 
@@ -2916,15 +3003,15 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="401"
-                                    class="link-to-prism">src/lib/component-tester.ts:401</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="425"
+                                    class="link-to-prism">src/lib/component-tester.ts:425</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Delegates to the wrapped fixture whenStable and then detect changes</p>
+                        <div class="io-description"><p>Delegates to the wrapped fixture whenStable and, in imperative mode, detect changes</p>
 </div>
 
                         <div class="io-description">
@@ -2955,8 +3042,8 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="322"
-                                    class="link-to-prism">src/lib/component-tester.ts:322</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="329"
+                                    class="link-to-prism">src/lib/component-tester.ts:329</a></div>
                         </td>
                     </tr>
 
@@ -3030,8 +3117,8 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="356"
-                                    class="link-to-prism">src/lib/component-tester.ts:356</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="363"
+                                    class="link-to-prism">src/lib/component-tester.ts:363</a></div>
                         </td>
                     </tr>
 
@@ -3128,8 +3215,8 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="365"
-                                    class="link-to-prism">src/lib/component-tester.ts:365</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="372"
+                                    class="link-to-prism">src/lib/component-tester.ts:372</a></div>
                         </td>
                     </tr>
 
@@ -3232,7 +3319,7 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/lib/component-tester.ts:56</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/lib/component-tester.ts:63</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -3265,7 +3352,7 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/lib/component-tester.ts:63</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/lib/component-tester.ts:70</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -3298,7 +3385,7 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/lib/component-tester.ts:70</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/lib/component-tester.ts:77</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -3320,7 +3407,7 @@ const testElements: Array&lt;TestElement&lt;SVGLineElement>> = tester.elements&l
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ComponentFixture, TestBed } from &#x27;@angular/core/testing&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ComponentFixture, ComponentFixtureAutoDetect, TestBed } from &#x27;@angular/core/testing&#x27;;
 import { DebugElement, ProviderToken, Type } from &#x27;@angular/core&#x27;;
 import { TestTextArea } from &#x27;./test-textarea&#x27;;
 import { TestElement } from &#x27;./test-element&#x27;;
@@ -3347,6 +3434,11 @@ export class ComponentTester&lt;C&gt; {
   readonly fixture: ComponentFixture&lt;C&gt;;
 
   /**
+   * The mode used by the ComponentTester
+   */
+  readonly mode: &#x27;imperative&#x27; | &#x27;automatic&#x27;;
+
+  /**
    * Creates a component fixture of the given type with the TestBed and wraps it into a ComponentTester
    */
   static create&lt;C&gt;(componentType: Type&lt;C&gt;): ComponentTester&lt;C&gt; {
@@ -3367,7 +3459,9 @@ export class ComponentTester&lt;C&gt; {
    */
   constructor(arg: Type&lt;C&gt; | ComponentFixture&lt;C&gt;) {
     this.fixture &#x3D; arg instanceof ComponentFixture ? arg : TestBed.createComponent(arg);
+    const autoDetect &#x3D; TestBed.inject(ComponentFixtureAutoDetect, false);
     this.testElement &#x3D; TestElementQuerier.wrap(this.debugElement, this) as TestElement&lt;HTMLElement&gt;;
+    this.mode &#x3D; autoDetect ? &#x27;automatic&#x27; : &#x27;imperative&#x27;;
   }
 
   /**
@@ -3709,18 +3803,37 @@ export class ComponentTester&lt;C&gt; {
   }
 
   /**
-   * Triggers a change detection using the wrapped fixture
+   * Triggers a change detection using the wrapped fixture in imperative mode.
+   * Throws an error in autodetection mode.
+   * You should generally prever
    */
   detectChanges(checkNoChanges?: boolean): void {
+    if (this.mode &#x3D;&#x3D;&#x3D; &#x27;automatic&#x27;) {
+      throw new Error(&#x27;In automatic mode, you should not call detectChanges&#x27;);
+    }
     this.fixture.detectChanges(checkNoChanges);
   }
 
   /**
-   * Delegates to the wrapped fixture whenStable and then detect changes
+   * In imperative mode, runs change detection.
+   * In implicit mode, awaits stability.
+   */
+  async change() {
+    if (this.mode &#x3D;&#x3D;&#x3D; &#x27;automatic&#x27;) {
+      await this.stable();
+    } else {
+      this.fixture.detectChanges();
+    }
+  }
+
+  /**
+   * Delegates to the wrapped fixture whenStable and, in imperative mode, detect changes
    */
   async stable(): Promise&lt;void&gt; {
     await this.fixture.whenStable();
-    this.detectChanges();
+    if (this.mode &#x3D;&#x3D;&#x3D; &#x27;imperative&#x27;) {
+      this.detectChanges();
+    }
   }
 }
 </code></pre>
@@ -3789,7 +3902,6 @@ export class ComponentTester&lt;C&gt; {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

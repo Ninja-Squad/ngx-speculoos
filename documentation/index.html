@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -62,9 +62,11 @@
                toggleDarkMode(darkModeState);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="./" class="navbar-brand">ngx-speculoos documentation</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">ngx-speculoos documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -73,7 +75,7 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
@@ -98,6 +100,7 @@ how to write Angular unit tests.</p>
 </li>
 <li><a href="#features-in-details">Features in details</a><ul>
 <li><a href="#componenttester">ComponentTester</a></li>
+<li><a href="#automatic-change-detection">Automatic change detection</a></li>
 <li><a href="#queries">Queries</a><ul>
 <li><a href="#queries-for-elements">Queries for elements</a></li>
 <li><a href="#css-and-type-selectors">CSS and Type selectors</a></li>
@@ -125,6 +128,7 @@ how to write Angular unit tests.</p>
 </li>
 <li><a href="#issues-questions">Issues, questions</a></li>
 <li><a href="#complete-example">Complete example</a></li>
+<li><a href="#upgrading-to-v13">Upgrading to v13</a></li>
 </ul>
 <h2>Quick presentation</h2>
 <h3>Why should you care?</h3>
@@ -239,12 +243,71 @@ an instance of your component tester.</p>
     });
     
     tester = new MyComponentTester();
-    tester.detectChanges();
+    tester.change();
   });
   
   it(&#39;should ...&#39;, () =&gt; {
     
-  });</code></pre></div><h3>Queries</h3>
+  });</code></pre></div><h3>Automatic change detection</h3>
+<p>The future of Angular is zoneless. Without ZoneJS, components have to make sure to properly notify
+Angular that they must be checked for changes, typically by updating signals.
+Instead of imperatively triggering change detections in tests, it&#39;s thus a better idea to let
+Angular decide if change detection must be run, in order to spot bugs where the component doesn&#39;t
+properly handle its state changes.</p>
+<p>This can be done by:</p>
+<ul>
+<li>adding a provider in the testing module to configure the fixtures to be in <em>automatic</em> mode</li>
+<li>awaiting the component fixture stability when the test <em>thinks</em> that a change detection should
+automatically happen.</li>
+</ul>
+<p>When the <code>provideAutomaticChangeDetection()</code> provider is added, the <code>ComponentTester</code> will run in
+<em>automatic</em> mode. In this mode, calling <code>detectChanges()</code> throws an error, because you should always
+let Angular decide if change detection is necessary.</p>
+<p>Here&#39;s an example of a test that uses this technique:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">class AppComponentTester extends ComponentTester&lt;AppComponent&gt; {
+  constructor() {
+    super(AppComponent);
+  }
+
+  get incrementButton() {
+    return this.button(&#39;button&#39;);
+  }
+
+  get count() {
+    return this.element(&#39;#count&#39;);
+  }
+}
+
+describe(&#39;AppComponent&#39;, () =&gt; {
+  let tester: AppComponentTester;
+
+  beforeEach(async () =&gt; {
+    TestBed.configureTestingModule({
+      providers: [
+        provideComponentFixtureAutoDetection(),
+        provideExperimentalZonelessChangeDetection() // if you already uses zoneless also add this provider
+      ]
+    });
+
+    jasmine.addMatchers(speculoosMatchers);
+    
+    tester = new AppComponentTester();
+    // a first call to change() is necessary to let Angular run its first change detection
+    await tester.change();
+  });
+
+  it(&#39;should display the counter value and increment it&#39;, async () =&gt; {
+    expect(tester.count).toHaveText(&#39;0&#39;);
+    
+    // this clicks the button and then lets Angular decide if a CD is necessary, and waits until
+    // the DOM has been updated (or not)
+    await tester.incrementButton.click();
+    
+    expect(tester.count).toHaveText(&#39;1&#39;);
+  });
+});</code></pre></div><p>In <em>automatic</em> mode, your test functions should be <code>async</code>, and each action you do with the elements
+(<code>click()</code>, <code>dispatchEvent</code>, etc.) should be awaited.</p>
+<h3>Queries</h3>
 <h4>Queries for elements</h4>
 <p>Most of the queries that ngx-speculoos supports are used to query for DOM elements. The queries, however,
 don&#39;t actually returns native DOM elements, but wrappers around them, which are instances of <code>TestElement</code>.</p>
@@ -311,23 +374,29 @@ takes a <code>ComponentTester</code> as first argument, and a <code>DebugElement
     return this.input(&#39;input&#39;);
   }
 
-  setDate(year: number, month: number, day: number) {
-    this.inputField.fillWith(`${year}-${month}-${day}`);
+  async setDate(year: number, month: number, day: number) {
+    await this.inputField.fillWith(`${year}-${month}-${day}`);
   }
 
-  toggleDropdown() {
-    this.button(&#39;button&#39;).click();
+  async toggleDropdown() {
+    await this.button(&#39;button&#39;).click();
   }
 }</code></pre></div><p>Once you have created that class, you can use the <code>custom()</code> and <code>customs()</code> methods, using any selector,
 to get instances of your custom `TestElement``</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">get birthDate() {
   return this.custom(&#39;#birth-date&#39;, TestDatepicker);
-}</code></pre></div><b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">it(&#39;should not save if birth date is in the future&#39;) {
+}</code></pre></div><b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">it(&#39;should not save if birth date is in the future&#39;, () =&gt;) {
   // ...
   tester.birthDate.setDate(2200, 1, 1);
   tester.save.click();
   expect(userService.create).not.toHaveBenCalled();
-}</code></pre></div><h4>Subqueries</h4>
+});</code></pre></div><p>or, in <em>automatic</em> mode</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">it(&#39;should not save if birth date is in the future&#39;), async () =&gt; {
+  // ...
+  await tester.birthDate.setDate(2200, 1, 1);
+  await tester.save.click();
+  expect(userService.create).not.toHaveBenCalled();
+});</code></pre></div><h4>Subqueries</h4>
 <p>A query is made from the root <code>ComponentTester</code>. But <code>TestElement</code> themselves also support queries.
 So you can query for a parent <code>TestElement</code>, and then use it to perform subqueries:</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">get cardEditButton() {
@@ -508,9 +577,9 @@ class HostComponentTester extends ComponentTester&lt;HostComponent&gt; {
 the component under test using <code>userComponent()</code>, and any element of the component under test
 using the usual queries.</p>
 <h2>Gotchas</h2>
-<h3>When do I need to call <code>detectChanges()</code>?</h3>
-<p>Any event dispatched through a <code>TestElement</code> automatically calls <code>detectChanges()</code> for you.
-But you still need to call <code>detectChanges()</code> by yourself in the other cases:</p>
+<h3>When do I need to call <code>change</code> or <code>detectChanges()</code>?</h3>
+<p>In <em>imperative</em> mode, any event dispatched through a <code>TestElement</code> automatically calls <code>detectChanges()</code> for you.
+But you still need to call <code>change()</code> or <code>detectChanges()</code> by yourself in the other cases:</p>
 <ul>
 <li>to actually initialize your component. Sometimes, you want to configure some mocks before the <code>ngOnInit()</code>
 method of your component is called. That&#39;s why creating a <code>ComponentTester</code> does not automatically call
@@ -520,13 +589,57 @@ just as when using a <code>ComponentFixture</code> directly.</li>
 by changing the state, or emitting an event through a subject, or triggering a navigation
 from the <code>ActivatedRouteStub</code></li>
 </ul>
+<p>Note that, in <em>imperative</em> mode, <code>change()</code> calls <code>detectChanges()</code>. So you can call either one of the other
+when you want to trigger a change detection.</p>
+<p>In <em>automatic</em> mode, any event dispatched through a <code>TestElement</code> automatically calls <code>await change()</code> for you.
+But you still need to call <code>await change()</code> by yourself in the same other cases as in the <em>imperative</em> mode:</p>
+<ul>
+<li>to actually initialize your component. </li>
+<li>to force change detection once you&#39;ve changed the state of your component without dispatching an event.</li>
+</ul>
 <h3>Can I use the <code>TestElement</code> methods to act on the component element itself, rather than a sub-element?</h3>
 <p>Yes. The <code>ComponentTester</code> has a <code>testElement</code> property, which is the <code>TestHtmlElement</code> wrapping the component&#39;s element.</p>
 <h2>Issues, questions</h2>
 <p>Please, provide feedback by filing issues, or by submitting pull requests, to the <a href="https://github.com/Ninja-Squad/ngx-speculoos">Github Project</a>.</p>
 <h2>Complete example</h2>
 <p>You can look at a minimal complete example in the <a href="https://github.com/Ninja-Squad/ngx-speculoos/tree/master/projects/demo/src/app">demo</a> project.</p>
-
+<h2>Upgrading to v13</h2>
+<p>Version 13 of <code>ngx-speculoos</code> introduces the <em>automatic</em> mode, consisting in using automatic change detection
+instead of imperatively running change detections. See the <a href="#automatic-change-detection">Automatic change detection</a>
+section above for details.</p>
+<p>As a result, all the methods that used to call <code>detectChanges()</code> for you now return a <code>Promise</code> instead of returning
+<code>void</code>. In <em>imperative</em> mode (the default), they are in fact synchronous and call <code>detectChanges()</code>, just as before.
+In <em>automatic</em> mode however, they call <code>await change()</code> and should thus be awaited.</p>
+<p>Your tests should generally keep compiling and running without changes. 
+But if you created custom test elements which override methods that now return a promise, and return something 
+other than <code>void</code>, for example:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">class CustomInput extends TestInput {
+  //...
+  fillWith(s: string): CustomInput {
+    super.fillWith(s);
+    return this;
+  }
+}</code></pre></div><p>Then that won&#39;t compile anymore.</p>
+<p>And in general, if you want your custom test element to be usable in both modes, all their method that explicitly
+or indirectly called <code>detectChanges()</code> should now return a promise and explicitly of indirectly call <code>await change()</code>.
+For example:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">class CustomInput extends TestHtmlElement {
+  //...
+  async fillInput(s: string): Promise&lt;void&gt; {
+    await this.element(&#39;input&#39;).fillWith(s);
+    // ...
+  }
+  
+  async clickButton(): Promise&lt;void&gt; {
+    await this.element(&#39;button&#39;).click();
+    // ...
+  } 
+  
+  async changeState(): Promise&lt;void&gt; {
+    this.component(Foo).doSomething();
+    await this.change();
+  }
+}</code></pre></div>
 
 
 
@@ -601,7 +714,6 @@ from the <code>ActivatedRouteStub</code></li>
        <script src="./js/libs/es6-shim.min.js"></script>
        <script src="./js/libs/EventDispatcher.js"></script>
        <script src="./js/libs/promise.min.js"></script>
-       <script src="./js/libs/zepto.min.js"></script>
 
        <script src="./js/compodoc.js"></script>
 

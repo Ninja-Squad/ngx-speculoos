@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -62,9 +62,11 @@
                toggleDarkMode(darkModeState);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">ngx-speculoos documentation</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">ngx-speculoos documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -73,7 +75,7 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
@@ -152,6 +154,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#click" >click</a>
                             </li>
                             <li>
@@ -173,9 +176,11 @@
                                 <a href="#customs" >customs</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#dispatchEvent" >dispatchEvent</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#dispatchEventOfType" >dispatchEventOfType</a>
                             </li>
                             <li>
@@ -298,6 +303,7 @@
                 <td class="col-md-4">
                     <a name="click"></a>
                     <span class="name">
+                            <span class="modifier">Async</span>
                         <span ><b>click</b></span>
                         <a href="#click"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -305,7 +311,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>click()</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>click()</code>
                 </td>
             </tr>
 
@@ -324,7 +331,7 @@
 </div>
 
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                         </div>
                 </td>
@@ -886,6 +893,7 @@ custom elements or components.</p>
                 <td class="col-md-4">
                     <a name="dispatchEvent"></a>
                     <span class="name">
+                            <span class="modifier">Async</span>
                         <span ><b>dispatchEvent</b></span>
                         <a href="#dispatchEvent"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -893,7 +901,8 @@ custom elements or components.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>dispatchEvent(event: Event)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>dispatchEvent(event: Event)</code>
                 </td>
             </tr>
 
@@ -945,7 +954,7 @@ custom elements or components.</p>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                         </div>
                             <div class="io-description">
@@ -961,6 +970,7 @@ custom elements or components.</p>
                 <td class="col-md-4">
                     <a name="dispatchEventOfType"></a>
                     <span class="name">
+                            <span class="modifier">Async</span>
                         <span ><b>dispatchEventOfType</b></span>
                         <a href="#dispatchEventOfType"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -968,7 +978,8 @@ custom elements or components.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>dispatchEventOfType(type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>dispatchEventOfType(type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -1020,7 +1031,7 @@ custom elements or components.</p>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                         </div>
                             <div class="io-description">
@@ -1736,9 +1747,9 @@ export class TestHtmlElement&lt;E extends HTMLElement&gt; extends TestElement&lt
   /**
    * Clicks on the wrapped element, then triggers a change detection
    */
-  click(): void {
+  async click(): Promise&lt;void&gt; {
     this.nativeElement.click();
-    this.tester.detectChanges();
+    await this.tester.change();
   }
 
   /**
@@ -1816,7 +1827,6 @@ export class TestHtmlElement&lt;E extends HTMLElement&gt; extends TestElement&lt
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 
