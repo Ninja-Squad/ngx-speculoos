@@ -1,6 +1,22 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+## [13.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v12.0.1...v13.0.0) (2024-12-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* ngx-speculoos now allows running test in _automatic_ mode. In this mode,
+instead of imperatively triggering a change detection, you await the stability
+and thus let Angular decide if a CD is necessary or not.
+See the "Upgrading to v13" section of the README for details.
+* ngx-speculoos is now based on Angular 19.x. If you want to use it with an older version of Angular, then stick to a previous version of `ngx-speculoos`
+
+### Features
+
+* provide a way to run tests in automatic mode ([758ff9c](https://github.com/Ninja-Squad/ngx-speculoos/commit/758ff9c8f7f1b0a08e44e0fe6dc2f39e2d2014d2))
+* upgrade to angular and cli 19 ([aac3132](https://github.com/Ninja-Squad/ngx-speculoos/commit/aac3132816f46519afd3cd1c1e9afd9653db1e37))
 
 ### [12.0.1](https://github.com/Ninja-Squad/ngx-speculoos/compare/v12.0.0...v12.0.1) (2024-05-27)
 
