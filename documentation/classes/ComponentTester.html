@@ -586,7 +586,7 @@ have been set on the component instance.</p>
             <tr>
                 <td class="col-md-4">
                         <div class="io-description"><p>In imperative mode, runs change detection.
-In implicit mode, awaits stability.</p>
+In automatic mode, awaits stability.</p>
 </div>
 
                         <div class="io-description">
@@ -3816,7 +3816,7 @@ export class ComponentTester&lt;C&gt; {
 
   /**
    * In imperative mode, runs change detection.
-   * In implicit mode, awaits stability.
+   * In automatic mode, awaits stability.
    */
   async change() {
     if (this.mode &#x3D;&#x3D;&#x3D; &#x27;automatic&#x27;) {
