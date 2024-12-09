@@ -409,7 +409,7 @@ export class ComponentTester<C> {
 
   /**
    * In imperative mode, runs change detection.
-   * In implicit mode, awaits stability.
+   * In automatic mode, awaits stability.
    */
   async change() {
     if (this.mode === 'automatic') {
