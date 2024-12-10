@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [13.1.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v13.0.1...v13.1.0) (2024-12-10)
+
+
+### Features
+
+* use automatic mode if zoneless change detection is used ([35a64b2](https://github.com/Ninja-Squad/ngx-speculoos/commit/35a64b26f5fd397bb8a2794e3643df2ff3ba606a))
+
 ## [13.0.1](https://github.com/Ninja-Squad/ngx-speculoos/compare/v13.0.0...v13.0.1) (2024-12-09)
 
 
