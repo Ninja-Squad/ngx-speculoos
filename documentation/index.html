@@ -122,7 +122,7 @@ how to write Angular unit tests.</p>
 </ul>
 </li>
 <li><a href="#gotchas">Gotchas</a><ul>
-<li><a href="#when-do-i-need-to-call-detectchanges">When do I need to call detectChanges()</a></li>
+<li><a href="#when-do-i-need-to-call-change-or-detectchanges">When do I need to call detectChanges()</a></li>
 <li><a href="#can-i-use-the-testelement-methods-to-act-on-the-component-element-itself-rather-than-a-sub-element">Can I use the TestElement methods to act on the component element itself, rather than a sub-element?</a></li>
 </ul>
 </li>
@@ -235,20 +235,21 @@ to query for elements, components, etc.</p>
 an instance of your component tester.</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">describe(&#39;My component&#39;, () =&gt; {
   let tester: MyComponentTester;
-  
+
   beforeEach(() =&gt; {
     TestBed.configureTestingModule({
       declarations: [MyComponent],
       ...
     });
-    
+
     tester = new MyComponentTester();
     tester.change();
   });
-  
+
   it(&#39;should ...&#39;, () =&gt; {
-    
-  });</code></pre></div><h3>Automatic change detection</h3>
+
+  });
+});</code></pre></div><h3>Automatic change detection</h3>
 <p>The future of Angular is zoneless. Without ZoneJS, components have to make sure to properly notify
 Angular that they must be checked for changes, typically by updating signals.
 Instead of imperatively triggering change detections in tests, it&#39;s thus a better idea to let
@@ -256,11 +257,13 @@ Angular decide if change detection must be run, in order to spot bugs where the 
 properly handle its state changes.</p>
 <p>This can be done by:</p>
 <ul>
-<li>adding a provider in the testing module to configure the fixtures to be in <em>automatic</em> mode</li>
+<li>adding a provider in the testing module to configure the fixtures to be in <em>automatic</em> mode,
+or to use zoneless change detection</li>
 <li>awaiting the component fixture stability when the test <em>thinks</em> that a change detection should
 automatically happen.</li>
 </ul>
-<p>When the <code>provideAutomaticChangeDetection()</code> provider is added, the <code>ComponentTester</code> will run in
+<p>When the <code>provideAutomaticChangeDetection()</code> or the <code>provideExperimentalZonelessChangeDetection()</code> 
+provider is added, the <code>ComponentTester</code> will run in
 <em>automatic</em> mode. In this mode, calling <code>detectChanges()</code> throws an error, because you should always
 let Angular decide if change detection is necessary.</p>
 <p>Here&#39;s an example of a test that uses this technique:</p>
@@ -284,8 +287,8 @@ describe(&#39;AppComponent&#39;, () =&gt; {
   beforeEach(async () =&gt; {
     TestBed.configureTestingModule({
       providers: [
-        provideComponentFixtureAutoDetection(),
-        provideExperimentalZonelessChangeDetection() // if you already uses zoneless also add this provider
+        provideComponentFixtureAutoDetection()
+        // or provideExperimentalZonelessChangeDetection() if you already use zoneless
       ]
     });
 
@@ -385,13 +388,13 @@ takes a <code>ComponentTester</code> as first argument, and a <code>DebugElement
 to get instances of your custom `TestElement``</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">get birthDate() {
   return this.custom(&#39;#birth-date&#39;, TestDatepicker);
-}</code></pre></div><b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">it(&#39;should not save if birth date is in the future&#39;, () =&gt;) {
+}</code></pre></div><b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">it(&#39;should not save if birth date is in the future&#39;, () =&gt; {
   // ...
   tester.birthDate.setDate(2200, 1, 1);
   tester.save.click();
   expect(userService.create).not.toHaveBenCalled();
 });</code></pre></div><p>or, in <em>automatic</em> mode</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">it(&#39;should not save if birth date is in the future&#39;), async () =&gt; {
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">it(&#39;should not save if birth date is in the future&#39;, async () =&gt; {
   // ...
   await tester.birthDate.setDate(2200, 1, 1);
   await tester.save.click();
