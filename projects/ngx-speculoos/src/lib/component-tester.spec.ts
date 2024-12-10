@@ -1,12 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ComponentTester } from './component-tester';
-import { Component } from '@angular/core';
+import { Component, provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { TestElement } from './test-element';
 import { TestInput } from './test-input';
 import { TestButton } from './test-button';
 import { TestSelect } from './test-select';
 import { TestTextArea } from './test-textarea';
 import { TestHtmlElement } from './test-html-element';
+import { provideAutomaticChangeDetection } from './providers';
 
 @Component({
   template: `
@@ -27,7 +28,7 @@ describe('ComponentTester', () => {
 
   describe('creation', () => {
     it('should create via constructor with a component type', () => {
-      const tester = new ComponentTester<TestComponent>(TestComponent);
+      const tester = new ComponentTester(TestComponent);
       expect(tester.fixture instanceof ComponentFixture).toBe(true);
       expect(tester.fixture.componentInstance instanceof TestComponent).toBe(true);
     });
@@ -42,6 +43,30 @@ describe('ComponentTester', () => {
       const tester = ComponentTester.create(TestComponent);
       expect(tester.fixture instanceof ComponentFixture).toBe(true);
       expect(tester.fixture.componentInstance instanceof TestComponent).toBe(true);
+    });
+  });
+
+  describe('mode', () => {
+    it('should be in imperative mode by default', () => {
+      TestBed.configureTestingModule({});
+      const tester = new ComponentTester(TestComponent);
+      expect(tester.mode).toBe('imperative');
+    });
+
+    it('should be in automatic mode if automatic change detection is provided', () => {
+      TestBed.configureTestingModule({
+        providers: [provideAutomaticChangeDetection()]
+      });
+      const tester = new ComponentTester(TestComponent);
+      expect(tester.mode).toBe('automatic');
+    });
+
+    it('should be in automatic mode if zoneless change detection is provided', () => {
+      TestBed.configureTestingModule({
+        providers: [provideExperimentalZonelessChangeDetection()]
+      });
+      const tester = new ComponentTester(TestComponent);
+      expect(tester.mode).toBe('automatic');
     });
   });
 

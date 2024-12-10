@@ -34,7 +34,7 @@ how to write Angular unit tests.
   - [Mocking helper](#mocking-helper)
   - [Testing with a host component](#testing-with-a-host-component)
 - [Gotchas](#gotchas)
-  - [When do I need to call detectChanges()](#when-do-i-need-to-call-detectchanges)
+  - [When do I need to call detectChanges()](#when-do-i-need-to-call-change-or-detectchanges)
   - [Can I use the TestElement methods to act on the component element itself, rather than a sub-element?](#can-i-use-the-testelement-methods-to-act-on-the-component-element-itself-rather-than-a-sub-element)
 - [Issues, questions](#issues-questions)
 - [Complete example](#complete-example)
@@ -175,20 +175,21 @@ an instance of your component tester.
 ```typescript
 describe('My component', () => {
   let tester: MyComponentTester;
-  
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [MyComponent],
       ...
     });
-    
+
     tester = new MyComponentTester();
     tester.change();
   });
-  
+
   it('should ...', () => {
-    
+
   });
+});
 ```
 
 ### Automatic change detection
@@ -201,11 +202,13 @@ properly handle its state changes.
 
 This can be done by:
 
-- adding a provider in the testing module to configure the fixtures to be in _automatic_ mode
+- adding a provider in the testing module to configure the fixtures to be in _automatic_ mode,
+  or to use zoneless change detection
 - awaiting the component fixture stability when the test *thinks* that a change detection should
   automatically happen.
 
-When the `provideAutomaticChangeDetection()` provider is added, the `ComponentTester` will run in
+When the `provideAutomaticChangeDetection()` or the `provideExperimentalZonelessChangeDetection()` 
+provider is added, the `ComponentTester` will run in
 _automatic_ mode. In this mode, calling `detectChanges()` throws an error, because you should always
 let Angular decide if change detection is necessary.
 
@@ -232,8 +235,8 @@ describe('AppComponent', () => {
   beforeEach(async () => {
     TestBed.configureTestingModule({
       providers: [
-        provideComponentFixtureAutoDetection(),
-        provideExperimentalZonelessChangeDetection() // if you already uses zoneless also add this provider
+        provideComponentFixtureAutoDetection()
+        // or provideExperimentalZonelessChangeDetection() if you already use zoneless
       ]
     });
 
@@ -371,7 +374,7 @@ get birthDate() {
 ```
 
 ```typescript
-it('should not save if birth date is in the future', () =>) {
+it('should not save if birth date is in the future', () => {
   // ...
   tester.birthDate.setDate(2200, 1, 1);
   tester.save.click();
@@ -382,7 +385,7 @@ it('should not save if birth date is in the future', () =>) {
 or, in _automatic_ mode
 
 ```typescript
-it('should not save if birth date is in the future'), async () => {
+it('should not save if birth date is in the future', async () => {
   // ...
   await tester.birthDate.setDate(2200, 1, 1);
   await tester.save.click();

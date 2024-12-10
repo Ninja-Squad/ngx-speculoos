@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ComponentFixture, ComponentFixtureAutoDetect, TestBed } from '@angular/core/testing';
-import { DebugElement, ProviderToken, Type } from '@angular/core';
+import { DebugElement, NgZone, ProviderToken, Type } from '@angular/core';
 import { TestTextArea } from './test-textarea';
 import { TestElement } from './test-element';
 import { TestInput } from './test-input';
@@ -53,8 +53,9 @@ export class ComponentTester<C> {
   constructor(arg: Type<C> | ComponentFixture<C>) {
     this.fixture = arg instanceof ComponentFixture ? arg : TestBed.createComponent(arg);
     const autoDetect = TestBed.inject(ComponentFixtureAutoDetect, false);
+    const zoneless = !(TestBed.inject(NgZone) instanceof NgZone);
     this.testElement = TestElementQuerier.wrap(this.debugElement, this) as TestElement<HTMLElement>;
-    this.mode = autoDetect ? 'automatic' : 'imperative';
+    this.mode = autoDetect || zoneless ? 'automatic' : 'imperative';
   }
 
   /**
