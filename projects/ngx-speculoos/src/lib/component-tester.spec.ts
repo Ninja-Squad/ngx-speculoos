@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ComponentTester } from './component-tester';
-import { Component, provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { ChangeDetectionStrategy, Component, provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { TestElement } from './test-element';
 import { TestInput } from './test-input';
 import { TestButton } from './test-button';
@@ -17,7 +17,8 @@ import { provideAutomaticChangeDetection } from './providers';
     <button id="button">Test</button>
     <select id="select"></select>
     <textarea id="textarea"></textarea>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestComponent {}
 

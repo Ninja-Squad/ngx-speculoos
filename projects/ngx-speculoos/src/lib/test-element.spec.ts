@@ -1,4 +1,4 @@
-import { Component, DebugElement, Directive, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DebugElement, Directive, input, signal } from '@angular/core';
 import { ComponentTester } from './component-tester';
 import { TestBed } from '@angular/core/testing';
 import { TestElement } from './test-element';
@@ -18,7 +18,8 @@ class TestDirective {
 
 @Component({
   selector: 'lib-sub',
-  template: ''
+  template: '',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 class SubComponent {
   readonly sub = input<string>();
@@ -33,8 +34,8 @@ class TestDatepicker extends TestHtmlElement<HTMLElement> {
     return this.input('input')!;
   }
 
-  setDate(year: number, month: number, day: number) {
-    this.inputField.fillWith(`${year}-${month}-${day}`);
+  async setDate(year: number, month: number, day: number) {
+    await this.inputField.fillWith(`${year}-${month}-${day}`);
   }
 }
 
@@ -64,10 +65,11 @@ class TestDatepicker extends TestHtmlElement<HTMLElement> {
     </div>
     <span id="text">{{ text() }}</span>
   `,
-  imports: [SubComponent, TestDirective]
+  imports: [SubComponent, TestDirective],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestComponent {
-  text = signal('');
+  readonly text = signal('');
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   onChange(event: Event) {
@@ -105,6 +107,7 @@ class TestComponentTester extends ComponentTester<TestComponent> {
   }
 }
 
+/* eslint-disable @typescript-eslint/no-floating-promises */
 describe('TestElement', () => {
   let tester: TestComponentTester;
 
@@ -336,6 +339,7 @@ describe('TestElement', () => {
     });
   });
 });
+/* eslint-enable @typescript-eslint/no-floating-promises */
 
 describe('TestElement in automatic mode', () => {
   let tester: TestComponentTester;

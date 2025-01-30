@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { ComponentTester } from './component-tester';
 import { TestBed } from '@angular/core/testing';
 import { TestHtmlElement } from './test-html-element';
@@ -11,11 +11,12 @@ import { provideAutomaticChangeDetection } from './providers';
       <div id="inner"></div>
     </div>
     <span id="text">{{ text() }}</span>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestComponent {
-  invisible = signal(false);
-  text = signal('');
+  readonly invisible = signal(false);
+  readonly text = signal('');
 
   onClick() {
     this.text.set('clicked');
@@ -44,6 +45,7 @@ class TestComponentTester extends ComponentTester<TestComponent> {
   }
 }
 
+/* eslint-disable @typescript-eslint/no-floating-promises */
 describe('TestHtmlElement', () => {
   let tester: TestComponentTester;
 
@@ -80,6 +82,7 @@ describe('TestHtmlElement', () => {
     expect(tester.innerDiv.visible).toBe(false);
   });
 });
+/* eslint-enable @typescript-eslint/no-floating-promises */
 
 describe('TestHtmlElement in automatic mode', () => {
   let tester: TestComponentTester;

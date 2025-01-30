@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ComponentTester } from './component-tester';
 import { TestBed } from '@angular/core/testing';
 import { TestButton } from './test-button';
@@ -7,7 +7,8 @@ import { TestButton } from './test-button';
   template: `
     <button id="b1">Test</button>
     <button id="b2" disabled>Test</button>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestComponent {}
 

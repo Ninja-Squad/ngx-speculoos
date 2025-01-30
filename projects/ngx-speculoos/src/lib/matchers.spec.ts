@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/triple-slash-reference */
 /// <reference path="../jasmine-matchers.ts" />
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 
 import { ComponentTester } from './component-tester';
@@ -27,11 +27,12 @@ const TEMPLATE = `
   `;
 
 @Component({
-  template: TEMPLATE
+  template: TEMPLATE,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestComponent {
-  name = 'Hello';
-  isChecked = true;
+  readonly name = 'Hello';
+  readonly isChecked = true;
 }
 
 class TestComponentTester extends ComponentTester<TestComponent> {
@@ -399,21 +400,21 @@ describe('Custom matchers', () => {
   describe('toBeChecked', () => {
     const matcher = speculoosMatchers.toBeChecked(util);
 
-    it('should check if checked', () => {
+    it('should check if checked', async () => {
       expect(tester.checkbox).toBeChecked();
-      tester.checkbox!.uncheck();
+      await tester.checkbox!.uncheck();
       expect(tester.checkbox).not.toBeChecked();
     });
 
-    it('should return false if not checked', () => {
-      tester.checkbox!.uncheck();
+    it('should return false if not checked', async () => {
+      await tester.checkbox!.uncheck();
       const result = matcher.compare(tester.checkbox);
       expect(result.pass).toBeFalsy();
       expect(result.message).toBe(`Expected element to be checked, but was not`);
     });
 
-    it('should return true if not checked and .not', () => {
-      tester.checkbox!.uncheck();
+    it('should return true if not checked and .not', async () => {
+      await tester.checkbox!.uncheck();
       const result = matcher.negativeCompare!(tester.checkbox);
       expect(result.pass).toBeTruthy();
     });

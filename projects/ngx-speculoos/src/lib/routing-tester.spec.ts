@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute, provideRouter, RouterLink } from '@angular/router';
 import { TestBed } from '@angular/core/testing';
 import { RoutingTester } from './routing-tester';
@@ -13,10 +13,11 @@ import { provideAutomaticChangeDetection } from './providers';
   template: `
     <h1>Current page: {{ page() }}</h1>
     <a routerLink="." [queryParams]="{ page: page() + 1 }">Next</a>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 class PageComponent {
-  page = toSignal(inject(ActivatedRoute).queryParamMap.pipe(map(m => parseInt(m.get('page') ?? '0'))));
+  readonly page = toSignal(inject(ActivatedRoute).queryParamMap.pipe(map(m => parseInt(m.get('page') ?? '0'))));
 }
 
 class PageComponentTester extends RoutingTester {
@@ -33,6 +34,7 @@ class PageComponentTester extends RoutingTester {
   }
 }
 
+/* eslint-disable @typescript-eslint/no-floating-promises */
 describe('RoutingTester', () => {
   beforeEach(() => {
     jasmine.addMatchers(speculoosMatchers);
@@ -64,6 +66,7 @@ describe('RoutingTester', () => {
     expect(tester.title).toHaveText('Current page: 43');
   });
 });
+/* eslint-enable @typescript-eslint/no-floating-promises */
 
 describe('RoutingTester in automatic mode', () => {
   beforeEach(() => {

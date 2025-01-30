@@ -30,7 +30,7 @@
           "options": {
             "main": "projects/ngx-speculoos/src/test.ts",
             "tsConfig": "projects/ngx-speculoos/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-speculoos/karma.conf.js"
+            "karmaConfig": "projects/ngx-speculoos/karma.conf.cjs"
           }
         },
         "lint": {
@@ -119,7 +119,7 @@
               "zone.js/testing"
             ],
             "tsConfig": "projects/demo/tsconfig.spec.json",
-            "karmaConfig": "projects/demo/karma.conf.js",
+            "karmaConfig": "projects/demo/karma.conf.cjs",
             "styles": [
               "projects/demo/src/styles.css"
             ],

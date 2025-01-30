@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ComponentTester } from './component-tester';
 import { TestBed } from '@angular/core/testing';
 import { TestInput } from './test-input';
@@ -20,7 +20,8 @@ import { provideAutomaticChangeDetection } from './providers';
       <span id="rValue">{{ r.value }}</span>
     </form>
   `,
-  imports: [ReactiveFormsModule]
+  imports: [ReactiveFormsModule],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestComponent {
   t1 = new FormControl('hello');
@@ -84,6 +85,7 @@ class TestComponentTester extends ComponentTester<TestComponent> {
   }
 }
 
+/* eslint-disable @typescript-eslint/no-floating-promises */
 describe('TestInput', () => {
   let tester: TestComponentTester;
 
@@ -169,6 +171,7 @@ describe('TestInput', () => {
     expect(tester.disabledInput.disabled).toBe(true);
   });
 });
+/* eslint-enable @typescript-eslint/no-floating-promises */
 
 describe('TestInput in automatic mode', () => {
   let tester: TestComponentTester;

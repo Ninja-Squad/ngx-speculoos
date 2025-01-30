@@ -1,6 +1,5 @@
 import { Type } from '@angular/core';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function collectMethodNames(proto: unknown): Array<string> {
   if (!proto || proto === Object.prototype) {
     return [];

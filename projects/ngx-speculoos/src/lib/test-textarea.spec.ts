@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ComponentTester } from './component-tester';
 import { TestBed } from '@angular/core/testing';
 import { TestTextArea } from './test-textarea';
@@ -11,11 +11,12 @@ import { provideAutomaticChangeDetection } from './providers';
     <textarea id="t2" [formControl]="t2"></textarea>
     <span id="text">{{ t1.value }}</span>
   `,
-  imports: [ReactiveFormsModule]
+  imports: [ReactiveFormsModule],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestComponent {
-  t1 = new FormControl('hello');
-  t2 = new FormControl('');
+  readonly t1 = new FormControl('hello');
+  readonly t2 = new FormControl('');
 
   constructor() {
     this.t2.disable();
@@ -42,6 +43,7 @@ class TestComponentTester extends ComponentTester<TestComponent> {
   }
 }
 
+/* eslint-disable @typescript-eslint/no-floating-promises */
 describe('TestTextArea', () => {
   let tester: TestComponentTester;
 
@@ -76,6 +78,7 @@ describe('TestTextArea', () => {
     expect(tester.disabledTextBox.disabled).toBe(true);
   });
 });
+/* eslint-enable @typescript-eslint/no-floating-promises */
 
 describe('TestTextArea in automatic mode', () => {
   let tester: TestComponentTester;

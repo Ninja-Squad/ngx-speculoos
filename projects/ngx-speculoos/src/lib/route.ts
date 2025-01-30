@@ -28,7 +28,7 @@ export interface ActivatedRouteStubOptions {
   /**
    * The initial url of the route
    */
-  url?: UrlSegment[];
+  url?: Array<UrlSegment>;
   /**
    * The parent of the route
    */
@@ -40,7 +40,7 @@ export interface ActivatedRouteStubOptions {
   /**
    * The children of the route
    */
-  children?: ActivatedRouteStub[] | null;
+  children?: Array<ActivatedRouteStub> | null;
   /**
    * The configuration of the route
    */

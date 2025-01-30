@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ComponentTester } from './component-tester';
 import { TestBed } from '@angular/core/testing';
 import { TestSelect } from './test-select';
@@ -15,11 +15,12 @@ import { provideAutomaticChangeDetection } from './providers';
     <select id="s2" [formControl]="disabledCtrl"></select>
     <span id="value">{{ ctrl.value }}</span>
   `,
-  imports: [ReactiveFormsModule]
+  imports: [ReactiveFormsModule],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestComponent {
-  ctrl = new FormControl('');
-  disabledCtrl = new FormControl('');
+  readonly ctrl = new FormControl('');
+  readonly disabledCtrl = new FormControl('');
 
   constructor() {
     this.disabledCtrl.disable();
@@ -46,6 +47,7 @@ class TestComponentTester extends ComponentTester<TestComponent> {
   }
 }
 
+/* eslint-disable @typescript-eslint/no-floating-promises */
 describe('TestSelect', () => {
   let tester: TestComponentTester;
 
@@ -149,6 +151,7 @@ describe('TestSelect', () => {
     expect(tester.disabledSelectBox.disabled).toBe(true);
   });
 });
+/* eslint-enable @typescript-eslint/no-floating-promises */
 
 describe('TestSelect in automatic mode', () => {
   let tester: TestComponentTester;
@@ -211,7 +214,7 @@ describe('TestSelect in automatic mode', () => {
     await tester.selectBox.selectIndex(1);
     expect(tester.selectBox.selectedValue).toBe('a');
 
-    tester.selectBox.selectIndex(-1);
+    await tester.selectBox.selectIndex(-1);
     expect(tester.selectBox.selectedValue).toBeNull();
   });
 
