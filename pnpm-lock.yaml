@@ -51,6 +51,9 @@ importers:
       '@compodoc/compodoc':
         specifier: 1.1.26
         version: 1.1.26(typescript@5.6.3)
+      '@eslint/js':
+        specifier: 9.20.0
+        version: 9.20.0
       '@types/jasmine':
         specifier: 5.1.5
         version: 5.1.5
