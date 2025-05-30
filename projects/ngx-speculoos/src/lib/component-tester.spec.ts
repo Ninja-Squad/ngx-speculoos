@@ -1,10 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ComponentTester } from './component-tester';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  provideZonelessChangeDetection
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, provideZonelessChangeDetection } from '@angular/core';
 import { TestElement } from './test-element';
 import { TestInput } from './test-input';
 import { TestButton } from './test-button';
