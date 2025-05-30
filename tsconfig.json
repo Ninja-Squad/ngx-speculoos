@@ -30,10 +30,10 @@
   "files": [],
   "references": [
     {
-      "path": "./projects/ponyracer-lib/tsconfig.lib.json"
+      "path": "./projects/ngx-speculoos/tsconfig.lib.json"
     },
     {
-      "path": "./projects/ponyracer-lib/tsconfig.spec.json"
+      "path": "./projects/ngx-speculoos/tsconfig.spec.json"
     },
     {
       "path": "./projects/demo/tsconfig.lib.json"
