@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ComponentTester } from './component-tester';
-import { ChangeDetectionStrategy, Component, provideExperimentalZonelessChangeDetection } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  provideZonelessChangeDetection
+} from '@angular/core';
 import { TestElement } from './test-element';
 import { TestInput } from './test-input';
 import { TestButton } from './test-button';
@@ -64,7 +68,7 @@ describe('ComponentTester', () => {
 
     it('should be in automatic mode if zoneless change detection is provided', () => {
       TestBed.configureTestingModule({
-        providers: [provideExperimentalZonelessChangeDetection()]
+        providers: [provideZonelessChangeDetection()]
       });
       const tester = new ComponentTester(TestComponent);
       expect(tester.mode).toBe('automatic');
