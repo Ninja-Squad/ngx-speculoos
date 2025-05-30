@@ -31,7 +31,7 @@ describe('AppComponent', () => {
     tester = new AppComponentTester();
 
     // a first call to change() is necessary.
-    tester.change();
+    void tester.change();
 
     jasmine.addMatchers(speculoosMatchers);
   });
@@ -43,13 +43,13 @@ describe('AppComponent', () => {
   });
 
   it('should enable the submit button when filling the first name', () => {
-    tester.firstName.fillWith('John');
+    void tester.firstName.fillWith('John');
     expect(tester.submit.disabled).toBe(false);
   });
 
   it('should display the greeting when submitting the form', () => {
-    tester.firstName.fillWith('John');
-    tester.submit.click();
+    void tester.firstName.fillWith('John');
+    void tester.submit.click();
     expect(tester.greeting).toContainText('Hello John');
   });
 });

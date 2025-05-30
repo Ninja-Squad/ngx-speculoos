@@ -1,23 +1,48 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
     "strict": true,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "isolatedModules": true,
-    "esModuleInterop": true,
-    "moduleResolution": "bundler",
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
-    "module": "ES2022",
+    "module": "preserve",
     "paths": {
       "ngx-speculoos": [
         "./dist/ngx-speculoos"
       ]
     }
-  }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "typeCheckHostBindings": true,
+    "strictTemplates": true,
+    "extendedDiagnostics": {
+      "defaultCategory": "error"
+    }
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/ponyracer-lib/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ponyracer-lib/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/demo/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/demo/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/tsd-test/tsconfig.tsd.json"
+    }
+  ]
 }
