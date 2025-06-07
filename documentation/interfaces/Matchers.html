@@ -232,8 +232,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="33"
-                                    class="link-to-prism">src/jasmine-matchers.ts:33</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">src/jasmine-matchers.ts:35</a></div>
                         </td>
                     </tr>
 
@@ -271,8 +271,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="53"
-                                    class="link-to-prism">src/jasmine-matchers.ts:53</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">src/jasmine-matchers.ts:55</a></div>
                         </td>
                     </tr>
 
@@ -310,8 +310,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="28"
-                                    class="link-to-prism">src/jasmine-matchers.ts:28</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="30"
+                                    class="link-to-prism">src/jasmine-matchers.ts:30</a></div>
                         </td>
                     </tr>
 
@@ -379,8 +379,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="7"
-                                    class="link-to-prism">src/jasmine-matchers.ts:7</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="9"
+                                    class="link-to-prism">src/jasmine-matchers.ts:9</a></div>
                         </td>
                     </tr>
 
@@ -448,8 +448,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="38"
-                                    class="link-to-prism">src/jasmine-matchers.ts:38</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="40"
+                                    class="link-to-prism">src/jasmine-matchers.ts:40</a></div>
                         </td>
                     </tr>
 
@@ -517,8 +517,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="48"
-                                    class="link-to-prism">src/jasmine-matchers.ts:48</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">src/jasmine-matchers.ts:50</a></div>
                         </td>
                     </tr>
 
@@ -586,8 +586,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="43"
-                                    class="link-to-prism">src/jasmine-matchers.ts:43</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">src/jasmine-matchers.ts:45</a></div>
                         </td>
                     </tr>
 
@@ -655,8 +655,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="17"
-                                    class="link-to-prism">src/jasmine-matchers.ts:17</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="19"
+                                    class="link-to-prism">src/jasmine-matchers.ts:19</a></div>
                         </td>
                     </tr>
 
@@ -724,8 +724,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="23"
-                                    class="link-to-prism">src/jasmine-matchers.ts:23</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="25"
+                                    class="link-to-prism">src/jasmine-matchers.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -794,8 +794,8 @@ after both have been trimmed.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="12"
-                                    class="link-to-prism">src/jasmine-matchers.ts:12</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="14"
+                                    class="link-to-prism">src/jasmine-matchers.ts:14</a></div>
                         </td>
                     </tr>
 
@@ -849,58 +849,61 @@ after both have been trimmed.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">declare namespace jasmine {
-  interface Matchers&lt;T&gt; {
-    /**
-     * Checks that the receiver is a TestElement wrapping a DOM element and has the given CSS class
-     */
-    toHaveClass(className: string): boolean;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export {};
+declare global {
+  namespace jasmine {
+    interface Matchers&lt;T&gt; {
+      /**
+       * Checks that the receiver is a TestElement wrapping a DOM element and has the given CSS class
+       */
+      toHaveClass(className: string): boolean;
 
-    /**
-     * Checks that the receiver is a TestInput or a TestTextArea and has the given value
-     */
-    toHaveValue(value: string): boolean;
+      /**
+       * Checks that the receiver is a TestInput or a TestTextArea and has the given value
+       */
+      toHaveValue(value: string): boolean;
 
-    /**
-     * Checks that the receiver is a TestElement wrapping a DOM element and has the exact given textContent
-     */
-    toHaveText(textContent: string): boolean;
+      /**
+       * Checks that the receiver is a TestElement wrapping a DOM element and has the exact given textContent
+       */
+      toHaveText(textContent: string): boolean;
 
-    /**
-     * Checks that the receiver is a TestElement wrapping a DOM element and has the given textContent
-     * after both have been trimmed.
-     */
-    toHaveTrimmedText(textContent: string): boolean;
+      /**
+       * Checks that the receiver is a TestElement wrapping a DOM element and has the given textContent
+       * after both have been trimmed.
+       */
+      toHaveTrimmedText(textContent: string): boolean;
 
-    /**
-     * Checks that the receiver is a TestElement wrapping a DOM element and contains the given textContent
-     */
-    toContainText(textContent: string): boolean;
+      /**
+       * Checks that the receiver is a TestElement wrapping a DOM element and contains the given textContent
+       */
+      toContainText(textContent: string): boolean;
 
-    /**
-     * Checks that the receiver is a TestInput and is checked
-     */
-    toBeChecked(): boolean;
+      /**
+       * Checks that the receiver is a TestInput and is checked
+       */
+      toBeChecked(): boolean;
 
-    /**
-     * Checks that the receiver is a TestSelect wrapping a DOM element and has the given selected index
-     */
-    toHaveSelectedIndex(index: number): boolean;
+      /**
+       * Checks that the receiver is a TestSelect wrapping a DOM element and has the given selected index
+       */
+      toHaveSelectedIndex(index: number): boolean;
 
-    /**
-     * Checks that the receiver is a TestSelect wrapping a DOM element with the selected option&#x27;s value equal to the given value
-     */
-    toHaveSelectedValue(value: string): boolean;
+      /**
+       * Checks that the receiver is a TestSelect wrapping a DOM element with the selected option&#x27;s value equal to the given value
+       */
+      toHaveSelectedValue(value: string): boolean;
 
-    /**
-     * Checks that the receiver is a TestSelect wrapping a DOM element with the selected option&#x27;s label equal to the given label
-     */
-    toHaveSelectedLabel(label: string): boolean;
+      /**
+       * Checks that the receiver is a TestSelect wrapping a DOM element with the selected option&#x27;s label equal to the given label
+       */
+      toHaveSelectedLabel(label: string): boolean;
 
-    /**
-     * Checks that the receiver is a TestHtmlElement which is visible.
-     */
-    toBeVisible(): boolean;
+      /**
+       * Checks that the receiver is a TestHtmlElement which is visible.
+       */
+      toBeVisible(): boolean;
+    }
   }
 }
 </code></pre>

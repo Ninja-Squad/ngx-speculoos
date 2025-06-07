@@ -1274,7 +1274,7 @@ export interface ActivatedRouteStubOptions {
   /**
    * The initial url of the route
    */
-  url?: UrlSegment[];
+  url?: Array&lt;UrlSegment&gt;;
   /**
    * The parent of the route
    */
@@ -1286,7 +1286,7 @@ export interface ActivatedRouteStubOptions {
   /**
    * The children of the route
    */
-  children?: ActivatedRouteStub[] | null;
+  children?: Array&lt;ActivatedRouteStub&gt; | null;
   /**
    * The configuration of the route
    */
