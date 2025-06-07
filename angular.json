@@ -24,9 +24,12 @@
         "test": {
           "builder": "@angular/build:karma",
           "options": {
-            "main": "projects/ngx-speculoos/src/test.ts",
             "tsConfig": "projects/ngx-speculoos/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-speculoos/karma.conf.cjs"
+            "browsers": "ChromeHeadless",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         },
         "lint": {
@@ -51,8 +54,6 @@
           "builder": "@angular/build:application",
           "options": {
             "aot": true,
-            "outputPath": "dist/demo",
-            "index": "projects/demo/src/index.html",
             "browser": "projects/demo/src/main.ts",
             "polyfills": [
               "zone.js"
@@ -66,8 +67,7 @@
             ],
             "styles": [
               "projects/demo/src/styles.css"
-            ],
-            "scripts": []
+            ]
           },
           "configurations": {
             "production": {
@@ -109,17 +109,15 @@
         "test": {
           "builder": "@angular/build:karma",
           "options": {
-            "main": "projects/demo/src/test.ts",
+            "browsers": "ChromeHeadless",
             "polyfills": [
               "zone.js",
               "zone.js/testing"
             ],
             "tsConfig": "projects/demo/tsconfig.spec.json",
-            "karmaConfig": "projects/demo/karma.conf.cjs",
             "styles": [
               "projects/demo/src/styles.css"
             ],
-            "scripts": [],
             "assets": [
               {
                 "glob": "**/*",
