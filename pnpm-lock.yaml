@@ -43,8 +43,8 @@ importers:
         specifier: ^20.0.0
         version: 20.0.1(@angular/compiler-cli@20.0.2(@angular/compiler@20.0.2)(typescript@5.8.3))(@angular/compiler@20.0.2)(@angular/core@20.0.2(@angular/compiler@20.0.2)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@20.0.2(@angular/common@20.0.2(@angular/core@20.0.2(@angular/compiler@20.0.2)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.0.2(@angular/compiler@20.0.2)(rxjs@7.8.2)(zone.js@0.15.1)))(@types/node@22.15.30)(chokidar@4.0.3)(jiti@1.21.7)(karma@6.4.4)(less@4.3.0)(ng-packagr@20.0.0(@angular/compiler-cli@20.0.2(@angular/compiler@20.0.2)(typescript@5.8.3))(tslib@2.8.1)(typescript@5.8.3))(postcss@8.5.4)(terser@5.39.0)(tslib@2.8.1)(typescript@5.8.3)(yaml@2.8.0)
       '@angular/cli':
-        specifier: 20.0.0
-        version: 20.0.0(@types/node@22.15.30)(chokidar@4.0.3)
+        specifier: 20.0.1
+        version: 20.0.1(@types/node@22.15.30)(chokidar@4.0.3)
       '@angular/compiler-cli':
         specifier: 20.0.2
         version: 20.0.2(@angular/compiler@20.0.2)(typescript@5.8.3)
@@ -115,10 +115,6 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@angular-devkit/architect@0.2000.0':
-    resolution: {integrity: sha512-6accOuvf1BY6hTO5LzYcxp2Dpl0bThgYF3KdwVWqrYF5+6PWfQLdy+rKxBiCIv0+0OngZVI79RuAtUKFowFM/A==}
-    engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
-
   '@angular-devkit/architect@0.2000.1':
     resolution: {integrity: sha512-EcOGU1xEhARYpDF391VaeUg/+YRym9OxzJMcc0rSHl3YLK8/m+24ap2YAQY5N7n9+mmEqHVu/q31ldFpOoMCTw==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
@@ -156,6 +152,10 @@ packages:
 
   '@angular-devkit/schematics@20.0.0':
     resolution: {integrity: sha512-35WbWP8ARnaqVjOzy7IOyWsY/jeyUqfVj4KgHG2O4fHAhIhaBqhP8dDDP+SwM+bToIqklg0fzHUUhFTRxzzyoQ==}
+    engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
+
+  '@angular-devkit/schematics@20.0.1':
+    resolution: {integrity: sha512-bSr/5YIdjtwKYqylkYrlOVP+tuFz+tfOldmLfWHAsDGnJUznb5t4ckx6yyROp+iDQfu2Aez09p+l4KfUBq+H9A==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
 
   '@angular-eslint/builder@20.0.0':
@@ -245,8 +245,8 @@ packages:
       vitest:
         optional: true
 
-  '@angular/cli@20.0.0':
-    resolution: {integrity: sha512-k9EDaaLYTMWkBbayUh6Tf0PJ+E0e6jRPrjOSPsOJHRh+S5BsNdLIsKJmThGXkq2wnD35+2CKPy9UQyvfaIA5KQ==}
+  '@angular/cli@20.0.1':
+    resolution: {integrity: sha512-OU91byvG/WsDDUVmXIJr3/sU89U6g8G8IXrqgVRVPgjXKEQMnUNBlmygD2rMUR5C02g2lGc6s2j0hnOJ/dDNOw==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
     hasBin: true
 
@@ -1774,8 +1774,8 @@ packages:
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
     hasBin: true
 
-  '@schematics/angular@20.0.0':
-    resolution: {integrity: sha512-lK5TvxEoeaoPnxM31qeNWhHUJ3kKMnRHknYhOfOmS8xfme78nS01FdU7TODLkg2p4GNEVVtXoxhj3FmrG3srKw==}
+  '@schematics/angular@20.0.1':
+    resolution: {integrity: sha512-29T9vUAjZnbXM+vImIQcdqG/ibdcfj5+pybo5cbiMSwVPVyerXgnD0HKC4dyZ34V2RFZa8cmyCLe/5bYoPQ+0g==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
 
   '@sigstore/bundle@3.1.0':
@@ -4912,13 +4912,6 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@angular-devkit/architect@0.2000.0(chokidar@4.0.3)':
-    dependencies:
-      '@angular-devkit/core': 20.0.0(chokidar@4.0.3)
-      rxjs: 7.8.2
-    transitivePeerDependencies:
-      - chokidar
-
   '@angular-devkit/architect@0.2000.1(chokidar@4.0.3)':
     dependencies:
       '@angular-devkit/core': 20.0.1(chokidar@4.0.3)
@@ -4972,6 +4965,16 @@ snapshots:
   '@angular-devkit/schematics@20.0.0(chokidar@4.0.3)':
     dependencies:
       '@angular-devkit/core': 20.0.0(chokidar@4.0.3)
+      jsonc-parser: 3.3.1
+      magic-string: 0.30.17
+      ora: 8.2.0
+      rxjs: 7.8.2
+    transitivePeerDependencies:
+      - chokidar
+
+  '@angular-devkit/schematics@20.0.1(chokidar@4.0.3)':
+    dependencies:
+      '@angular-devkit/core': 20.0.1(chokidar@4.0.3)
       jsonc-parser: 3.3.1
       magic-string: 0.30.17
       ora: 8.2.0
@@ -5094,14 +5097,14 @@ snapshots:
       - tsx
       - yaml
 
-  '@angular/cli@20.0.0(@types/node@22.15.30)(chokidar@4.0.3)':
+  '@angular/cli@20.0.1(@types/node@22.15.30)(chokidar@4.0.3)':
     dependencies:
-      '@angular-devkit/architect': 0.2000.0(chokidar@4.0.3)
-      '@angular-devkit/core': 20.0.0(chokidar@4.0.3)
-      '@angular-devkit/schematics': 20.0.0(chokidar@4.0.3)
+      '@angular-devkit/architect': 0.2000.1(chokidar@4.0.3)
+      '@angular-devkit/core': 20.0.1(chokidar@4.0.3)
+      '@angular-devkit/schematics': 20.0.1(chokidar@4.0.3)
       '@inquirer/prompts': 7.5.1(@types/node@22.15.30)
       '@listr2/prompt-adapter-inquirer': 2.0.22(@inquirer/prompts@7.5.1(@types/node@22.15.30))
-      '@schematics/angular': 20.0.0(chokidar@4.0.3)
+      '@schematics/angular': 20.0.1(chokidar@4.0.3)
       '@yarnpkg/lockfile': 1.1.0
       ini: 5.0.0
       jsonc-parser: 3.3.1
@@ -6664,10 +6667,10 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
-  '@schematics/angular@20.0.0(chokidar@4.0.3)':
+  '@schematics/angular@20.0.1(chokidar@4.0.3)':
     dependencies:
-      '@angular-devkit/core': 20.0.0(chokidar@4.0.3)
-      '@angular-devkit/schematics': 20.0.0(chokidar@4.0.3)
+      '@angular-devkit/core': 20.0.1(chokidar@4.0.3)
+      '@angular-devkit/schematics': 20.0.1(chokidar@4.0.3)
       jsonc-parser: 3.3.1
     transitivePeerDependencies:
       - chokidar

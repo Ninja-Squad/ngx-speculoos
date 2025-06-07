@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@angular/build": "^20.0.0",
-    "@angular/cli": "20.0.0",
+    "@angular/cli": "20.0.1",
     "@angular/compiler-cli": "20.0.2",
     "@angular-eslint/builder": "20.0.0",
     "@compodoc/compodoc": "1.1.26",
