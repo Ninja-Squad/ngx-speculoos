@@ -18,12 +18,12 @@
   "private": true,
   "packageManager": "pnpm@10.15.0",
   "dependencies": {
-    "@angular/common": "20.2.1",
-    "@angular/compiler": "20.2.1",
-    "@angular/core": "20.2.1",
-    "@angular/forms": "20.2.1",
-    "@angular/platform-browser": "20.2.1",
-    "@angular/router": "20.2.1",
+    "@angular/common": "20.2.2",
+    "@angular/compiler": "20.2.2",
+    "@angular/core": "20.2.2",
+    "@angular/forms": "20.2.2",
+    "@angular/platform-browser": "20.2.2",
+    "@angular/router": "20.2.2",
     "rxjs": "7.8.2",
     "tslib": "2.8.1",
     "zone.js": "0.15.1"
@@ -31,7 +31,7 @@
   "devDependencies": {
     "@angular/build": "20.2.0",
     "@angular/cli": "20.2.0",
-    "@angular/compiler-cli": "20.2.1",
+    "@angular/compiler-cli": "20.2.2",
     "@angular-eslint/builder": "20.2.0",
     "@compodoc/compodoc": "1.1.26",
     "@eslint/js": "9.34.0",
