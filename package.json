@@ -29,8 +29,8 @@
     "zone.js": "0.15.1"
   },
   "devDependencies": {
-    "@angular/build": "20.2.1",
-    "@angular/cli": "20.2.1",
+    "@angular/build": "20.2.2",
+    "@angular/cli": "20.2.2",
     "@angular/compiler-cli": "20.2.4",
     "@angular-eslint/builder": "20.2.0",
     "@compodoc/compodoc": "1.1.26",
