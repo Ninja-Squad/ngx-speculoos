@@ -55,8 +55,8 @@ importers:
         specifier: 9.37.0
         version: 9.37.0
       '@types/jasmine':
-        specifier: 5.1.9
-        version: 5.1.9
+        specifier: 5.1.10
+        version: 5.1.10
       '@types/node':
         specifier: 22.18.10
         version: 22.18.10
@@ -2106,8 +2106,8 @@ packages:
   '@types/hammerjs@2.0.46':
     resolution: {integrity: sha512-ynRvcq6wvqexJ9brDMS4BnBLzmr0e14d6ZJTEShTBWKymQiHwlAyGu0ZPEFI2Fh1U53F7tN9ufClWM5KvqkKOw==}
 
-  '@types/jasmine@5.1.9':
-    resolution: {integrity: sha512-8t4HtkW4wxiPVedMpeZ63n3vlWxEIquo/zc1Tm8ElU+SqVV7+D3Na2PWaJUp179AzTragMWVwkMv7mvty0NfyQ==}
+  '@types/jasmine@5.1.10':
+    resolution: {integrity: sha512-ctILpOSFD58PTyGwr400GadefIHPqdWQ8VlZI9D65USOWR/aIw8dkDAw17KPCu/Wn+e+r9BWpPtmuB5T/pP8ng==}
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
@@ -7319,7 +7319,7 @@ snapshots:
 
   '@types/hammerjs@2.0.46': {}
 
-  '@types/jasmine@5.1.9': {}
+  '@types/jasmine@5.1.10': {}
 
   '@types/json-schema@7.0.15': {}
 
