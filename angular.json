@@ -1,6 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
+  "cli": {
+    "packageManager": "pnpm"
+  },
   "newProjectRoot": "projects",
   "projects": {
     "ngx-speculoos": {
@@ -103,9 +106,6 @@
               "buildTarget": "demo:build:development"
             }
           }
-        },
-        "extract-i18n": {
-          "builder": "@angular/build:extract-i18n"
         },
         "test": {
           "builder": "@angular/build:karma",
