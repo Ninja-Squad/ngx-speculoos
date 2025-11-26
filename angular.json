@@ -59,9 +59,6 @@
           "options": {
             "aot": true,
             "browser": "projects/demo/src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
             "tsConfig": "projects/demo/tsconfig.app.json",
             "assets": [
               {
@@ -110,11 +107,8 @@
         "test": {
           "builder": "@angular/build:karma",
           "options": {
+            "aot": true,
             "browsers": "ChromeHeadless",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
             "tsConfig": "projects/demo/tsconfig.spec.json",
             "styles": [
               "projects/demo/src/styles.css"
