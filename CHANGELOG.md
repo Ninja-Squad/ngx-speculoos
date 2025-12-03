@@ -13,11 +13,6 @@ All notable changes to this project will be documented in this file. See [commit
 
 * upgrade to Angular and CLI 21 ([ad8dff0](https://github.com/Ninja-Squad/ngx-speculoos/commit/ad8dff0e2ede2f49e8d38fb6419ee9c804bb4396))
 
-
-### Bug Fixes
-
-* use exact @angular/build version ([32b8b9f](https://github.com/Ninja-Squad/ngx-speculoos/commit/32b8b9f8c18396d8c389a1c9c7afaa8bd05c3514))
-
 ## [14.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v13.1.0...v14.0.0) (2025-06-07)
 
 
