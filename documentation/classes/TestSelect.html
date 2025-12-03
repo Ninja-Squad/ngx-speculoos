@@ -61,6 +61,20 @@
                }
                toggleDarkMode(darkModeState);
           </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
@@ -81,6 +95,10 @@
                <!-- START CONTENT -->
                <div class="content class">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -263,7 +281,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(tester: <a href="../classes/ComponentTester.html" target="_self">ComponentTester&lt;&gt;</a>, debugElement: DebugElement)</code>
+<code>constructor(tester: <a href="../classes/ComponentTester.html" target="_self">ComponentTester&lt;unknown&gt;</a>, debugElement: DebugElement)</code>
                     </td>
                 </tr>
                         <tr>
@@ -289,7 +307,7 @@
                                                         <td>tester</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester&lt;&gt;</a></code>
+                                                                        <code><a href="../classes/ComponentTester.html" target="_self" >ComponentTester&lt;unknown&gt;</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -1463,7 +1481,7 @@ const testElements: Array&lt;TestHtmlElement&lt;HTMLDivElement>> = tester.elemen
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../classes/TestHtmlElement.html" target="_self" >Array&lt;TestHtmlElement&lt;&gt;&gt;</a></code>
+                            <b>Returns : </b>        <code><a href="../classes/TestHtmlElement.html" target="_self" >Array&lt;TestHtmlElement&lt;unknown&gt;&gt;</a></code>
 
                         </div>
                             <div class="io-description">
