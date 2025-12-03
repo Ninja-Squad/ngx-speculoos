@@ -43,6 +43,13 @@ describe('RoutingTester', () => {
     });
   });
 
+  it('should create via forUrl factory method', async () => {
+    const tester = await RoutingTester.forUrl('/list?page=42');
+
+    expect(tester.url).toBe('/list?page=42');
+    expect(tester.element('h1')!).toHaveText('Current page: 42');
+  });
+
   it('should display the page of the query params', async () => {
     const tester = new PageComponentTester(await RouterTestingHarness.create('/list?page=42'));
 
@@ -74,6 +81,13 @@ describe('RoutingTester in automatic mode', () => {
     TestBed.configureTestingModule({
       providers: [provideAutomaticChangeDetection(), provideRouter([{ path: 'list', component: PageComponent }])]
     });
+  });
+
+  it('should create via forUrl factory method', async () => {
+    const tester = await RoutingTester.forUrl('/list?page=42');
+
+    expect(tester.url).toBe('/list?page=42');
+    expect(tester.element('h1')!).toHaveText('Current page: 42');
   });
 
   it('should display the page of the query params', async () => {

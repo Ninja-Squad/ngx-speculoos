@@ -374,4 +374,14 @@ describe('TestElement in automatic mode', () => {
     expect(tester.componentInstance.onChange).toHaveBeenCalled();
     expect(tester.change).toHaveBeenCalled();
   });
+
+  it('should return null when component() does not find a match', () => {
+    const component = tester.testElement.component(class NonExistentComponent {});
+    expect(component).toBeNull();
+  });
+
+  it('should return null when token() does not find an element', () => {
+    const token = tester.testElement.token('.non-existent', class Token {});
+    expect(token).toBeNull();
+  });
 });
