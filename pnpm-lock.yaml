@@ -41,7 +41,7 @@ importers:
         version: 21.1.0(@angular/cli@21.0.3(@types/node@24.10.4)(chokidar@4.0.3))(chokidar@4.0.3)(eslint@9.39.2)(typescript@5.9.3)
       '@angular/build':
         specifier: 21.0.3
-        version: 21.0.3(@angular/compiler-cli@21.0.5(@angular/compiler@21.0.5)(typescript@5.9.3))(@angular/compiler@21.0.5)(@angular/core@21.0.5(@angular/compiler@21.0.5)(rxjs@7.8.2)(zone.js@0.16.0))(@angular/platform-browser@21.0.5(@angular/common@21.0.5(@angular/core@21.0.5(@angular/compiler@21.0.5)(rxjs@7.8.2)(zone.js@0.16.0))(rxjs@7.8.2))(@angular/core@21.0.5(@angular/compiler@21.0.5)(rxjs@7.8.2)(zone.js@0.16.0)))(@types/node@24.10.4)(chokidar@4.0.3)(karma@6.4.4)(less@4.5.1)(ng-packagr@21.0.0(@angular/compiler-cli@21.0.5(@angular/compiler@21.0.5)(typescript@5.9.3))(tslib@2.8.1)(typescript@5.9.3))(postcss@8.5.6)(tslib@2.8.1)(typescript@5.9.3)(yaml@2.8.2)
+        version: 21.0.3(@angular/compiler-cli@21.0.5(@angular/compiler@21.0.5)(typescript@5.9.3))(@angular/compiler@21.0.5)(@angular/core@21.0.5(@angular/compiler@21.0.5)(rxjs@7.8.2)(zone.js@0.16.0))(@angular/platform-browser@21.0.5(@angular/common@21.0.5(@angular/core@21.0.5(@angular/compiler@21.0.5)(rxjs@7.8.2)(zone.js@0.16.0))(rxjs@7.8.2))(@angular/core@21.0.5(@angular/compiler@21.0.5)(rxjs@7.8.2)(zone.js@0.16.0)))(@types/node@24.10.4)(chokidar@4.0.3)(karma@6.4.4)(less@4.5.1)(ng-packagr@21.0.1(@angular/compiler-cli@21.0.5(@angular/compiler@21.0.5)(typescript@5.9.3))(tslib@2.8.1)(typescript@5.9.3))(postcss@8.5.6)(tslib@2.8.1)(typescript@5.9.3)(yaml@2.8.2)
       '@angular/cli':
         specifier: 21.0.3
         version: 21.0.3(@types/node@24.10.4)(chokidar@4.0.3)
@@ -94,8 +94,8 @@ importers:
         specifier: 2.1.0
         version: 2.1.0(jasmine-core@5.13.0)(karma-jasmine@5.1.0(karma@6.4.4))(karma@6.4.4)
       ng-packagr:
-        specifier: 21.0.0
-        version: 21.0.0(@angular/compiler-cli@21.0.5(@angular/compiler@21.0.5)(typescript@5.9.3))(tslib@2.8.1)(typescript@5.9.3)
+        specifier: 21.0.1
+        version: 21.0.1(@angular/compiler-cli@21.0.5(@angular/compiler@21.0.5)(typescript@5.9.3))(tslib@2.8.1)(typescript@5.9.3)
       prettier:
         specifier: 3.7.4
         version: 3.7.4
@@ -4085,8 +4085,8 @@ packages:
     resolution: {integrity: sha512-Z4SmBUweYa09+o6pG+eASabEpP6QkQ70yHj351pQoEXIs8uHbaU2DWVmzBANKgflPa47A50PtB2+NgRpQvr7vA==}
     engines: {node: '>= 10'}
 
-  ng-packagr@21.0.0:
-    resolution: {integrity: sha512-2lMGkmS91FyP+p/Tzmu49hY+p1PDgHBNM+Fce8yrzZo8/EbybNPBYfJnwFfl0lwGmqpYLevH2oh12+ikKCLv9g==}
+  ng-packagr@21.0.1:
+    resolution: {integrity: sha512-IZGxuF226GF0d8FOZIfPvHsyBl53PrDEg/IB2+CVamsm3r4+gUw3mBp27eygpowBpdVLG0Sm2IbUiH4aSspzyA==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0}
     hasBin: true
     peerDependencies:
@@ -5473,7 +5473,7 @@ snapshots:
       eslint: 9.39.2
       typescript: 5.9.3
 
-  '@angular/build@21.0.3(@angular/compiler-cli@21.0.5(@angular/compiler@21.0.5)(typescript@5.9.3))(@angular/compiler@21.0.5)(@angular/core@21.0.5(@angular/compiler@21.0.5)(rxjs@7.8.2)(zone.js@0.16.0))(@angular/platform-browser@21.0.5(@angular/common@21.0.5(@angular/core@21.0.5(@angular/compiler@21.0.5)(rxjs@7.8.2)(zone.js@0.16.0))(rxjs@7.8.2))(@angular/core@21.0.5(@angular/compiler@21.0.5)(rxjs@7.8.2)(zone.js@0.16.0)))(@types/node@24.10.4)(chokidar@4.0.3)(karma@6.4.4)(less@4.5.1)(ng-packagr@21.0.0(@angular/compiler-cli@21.0.5(@angular/compiler@21.0.5)(typescript@5.9.3))(tslib@2.8.1)(typescript@5.9.3))(postcss@8.5.6)(tslib@2.8.1)(typescript@5.9.3)(yaml@2.8.2)':
+  '@angular/build@21.0.3(@angular/compiler-cli@21.0.5(@angular/compiler@21.0.5)(typescript@5.9.3))(@angular/compiler@21.0.5)(@angular/core@21.0.5(@angular/compiler@21.0.5)(rxjs@7.8.2)(zone.js@0.16.0))(@angular/platform-browser@21.0.5(@angular/common@21.0.5(@angular/core@21.0.5(@angular/compiler@21.0.5)(rxjs@7.8.2)(zone.js@0.16.0))(rxjs@7.8.2))(@angular/core@21.0.5(@angular/compiler@21.0.5)(rxjs@7.8.2)(zone.js@0.16.0)))(@types/node@24.10.4)(chokidar@4.0.3)(karma@6.4.4)(less@4.5.1)(ng-packagr@21.0.1(@angular/compiler-cli@21.0.5(@angular/compiler@21.0.5)(typescript@5.9.3))(tslib@2.8.1)(typescript@5.9.3))(postcss@8.5.6)(tslib@2.8.1)(typescript@5.9.3)(yaml@2.8.2)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.2100.3(chokidar@4.0.3)
@@ -5512,7 +5512,7 @@ snapshots:
       karma: 6.4.4
       less: 4.5.1
       lmdb: 3.4.3
-      ng-packagr: 21.0.0(@angular/compiler-cli@21.0.5(@angular/compiler@21.0.5)(typescript@5.9.3))(tslib@2.8.1)(typescript@5.9.3)
+      ng-packagr: 21.0.1(@angular/compiler-cli@21.0.5(@angular/compiler@21.0.5)(typescript@5.9.3))(tslib@2.8.1)(typescript@5.9.3)
       postcss: 8.5.6
     transitivePeerDependencies:
       - '@types/node'
@@ -9465,7 +9465,7 @@ snapshots:
 
   neotraverse@0.6.18: {}
 
-  ng-packagr@21.0.0(@angular/compiler-cli@21.0.5(@angular/compiler@21.0.5)(typescript@5.9.3))(tslib@2.8.1)(typescript@5.9.3):
+  ng-packagr@21.0.1(@angular/compiler-cli@21.0.5(@angular/compiler@21.0.5)(typescript@5.9.3))(tslib@2.8.1)(typescript@5.9.3):
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular/compiler-cli': 21.0.5(@angular/compiler@21.0.5)(typescript@5.9.3)
