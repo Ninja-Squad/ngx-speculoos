@@ -16,7 +16,7 @@
     "format": "prettier --write ./"
   },
   "private": true,
-  "packageManager": "pnpm@10.26.0",
+  "packageManager": "pnpm@10.26.1",
   "dependencies": {
     "@angular/common": "21.0.6",
     "@angular/compiler": "21.0.6",
