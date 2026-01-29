@@ -29,7 +29,7 @@
     "zone.js": "0.16.0"
   },
   "devDependencies": {
-    "@angular-eslint/builder": "21.1.0",
+    "@angular-eslint/builder": "21.2.0",
     "@angular/build": "21.1.2",
     "@angular/cli": "21.1.2",
     "@angular/compiler-cli": "21.1.2",
@@ -37,7 +37,7 @@
     "@eslint/js": "9.39.2",
     "@types/jasmine": "5.1.15",
     "@types/node": "24.10.9",
-    "angular-eslint": "21.1.0",
+    "angular-eslint": "21.2.0",
     "commit-and-tag-version": "12.6.1",
     "eslint": "9.39.2",
     "eslint-config-prettier": "10.1.8",
