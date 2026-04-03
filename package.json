@@ -36,7 +36,7 @@
     "@compodoc/compodoc": "1.2.1",
     "@eslint/js": "9.39.4",
     "@types/jasmine": "5.1.15",
-    "@types/node": "24.12.0",
+    "@types/node": "24.12.2",
     "angular-eslint": "21.3.1",
     "commit-and-tag-version": "12.7.1",
     "eslint": "9.39.4",
