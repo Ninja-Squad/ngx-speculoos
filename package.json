@@ -30,8 +30,8 @@
   },
   "devDependencies": {
     "@angular-eslint/builder": "21.3.1",
-    "@angular/build": "21.2.8",
-    "@angular/cli": "21.2.8",
+    "@angular/build": "21.2.9",
+    "@angular/cli": "21.2.9",
     "@angular/compiler-cli": "21.2.10",
     "@compodoc/compodoc": "1.2.1",
     "@eslint/js": "9.39.4",
