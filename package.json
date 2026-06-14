@@ -51,6 +51,6 @@
     "ng-packagr": "21.2.5",
     "prettier": "3.8.4",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.60.1"
+    "typescript-eslint": "8.61.0"
   }
 }
