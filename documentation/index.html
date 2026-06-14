@@ -277,8 +277,9 @@ or to use zoneless change detection</li>
 <li>awaiting the component fixture stability when the test <em>thinks</em> that a change detection should
 automatically happen.</li>
 </ul>
-<p>When the <code>provideAutomaticChangeDetection()</code> or the <code>provideExperimentalZonelessChangeDetection()</code> 
-provider is added, the <code>ComponentTester</code> will run in
+<p>When the <code>provideAutomaticChangeDetection()</code> or the <code>provideZonelessChangeDetection()</code> 
+provider is added (or nothing if you are using Angular v21+, as zoneless is now enabled by default),
+the <code>ComponentTester</code> will run in
 <em>automatic</em> mode. In this mode, calling <code>detectChanges()</code> throws an error, because you should always
 let Angular decide if change detection is necessary.</p>
 <p>Here&#39;s an example of a test that uses this technique:</p>
@@ -303,7 +304,8 @@ describe(&#39;AppComponent&#39;, () =&gt; {
     TestBed.configureTestingModule({
       providers: [
         provideComponentFixtureAutoDetection()
-        // or provideExperimentalZonelessChangeDetection() if you already use zoneless
+        // or nothing if you are using Angular v21+, as zoneless change detection is the default
+        // or provideZonelessChangeDetection() if you want to manually opt into zoneless
       ]
     });
 
