@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [16.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v15.0.0...v16.0.0) (2026-06-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* ngx-speculoos is now based on Angular 22.x. If you want to use it with an older version of Angular, then stick to a previous version of ngx-speculoos
+
+### Features
+
+* upgrade to Angular and CLI 22 ([7e10c1f](https://github.com/Ninja-Squad/ngx-speculoos/commit/7e10c1f3ac04b93800a3fb02721205030710ba3a))
+
+
+### Bug Fixes
+
+* codecov configuration ([63213f4](https://github.com/Ninja-Squad/ngx-speculoos/commit/63213f41d1e6abff68d97f7030d1186d4e37303a))
+
 ## [15.0.0](https://github.com/Ninja-Squad/ngx-speculoos/compare/v14.0.0...v15.0.0) (2025-12-03)
 
 
