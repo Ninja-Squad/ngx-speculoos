@@ -55,8 +55,8 @@ importers:
         specifier: 10.0.1
         version: 10.0.1(eslint@10.11.0(supports-color@8.1.1))
       '@types/jasmine':
-        specifier: 5.1.15
-        version: 5.1.15
+        specifier: 7.0.0
+        version: 7.0.0
       '@types/node':
         specifier: 24.19.0
         version: 24.19.0
@@ -1547,8 +1547,8 @@ packages:
   '@types/hammerjs@2.0.46':
     resolution: {integrity: sha512-ynRvcq6wvqexJ9brDMS4BnBLzmr0e14d6ZJTEShTBWKymQiHwlAyGu0ZPEFI2Fh1U53F7tN9ufClWM5KvqkKOw==}
 
-  '@types/jasmine@5.1.15':
-    resolution: {integrity: sha512-ZAC8KjmV2MJxbNTrwXFN+HKeajpXQZp6KpPiR6Aa4XvaEnjP6qh23lL/Rqb7AYzlp3h/rcwDrQ7Gg7q28cQTQg==}
+  '@types/jasmine@7.0.0':
+    resolution: {integrity: sha512-6yNx9BsBSKiXO2yqLXs/GZDuD58Gkn6Ty26254FFOuw6B4XU5Xq8mAR0xFy8zHgAhqQd++y41fSJ8BdwrWXhqQ==}
 
   '@types/jsesc@2.5.1':
     resolution: {integrity: sha512-9VN+6yxLOPLOav+7PwjZbxiID2bVaeq0ED4qSQmdQTdjnXJSaCVKTR58t15oqH1H5t8Ng2ZX1SabJVoN9Q34bw==}
@@ -5434,7 +5434,7 @@ snapshots:
 
   '@types/hammerjs@2.0.46': {}
 
-  '@types/jasmine@5.1.15': {}
+  '@types/jasmine@7.0.0': {}
 
   '@types/jsesc@2.5.1': {}
 
