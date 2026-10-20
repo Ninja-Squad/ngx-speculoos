@@ -12,9 +12,6 @@ import tseslint from 'typescript-eslint';
 // Allows us to bring in the recommended rules for Angular projects from angular-eslint
 import angular from 'angular-eslint';
 
-// Allows us to bring in the recommended rules for Prettier from eslint-plugin-prettier
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
-
 function angularProjectConfig(projectPath, additionalRules) {
   return {
     // Everything in this config object targets our TypeScript files (Components, Directives, Pipes etc)
@@ -99,40 +96,40 @@ function angularProjectConfig(projectPath, additionalRules) {
 export default [
   ...defineConfig(
     angularProjectConfig('projects/ngx-speculoos', {
-      "@angular-eslint/directive-selector": [
-        "error",
+      '@angular-eslint/directive-selector': [
+        'error',
         {
-          type: "attribute",
-          prefix: "lib",
-          style: "camelCase",
-        },
+          type: 'attribute',
+          prefix: 'lib',
+          style: 'camelCase'
+        }
       ],
-      "@angular-eslint/component-selector": [
-        "error",
+      '@angular-eslint/component-selector': [
+        'error',
         {
-          type: "element",
-          prefix: "lib",
-          style: "kebab-case",
-        },
-      ],
+          type: 'element',
+          prefix: 'lib',
+          style: 'kebab-case'
+        }
+      ]
     }),
     angularProjectConfig('projects/demo', {
-      "@angular-eslint/directive-selector": [
-        "error",
+      '@angular-eslint/directive-selector': [
+        'error',
         {
-          type: "attribute",
-          prefix: "app",
-          style: "camelCase",
-        },
+          type: 'attribute',
+          prefix: 'app',
+          style: 'camelCase'
+        }
       ],
-      "@angular-eslint/component-selector": [
-        "error",
+      '@angular-eslint/component-selector': [
+        'error',
         {
-          type: "element",
-          prefix: "app",
-          style: "kebab-case",
-        },
-      ],
+          type: 'element',
+          prefix: 'app',
+          style: 'kebab-case'
+        }
+      ]
     }),
     {
       // Everything in this config object targets our HTML files (external templates,
@@ -162,7 +159,6 @@ export default [
       }
     }
   ),
-  eslintPluginPrettierRecommended,
   // set the parse options for typed rules
   {
     languageOptions: {

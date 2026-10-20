@@ -14,9 +14,7 @@
     "target": "ES2022",
     "module": "preserve",
     "paths": {
-      "ngx-speculoos": [
-        "./dist/ngx-speculoos"
-      ]
+      "ngx-speculoos": ["./dist/ngx-speculoos"]
     }
   },
   "angularCompilerOptions": {

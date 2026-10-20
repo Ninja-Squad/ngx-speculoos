@@ -3,7 +3,5 @@
   "compilerOptions": {
     "noEmit": true
   },
-  "include": [
-    "index.test-d.ts"
-  ]
+  "include": ["index.test-d.ts"]
 }

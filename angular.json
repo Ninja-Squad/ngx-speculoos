@@ -29,19 +29,13 @@
           "options": {
             "tsConfig": "projects/ngx-speculoos/tsconfig.spec.json",
             "browsers": "ChromeHeadless",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
+            "polyfills": ["zone.js", "zone.js/testing"]
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "projects/ngx-speculoos/**/*.ts",
-              "projects/ngx-speculoos/**/*.html"
-            ],
+            "lintFilePatterns": ["projects/ngx-speculoos/**/*.ts", "projects/ngx-speculoos/**/*.html"],
             "concurrency": "auto"
           }
         }
@@ -59,9 +53,7 @@
           "options": {
             "aot": true,
             "browser": "projects/demo/src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "projects/demo/tsconfig.app.json",
             "assets": [
               {
@@ -69,9 +61,7 @@
                 "input": "projects/demo/public"
               }
             ],
-            "styles": [
-              "projects/demo/src/styles.css"
-            ]
+            "styles": ["projects/demo/src/styles.css"]
           },
           "configurations": {
             "production": {
@@ -111,14 +101,9 @@
           "builder": "@angular/build:karma",
           "options": {
             "browsers": "ChromeHeadless",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "projects/demo/tsconfig.spec.json",
-            "styles": [
-              "projects/demo/src/styles.css"
-            ],
+            "styles": ["projects/demo/src/styles.css"],
             "assets": [
               {
                 "glob": "**/*",
@@ -130,10 +115,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "projects/demo/**/*.ts",
-              "projects/demo/**/*.html"
-            ],
+            "lintFilePatterns": ["projects/demo/**/*.ts", "projects/demo/**/*.html"],
             "maxWarnings": 0,
             "concurrency": "auto"
           }

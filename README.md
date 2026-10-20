@@ -4,7 +4,7 @@
 # ngx-speculoos
 
 ngx-speculoos helps you write simpler, cleaner unit tests for your Angular components, based on the
-*page object* pattern. It also provides utilities to make writing Angular unit tests easier.
+_page object_ pattern. It also provides utilities to make writing Angular unit tests easier.
 
 The library simply wraps the standard Angular ComponentFixture, and you should thus be
 able to understand and start using ngx-speculoos in just a few minutes if you already know
@@ -52,7 +52,7 @@ it('should display French cities when selecting the country France', () => {
   countrySelect.selectedIndex = 12; // what is at index 12?
   countrySelect.dispatchEvent(new Event('change')); // why do I need to do that?
   fixture.detectChanges();
-  
+
   const city = fixture.nativeElement.querySelector('#city'); // city is of type any
   expect(city).toBeTruthy();
   expect(city.options.length).toBe(3);
@@ -69,7 +69,7 @@ it('should hide cities when selecting the empty country option', () => {
   countrySelect.selectedIndex = 0;
   countrySelect.dispatchEvent(new Event('change')); // why do I need to do that?
   fixture.detectChanges(); // why do I need to do that?
-  
+
   expect(fixture.nativeElement.querySelector('#city')).toBeFalsy(); // I did that previously. What about DRY?
 });
 ```
@@ -87,11 +87,11 @@ class MyComponentTester extends ComponentTester<MyComponent> {
   constructor() {
     super(MyComponent);
   }
-  
+
   get country() {
     return this.select('#country'); // returns a TestSelect object, not any. Similar methods exist for inputs, buttons, etc.
   }
-  
+
   get city() {
     return this.select('#city'); // returns a TestSelect object, not any
   }
@@ -101,14 +101,14 @@ class MyComponentTester extends ComponentTester<MyComponent> {
 
 it('should display French cities when selecting the country France', () => {
   tester.country.selectLabel('France'); // no dispatchEvent, no detectChanges needed
-  
+
   expect(tester.city.optionValues).toEqual(['', 'PARIS', 'LYON']);
   expect(tester.city.optionLabels).toEqual(['', 'Paris', 'Lyon']);
 });
 
 it('should hide cities when selecting empty country option', () => {
   tester.country.selectIndex(0); // no repetition of the selector, no dispatchEvent, no detectChanges needed
-  
+
   expect(tester.city).toBeFalsy(); // no repetition of the selector
 });
 ```
@@ -158,11 +158,11 @@ class MyComponentTester extends ComponentTester<MyComponent> {
   constructor() {
     super(MyComponent);
   }
-  
+
   get country() {
     return this.select('#country'); // returns a TestSelect object, not any. Similar methods exist for inputs, buttons, etc.
   }
-  
+
   get city() {
     return this.select('#city'); // returns a TestSelect object, not any
   }
@@ -204,10 +204,10 @@ This can be done by:
 
 - adding a provider in the testing module to configure the fixtures to be in _automatic_ mode,
   or to use zoneless change detection
-- awaiting the component fixture stability when the test *thinks* that a change detection should
+- awaiting the component fixture stability when the test _thinks_ that a change detection should
   automatically happen.
 
-When the `provideAutomaticChangeDetection()` or the `provideZonelessChangeDetection()` 
+When the `provideAutomaticChangeDetection()` or the `provideZonelessChangeDetection()`
 provider is added (or nothing if you are using Angular v21+, as zoneless is now enabled by default),
 the `ComponentTester` will run in
 _automatic_ mode. In this mode, calling `detectChanges()` throws an error, because you should always
@@ -243,7 +243,7 @@ describe('AppComponent', () => {
     });
 
     jasmine.addMatchers(speculoosMatchers);
-    
+
     tester = new AppComponentTester();
     // a first call to change() is necessary to let Angular run its first change detection
     await tester.change();
@@ -251,11 +251,11 @@ describe('AppComponent', () => {
 
   it('should display the counter value and increment it', async () => {
     expect(tester.count).toHaveText('0');
-    
+
     // this clicks the button and then lets Angular decide if a CD is necessary, and waits until
     // the DOM has been updated (or not)
     await tester.incrementButton.click();
-    
+
     expect(tester.count).toHaveText('1');
   });
 });
@@ -314,11 +314,11 @@ methods:
 
 ```typescript
 get productIcon() {
-  return this.component(ProductIconComponent); // returns a ProductIconComponent 
+  return this.component(ProductIconComponent); // returns a ProductIconComponent
 }
 
 get reviewers() {
-  return this.components(ReviewerComponent); // returns an Array<ReviewerComponent> 
+  return this.components(ReviewerComponent); // returns an Array<ReviewerComponent>
 }
 ```
 
@@ -394,7 +394,6 @@ it('should not save if birth date is in the future', async () => {
   expect(userService.create).not.toHaveBenCalled();
 });
 ```
-
 
 #### Subqueries
 
@@ -480,23 +479,21 @@ class RoutingComponentTester extends ComponentTester<RoutingComponent> {
 describe('routing component', () => {
   let route: ActivatedRouteStub;
   let tester: RoutingComponentTester;
-  
+
   beforeEach(() => {
     route = stubRoute({
       params: { categoryId: 'pets' }
     });
-    
+
     TestBed.configureTestingModule({
       declarations: [RoutingComponent],
-      providers: [
-        { provide: ActivatedRoute, useValue: route }
-      ]
+      providers: [{ provide: ActivatedRoute, useValue: route }]
     });
-    
+
     tester = new RoutingComponentTester();
     tester.detectChanges();
   });
-  
+
   it('should display all the products of the category', () => {
     // test based on the initial route state
   });
@@ -540,11 +537,7 @@ class PageComponentTester extends RoutingTester {
 describe('RoutingTester', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        provideRouter([
-          { path: 'list', component: PageComponent }
-        ])
-      ]
+      providers: [provideRouter([{ path: 'list', component: PageComponent }])]
     });
   });
 
@@ -571,7 +564,6 @@ describe('RoutingTester', () => {
     expect(tester.title).toHaveText('Current page: 43');
   });
 });
-
 ```
 
 ### Mocking helper
@@ -646,7 +638,7 @@ when you want to trigger a change detection.
 In _automatic_ mode, any event dispatched through a `TestElement` automatically calls `await change()` for you.
 But you still need to call `await change()` by yourself in the same other cases as in the _imperative_ mode:
 
-- to actually initialize your component. 
+- to actually initialize your component.
 - to force change detection once you've changed the state of your component without dispatching an event.
 
 ### Can I use the `TestElement` methods to act on the component element itself, rather than a sub-element?
@@ -671,8 +663,8 @@ As a result, all the methods that used to call `detectChanges()` for you now ret
 `void`. In _imperative_ mode (the default), they are in fact synchronous and call `detectChanges()`, just as before.
 In _automatic_ mode however, they call `await change()` and should thus be awaited.
 
-Your tests should generally keep compiling and running without changes. 
-But if you created custom test elements which override methods that now return a promise, and return something 
+Your tests should generally keep compiling and running without changes.
+But if you created custom test elements which override methods that now return a promise, and return something
 other than `void`, for example:
 
 ```typescript
@@ -698,12 +690,12 @@ class CustomInput extends TestHtmlElement {
     await this.element('input').fillWith(s);
     // ...
   }
-  
+
   async clickButton(): Promise<void> {
     await this.element('button').click();
     // ...
-  } 
-  
+  }
+
   async changeState(): Promise<void> {
     this.component(Foo).doSomething();
     await this.change();
