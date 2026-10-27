@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ComponentTester } from './component-tester';
 import { TestBed } from '@angular/core/testing';
-import { TestSelect } from './test-select';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { ComponentTester } from './component-tester';
 import { provideAutomaticChangeDetection } from './providers';
+import { TestSelect } from './test-select';
 
 @Component({
   template: `

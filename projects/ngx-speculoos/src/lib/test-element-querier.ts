@@ -1,13 +1,13 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { TestButton } from './test-button';
-import { TestSelect } from './test-select';
-import { TestElement } from './test-element';
-import { TestTextArea } from './test-textarea';
-import { TestInput } from './test-input';
-import { TestHtmlElement } from './test-html-element';
-import { ComponentTester } from './component-tester';
 import { DebugElement, Type } from '@angular/core';
 import { By } from '@angular/platform-browser';
+import { ComponentTester } from './component-tester';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { TestButton } from './test-button';
+import { TestElement } from './test-element';
+import { TestHtmlElement } from './test-html-element';
+import { TestInput } from './test-input';
+import { TestSelect } from './test-select';
+import { TestTextArea } from './test-textarea';
 
 /**
  * @internal

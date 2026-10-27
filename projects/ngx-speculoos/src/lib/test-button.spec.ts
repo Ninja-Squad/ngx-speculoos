@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ComponentTester } from './component-tester';
 import { TestBed } from '@angular/core/testing';
+import { ComponentTester } from './component-tester';
 import { TestButton } from './test-button';
 
 @Component({

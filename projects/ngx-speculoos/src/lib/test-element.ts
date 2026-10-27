@@ -1,13 +1,13 @@
+import { DebugElement, ProviderToken, Type } from '@angular/core';
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ComponentTester } from './component-tester';
 import { TestButton } from './test-button';
+import { TestElementQuerier } from './test-element-querier';
+import { TestHtmlElement } from './test-html-element';
+import { TestInput } from './test-input';
 import { TestSelect } from './test-select';
 import { TestTextArea } from './test-textarea';
-import { TestInput } from './test-input';
-import { TestElementQuerier } from './test-element-querier';
-import { DebugElement, ProviderToken, Type } from '@angular/core';
-import { TestHtmlElement } from './test-html-element';
 
 /**
  * A wrapped DOM element, providing additional methods and attributes helping with writing tests

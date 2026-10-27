@@ -1,13 +1,13 @@
 import { ChangeDetectionStrategy, Component, DebugElement, Directive, input, signal } from '@angular/core';
-import { ComponentTester } from './component-tester';
 import { TestBed } from '@angular/core/testing';
+import { ComponentTester } from './component-tester';
+import { provideAutomaticChangeDetection } from './providers';
+import { TestButton } from './test-button';
 import { TestElement } from './test-element';
 import { TestHtmlElement } from './test-html-element';
-import { TestButton } from './test-button';
+import { TestInput } from './test-input';
 import { TestSelect } from './test-select';
 import { TestTextArea } from './test-textarea';
-import { TestInput } from './test-input';
-import { provideAutomaticChangeDetection } from './providers';
 
 @Directive({
   selector: '[libTestdir]'

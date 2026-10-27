@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
 import { ComponentTester, provideAutomaticChangeDetection, speculoosMatchers } from 'ngx-speculoos';
+import { AppComponent } from './app.component';
 
 class AppComponentTester extends ComponentTester<AppComponent> {
   constructor() {

@@ -1,13 +1,13 @@
+import { ChangeDetectionStrategy, Component, provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ComponentTester } from './component-tester';
-import { ChangeDetectionStrategy, Component, provideZonelessChangeDetection } from '@angular/core';
-import { TestElement } from './test-element';
-import { TestInput } from './test-input';
+import { provideAutomaticChangeDetection } from './providers';
 import { TestButton } from './test-button';
+import { TestElement } from './test-element';
+import { TestHtmlElement } from './test-html-element';
+import { TestInput } from './test-input';
 import { TestSelect } from './test-select';
 import { TestTextArea } from './test-textarea';
-import { TestHtmlElement } from './test-html-element';
-import { provideAutomaticChangeDetection } from './providers';
 
 @Component({
   template: `

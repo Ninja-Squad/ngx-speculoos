@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { ComponentTester } from './component-tester';
 import { TestBed } from '@angular/core/testing';
-import { TestHtmlElement } from './test-html-element';
+import { ComponentTester } from './component-tester';
 import { provideAutomaticChangeDetection } from './providers';
+import { TestHtmlElement } from './test-html-element';
 
 @Component({
   template: `

@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { ActivatedRoute, provideRouter, RouterLink } from '@angular/router';
-import { TestBed } from '@angular/core/testing';
-import { RoutingTester } from './routing-tester';
-import { RouterTestingHarness } from '@angular/router/testing';
-import { speculoosMatchers } from './matchers';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { TestBed } from '@angular/core/testing';
+import { ActivatedRoute, provideRouter, RouterLink } from '@angular/router';
+import { RouterTestingHarness } from '@angular/router/testing';
 import { map } from 'rxjs';
+import { speculoosMatchers } from './matchers';
 import { provideAutomaticChangeDetection } from './providers';
+import { RoutingTester } from './routing-tester';
 
 @Component({
   imports: [RouterLink],

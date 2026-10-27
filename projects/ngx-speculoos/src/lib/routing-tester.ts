@@ -1,7 +1,7 @@
-import { ComponentTester } from './component-tester';
-import { RouterTestingHarness } from '@angular/router/testing';
-import { Router, UrlTree } from '@angular/router';
 import { TestBed } from '@angular/core/testing';
+import { Router, UrlTree } from '@angular/router';
+import { RouterTestingHarness } from '@angular/router/testing';
+import { ComponentTester } from './component-tester';
 
 /**
  * A thin wrapper around Angular RouterTestingHarness which helps testing routed components.

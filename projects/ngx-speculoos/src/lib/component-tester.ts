@@ -1,14 +1,14 @@
+import { DebugElement, NgZone, ProviderToken, Type } from '@angular/core';
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ComponentFixture, ComponentFixtureAutoDetect, TestBed } from '@angular/core/testing';
-import { DebugElement, NgZone, ProviderToken, Type } from '@angular/core';
-import { TestTextArea } from './test-textarea';
-import { TestElement } from './test-element';
-import { TestInput } from './test-input';
-import { TestSelect } from './test-select';
 import { TestButton } from './test-button';
+import { TestElement } from './test-element';
 import { TestElementQuerier } from './test-element-querier';
 import { TestHtmlElement } from './test-html-element';
+import { TestInput } from './test-input';
+import { TestSelect } from './test-select';
+import { TestTextArea } from './test-textarea';
 
 /**
  * The main entry point of the API. It wraps an Angular ComponentFixture<T>, and gives access to its

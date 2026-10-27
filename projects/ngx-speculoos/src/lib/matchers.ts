@@ -1,8 +1,8 @@
-import { TestTextArea } from './test-textarea';
-import { TestInput } from './test-input';
 import { TestElement } from './test-element';
-import { TestSelect } from './test-select';
 import { TestHtmlElement } from './test-html-element';
+import { TestInput } from './test-input';
+import { TestSelect } from './test-select';
+import { TestTextArea } from './test-textarea';
 
 const speculoosMatchers: jasmine.CustomMatcherFactories = {
   /**

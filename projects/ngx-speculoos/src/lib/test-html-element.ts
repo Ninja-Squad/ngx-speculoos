@@ -1,6 +1,6 @@
+import { DebugElement } from '@angular/core';
 import { ComponentTester } from './component-tester';
 import { TestElement } from './test-element';
-import { DebugElement } from '@angular/core';
 
 /**
  * A wrapped DOM HTML element, providing additional methods and attributes helping with writing tests
