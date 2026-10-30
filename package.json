@@ -49,7 +49,7 @@
     "karma-jasmine": "5.1.0",
     "karma-jasmine-html-reporter": "2.3.0",
     "ng-packagr": "22.2.5",
-    "oxfmt": "0.74.0",
+    "oxfmt": "0.75.0",
     "typescript": "6.0.3",
     "typescript-eslint": "8.72.1"
   }
