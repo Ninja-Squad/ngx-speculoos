@@ -7,5 +7,5 @@
     "strictNullChecks": false,
     "types": ["jasmine"]
   },
-  "include": ["src/**/*.ts"]
+  "include": ["**/*.ts"]
 }
