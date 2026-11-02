@@ -2,6 +2,9 @@
   "name": "ngx-speculoos",
   "version": "16.0.0",
   "description": "Helps writing Angular unit tests",
+  "exports": {
+    ".": "./src/public_api.ts"
+  },
   "peerDependencies": {
     "@angular/core": "^22.0.0",
     "@angular/platform-browser": "^22.0.0",
@@ -23,8 +26,5 @@
   },
   "ng-add": {
     "save": "devDependencies"
-  },
-  "dependencies": {
-    "tslib": "2.8.1"
   }
 }
