@@ -13,16 +13,20 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular/build:ng-packagr",
+          "builder": "@angular/build:library",
           "configurations": {
             "production": {
               "tsConfig": "projects/ngx-speculoos/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/ngx-speculoos/tsconfig.lib.json"
+              "compilationMode": "full"
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "production",
+          "options": {
+            "tsConfig": "projects/ngx-speculoos/tsconfig.lib.json",
+            "outputPath": "dist/ngx-speculoos"
+          }
         },
         "test": {
           "builder": "@angular/build:karma",

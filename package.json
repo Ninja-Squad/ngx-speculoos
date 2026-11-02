@@ -31,8 +31,8 @@
   },
   "devDependencies": {
     "@angular-eslint/builder": "22.6.0",
-    "@angular/build": "22.2.5",
-    "@angular/cli": "22.2.5",
+    "@angular/build": "22.3.0-next.4",
+    "@angular/cli": "22.3.0-next.4",
     "@angular/compiler-cli": "22.2.3",
     "@compodoc/compodoc": "2.0.0",
     "@eslint/js": "10.0.1",
@@ -48,7 +48,6 @@
     "karma-coverage": "2.2.1",
     "karma-jasmine": "5.1.0",
     "karma-jasmine-html-reporter": "2.3.0",
-    "ng-packagr": "22.2.5",
     "oxfmt": "0.75.0",
     "typescript": "6.0.3",
     "typescript-eslint": "8.72.1"
