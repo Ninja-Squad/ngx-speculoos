@@ -48,7 +48,7 @@
     "karma-coverage": "2.2.1",
     "karma-jasmine": "5.1.0",
     "karma-jasmine-html-reporter": "2.3.0",
-    "ng-packagr": "22.2.6",
+    "ng-packagr": "22.3.0",
     "oxfmt": "0.79.0",
     "typescript": "6.0.3",
     "typescript-eslint": "8.73.0"
