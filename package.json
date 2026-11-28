@@ -39,7 +39,7 @@
     "@types/jasmine": "7.0.0",
     "@types/node": "26.6.7",
     "angular-eslint": "22.8.0",
-    "commit-and-tag-version": "13.4.0",
+    "commit-and-tag-version": "13.5.0",
     "eslint": "10.15.0",
     "istanbul-lib-instrument": "^6.0.3",
     "jasmine-core": "6.3.0",
